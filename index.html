@@ -66,24 +66,23 @@ textarea{min-height:160px;resize:vertical}
 .btn:hover{background:#222}
 .status{font-size:15px;color:#555;margin-top:6px}
 .divider{height:1px;background:var(--line);margin:16px 0}
+.smallhelp{font-size:15px;color:#555;margin-top:8px;line-height:1.4}
 </style>
 </head>
 
 <body>
 <div class="wrap">
 
-<!-- HEADER -->
+<!-- HEADER (NO EMAIL BOX HERE ANYMORE) -->
 <div class="card">
   <h1>God With Us: He Comes Close and Changes Everything</h1>
   <div class="scripture"><b>Scripture:</b> Luke 1:46–55; Matthew 1:18–23</div>
   <div class="status" id="status">Saved</div>
   <div class="divider"></div>
 
-  <label>Date (optional)</label>
+  <label for="date">Date</label>
   <input id="date" placeholder="December 21, 2025">
-
-  <label>Email my notes to</label>
-  <input id="email" type="email" placeholder="you@example.com">
+  <div class="smallhelp">Date fills in automatically. You can change it.</div>
 </div>
 
 <!-- OPENING -->
@@ -94,9 +93,9 @@ textarea{min-height:160px;resize:vertical}
     God steps into ordinary lives, unexpected places, and complicated stories.<br>
     When God comes close, nothing stays the same.
   </div>
-  <label>Where do you most need God to come close right now?</label>
+  <label for="opening_prompt">Where do you most need God to come close right now?</label>
   <textarea id="opening_prompt"></textarea>
-  <label>Notes</label>
+  <label for="opening_notes">Notes</label>
   <textarea id="opening_notes"></textarea>
 </div>
 
@@ -105,14 +104,16 @@ textarea{min-height:160px;resize:vertical}
   <h2>Mary’s Song: God Turns the World Right-Side Up (Luke 1:46–55)</h2>
   <div class="muted">
     Mary’s joy is not based on comfort or certainty.<br>
-    It rises from trust—trust that God sees the lowly, fills the hungry, and disrupts unjust systems.
+    It rises from trust—trust that God sees the lowly, fills the hungry, and disrupts unjust systems.<br>
+    Joy is not denial of reality; it is confidence that God is at work within it.
   </div>
+  <label>Reflection Questions</label>
   <ul class="q">
     <li>What does Mary rejoice over that hasn’t fully happened yet?</li>
     <li>Where do you see God lifting the lowly or filling the hungry today?</li>
     <li>How does joy look different when it’s rooted in trust rather than circumstances?</li>
   </ul>
-  <label>Notes</label>
+  <label for="mary_notes">Notes</label>
   <textarea id="mary_notes"></textarea>
 </div>
 
@@ -120,14 +121,17 @@ textarea{min-height:160px;resize:vertical}
 <div class="card">
   <h2>When God Comes Close, Joy Rises in Unlikely Places</h2>
   <div class="muted">
-    Joy is born not from ease, but from God’s nearness.
+    God’s joy shows up in unexpected people and uncomfortable moments.<br>
+    Joy is born not from ease, but from God’s nearness.<br>
+    Even in fear, uncertainty, or disruption, God’s presence awakens hope.
   </div>
+  <label>Reflection Questions</label>
   <ul class="q">
     <li>Where have you experienced joy in a season you didn’t expect it?</li>
-    <li>What unlikely place might God be working right now?</li>
-    <li>How does God’s closeness change how you view your struggles?</li>
+    <li>What unlikely place in your life might God be working right now?</li>
+    <li>How does God’s closeness change how you view your current struggles?</li>
   </ul>
-  <label>Notes</label>
+  <label for="joy_notes">Notes</label>
   <textarea id="joy_notes"></textarea>
 </div>
 
@@ -135,14 +139,17 @@ textarea{min-height:160px;resize:vertical}
 <div class="card">
   <h2>When God Comes Close, Love Turns the World Around (Matthew 1:18–23)</h2>
   <div class="muted">
-    God’s love doesn’t shame—it restores, protects, and stays.
+    Joseph’s story reminds us that love listens before it reacts.<br>
+    God’s love doesn’t shame—it restores, protects, and stays.<br>
+    Emmanuel means God enters our mess, not to condemn, but to redeem.
   </div>
+  <label>Reflection Questions</label>
   <ul class="q">
     <li>What risks did Joseph take because he trusted God?</li>
     <li>Where might God be inviting you to respond with grace instead of fear?</li>
-    <li>How does “God with us” reshape how you treat others?</li>
+    <li>How does “God with us” reshape how we treat others?</li>
   </ul>
-  <label>Notes</label>
+  <label for="love_notes">Notes</label>
   <textarea id="love_notes"></textarea>
 </div>
 
@@ -150,75 +157,165 @@ textarea{min-height:160px;resize:vertical}
 <div class="card">
   <h2>Living the Truth: God With Us</h2>
   <div class="muted">
+    God does not wait for us to get everything right.<br>
     God comes close—and in that closeness, joy rises and love reshapes the world.
   </div>
+  <label>This Week’s Invitation</label>
   <ul class="q">
-    <li>Watch for where God is already near</li>
-    <li>Choose joy rooted in trust</li>
-    <li>Let love guide your response</li>
+    <li>Watch for where God is already near.</li>
+    <li>Choose joy rooted in trust.</li>
+    <li>Let love guide your response—even when it costs something.</li>
   </ul>
-  <label>Personal Commitment</label>
+  <label for="commitment">Personal Commitment: What is one way you will live differently because God is with you?</label>
   <textarea id="commitment"></textarea>
-  <label>Notes</label>
+  <label for="final_notes">Notes</label>
   <textarea id="final_notes"></textarea>
 </div>
 
-<!-- EMAIL AT BOTTOM -->
+<!-- EMAIL AT BOTTOM (EMAIL BOX + BUTTON) -->
 <div class="card">
-  <button class="btn" onclick="emailNotes()">Email My Notes</button>
-  <div class="muted" style="margin-top:10px">
-    Your notes will open in your email app.
+  <label for="email">Email my notes to</label>
+  <input id="email" type="email" placeholder="you@example.com">
+
+  <div style="margin-top:14px">
+    <button class="btn" onclick="emailNotes()">Email My Notes</button>
+  </div>
+
+  <div class="smallhelp">
+    This opens your email app with your notes filled in. Then you press Send.
   </div>
 </div>
 
 </div>
 
 <script>
-const KEY="vumc_god_with_us_white_final";
-const ids=[
+const KEY = "vumc_god_with_us_white_bottom_email_v2";
+const statusEl = document.getElementById("status");
+
+// Text areas (content to check for empty submission)
+const noteIds = [
   "opening_prompt","opening_notes","mary_notes",
   "joy_notes","love_notes","commitment","final_notes"
 ];
-const statusEl=document.getElementById("status");
 
-function save(){
-  const d={};
-  ids.forEach(id=>d[id]=document.getElementById(id).value||"");
-  localStorage.setItem(KEY,JSON.stringify(d));
-  statusEl.textContent="Saved";
+// All fields to save
+const saveIds = ["date","email", ...noteIds];
+
+let timer;
+
+function setStatus(t){ statusEl.textContent = t; }
+
+function formatToday() {
+  // Example: December 17, 2025
+  const d = new Date();
+  return d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
+}
+
+function getData(){
+  const d = {};
+  saveIds.forEach(id => d[id] = document.getElementById(id).value || "");
+  d.title = "God With Us: He Comes Close and Changes Everything";
+  d.scripture = "Luke 1:46–55; Matthew 1:18–23";
+  return d;
+}
+
+function saveNow(){
+  localStorage.setItem(KEY, JSON.stringify(getData()));
+  setStatus("Saved");
+}
+
+function scheduleSave(){
+  setStatus("Saving…");
+  clearTimeout(timer);
+  timer = setTimeout(saveNow, 300);
 }
 
 function load(){
-  const raw=localStorage.getItem(KEY);
-  if(!raw)return;
-  const d=JSON.parse(raw);
-  ids.forEach(id=>{if(d[id])document.getElementById(id).value=d[id];});
+  const raw = localStorage.getItem(KEY);
+  if(raw){
+    try{
+      const d = JSON.parse(raw);
+      saveIds.forEach(id => {
+        if(d[id] !== undefined) document.getElementById(id).value = d[id];
+      });
+      setStatus("Loaded");
+      setTimeout(()=>setStatus("Saved"), 800);
+    }catch(e){}
+  }
+
+  // Auto-fill date ONLY if date field is empty after load
+  const dateEl = document.getElementById("date");
+  if(!dateEl.value.trim()){
+    dateEl.value = formatToday();
+  }
 }
-function hasContent(){
-  return ids.some(id=>document.getElementById(id).value.trim().length>0);
+
+function hasAnyNotes(){
+  return noteIds.some(id => (document.getElementById(id).value || "").trim().length > 0);
 }
 
 function emailNotes(){
-  save();
-  if(!hasContent()){
+  saveNow();
+
+  if(!hasAnyNotes()){
     alert("Please write at least one note before emailing.");
     return;
   }
-  const email=document.getElementById("email").value.trim();
+
+  const email = document.getElementById("email").value.trim();
   if(!email){
     alert("Please enter your email address.");
     return;
   }
-  const body=ids.map(id=>{
-    return document.getElementById(id).value.trim();
-  }).join("\n\n");
-  window.location.href=
-    "mailto:"+encodeURIComponent(email)+
-    "?subject="+encodeURIComponent("God With Us: He Comes Close and Changes Everything")+
-    "&body="+encodeURIComponent(body);
+
+  const d = getData();
+  const subject = d.title + (d.date ? (" (" + d.date + ")") : "");
+
+  const body =
+`${d.title}
+Scripture: ${d.scripture}
+Date: ${d.date}
+
+OPENING REFLECTION
+Where do you most need God to come close right now?
+${d.opening_prompt}
+
+Notes:
+${d.opening_notes}
+
+MARY’S SONG: GOD TURNS THE WORLD RIGHT-SIDE UP (Luke 1:46–55)
+Notes:
+${d.mary_notes}
+
+WHEN GOD COMES CLOSE, JOY RISES IN UNLIKELY PLACES
+Notes:
+${d.joy_notes}
+
+WHEN GOD COMES CLOSE, LOVE TURNS THE WORLD AROUND (Matthew 1:18–23)
+Notes:
+${d.love_notes}
+
+LIVING THE TRUTH: GOD WITH US
+Personal Commitment:
+${d.commitment}
+
+Notes:
+${d.final_notes}
+`;
+
+  window.location.href =
+    "mailto:" + encodeURIComponent(email) +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
 }
-ids.forEach(id=>document.getElementById(id).addEventListener("input",save));
+
+// Autosave on input
+saveIds.forEach(id => {
+  document.getElementById(id).addEventListener("input", scheduleSave);
+});
+
 load();
 </script>
+
 </body>
 </html>

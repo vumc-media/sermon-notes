@@ -1,321 +1,337 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>God With Us: He Comes Close and Changes Everything</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GOD WITH US: NOW WHAT? — Interactive Sermon Notes</title>
+  <meta name="description" content="Interactive sermon notes with local autosave and email-to-self." />
 
-<style>
-:root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --line:#d0d0d0;
-  --text:#000000;
-  --muted:#444444;
-}
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-.wrap{
-  max-width:940px;
-  margin:0 auto;
-  padding:20px;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:18px;
-}
-h1{font-size:28px;margin:0 0 8px}
-h2{font-size:21px;margin:0 0 10px}
-.muted{color:var(--muted);font-size:17px;line-height:1.5}
-.scripture{font-size:17px;color:var(--muted)}
-label{
-  display:block;
-  margin:14px 0 6px;
-  font-size:17px;
-  font-weight:600;
-}
-input,textarea{
-  width:100%;
-  box-sizing:border-box;
-  border-radius:10px;
-  border:1px solid var(--line);
-  padding:14px;
-  font-size:20px;
-}
-textarea{min-height:160px;resize:vertical}
-.q{padding-left:20px;font-size:17px;line-height:1.6}
-.q li{margin:6px 0}
-.btn{
-  width:100%;
-  border-radius:10px;
-  border:1px solid #000;
-  background:#000;
-  color:#fff;
-  padding:16px;
-  font-size:22px;
-  font-weight:700;
-  cursor:pointer;
-}
-.btn:hover{background:#222}
-.status{font-size:15px;color:#555;margin-top:6px}
-.divider{height:1px;background:var(--line);margin:16px 0}
-.smallhelp{font-size:15px;color:#555;margin-top:8px;line-height:1.4}
-</style>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#444444;
+      --border:#e6e6e6;
+      --shadow:0 10px 25px rgba(0,0,0,.06);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.4;
+    }
+    .wrap{
+      max-width:860px;
+      margin:0 auto;
+      padding:18px 14px 34px;
+    }
+    .header{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px 16px 12px;
+      margin-bottom:14px;
+    }
+    h1{margin:0 0 8px;font-size:22px;letter-spacing:.2px}
+    .meta{
+      display:flex;gap:10px;flex-wrap:wrap;
+      color:var(--muted);font-size:14px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      background:#fff;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+      margin-bottom:14px;
+    }
+    .card h2{margin:0 0 8px;font-size:18px}
+    .lead{margin:0 0 10px;color:var(--muted);font-size:15px}
+    .q{margin:10px 0 6px;font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+    textarea{
+      width:100%;
+      min-height:92px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px;
+      font-size:15px;
+      resize:vertical;
+      background:#fff;
+      color:var(--text);
+    }
+    input[type="email"], input[type="text"]{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px;
+      font-size:15px;
+      background:#fff;
+      color:var(--text);
+    }
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row > div{flex:1 1 240px}
+    .btnbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    button{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:15px;
+      cursor:pointer;
+    }
+    button.primary{background:#111;border-color:#111;color:#fff}
+    .status{margin-top:10px;font-size:14px;color:var(--muted)}
+    hr{border:0;border-top:1px solid var(--border);margin:12px 0}
+  </style>
 </head>
 
 <body>
-<div class="wrap">
+  <div class="wrap">
 
-<!-- HEADER (NO EMAIL BOX HERE ANYMORE) -->
-<div class="card">
-  <h1>God With Us: He Comes Close and Changes Everything</h1>
-  <div class="scripture"><b>Scripture:</b> Luke 1:46–55; Matthew 1:18–23</div>
-  <div class="status" id="status">Saved</div>
-  <div class="divider"></div>
+    <div class="header">
+      <h1 id="title">GOD WITH US: NOW WHAT?</h1>
+      <div class="meta">
+        <div class="pill"><strong>Date:</strong> <span id="dateText"></span></div>
+        <div class="pill"><strong>Scripture:</strong> Luke 2:25–35</div>
+      </div>
+    </div>
 
-  <label for="date">Date</label>
-  <input id="date" placeholder="December 21, 2025">
-  <div class="smallhelp">Date fills in automatically. You can change it.</div>
-</div>
+    <div class="card">
+      <h2>Opening Reflection</h2>
+      <p class="lead">
+        Christmas proclaims that <strong>God is with us</strong>. But when the celebrations fade, a quieter question remains:
+        <strong>Now what?</strong> Simeon shows us what faithful living looks like after the promise is fulfilled.
+      </p>
 
-<!-- OPENING -->
-<div class="card">
-  <h2>Opening Reflection</h2>
-  <div class="muted">
-    God does not stay distant.<br>
-    God steps into ordinary lives, unexpected places, and complicated stories.<br>
-    When God comes close, nothing stays the same.
+      <div class="q">Reflection Question</div>
+      <div class="small">What emotions do you usually feel once Christmas is over?</div>
+      <textarea id="notes_opening" placeholder="Type your notes here..."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>When we receive Jesus, our waiting turns into worship</h2>
+      <p class="lead">
+        Simeon waited with hope—not control. When he finally holds Jesus, he worships.
+        Receiving Jesus transforms waiting from frustration into faith.
+      </p>
+
+      <div class="q">Questions</div>
+
+      <div class="small">1) Where in your life are you still waiting on God?</div>
+      <textarea id="notes_p1_q1" placeholder="Notes..."></textarea>
+
+      <div class="small" style="margin-top:8px;">2) Has your waiting drawn you closer to God—or pushed you toward discouragement?</div>
+      <textarea id="notes_p1_q2" placeholder="Notes..."></textarea>
+
+      <div class="q">Personal Reflection</div>
+      <div class="small">Waiting doesn’t always end when Jesus arrives—it changes. Trust replaces tension.</div>
+      <textarea id="notes_p1_ref" placeholder="Notes..."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>When we receive Jesus, our lives are refocused</h2>
+      <p class="lead">
+        Simeon’s words are honest: Jesus doesn’t simply comfort—He reorients.
+        Receiving Jesus reshapes our priorities, decisions, and direction.
+      </p>
+
+      <div class="q">Questions</div>
+
+      <div class="small">1) What currently holds the most focus in your life?</div>
+      <textarea id="notes_p2_q1" placeholder="Notes..."></textarea>
+
+      <div class="small" style="margin-top:8px;">2) In what areas might Jesus be calling you to realign your priorities?</div>
+      <textarea id="notes_p2_q2" placeholder="Notes..."></textarea>
+
+      <div class="q">Personal Reflection</div>
+      <div class="small">Jesus is not an addition to our lives—He becomes the center.</div>
+      <textarea id="notes_p2_ref" placeholder="Notes..."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>Closing Reflection</h2>
+      <p class="lead">
+        God is with us—not just at Christmas, but in every ordinary moment that follows.
+        We worship. We refocus. We live differently.
+      </p>
+
+      <div class="q">Final Reflection Question</div>
+      <div class="small">What is one intentional step you can take this week to live as someone who has truly received Jesus?</div>
+      <textarea id="notes_final" placeholder="Notes..."></textarea>
+    </div>
+
+    <!-- EMAIL + ACTIONS AT BOTTOM -->
+    <div class="card" id="emailCard">
+      <h2>Email My Notes</h2>
+      <p class="lead">
+        Your notes auto-save on this device. Tapping “Email Notes” opens your email app with your notes filled in.
+      </p>
+
+      <div class="row">
+        <div>
+          <div class="small">Sermon Date</div>
+          <input id="sermonDateInput" type="text" />
+        </div>
+        <div>
+          <div class="small">Send to Email</div>
+          <input id="emailTo" type="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div class="btnbar">
+        <button class="primary" id="emailBtn">Email Notes</button>
+        <button id="copyBtn">Copy Notes</button>
+        <button id="clearBtn">Clear Notes</button>
+      </div>
+
+      <div class="status" id="status"></div>
+      <hr />
+      <div class="small">
+        Note: If you don’t have a mail app set up on your device, use “Copy Notes” and paste them into an email or notes app.
+      </div>
+    </div>
+
   </div>
-  <label for="opening_prompt">Where do you most need God to come close right now?</label>
-  <textarea id="opening_prompt"></textarea>
-  <label for="opening_notes">Notes</label>
-  <textarea id="opening_notes"></textarea>
-</div>
-
-<!-- MARY -->
-<div class="card">
-  <h2>Mary’s Song: God Turns the World Right-Side Up (Luke 1:46–55)</h2>
-  <div class="muted">
-    Mary’s joy is not based on comfort or certainty.<br>
-    It rises from trust—trust that God sees the lowly, fills the hungry, and disrupts unjust systems.<br>
-    Joy is not denial of reality; it is confidence that God is at work within it.
-  </div>
-  <label>Reflection Questions</label>
-  <ul class="q">
-    <li>What does Mary rejoice over that hasn’t fully happened yet?</li>
-    <li>Where do you see God lifting the lowly or filling the hungry today?</li>
-    <li>How does joy look different when it’s rooted in trust rather than circumstances?</li>
-  </ul>
-  <label for="mary_notes">Notes</label>
-  <textarea id="mary_notes"></textarea>
-</div>
-
-<!-- JOY -->
-<div class="card">
-  <h2>When God Comes Close, Joy Rises in Unlikely Places</h2>
-  <div class="muted">
-    God’s joy shows up in unexpected people and uncomfortable moments.<br>
-    Joy is born not from ease, but from God’s nearness.<br>
-    Even in fear, uncertainty, or disruption, God’s presence awakens hope.
-  </div>
-  <label>Reflection Questions</label>
-  <ul class="q">
-    <li>Where have you experienced joy in a season you didn’t expect it?</li>
-    <li>What unlikely place in your life might God be working right now?</li>
-    <li>How does God’s closeness change how you view your current struggles?</li>
-  </ul>
-  <label for="joy_notes">Notes</label>
-  <textarea id="joy_notes"></textarea>
-</div>
-
-<!-- LOVE -->
-<div class="card">
-  <h2>When God Comes Close, Love Turns the World Around (Matthew 1:18–23)</h2>
-  <div class="muted">
-    Joseph’s story reminds us that love listens before it reacts.<br>
-    God’s love doesn’t shame—it restores, protects, and stays.<br>
-    Emmanuel means God enters our mess, not to condemn, but to redeem.
-  </div>
-  <label>Reflection Questions</label>
-  <ul class="q">
-    <li>What risks did Joseph take because he trusted God?</li>
-    <li>Where might God be inviting you to respond with grace instead of fear?</li>
-    <li>How does “God with us” reshape how we treat others?</li>
-  </ul>
-  <label for="love_notes">Notes</label>
-  <textarea id="love_notes"></textarea>
-</div>
-
-<!-- LIVING -->
-<div class="card">
-  <h2>Living the Truth: God With Us</h2>
-  <div class="muted">
-    God does not wait for us to get everything right.<br>
-    God comes close—and in that closeness, joy rises and love reshapes the world.
-  </div>
-  <label>This Week’s Invitation</label>
-  <ul class="q">
-    <li>Watch for where God is already near.</li>
-    <li>Choose joy rooted in trust.</li>
-    <li>Let love guide your response—even when it costs something.</li>
-  </ul>
-  <label for="commitment">Personal Commitment: What is one way you will live differently because God is with you?</label>
-  <textarea id="commitment"></textarea>
-  <label for="final_notes">Notes</label>
-  <textarea id="final_notes"></textarea>
-</div>
-
-<!-- EMAIL AT BOTTOM (EMAIL BOX + BUTTON) -->
-<div class="card">
-  <label for="email">Email my notes to</label>
-  <input id="email" type="email" placeholder="you@example.com">
-
-  <div style="margin-top:14px">
-    <button class="btn" onclick="emailNotes()">Email My Notes</button>
-  </div>
-
-  <div class="smallhelp">
-    This opens your email app with your notes filled in. Then you press Send.
-  </div>
-</div>
-
-</div>
 
 <script>
-const KEY = "vumc_god_with_us_white_bottom_email_v2";
-const statusEl = document.getElementById("status");
+  // -----------------------
+  // GitHub Pages version
+  // -----------------------
+  const STORAGE_KEY = "vumc_notes_god_with_us_now_what_lk2_25_35";
 
-// Text areas (content to check for empty submission)
-const noteIds = [
-  "opening_prompt","opening_notes","mary_notes",
-  "joy_notes","love_notes","commitment","final_notes"
-];
+  // Set sermon date here (or leave blank to auto-use today's date)
+  const FIXED_SERMON_DATE = "December 28, 2025";
 
-// All fields to save
-const saveIds = ["date","email", ...noteIds];
+  const fields = [
+    "notes_opening",
+    "notes_p1_q1","notes_p1_q2","notes_p1_ref",
+    "notes_p2_q1","notes_p2_q2","notes_p2_ref",
+    "notes_final"
+  ];
 
-let timer;
+  const $ = (id) => document.getElementById(id);
 
-function setStatus(t){ statusEl.textContent = t; }
+  function niceToday() {
+    const d = new Date();
+    return d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
+  }
 
-function formatToday() {
-  // Example: December 17, 2025
-  const d = new Date();
-  return d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
-}
+  function setStatus(msg){ $("status").textContent = msg || ""; }
 
-function getData(){
-  const d = {};
-  saveIds.forEach(id => d[id] = document.getElementById(id).value || "");
-  d.title = "God With Us: He Comes Close and Changes Everything";
-  d.scripture = "Luke 1:46–55; Matthew 1:18–23";
-  return d;
-}
+  function getSermonDate() {
+    const v = $("sermonDateInput").value.trim();
+    return v || (FIXED_SERMON_DATE || niceToday());
+  }
 
-function saveNow(){
-  localStorage.setItem(KEY, JSON.stringify(getData()));
-  setStatus("Saved");
-}
+  function saveNow(){
+    const data = {};
+    fields.forEach(id => data[id] = $(id).value || "");
+    data.emailTo = $("emailTo").value || "";
+    data.sermonDate = $("sermonDateInput").value || "";
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
 
-function scheduleSave(){
-  setStatus("Saving…");
-  clearTimeout(timer);
-  timer = setTimeout(saveNow, 300);
-}
-
-function load(){
-  const raw = localStorage.getItem(KEY);
-  if(raw){
+  function loadSaved(){
     try{
-      const d = JSON.parse(raw);
-      saveIds.forEach(id => {
-        if(d[id] !== undefined) document.getElementById(id).value = d[id];
-      });
-      setStatus("Loaded");
-      setTimeout(()=>setStatus("Saved"), 800);
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return;
+      const data = JSON.parse(raw);
+      fields.forEach(id => { if(data[id] != null) $(id).value = data[id]; });
+      if(data.emailTo) $("emailTo").value = data.emailTo;
+      if(data.sermonDate) $("sermonDateInput").value = data.sermonDate;
     }catch(e){}
   }
 
-  // Auto-fill date ONLY if date field is empty after load
-  const dateEl = document.getElementById("date");
-  if(!dateEl.value.trim()){
-    dateEl.value = formatToday();
-  }
-}
+  function buildPlainText(){
+    const title = $("title").textContent.trim();
+    const date = getSermonDate();
 
-function hasAnyNotes(){
-  return noteIds.some(id => (document.getElementById(id).value || "").trim().length > 0);
-}
+    const sections = [
+      ["Opening Reflection – Question", $("notes_opening").value],
+      ["Point 1 – Q1 (Where are you waiting on God?)", $("notes_p1_q1").value],
+      ["Point 1 – Q2 (Closer to God or discouraged?)", $("notes_p1_q2").value],
+      ["Point 1 – Personal Reflection", $("notes_p1_ref").value],
+      ["Point 2 – Q1 (What has your focus?)", $("notes_p2_q1").value],
+      ["Point 2 – Q2 (Where to realign?)", $("notes_p2_q2").value],
+      ["Point 2 – Personal Reflection", $("notes_p2_ref").value],
+      ["Closing – Final Reflection Question", $("notes_final").value]
+    ];
 
-function emailNotes(){
-  saveNow();
-
-  if(!hasAnyNotes()){
-    alert("Please write at least one note before emailing.");
-    return;
-  }
-
-  const email = document.getElementById("email").value.trim();
-  if(!email){
-    alert("Please enter your email address.");
-    return;
+    let out = `${title}\nDate: ${date}\nScripture: Luke 2:25–35\n\n`;
+    sections.forEach(([label, val]) => {
+      out += `${label}\n${(val || "").trim() || "(no notes)"}\n\n`;
+    });
+    return out.trim();
   }
 
-  const d = getData();
-  const subject = d.title + (d.date ? (" (" + d.date + ")") : "");
+  function mailtoEmail(){
+    const to = $("emailTo").value.trim();
+    if(!to){
+      setStatus("Please enter your email address.");
+      return;
+    }
+    const date = getSermonDate();
+    const subject = `Sermon Notes — GOD WITH US: NOW WHAT? — ${date}`;
+    const body = buildPlainText();
 
-  const body =
-`${d.title}
-Scripture: ${d.scripture}
-Date: ${d.date}
+    saveNow();
+    setStatus("Opening your email app...");
 
-OPENING REFLECTION
-Where do you most need God to come close right now?
-${d.opening_prompt}
+    const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
+  }
 
-Notes:
-${d.opening_notes}
+  function copyNotes(){
+    const text = buildPlainText();
+    navigator.clipboard.writeText(text).then(() => {
+      setStatus("✅ Copied to clipboard.");
+    }).catch(() => {
+      setStatus("Copy failed — please manually select and copy.");
+    });
+  }
 
-MARY’S SONG: GOD TURNS THE WORLD RIGHT-SIDE UP (Luke 1:46–55)
-Notes:
-${d.mary_notes}
+  function clearNotes(){
+    if(!confirm("Clear all notes?")) return;
+    fields.forEach(id => $(id).value = "");
+    saveNow();
+    setStatus("Notes cleared.");
+  }
 
-WHEN GOD COMES CLOSE, JOY RISES IN UNLIKELY PLACES
-Notes:
-${d.joy_notes}
+  (function init(){
+    const initialDate = FIXED_SERMON_DATE || niceToday();
+    $("dateText").textContent = initialDate;
+    $("sermonDateInput").value = FIXED_SERMON_DATE || "";
 
-WHEN GOD COMES CLOSE, LOVE TURNS THE WORLD AROUND (Matthew 1:18–23)
-Notes:
-${d.love_notes}
+    loadSaved();
 
-LIVING THE TRUTH: GOD WITH US
-Personal Commitment:
-${d.commitment}
+    // Keep header date in sync with input if user edits it
+    $("sermonDateInput").addEventListener("input", () => {
+      $("dateText").textContent = getSermonDate();
+      saveNow();
+    });
 
-Notes:
-${d.final_notes}
-`;
+    // Auto-save
+    fields.forEach(id => $(id).addEventListener("input", saveNow));
+    $("emailTo").addEventListener("input", saveNow);
 
-  window.location.href =
-    "mailto:" + encodeURIComponent(email) +
-    "?subject=" + encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(body);
-}
+    // Buttons
+    $("emailBtn").addEventListener("click", mailtoEmail);
+    $("copyBtn").addEventListener("click", copyNotes);
+    $("clearBtn").addEventListener("click", clearNotes);
 
-// Autosave on input
-saveIds.forEach(id => {
-  document.getElementById(id).addEventListener("input", scheduleSave);
-});
-
-load();
+    setStatus("");
+  })();
 </script>
-
 </body>
 </html>

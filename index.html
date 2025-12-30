@@ -1,337 +1,252 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GOD WITH US: NOW WHAT? — Interactive Sermon Notes</title>
-  <meta name="description" content="Interactive sermon notes with local autosave and email-to-self." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sermon Notes – GOD WITH US: NOW WHAT?</title>
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111111;
-      --muted:#444444;
-      --border:#e6e6e6;
-      --shadow:0 10px 25px rgba(0,0,0,.06);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.4;
-    }
-    .wrap{
-      max-width:860px;
-      margin:0 auto;
-      padding:18px 14px 34px;
-    }
-    .header{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px 16px 12px;
-      margin-bottom:14px;
-    }
-    h1{margin:0 0 8px;font-size:22px;letter-spacing:.2px}
-    .meta{
-      display:flex;gap:10px;flex-wrap:wrap;
-      color:var(--muted);font-size:14px;
-    }
-    .pill{
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:6px 10px;
-      background:#fff;
-    }
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:14px;
-      margin-bottom:14px;
-    }
-    .card h2{margin:0 0 8px;font-size:18px}
-    .lead{margin:0 0 10px;color:var(--muted);font-size:15px}
-    .q{margin:10px 0 6px;font-weight:700}
-    .small{font-size:13px;color:var(--muted)}
-    textarea{
-      width:100%;
-      min-height:92px;
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:10px;
-      font-size:15px;
-      resize:vertical;
-      background:#fff;
-      color:var(--text);
-    }
-    input[type="email"], input[type="text"]{
-      width:100%;
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:10px;
-      font-size:15px;
-      background:#fff;
-      color:var(--text);
-    }
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .row > div{flex:1 1 240px}
-    .btnbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    button{
-      border:1px solid var(--border);
-      background:#fff;
-      border-radius:12px;
-      padding:10px 12px;
-      font-size:15px;
-      cursor:pointer;
-    }
-    button.primary{background:#111;border-color:#111;color:#fff}
-    .status{margin-top:10px;font-size:14px;color:var(--muted)}
-    hr{border:0;border-top:1px solid var(--border);margin:12px 0}
-  </style>
+<style>
+  body{
+    margin:0;
+    background:#ffffff;
+    color:#000000;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height:1.6;
+  }
+  .page{
+    max-width:900px;
+    margin:0 auto;
+    padding:30px 20px 50px;
+  }
+  .top-title{
+    text-align:center;
+    font-size:20px;
+    font-weight:600;
+    border-bottom:2px solid #000;
+    padding-bottom:6px;
+    margin-bottom:18px;
+  }
+  .sermon-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .scripture{
+    text-align:center;
+    font-size:16px;
+    margin-bottom:35px;
+  }
+  .pt{
+    font-weight:700;
+    font-size:16px;
+    margin:40px 0 10px;
+  }
+  .reflection{
+    font-style:italic;
+    font-size:15px;
+    margin-bottom:8px;
+  }
+  .question{
+    font-size:15px;
+    margin-bottom:6px;
+  }
+  .notes{
+    width:100%;
+    min-height:140px;
+    border:none;
+    border-bottom:1px solid #000;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:16px;
+    resize:vertical;
+    outline:none;
+    margin-bottom:12px;
+  }
+  .notes.long{ min-height:200px; }
+
+  /* Email section */
+  .email-section{
+    margin-top:60px;
+    border-top:2px solid #000;
+    padding-top:20px;
+  }
+  .email-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  input{
+    flex:1 1 250px;
+    padding:8px;
+    font-size:15px;
+    font-family: Georgia, "Times New Roman", serif;
+    border:1px solid #000;
+  }
+  button{
+    margin-top:12px;
+    padding:8px 14px;
+    font-size:15px;
+    font-family: Georgia, "Times New Roman", serif;
+    border:1px solid #000;
+    background:#fff;
+    cursor:pointer;
+  }
+  .status{
+    margin-top:8px;
+    font-size:14px;
+  }
+</style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="page">
 
-    <div class="header">
-      <h1 id="title">GOD WITH US: NOW WHAT?</h1>
-      <div class="meta">
-        <div class="pill"><strong>Date:</strong> <span id="dateText"></span></div>
-        <div class="pill"><strong>Scripture:</strong> Luke 2:25–35</div>
-      </div>
-    </div>
+  <div class="top-title">Sermon Notes</div>
 
-    <div class="card">
-      <h2>Opening Reflection</h2>
-      <p class="lead">
-        Christmas proclaims that <strong>God is with us</strong>. But when the celebrations fade, a quieter question remains:
-        <strong>Now what?</strong> Simeon shows us what faithful living looks like after the promise is fulfilled.
-      </p>
+  <div class="sermon-title">GOD WITH US: NOW WHAT?</div>
+  <div class="scripture">Luke 2:25–35</div>
 
-      <div class="q">Reflection Question</div>
-      <div class="small">What emotions do you usually feel once Christmas is over?</div>
-      <textarea id="notes_opening" placeholder="Type your notes here..."></textarea>
-    </div>
-
-    <div class="card">
-      <h2>When we receive Jesus, our waiting turns into worship</h2>
-      <p class="lead">
-        Simeon waited with hope—not control. When he finally holds Jesus, he worships.
-        Receiving Jesus transforms waiting from frustration into faith.
-      </p>
-
-      <div class="q">Questions</div>
-
-      <div class="small">1) Where in your life are you still waiting on God?</div>
-      <textarea id="notes_p1_q1" placeholder="Notes..."></textarea>
-
-      <div class="small" style="margin-top:8px;">2) Has your waiting drawn you closer to God—or pushed you toward discouragement?</div>
-      <textarea id="notes_p1_q2" placeholder="Notes..."></textarea>
-
-      <div class="q">Personal Reflection</div>
-      <div class="small">Waiting doesn’t always end when Jesus arrives—it changes. Trust replaces tension.</div>
-      <textarea id="notes_p1_ref" placeholder="Notes..."></textarea>
-    </div>
-
-    <div class="card">
-      <h2>When we receive Jesus, our lives are refocused</h2>
-      <p class="lead">
-        Simeon’s words are honest: Jesus doesn’t simply comfort—He reorients.
-        Receiving Jesus reshapes our priorities, decisions, and direction.
-      </p>
-
-      <div class="q">Questions</div>
-
-      <div class="small">1) What currently holds the most focus in your life?</div>
-      <textarea id="notes_p2_q1" placeholder="Notes..."></textarea>
-
-      <div class="small" style="margin-top:8px;">2) In what areas might Jesus be calling you to realign your priorities?</div>
-      <textarea id="notes_p2_q2" placeholder="Notes..."></textarea>
-
-      <div class="q">Personal Reflection</div>
-      <div class="small">Jesus is not an addition to our lives—He becomes the center.</div>
-      <textarea id="notes_p2_ref" placeholder="Notes..."></textarea>
-    </div>
-
-    <div class="card">
-      <h2>Closing Reflection</h2>
-      <p class="lead">
-        God is with us—not just at Christmas, but in every ordinary moment that follows.
-        We worship. We refocus. We live differently.
-      </p>
-
-      <div class="q">Final Reflection Question</div>
-      <div class="small">What is one intentional step you can take this week to live as someone who has truly received Jesus?</div>
-      <textarea id="notes_final" placeholder="Notes..."></textarea>
-    </div>
-
-    <!-- EMAIL + ACTIONS AT BOTTOM -->
-    <div class="card" id="emailCard">
-      <h2>Email My Notes</h2>
-      <p class="lead">
-        Your notes auto-save on this device. Tapping “Email Notes” opens your email app with your notes filled in.
-      </p>
-
-      <div class="row">
-        <div>
-          <div class="small">Sermon Date</div>
-          <input id="sermonDateInput" type="text" />
-        </div>
-        <div>
-          <div class="small">Send to Email</div>
-          <input id="emailTo" type="email" placeholder="you@example.com" />
-        </div>
-      </div>
-
-      <div class="btnbar">
-        <button class="primary" id="emailBtn">Email Notes</button>
-        <button id="copyBtn">Copy Notes</button>
-        <button id="clearBtn">Clear Notes</button>
-      </div>
-
-      <div class="status" id="status"></div>
-      <hr />
-      <div class="small">
-        Note: If you don’t have a mail app set up on your device, use “Copy Notes” and paste them into an email or notes app.
-      </div>
-    </div>
-
+  <!-- PT 1 -->
+  <div class="pt">
+    PT 1 — WHEN WE RECEIVE JESUS, OUR WAITING TURNS INTO WORSHIP
   </div>
 
-<script>
-  // -----------------------
-  // GitHub Pages version
-  // -----------------------
-  const STORAGE_KEY = "vumc_notes_god_with_us_now_what_lk2_25_35";
+  <div class="reflection">
+    Waiting doesn’t always end when Jesus arrives — it changes.
+    Trust replaces tension.
+  </div>
 
-  // Set sermon date here (or leave blank to auto-use today's date)
-  const FIXED_SERMON_DATE = "December 28, 2025";
+  <div class="question">
+    Where in your life are you still waiting on God?
+  </div>
+  <textarea id="pt1_q1" class="notes" placeholder=""></textarea>
+
+  <div class="question">
+    Has your waiting drawn you closer to God — or pushed you toward discouragement?
+  </div>
+  <textarea id="pt1_q2" class="notes" placeholder=""></textarea>
+
+  <!-- PT 2 -->
+  <div class="pt">
+    PT 2 — WHEN WE RECEIVE JESUS, OUR LIVES ARE REFOCUSED
+  </div>
+
+  <div class="reflection">
+    Jesus is not an addition to our lives — He becomes the center.
+  </div>
+
+  <div class="question">
+    What currently holds the most focus in your life?
+  </div>
+  <textarea id="pt2_q1" class="notes" placeholder=""></textarea>
+
+  <div class="question">
+    In what areas might Jesus be calling you to realign your priorities?
+  </div>
+  <textarea id="pt2_q2" class="notes" placeholder=""></textarea>
+
+  <!-- Closing -->
+  <div class="pt">
+    FINAL REFLECTION
+  </div>
+
+  <div class="reflection">
+    God is with us — not just at Christmas, but in the ordinary days that follow.
+  </div>
+
+  <div class="question">
+    What is one intentional step you can take this week to live as someone who has truly received Jesus?
+  </div>
+  <textarea id="final" class="notes long" placeholder=""></textarea>
+
+  <!-- Email -->
+  <div class="email-section">
+    <strong>Email My Notes</strong>
+
+    <div class="email-row">
+      <input id="email" type="email" placeholder="your@email.com">
+      <input id="date" type="text" placeholder="December 28, 2025">
+    </div>
+
+    <button onclick="emailNotes()">Email Notes</button>
+    <button onclick="copyNotes()">Copy Notes</button>
+
+    <div class="status" id="status"></div>
+  </div>
+
+</div>
+
+<script>
+  const KEY = "vumc_god_with_us_now_what_reflective";
 
   const fields = [
-    "notes_opening",
-    "notes_p1_q1","notes_p1_q2","notes_p1_ref",
-    "notes_p2_q1","notes_p2_q2","notes_p2_ref",
-    "notes_final"
+    "pt1_q1","pt1_q2",
+    "pt2_q1","pt2_q2",
+    "final","email","date"
   ];
 
-  const $ = (id) => document.getElementById(id);
-
-  function niceToday() {
-    const d = new Date();
-    return d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
-  }
-
-  function setStatus(msg){ $("status").textContent = msg || ""; }
-
-  function getSermonDate() {
-    const v = $("sermonDateInput").value.trim();
-    return v || (FIXED_SERMON_DATE || niceToday());
-  }
-
-  function saveNow(){
+  function save(){
     const data = {};
-    fields.forEach(id => data[id] = $(id).value || "");
-    data.emailTo = $("emailTo").value || "";
-    data.sermonDate = $("sermonDateInput").value || "";
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    fields.forEach(id => data[id] = document.getElementById(id).value);
+    localStorage.setItem(KEY, JSON.stringify(data));
   }
 
-  function loadSaved(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if(!raw) return;
-      const data = JSON.parse(raw);
-      fields.forEach(id => { if(data[id] != null) $(id).value = data[id]; });
-      if(data.emailTo) $("emailTo").value = data.emailTo;
-      if(data.sermonDate) $("sermonDateInput").value = data.sermonDate;
-    }catch(e){}
-  }
-
-  function buildPlainText(){
-    const title = $("title").textContent.trim();
-    const date = getSermonDate();
-
-    const sections = [
-      ["Opening Reflection – Question", $("notes_opening").value],
-      ["Point 1 – Q1 (Where are you waiting on God?)", $("notes_p1_q1").value],
-      ["Point 1 – Q2 (Closer to God or discouraged?)", $("notes_p1_q2").value],
-      ["Point 1 – Personal Reflection", $("notes_p1_ref").value],
-      ["Point 2 – Q1 (What has your focus?)", $("notes_p2_q1").value],
-      ["Point 2 – Q2 (Where to realign?)", $("notes_p2_q2").value],
-      ["Point 2 – Personal Reflection", $("notes_p2_ref").value],
-      ["Closing – Final Reflection Question", $("notes_final").value]
-    ];
-
-    let out = `${title}\nDate: ${date}\nScripture: Luke 2:25–35\n\n`;
-    sections.forEach(([label, val]) => {
-      out += `${label}\n${(val || "").trim() || "(no notes)"}\n\n`;
+  function load(){
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    fields.forEach(id => {
+      if(data[id]) document.getElementById(id).value = data[id];
     });
-    return out.trim();
   }
 
-  function mailtoEmail(){
-    const to = $("emailTo").value.trim();
-    if(!to){
-      setStatus("Please enter your email address.");
+  function buildText(){
+    return `GOD WITH US: NOW WHAT?
+Date: ${date.value || ""}
+Scripture: Luke 2:25–35
+
+PT 1 — WHEN WE RECEIVE JESUS, OUR WAITING TURNS INTO WORSHIP
+Where are you still waiting on God?
+${pt1_q1.value || "(no notes)"}
+
+Has waiting drawn you closer or discouraged you?
+${pt1_q2.value || "(no notes)"}
+
+PT 2 — WHEN WE RECEIVE JESUS, OUR LIVES ARE REFOCUSED
+What currently holds the most focus in your life?
+${pt2_q1.value || "(no notes)"}
+
+Where might Jesus be calling you to realign?
+${pt2_q2.value || "(no notes)"}
+
+FINAL REFLECTION
+${final.value || "(no notes)"}
+`;
+  }
+
+  function emailNotes(){
+    if(!email.value){
+      status.textContent = "Please enter an email address.";
       return;
     }
-    const date = getSermonDate();
-    const subject = `Sermon Notes — GOD WITH US: NOW WHAT? — ${date}`;
-    const body = buildPlainText();
-
-    saveNow();
-    setStatus("Opening your email app...");
-
-    const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
+    save();
+    const subject = "Sermon Notes — GOD WITH US: NOW WHAT?";
+    const body = encodeURIComponent(buildText());
+    window.location.href =
+      `mailto:${email.value}?subject=${encodeURIComponent(subject)}&body=${body}`;
   }
 
   function copyNotes(){
-    const text = buildPlainText();
-    navigator.clipboard.writeText(text).then(() => {
-      setStatus("✅ Copied to clipboard.");
-    }).catch(() => {
-      setStatus("Copy failed — please manually select and copy.");
+    navigator.clipboard.writeText(buildText()).then(()=>{
+      status.textContent = "Notes copied.";
     });
   }
 
-  function clearNotes(){
-    if(!confirm("Clear all notes?")) return;
-    fields.forEach(id => $(id).value = "");
-    saveNow();
-    setStatus("Notes cleared.");
-  }
+  fields.forEach(id=>{
+    document.getElementById(id).addEventListener("input", save);
+  });
 
-  (function init(){
-    const initialDate = FIXED_SERMON_DATE || niceToday();
-    $("dateText").textContent = initialDate;
-    $("sermonDateInput").value = FIXED_SERMON_DATE || "";
-
-    loadSaved();
-
-    // Keep header date in sync with input if user edits it
-    $("sermonDateInput").addEventListener("input", () => {
-      $("dateText").textContent = getSermonDate();
-      saveNow();
-    });
-
-    // Auto-save
-    fields.forEach(id => $(id).addEventListener("input", saveNow));
-    $("emailTo").addEventListener("input", saveNow);
-
-    // Buttons
-    $("emailBtn").addEventListener("click", mailtoEmail);
-    $("copyBtn").addEventListener("click", copyNotes);
-    $("clearBtn").addEventListener("click", clearNotes);
-
-    setStatus("");
-  })();
+  load();
 </script>
 </body>
 </html>

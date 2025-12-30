@@ -42,7 +42,6 @@
     font-weight:700;
     font-size:16px;
     margin:44px 0 10px;
-    text-transform:none;
   }
   .pt .refs{
     display:block;
@@ -64,13 +63,13 @@
   textarea{
     width:100%;
     min-height:120px;
-    border:none;
-    border-bottom:1px solid #000;
+    border:1px solid #000;
     font-family: Georgia, "Times New Roman", serif;
     font-size:16px;
     resize:vertical;
     outline:none;
-    margin-bottom:12px;
+    margin-bottom:14px;
+    padding:10px;
     background:#fff;
     color:#000;
   }
@@ -132,37 +131,37 @@
   </div>
 
   <div class="reflection">
-    Some losses don’t come one at a time — they pile up. And when life collapses quickly, the hardest part isn’t only the pain…
-    it’s the feeling of being unprepared for how fast everything changed.
+    Some losses don’t come one at a time — they pile up. And when life collapses quickly,
+    the hardest part isn’t only the pain, but the shock.
   </div>
 
-  <div class="question">What part of your life feels like it “fell apart all at once” — or faster than you could process?</div>
+  <div class="question">What part of your life feels like it fell apart all at once?</div>
   <textarea id="pt1_q1"></textarea>
 
-  <div class="question">When things started unraveling, what did you *want* God to do immediately?</div>
+  <div class="question">When things began unraveling, what did you want God to do immediately?</div>
   <textarea id="pt1_q2"></textarea>
 
-  <div class="question">What would it look like to be honest with God about the shock, without losing your grip on Him?</div>
+  <div class="question">What would honest faith look like here — without pretending everything is fine?</div>
   <textarea id="pt1_q3"></textarea>
 
   <!-- PT 2 -->
   <div class="pt">
     PT 2 — WHAT DOES THE BIBLE SAY ABOUT THIS?
-    <span class="refs">(John 16:33, 2 Corinthians 4:8, Job 2:10)</span>
+    <span class="refs">(John 16:33; 2 Corinthians 4:8; Job 2:10)</span>
   </div>
 
   <div class="reflection">
-    Scripture doesn’t pretend life is easy — it tells the truth about trouble, and it tells the truth about God.
-    The Bible gives language for pain *and* a foundation for hope.
+    Scripture does not deny suffering. It names it — and then anchors us in truth that
+    pain is not the end of the story.
   </div>
 
-  <div class="question">Which verse or phrase from today’s scriptures do you most need to hold onto right now?</div>
+  <div class="question">Which scripture from today speaks most directly to what you’re facing?</div>
   <textarea id="pt2_q1"></textarea>
 
-  <div class="question">Where are you tempted to interpret your suffering as “God must not care” — and what truth corrects that?</div>
+  <div class="question">Where are you tempted to believe your suffering means God is distant?</div>
   <textarea id="pt2_q2"></textarea>
 
-  <div class="question">What is the difference between “accepting reality” and “giving up”?</div>
+  <div class="question">What is the difference between accepting reality and losing hope?</div>
   <textarea id="pt2_q3"></textarea>
 
   <!-- PT 3 -->
@@ -171,28 +170,27 @@
   </div>
 
   <div class="reflection">
-    Faith that looks like Jesus doesn’t deny the cross — it keeps trusting the Father through it.
-    Jesus shows us a faith that is honest, surrendered, and anchored… even when the outcome is costly.
+    Faith that looks like Jesus does not avoid pain — it trusts the Father through it.
+    Jesus shows us surrender without despair.
   </div>
 
-  <div class="question">What would “faith that looks like Jesus” look like in your situation this week?</div>
+  <div class="question">What would faith that looks like Jesus look like in your life right now?</div>
   <textarea id="pt3_q1"></textarea>
 
-  <div class="question">Is there a place where God is inviting you to keep trusting — even if you can’t see the outcome yet?</div>
+  <div class="question">Where is God asking you to keep trusting even without answers?</div>
   <textarea id="pt3_q2"></textarea>
 
-  <div class="question">Job 13:15 says, “Though he slay me, yet will I trust in him.” What does that kind of trust mean for you personally?</div>
+  <div class="question">“Though He slay me, yet will I trust Him” (Job 13:15). What does that kind of trust mean for you?</div>
   <textarea id="pt3_q3" class="long"></textarea>
 
-  <!-- FINAL REFLECTION -->
+  <!-- FINAL -->
   <div class="pt">FINAL REFLECTION</div>
 
   <div class="reflection">
-    When life shatters, faith isn’t pretending you’re okay. Faith is choosing not to let the brokenness be the final word.
-    God can be trusted in the dark — and He can rebuild what feels beyond repair.
+    Faith is not pretending you are okay. Faith is choosing not to let brokenness have the final word.
   </div>
 
-  <div class="question">What is one prayer you need to pray honestly today?</div>
+  <div class="question">What is one honest prayer you need to pray today?</div>
   <textarea id="final" class="long"></textarea>
 
   <!-- Email -->
@@ -201,7 +199,7 @@
 
     <div class="email-row">
       <input id="email" type="email" placeholder="your@email.com">
-      <input id="date" type="text" placeholder="(optional) e.g., December 28, 2025">
+      <input id="date" type="text" placeholder="Optional date">
     </div>
 
     <button onclick="emailNotes()">Email Notes</button>
@@ -209,14 +207,14 @@
 
     <div class="status" id="status"></div>
     <div class="small">
-      This page auto-saves on your device. “Email Notes” opens your email app with notes pre-filled.
+      Notes auto-save on this device. “Email Notes” opens your email app with everything filled in.
     </div>
   </div>
 
 </div>
 
 <script>
-  const KEY = "vumc_notes_when_it_all_falls_apart_shattered_life";
+  const KEY = "vumc_notes_when_it_all_falls_apart_boxes";
 
   const fields = [
     "pt1_q1","pt1_q2","pt1_q3",
@@ -234,81 +232,61 @@
   function load(){
     const raw = localStorage.getItem(KEY);
     if(!raw) return;
-    try{
-      const data = JSON.parse(raw);
-      fields.forEach(id => {
-        if(data[id] !== undefined) document.getElementById(id).value = data[id];
-      });
-    }catch(e){}
+    const data = JSON.parse(raw);
+    fields.forEach(id=>{
+      if(data[id] !== undefined) document.getElementById(id).value = data[id];
+    });
   }
 
   function buildText(){
-    const d = (document.getElementById("date").value || "").trim();
-    return `Sermon Notes
-When It All Falls Apart: The Shattered Life
-${d ? "Date: " + d + "\\n" : ""}Scripture: Job 1–2; Job 13:15
+    return `When It All Falls Apart: The Shattered Life
+Scripture: Job 1–2; Job 13:15
 
-PT 1 — WHEN EVERYTHING FALLS APART AT ONCE (Job 1)
-1) What suggests “fell apart all at once”?
-${pt1_q1.value || "(no notes)"}
+PT 1 — WHEN EVERYTHING FALLS APART AT ONCE
+${pt1_q1.value}
 
-2) What did you want God to do immediately?
-${pt1_q2.value || "(no notes)"}
+${pt1_q2.value}
 
-3) Honesty with God without losing grip on Him:
-${pt1_q3.value || "(no notes)"}
+${pt1_q3.value}
 
-PT 2 — WHAT DOES THE BIBLE SAY ABOUT THIS? (John 16:33, 2 Corinthians 4:8, Job 2:10)
-1) Verse/phrase to hold onto:
-${pt2_q1.value || "(no notes)"}
+PT 2 — WHAT DOES THE BIBLE SAY ABOUT THIS?
+${pt2_q1.value}
 
-2) Temptation to believe “God doesn’t care” + truth that corrects it:
-${pt2_q2.value || "(no notes)"}
+${pt2_q2.value}
 
-3) Difference between accepting reality and giving up:
-${pt2_q3.value || "(no notes)"}
+${pt2_q3.value}
 
 PT 3 — FAITH THAT LOOKS LIKE JESUS
-1) What does it look like this week?
-${pt3_q1.value || "(no notes)"}
+${pt3_q1.value}
 
-2) Where is God inviting you to keep trusting?
-${pt3_q2.value || "(no notes)"}
+${pt3_q2.value}
 
-3) Job 13:15 — what does that trust mean personally?
-${pt3_q3.value || "(no notes)"}
+${pt3_q3.value}
 
 FINAL REFLECTION
-One honest prayer you need to pray today:
-${final.value || "(no notes)"}
+${final.value}
 `;
   }
 
   function emailNotes(){
-    const email = document.getElementById("email").value.trim();
-    const status = document.getElementById("status");
-    if(!email){
+    if(!email.value){
       status.textContent = "Please enter an email address.";
       return;
     }
-
     save();
-
-    const subject = "Sermon Notes — When It All Falls Apart: The Shattered Life";
+    const subject = "Sermon Notes — When It All Falls Apart";
     const body = encodeURIComponent(buildText());
-    window.location.href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href =
+      `mailto:${email.value}?subject=${encodeURIComponent(subject)}&body=${body}`;
   }
 
   function copyNotes(){
-    const status = document.getElementById("status");
     navigator.clipboard.writeText(buildText()).then(()=>{
       status.textContent = "Notes copied.";
-    }).catch(()=>{
-      status.textContent = "Copy failed. You can still select and copy manually.";
     });
   }
 
-  fields.forEach(id => {
+  fields.forEach(id=>{
     document.getElementById(id).addEventListener("input", save);
   });
 

@@ -1,296 +1,543 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sermon Notes – When It All Falls Apart: The Shattered Life</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VUMC Sermon Notes | When Friends Don’t Help</title>
+  <meta name="description" content="Interactive sermon notes for VUMC Connect. Notes auto-save on this device." />
 
-<style>
-  body{
-    margin:0;
-    background:#ffffff;
-    color:#000000;
-    font-family: Georgia, "Times New Roman", serif;
-    line-height:1.6;
-  }
-  .page{
-    max-width:900px;
-    margin:0 auto;
-    padding:30px 20px 50px;
-  }
-  .top-title{
-    text-align:center;
-    font-size:20px;
-    font-weight:600;
-    border-bottom:2px solid #000;
-    padding-bottom:6px;
-    margin-bottom:18px;
-  }
-  .sermon-title{
-    text-align:center;
-    font-size:22px;
-    font-weight:700;
-    margin-bottom:4px;
-  }
-  .scripture{
-    text-align:center;
-    font-size:16px;
-    margin-bottom:28px;
-  }
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --focus:#2563eb;
+      --danger:#dc2626;
+      --shadow: 0 6px 18px rgba(0,0,0,.06);
+      --radius: 14px;
+      --pad: 16px;
+      --max: 920px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
 
-  .pt{
-    font-weight:700;
-    font-size:16px;
-    margin:44px 0 10px;
-  }
-  .pt .refs{
-    display:block;
-    font-weight:600;
-    font-size:14px;
-    margin-top:4px;
-  }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
 
-  .reflection{
-    font-style:italic;
-    font-size:15px;
-    margin: 0 0 10px;
-  }
-  .question{
-    font-size:15px;
-    margin: 10px 0 6px;
-  }
+    header{
+      padding: 22px var(--pad) 10px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
 
-  textarea{
-    width:100%;
-    min-height:120px;
-    border:1px solid #000;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size:16px;
-    resize:vertical;
-    outline:none;
-    margin-bottom:14px;
-    padding:10px;
-    background:#fff;
-    color:#000;
-  }
-  textarea.long{ min-height:180px; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad) 48px;
+    }
 
-  /* Email section */
-  .email-section{
-    margin-top:60px;
-    border-top:2px solid #000;
-    padding-top:20px;
-  }
-  .email-row{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:8px;
-  }
-  input{
-    flex:1 1 250px;
-    padding:8px;
-    font-size:15px;
-    font-family: Georgia, "Times New Roman", serif;
-    border:1px solid #000;
-    background:#fff;
-    color:#000;
-  }
-  button{
-    margin-top:12px;
-    padding:8px 14px;
-    font-size:15px;
-    font-family: Georgia, "Times New Roman", serif;
-    border:1px solid #000;
-    background:#fff;
-    cursor:pointer;
-  }
-  .status{
-    margin-top:8px;
-    font-size:14px;
-  }
-  .small{
-    font-size:13px;
-    margin-top:10px;
-  }
-</style>
+    .titleRow{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    h1{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pillbar{
+      display:flex;
+      gap:8px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      color: var(--muted);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      user-select:none;
+      white-space: nowrap;
+    }
+
+    .pill strong{
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .grid{
+      display:grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .muted{ color: var(--muted); }
+
+    .blockquote{
+      border-left: 4px solid var(--border);
+      padding: 8px 12px;
+      margin: 10px 0 0;
+      background: #fff;
+      border-radius: 10px;
+      color: var(--text);
+    }
+
+    .sectionLabel{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 10px 0 6px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    textarea{
+      width: 100%;
+      min-height: 110px;
+      resize: vertical;
+      padding: 12px;
+      font-family: var(--sans);
+      font-size: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      outline: none;
+    }
+    textarea:focus{
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    .questions{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+    .questions li{ margin: 6px 0; }
+
+    .toolbar{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    button{
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--text);
+    }
+    button:hover{ filter: brightness(.98); }
+    button:active{ transform: translateY(1px); }
+
+    .primary{
+      border-color: rgba(37,99,235,.35);
+    }
+    .danger{
+      border-color: rgba(220,38,38,.35);
+      color: var(--danger);
+    }
+
+    .statusRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .statusDot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #9ca3af;
+      display:inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .saved .statusDot{ background: #16a34a; }
+    .saving .statusDot{ background: #f59e0b; }
+
+    .footer{
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .smallMono{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Print: hide buttons/status */
+    @media print {
+      header, .toolbar, .statusRow, .footer { display: none !important; }
+      body{ background:#fff; }
+      .card{ box-shadow: none; }
+      textarea{ border: 1px solid #ddd; }
+    }
+  </style>
 </head>
 
 <body>
-<div class="page">
+<header>
+  <div class="wrap">
+    <div class="titleRow">
+      <div>
+        <h1>When It All Falls Apart: When Friends Don’t Help</h1>
+        <div class="subtitle">
+          <strong>Scripture:</strong> Job 3–31
+          <span class="muted"> • </span>
+          <span id="today"></span>
+        </div>
+      </div>
 
-  <div class="top-title">Sermon Notes</div>
-
-  <div class="sermon-title">When It All Falls Apart: The Shattered Life</div>
-  <div class="scripture">Job 1–2; Job 13:15</div>
-
-  <!-- PT 1 -->
-  <div class="pt">
-    PT 1 — WHEN EVERYTHING FALLS APART AT ONCE
-    <span class="refs">(Job 1)</span>
-  </div>
-
-  <div class="reflection">
-    Some losses don’t come one at a time — they pile up. And when life collapses quickly,
-    the hardest part isn’t only the pain, but the shock.
-  </div>
-
-  <div class="question">What part of your life feels like it fell apart all at once?</div>
-  <textarea id="pt1_q1"></textarea>
-
-  <div class="question">When things began unraveling, what did you want God to do immediately?</div>
-  <textarea id="pt1_q2"></textarea>
-
-  <div class="question">What would honest faith look like here — without pretending everything is fine?</div>
-  <textarea id="pt1_q3"></textarea>
-
-  <!-- PT 2 -->
-  <div class="pt">
-    PT 2 — WHAT DOES THE BIBLE SAY ABOUT THIS?
-    <span class="refs">(John 16:33; 2 Corinthians 4:8; Job 2:10)</span>
-  </div>
-
-  <div class="reflection">
-    Scripture does not deny suffering. It names it — and then anchors us in truth that
-    pain is not the end of the story.
-  </div>
-
-  <div class="question">Which scripture from today speaks most directly to what you’re facing?</div>
-  <textarea id="pt2_q1"></textarea>
-
-  <div class="question">Where are you tempted to believe your suffering means God is distant?</div>
-  <textarea id="pt2_q2"></textarea>
-
-  <div class="question">What is the difference between accepting reality and losing hope?</div>
-  <textarea id="pt2_q3"></textarea>
-
-  <!-- PT 3 -->
-  <div class="pt">
-    PT 3 — FAITH THAT LOOKS LIKE JESUS
-  </div>
-
-  <div class="reflection">
-    Faith that looks like Jesus does not avoid pain — it trusts the Father through it.
-    Jesus shows us surrender without despair.
-  </div>
-
-  <div class="question">What would faith that looks like Jesus look like in your life right now?</div>
-  <textarea id="pt3_q1"></textarea>
-
-  <div class="question">Where is God asking you to keep trusting even without answers?</div>
-  <textarea id="pt3_q2"></textarea>
-
-  <div class="question">“Though He slay me, yet will I trust Him” (Job 13:15). What does that kind of trust mean for you?</div>
-  <textarea id="pt3_q3" class="long"></textarea>
-
-  <!-- FINAL -->
-  <div class="pt">FINAL REFLECTION</div>
-
-  <div class="reflection">
-    Faith is not pretending you are okay. Faith is choosing not to let brokenness have the final word.
-  </div>
-
-  <div class="question">What is one honest prayer you need to pray today?</div>
-  <textarea id="final" class="long"></textarea>
-
-  <!-- Email -->
-  <div class="email-section">
-    <strong>Email My Notes</strong>
-
-    <div class="email-row">
-      <input id="email" type="email" placeholder="your@email.com">
-      <input id="date" type="text" placeholder="Optional date">
+      <div class="pillbar" aria-label="Info">
+        <div class="pill" title="Auto-save status">
+          <span class="statusDot" id="dot"></span>
+          <span id="saveText">Ready</span>
+        </div>
+        <div class="pill" title="Saved locally on this device">
+          <span>Storage:</span> <strong>On device</strong>
+        </div>
+      </div>
     </div>
 
-    <button onclick="emailNotes()">Email Notes</button>
-    <button onclick="copyNotes()">Copy Notes</button>
+    <div class="toolbar">
+      <button class="primary" id="btnExport">Export notes (.txt)</button>
+      <button id="btnCopy">Copy all to clipboard</button>
+      <button id="btnPrint">Print</button>
+      <button class="danger" id="btnClear">Clear notes on this device</button>
+    </div>
 
-    <div class="status" id="status"></div>
-    <div class="small">
-      Notes auto-save on this device. “Email Notes” opens your email app with everything filled in.
+    <div class="statusRow" id="statusRow">
+      <span><span class="statusDot" id="dot2"></span><span id="statusMsg">Notes will auto-save as you type.</span></span>
+      <span class="smallMono" id="keyInfo"></span>
     </div>
   </div>
+</header>
 
-</div>
+<main class="wrap">
+  <div class="grid">
+
+    <section class="card">
+      <h2>Opening Reflection</h2>
+      <p class="muted">
+        When life collapses, voices multiply. Some comfort. Some pressure. Some pretend certainty.
+        Not every voice is sent by God — and not every word spoken in pain deserves authority.
+      </p>
+
+      <div class="sectionLabel">Personal reflection</div>
+      <p>Where do you most need God to come close right now?</p>
+
+      <div class="sectionLabel">Notes</div>
+      <textarea data-field="opening_notes" placeholder="Type your notes here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>1) Not Every Voice Deserves a Microphone</h2>
+      <p class="muted">
+        Sometimes the most spiritual thing you can do is <strong>turn down</strong> — or <strong>turn off</strong> — the wrong voices.
+        Job’s friends speak often. They sound confident. They sound religious. But volume is not the same thing as truth.
+      </p>
+
+      <div class="sectionLabel">Reflection questions</div>
+      <ul class="questions">
+        <li>Whose voices are shaping how you interpret your pain right now?</li>
+        <li>Are those voices producing peace… or pressure?</li>
+        <li>What voice might you need to mute for the sake of your soul?</li>
+      </ul>
+
+      <div class="sectionLabel">Personal notes</div>
+      <textarea data-field="point1_notes" placeholder="What stood out to you? What do you need to turn down/off?"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>2) God Is Not Transactional; He Is Relational</h2>
+      <p class="muted">
+        Job’s friends want formulas: “If you do this, God will do that.”
+        But God is not a vending machine. He desires relationship — not explanation. Presence — not performance.
+      </p>
+
+      <div class="sectionLabel">Reflection questions</div>
+      <ul class="questions">
+        <li>Where have you been tempted to treat faith like a transaction?</li>
+        <li>What would it look like to sit with God instead of solving Him?</li>
+        <li>Can you trust God even when the “formula” breaks?</li>
+      </ul>
+
+      <div class="sectionLabel">Personal notes</div>
+      <textarea data-field="point2_notes" placeholder="Write your thoughts, prayers, or honest questions here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>Honest Reflection Space</h2>
+      <p class="muted">
+        God can handle your questions. God can handle your silence. God can handle your frustration.
+        What do you need to say — or stop saying — today?
+      </p>
+
+      <div class="sectionLabel">Reflection</div>
+      <textarea data-field="honest_reflection" placeholder="Type your honest reflection here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>Closing Thought</h2>
+      <div class="blockquote">
+        When friends don’t help, when answers don’t come, when explanations fall apart — God remains.
+        Faith isn’t proven by having the right words. Faith is revealed by staying in the conversation.
+      </div>
+
+      <div class="sectionLabel">What I’m taking with me</div>
+      <textarea data-field="closing_thought" placeholder="Write one sentence you want to remember this week..."></textarea>
+
+      <div class="sectionLabel">Closing prayer (optional)</div>
+      <textarea data-field="closing_prayer" placeholder="God, help me..."></textarea>
+
+      <div class="footer">
+        <div><strong>Tip:</strong> Your notes save automatically on this device/browser only (not synced across devices).</div>
+      </div>
+    </section>
+
+  </div>
+</main>
 
 <script>
-  const KEY = "vumc_notes_when_it_all_falls_apart_boxes";
+  (function () {
+    // ----- Configuration -----
+    // Change this key each week so notes don't overwrite other sermons:
+    const SERMON_KEY = "vumc_notes_2026-01-__When_Friends_Dont_Help__Job_3-31";
 
-  const fields = [
-    "pt1_q1","pt1_q2","pt1_q3",
-    "pt2_q1","pt2_q2","pt2_q3",
-    "pt3_q1","pt3_q2","pt3_q3",
-    "final","email","date"
-  ];
+    // ----- Helpers -----
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-  function save(){
-    const data = {};
-    fields.forEach(id => data[id] = document.getElementById(id).value || "");
-    localStorage.setItem(KEY, JSON.stringify(data));
-  }
-
-  function load(){
-    const raw = localStorage.getItem(KEY);
-    if(!raw) return;
-    const data = JSON.parse(raw);
-    fields.forEach(id=>{
-      if(data[id] !== undefined) document.getElementById(id).value = data[id];
-    });
-  }
-
-  function buildText(){
-    return `When It All Falls Apart: The Shattered Life
-Scripture: Job 1–2; Job 13:15
-
-PT 1 — WHEN EVERYTHING FALLS APART AT ONCE
-${pt1_q1.value}
-
-${pt1_q2.value}
-
-${pt1_q3.value}
-
-PT 2 — WHAT DOES THE BIBLE SAY ABOUT THIS?
-${pt2_q1.value}
-
-${pt2_q2.value}
-
-${pt2_q3.value}
-
-PT 3 — FAITH THAT LOOKS LIKE JESUS
-${pt3_q1.value}
-
-${pt3_q2.value}
-
-${pt3_q3.value}
-
-FINAL REFLECTION
-${final.value}
-`;
-  }
-
-  function emailNotes(){
-    if(!email.value){
-      status.textContent = "Please enter an email address.";
-      return;
+    function formatToday() {
+      // User timezone is America/New_York; JS uses device timezone.
+      const d = new Date();
+      return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
     }
-    save();
-    const subject = "Sermon Notes — When It All Falls Apart";
-    const body = encodeURIComponent(buildText());
-    window.location.href =
-      `mailto:${email.value}?subject=${encodeURIComponent(subject)}&body=${body}`;
-  }
 
-  function copyNotes(){
-    navigator.clipboard.writeText(buildText()).then(()=>{
-      status.textContent = "Notes copied.";
+    function setSaveState(state, msg) {
+      const dot = $("#dot");
+      const dot2 = $("#dot2");
+      const row = $("#statusRow");
+      const saveText = $("#saveText");
+      const statusMsg = $("#statusMsg");
+
+      row.classList.remove("saved", "saving");
+      if (state === "saving") row.classList.add("saving");
+      if (state === "saved") row.classList.add("saved");
+
+      if (saveText) saveText.textContent = state === "saving" ? "Saving…" : (state === "saved" ? "Saved" : "Ready");
+      if (statusMsg && msg) statusMsg.textContent = msg;
+
+      // Dots pick up row class via CSS, but keep them in sync for safety
+      dot.style.background = state === "saved" ? "#16a34a" : (state === "saving" ? "#f59e0b" : "#9ca3af");
+      dot2.style.background = dot.style.background;
+    }
+
+    function safeParse(json) {
+      try { return JSON.parse(json); } catch { return null; }
+    }
+
+    function load() {
+      const raw = localStorage.getItem(SERMON_KEY);
+      const data = raw ? safeParse(raw) : null;
+      if (!data) return;
+
+      $$("textarea[data-field]").forEach((ta) => {
+        const key = ta.getAttribute("data-field");
+        if (typeof data[key] === "string") ta.value = data[key];
+      });
+    }
+
+    function collect() {
+      const obj = {};
+      $$("textarea[data-field]").forEach((ta) => {
+        obj[ta.getAttribute("data-field")] = ta.value || "";
+      });
+      return obj;
+    }
+
+    let saveTimer = null;
+    function scheduleSave() {
+      setSaveState("saving", "Saving on this device…");
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        const payload = collect();
+        localStorage.setItem(SERMON_KEY, JSON.stringify(payload));
+        setSaveState("saved", "Saved on this device.");
+      }, 250);
+    }
+
+    function buildExportText() {
+      const d = new Date();
+      const dateStr = d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+      const data = collect();
+
+      return [
+        "VUMC Sermon Notes",
+        "When It All Falls Apart: When Friends Don’t Help",
+        "Scripture: Job 3–31",
+        "Date: " + dateStr,
+        "",
+        "OPENING NOTES:",
+        data.opening_notes || "",
+        "",
+        "POINT 1 — Not Every Voice Deserves a Microphone:",
+        data.point1_notes || "",
+        "",
+        "POINT 2 — God Is Not Transactional; He Is Relational:",
+        data.point2_notes || "",
+        "",
+        "HONEST REFLECTION:",
+        data.honest_reflection || "",
+        "",
+        "CLOSING THOUGHT:",
+        data.closing_thought || "",
+        "",
+        "CLOSING PRAYER:",
+        data.closing_prayer || "",
+        "",
+        "— Saved locally from VUMC Connect —"
+      ].join("\n");
+    }
+
+    function downloadText(filename, text) {
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function copyToClipboard(text) {
+      // Clipboard API requires secure context (https) in most browsers.
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      // Fallback
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.top = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    }
+
+    // ----- Init -----
+    $("#today").textContent = formatToday();
+    $("#keyInfo").textContent = "Key: " + SERMON_KEY;
+
+    load();
+    // If there was saved content, reflect it
+    const hasAny = Object.values(collect()).some(v => (v || "").trim().length > 0);
+    setSaveState(hasAny ? "saved" : "ready", hasAny ? "Loaded saved notes on this device." : "Notes will auto-save as you type.");
+
+    // Autosave on input
+    $$("textarea[data-field]").forEach((ta) => {
+      ta.addEventListener("input", scheduleSave);
+      ta.addEventListener("blur", scheduleSave);
     });
-  }
 
-  fields.forEach(id=>{
-    document.getElementById(id).addEventListener("input", save);
-  });
+    // Export
+    $("#btnExport").addEventListener("click", () => {
+      const text = buildExportText();
+      const safeDate = new Date().toISOString().slice(0,10);
+      downloadText(`VUMC_Sermon_Notes_${safeDate}_When_Friends_Dont_Help.txt`, text);
+    });
 
-  load();
+    // Copy
+    $("#btnCopy").addEventListener("click", async () => {
+      try {
+        const ok = await copyToClipboard(buildExportText());
+        setSaveState("saved", ok ? "Copied to clipboard." : "Copy failed on this browser.");
+      } catch (e) {
+        setSaveState("saved", "Copy failed on this browser.");
+      }
+    });
+
+    // Print
+    $("#btnPrint").addEventListener("click", () => window.print());
+
+    // Clear
+    $("#btnClear").addEventListener("click", () => {
+      const sure = confirm("Clear all notes saved on this device for this sermon?");
+      if (!sure) return;
+      localStorage.removeItem(SERMON_KEY);
+      $$("textarea[data-field]").forEach((ta) => (ta.value = ""));
+      setSaveState("ready", "Cleared. Notes will auto-save as you type.");
+    });
+
+  })();
 </script>
 </body>
 </html>

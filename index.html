@@ -316,9 +316,8 @@
     /***********************
      * CONFIG (EDIT IF NEEDED)
      ***********************/
-    // If you want a fixed date displayed, set it like: "January 18, 2026"
-    // If left blank, it will auto-fill with today's date (America/New_York).
-    const SERMON_DATE = "";
+    // Fixed sermon date (no auto date)
+    const SERMON_DATE = "January 25, 2026";
 
     const SERMON_TITLE = "When It All Falls Apart: Restored—but Different";
     const SERMON_SCRIPTURE = "Job 42:1–6; 10–12";
@@ -329,18 +328,8 @@
     /***********************
      * DATE
      ***********************/
-    function formatDateNY(d){
-      // Force America/New_York display for consistency with your workflow
-      const fmt = new Intl.DateTimeFormat("en-US", {
-        timeZone: "America/New_York",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      });
-      return fmt.format(d);
-    }
     const sermonDateText = document.getElementById("sermonDateText");
-    sermonDateText.textContent = SERMON_DATE?.trim() ? SERMON_DATE.trim() : formatDateNY(new Date());
+    sermonDateText.textContent = SERMON_DATE;
 
     /***********************
      * NOTES (AUTO-SAVE)
@@ -436,7 +425,6 @@
         setStatus("Copied to clipboard.");
         setTimeout(() => setStatus("Saved."), 900);
       }catch(e){
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = text;
         document.body.appendChild(ta);
@@ -478,7 +466,6 @@
 
     /***********************
      * EMAIL (BOTTOM)
-     * Creates a mailto draft so users don't accidentally send empty notes first.
      ***********************/
     document.getElementById("btnEmail").addEventListener("click", () => {
       const to = (document.getElementById("emailTo").value || "").trim();
@@ -491,7 +478,6 @@
       const subject = `${SERMON_TITLE} — Notes (${sermonDateText.textContent})`;
       const body = buildNotesText();
 
-      // mailto encoding
       const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
       setStatus("Email draft created.");

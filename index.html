@@ -1,223 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>When It All Falls Apart: The God Who Speaks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #ffffff;
-    color: #111;
-    margin: 0;
-    padding: 20px;
-    line-height: 1.6;
-  }
-  .container {
-    max-width: 820px;
-    margin: auto;
-  }
-  h1, h2, h3 {
-    margin-top: 1.6em;
-  }
-  h1 {
-    font-size: 2em;
-  }
-  blockquote {
-    border-left: 4px solid #ccc;
-    padding-left: 12px;
-    color: #444;
-    margin: 20px 0;
-  }
-  .scripture {
-    font-style: italic;
-    margin: 12px 0;
-  }
-  .question {
-    font-weight: 600;
-    margin-top: 14px;
-  }
-  textarea {
-    width: 100%;
-    min-height: 90px;
-    padding: 10px;
-    margin-top: 8px;
-    border-radius: 6px;
-    border: 1px solid #bbb;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-  .section {
-    margin-bottom: 30px;
-  }
-  .email-box {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #eee;
-  }
-  input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    margin: 10px 0;
-  }
-  button {
-    padding: 12px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    background: #222;
-    color: #fff;
-  }
-  .footer-note {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 10px;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>When It All Falls Apart: Restored—but Different | Interactive Sermon Notes</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#5b5b5b;
+      --card:#f6f6f6;
+      --border:#e6e6e6;
+      --btn:#111111;
+      --btnText:#ffffff;
+      --btn2:#ffffff;
+      --btn2Text:#111111;
+      --focus:#2a6df4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height:1.4;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+    header{
+      padding: 8px 0 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-size: clamp(24px, 3.2vw, 34px);
+      letter-spacing:-0.02em;
+    }
+    .sub{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      color:var(--muted);
+      font-size: 14px;
+    }
+    .pill{
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .grid{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+    .card{
+      background: #ffffff;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .card h2{
+      margin:0 0 8px 0;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+    .lead{
+      color:var(--muted);
+      margin: 0 0 10px 0;
+    }
+    .quote{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color:#222;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    ul{
+      margin: 8px 0 0 18px;
+      color: var(--text);
+    }
+    li{ margin: 6px 0; }
+    label{
+      display:block;
+      font-weight: 600;
+      margin: 12px 0 6px;
+    }
+    textarea{
+      width:100%;
+      min-height: 120px;
+      resize: vertical;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 15px;
+      outline:none;
+      background:#fff;
+      color: var(--text);
+    }
+    textarea:focus, input:focus{
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(42,109,244,.15);
+    }
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    button{
+      border:none;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 700;
+      cursor:pointer;
+      font-size: 14px;
+    }
+    .btn{
+      background: var(--btn);
+      color: var(--btnText);
+    }
+    .btn2{
+      background: var(--btn2);
+      color: var(--btn2Text);
+      border: 1px solid var(--border);
+    }
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+      margin: 10px 0 0 0;
+    }
+    .status{
+      font-size: 13px;
+      color: var(--muted);
+      margin-left:auto;
+      padding-left: 10px;
+    }
+    .divider{
+      height:1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+    .emailGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .emailRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    input{
+      width: min(440px, 100%);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      font-size: 15px;
+      outline:none;
+    }
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    @media print{
+      .noPrint{ display:none !important; }
+      body{ background:#fff; }
+      .card{ border:1px solid #ddd; }
+      textarea{ border:1px solid #ddd; }
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
+  <div class="wrap">
+    <header>
+      <h1>When It All Falls Apart: Restored—but Different</h1>
+      <div class="sub">
+        <span class="pill"><strong>Scripture:</strong> Job 42:1–6; 10–12</span>
+        <span class="pill"><strong>Date:</strong> <span id="sermonDateText"></span></span>
+        <span class="pill"><strong>Notes:</strong> auto-save on this device</span>
+      </div>
+    </header>
 
-<h1>When It All Falls Apart: The God Who Speaks</h1>
-<p><strong>Date:</strong> January 18</p>
-<p><strong>Scripture:</strong> Job 38:1</p>
+    <div class="grid">
+      <section class="card">
+        <h2>Opening Reflection</h2>
+        <p class="lead">
+          Job reaches the end of his questions—and the beginning of surrender.
+          God does not explain the suffering. God reveals Himself.
+          Restoration does not come through answers. It comes through encounter.
+        </p>
 
-<blockquote>
-“And for thirty-seven chapters, God is silent.”
-</blockquote>
+        <div class="quote">
+          <strong>Personal Reflection:</strong> Where are you still asking <em>why</em> instead of surrendering <em>who</em> you trust?
+        </div>
 
-<blockquote class="scripture">
-“The Lord answered Job out of the whirlwind.” (Job 38:1)
-</blockquote>
+        <label for="note_opening">Notes</label>
+        <textarea id="note_opening" placeholder="Write here…"></textarea>
+      </section>
 
-<div class="section">
-<h2>God Speaks — Without Explaining</h2>
+      <section class="card">
+        <h2>• Restoration Begins with Surrender, Not Explanation</h2>
 
-<p>When God finally speaks, He does not explain suffering.</p>
-<p>He does not answer Job’s questions.</p>
-<p>Instead, He asks His own.</p>
+        <div class="quote">
+          <strong>Job 42:2–3 (ASV):</strong> “I know that thou canst do all things… therefore have I uttered that which I understood not…”
+        </div>
 
-<blockquote class="scripture">
-“Who is this darkening counsel with words lacking knowledge?  
-Prepare yourself like a man;  
-I will interrogate you, and you will respond to me.  
-Where were you when I laid the earth’s foundations?”
-</blockquote>
+        <p class="lead">
+          Job does not receive an explanation—he receives perspective.
+          Surrender is not giving up; it is giving over.
+          God restores by re-centering the heart.
+        </p>
 
-<p class="question">Reflection:</p>
-<p>When life falls apart, what answers are you demanding from God?</p>
-<textarea data-key="section1"></textarea>
-</div>
+        <label>Reflection Questions</label>
+        <ul>
+          <li>What explanations are you still demanding from God?</li>
+          <li>Where might surrender bring more healing than answers?</li>
+          <li>What would it look like to trust God without clarity?</li>
+        </ul>
 
-<div class="section">
-<h2>Creation Still Speaks When God Is Silent</h2>
+        <label for="note_point1">Notes</label>
+        <textarea id="note_point1" placeholder="Write here…"></textarea>
+      </section>
 
-<blockquote class="scripture">
-“The heavens are telling the glory of God.” — Psalm 19
-</blockquote>
+      <section class="card">
+        <h2>• Renewal Often Looks Like Forgiveness and Purpose</h2>
 
-<p>Even when God feels silent, creation continues to testify.</p>
+        <div class="quote">
+          <strong>Job 42:10 (ASV):</strong> “And Jehovah turned the captivity of Job, when he prayed for his friends…”
+        </div>
 
-<p class="question">Reflection:</p>
-<p>Where have you seen God’s fingerprints even when His voice felt quiet?</p>
-<textarea data-key="section2"></textarea>
-</div>
+        <p class="lead">
+          Restoration begins internally before it shows externally.
+          Job’s renewal starts when he prays for those who wounded him.
+          Forgiveness becomes a doorway to purpose.
+          God restores—not by erasing the past, but by redeeming it.
+        </p>
 
-<div class="section">
-<h2>God’s Perspective Is Bigger Than Our Pain</h2>
+        <label>Reflection Questions</label>
+        <ul>
+          <li>Who might God be inviting you to forgive?</li>
+          <li>How could forgiveness unlock your next step forward?</li>
+          <li>Where do you see God shaping new purpose from old pain?</li>
+        </ul>
 
-<blockquote class="scripture">
-“My thoughts are not your thoughts.” — Isaiah
-</blockquote>
+        <label for="note_point2">Notes</label>
+        <textarea id="note_point2" placeholder="Write here…"></textarea>
+      </section>
 
-<p>God’s silence is not absence.  
-God’s mystery is not neglect.</p>
+      <section class="card">
+        <h2>Closing Reflection</h2>
+        <p class="lead">
+          God does restore—but not always to what was.
+          He restores us to who we are becoming.
+          Restoration doesn’t mean reversal. It means renewal.
+        </p>
 
-<p class="question">Reflection:</p>
-<p>Where might God be working beyond what you can see or understand?</p>
-<textarea data-key="section3"></textarea>
-</div>
+        <div class="quote">
+          <strong>Final Reflection:</strong> What part of your life is God restoring—not back, but forward?
+        </div>
 
-<div class="section">
-<h2>Jesus Speaks the Same Way</h2>
+        <label for="note_closing">Notes</label>
+        <textarea id="note_closing" placeholder="Write here…"></textarea>
 
-<p>Jesus calms storms without explanation.</p>
+        <div class="divider"></div>
 
-<blockquote class="scripture">
-“Who then is this?”
-</blockquote>
+        <div class="row noPrint">
+          <div class="btns">
+            <button class="btn2" id="btnCopy">Copy Notes</button>
+            <button class="btn2" id="btnExport">Export Notes</button>
+            <button class="btn2" id="btnPrint">Print</button>
+            <button class="btn2" id="btnClear">Clear Notes</button>
+          </div>
+          <div class="status" id="statusText">Saved.</div>
+        </div>
 
-<p class="question">Reflection:</p>
-<p>Has your faith been shaped more by explanations—or by encounters?</p>
-<textarea data-key="section4"></textarea>
-</div>
+        <!-- EMAIL MY NOTES (BOTTOM, ON PURPOSE) -->
+        <div class="divider"></div>
 
-<div class="section">
-<h2>Awe Reorients Us When Life Falls Apart</h2>
+        <h2 style="margin-top:0;">Email My Notes</h2>
+        <p class="lead" style="margin-bottom:6px;">
+          This creates an email draft with your notes already filled in.
+        </p>
 
-<p>When life collapses, worship lifts our eyes above the noise.</p>
+        <div class="emailGrid noPrint">
+          <div class="emailRow">
+            <input id="emailTo" type="email" placeholder="Your email address" autocomplete="email" />
+            <button class="btn" id="btnEmail">Create Email</button>
+          </div>
+          <div class="hint">
+            If nothing happens, you may not have a default email app set on this device (or you’re using webmail).
+            In that case, use <strong>Copy Notes</strong> and paste into Gmail.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
-<p class="question">Reflection:</p>
-<p>What would it look like to choose awe over answers this week?</p>
-<textarea data-key="section5"></textarea>
-</div>
+  <script>
+    /***********************
+     * CONFIG (EDIT IF NEEDED)
+     ***********************/
+    // If you want a fixed date displayed, set it like: "January 18, 2026"
+    // If left blank, it will auto-fill with today's date (America/New_York).
+    const SERMON_DATE = "";
 
-<div class="section">
-<h2>God Reminds Job He Is Not Alone in the Story</h2>
+    const SERMON_TITLE = "When It All Falls Apart: Restored—but Different";
+    const SERMON_SCRIPTURE = "Job 42:1–6; 10–12";
 
-<p>The whirlwind is not chaos — it is where God speaks.</p>
+    // Storage key (change only if you want notes to reset for a new version)
+    const STORAGE_KEY = "vumc_sermon_notes_job42_restored_but_different_v1";
 
-<p class="question">Final Reflection:</p>
-<p>Where do you need to trust that God is still present, even without answers?</p>
-<textarea data-key="section6"></textarea>
-</div>
+    /***********************
+     * DATE
+     ***********************/
+    function formatDateNY(d){
+      // Force America/New_York display for consistency with your workflow
+      const fmt = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+      return fmt.format(d);
+    }
+    const sermonDateText = document.getElementById("sermonDateText");
+    sermonDateText.textContent = SERMON_DATE?.trim() ? SERMON_DATE.trim() : formatDateNY(new Date());
 
-<div class="email-box">
-<h3>Email My Notes</h3>
-<input type="email" id="email" placeholder="Enter your email address">
+    /***********************
+     * NOTES (AUTO-SAVE)
+     ***********************/
+    const fields = [
+      { id: "note_opening", label: "Opening Reflection" },
+      { id: "note_point1", label: "Restoration Begins with Surrender, Not Explanation" },
+      { id: "note_point2", label: "Renewal Often Looks Like Forgiveness and Purpose" },
+      { id: "note_closing", label: "Closing Reflection" }
+    ];
 
-<button onclick="sendEmail()">Email My Notes</button>
+    const statusText = document.getElementById("statusText");
+    let saveTimer = null;
 
-<p class="footer-note">
-Notes are saved automatically on this device.
-</p>
-</div>
-
-</div>
-
-<script>
-  const textareas = document.querySelectorAll("textarea");
-
-  textareas.forEach(area => {
-    const key = area.dataset.key;
-    area.value = localStorage.getItem(key) || "";
-    area.addEventListener("input", () => {
-      localStorage.setItem(key, area.value);
-    });
-  });
-
-  function sendEmail() {
-    const email = document.getElementById("email").value;
-    if (!email) {
-      alert("Please enter an email address.");
-      return;
+    function setStatus(msg){
+      statusText.textContent = msg;
     }
 
-    let body = "When It All Falls Apart: The God Who Speaks\n";
-    body += "January 18\n\n";
+    function getState(){
+      const state = {};
+      fields.forEach(f => state[f.id] = (document.getElementById(f.id).value || ""));
+      state._meta = {
+        title: SERMON_TITLE,
+        scripture: SERMON_SCRIPTURE,
+        date: sermonDateText.textContent
+      };
+      return state;
+    }
 
-    textareas.forEach(area => {
-      body += area.value + "\n\n";
+    function saveState(){
+      try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(getState()));
+        setStatus("Saved.");
+      }catch(e){
+        setStatus("Could not save (storage blocked).");
+      }
+    }
+
+    function scheduleSave(){
+      setStatus("Saving…");
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 350);
+    }
+
+    function loadState(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return;
+        const state = JSON.parse(raw);
+        fields.forEach(f => {
+          if (typeof state[f.id] === "string") document.getElementById(f.id).value = state[f.id];
+        });
+        setStatus("Loaded saved notes.");
+        setTimeout(() => setStatus("Saved."), 900);
+      }catch(e){
+        // ignore
+      }
+    }
+
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      el.addEventListener("input", scheduleSave);
     });
 
-    const mailto = `mailto:${email}?subject=My Sermon Notes - January 18&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-  }
-</script>
+    loadState();
 
+    /***********************
+     * BUILD TEXT OUTPUT
+     ***********************/
+    function buildNotesText(){
+      const meta = getState()._meta;
+      const lines = [];
+      lines.push(meta.title);
+      lines.push(`Date: ${meta.date}`);
+      lines.push(`Scripture: ${meta.scripture}`);
+      lines.push("");
+      fields.forEach(f => {
+        const val = (document.getElementById(f.id).value || "").trim();
+        lines.push(f.label);
+        lines.push(val ? val : "[No notes]");
+        lines.push("");
+      });
+      return lines.join("\n");
+    }
+
+    /***********************
+     * BUTTONS
+     ***********************/
+    document.getElementById("btnCopy").addEventListener("click", async () => {
+      const text = buildNotesText();
+      try{
+        await navigator.clipboard.writeText(text);
+        setStatus("Copied to clipboard.");
+        setTimeout(() => setStatus("Saved."), 900);
+      }catch(e){
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        setStatus("Copied.");
+        setTimeout(() => setStatus("Saved."), 900);
+      }
+    });
+
+    document.getElementById("btnExport").addEventListener("click", () => {
+      const text = buildNotesText();
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const safeDate = sermonDateText.textContent.replace(/[,]/g,"").replace(/\s+/g,"-");
+      a.href = url;
+      a.download = `${SERMON_TITLE.replace(/[^\w\s-]/g,"").replace(/\s+/g,"-")}_${safeDate}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      setStatus("Exported.");
+      setTimeout(() => setStatus("Saved."), 900);
+    });
+
+    document.getElementById("btnPrint").addEventListener("click", () => {
+      window.print();
+    });
+
+    document.getElementById("btnClear").addEventListener("click", () => {
+      if(!confirm("Clear all notes for this sermon?")) return;
+      fields.forEach(f => document.getElementById(f.id).value = "");
+      saveState();
+      setStatus("Cleared.");
+      setTimeout(() => setStatus("Saved."), 900);
+    });
+
+    /***********************
+     * EMAIL (BOTTOM)
+     * Creates a mailto draft so users don't accidentally send empty notes first.
+     ***********************/
+    document.getElementById("btnEmail").addEventListener("click", () => {
+      const to = (document.getElementById("emailTo").value || "").trim();
+      if(!to){
+        alert("Enter your email address first.");
+        document.getElementById("emailTo").focus();
+        return;
+      }
+
+      const subject = `${SERMON_TITLE} — Notes (${sermonDateText.textContent})`;
+      const body = buildNotesText();
+
+      // mailto encoding
+      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      setStatus("Email draft created.");
+      setTimeout(() => setStatus("Saved."), 900);
+    });
+  </script>
 </body>
 </html>

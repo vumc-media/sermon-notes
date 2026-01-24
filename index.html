@@ -304,12 +304,14 @@
           </div>
         </div>
 
-        <!-- RETURN TO CHURCH CENTER (VERY BOTTOM) -->
+        <!-- RETURN TO CHURCH CENTER (FORCE EXTERNAL OPEN) -->
         <div class="divider"></div>
 
         <div class="noPrint" style="text-align:center; margin-top:18px;">
           <a
             href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
+            target="_blank"
+            rel="noopener"
             style="
               display:inline-block;
               padding:14px 22px;
@@ -320,6 +322,12 @@
               text-decoration:none;
               font-size:15px;
             "
+            onclick="try{
+              const url=this.href;
+              const w=window.open(url,'_blank');
+              if(!w){ window.location.href=url; }
+              return false;
+            }catch(e){ return true; }"
           >
             ← Return to Church Center
           </a>
@@ -340,10 +348,7 @@
     const SERMON_DATE = "January 25, 2026";
     const SERMON_TITLE = "When It All Falls Apart: Restored—but Different";
     const SERMON_SCRIPTURE = "Job 42:1–6; 10–12";
-
-    // Change this key each week if you want notes to reset automatically.
-    // If you keep it the same, returning users will see last week's notes.
-    const STORAGE_KEY = "vumc_sermon_notes_job42_restored_but_different_2026_01_25_v1";
+    const STORAGE_KEY = "vumc_sermon_notes_job42_restored_but_different_2026_01_25_v2";
 
     /***********************
      * DATE

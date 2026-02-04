@@ -1,259 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Whitewashed Tombs — Clean Outside and the Cracked Inside</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Whitewashed Tombs: The Rotten Root of Envy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body{
-      font-family: Georgia, serif;
-      background:#ffffff;
-      color:#111;
-      margin:0;
-      padding:20px;
-      line-height:1.6;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
     }
-    .container{
-      max-width:820px;
-      margin:0 auto;
+    h1, h2, h3 {
+      color: #222;
     }
-    h1{ font-size:1.9em; margin:0 0 6px 0; }
-    h2{
-      font-size:1.35em;
-      margin-top:34px;
-      border-bottom:2px solid #ddd;
-      padding-bottom:6px;
+    h1 {
+      margin-bottom: 0;
     }
-    h3{ font-size:1.15em; margin:0 0 8px 0; }
-    .subtitle{
-      font-style:italic;
-      color:#444;
-      margin-bottom:14px;
+    .date {
+      color: #555;
+      margin-bottom: 20px;
     }
-    .meta{
-      margin:12px 0 14px 0;
-      padding:12px;
-      background:#f7f7f7;
-      border-left:4px solid #999;
-      border-radius:6px;
+    .section {
+      margin-bottom: 30px;
     }
-    .keyline{
-      font-weight:bold;
-      font-style:italic;
-      margin:14px 0;
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
-    .reflection{
-      background:#f7f7f7;
-      padding:12px;
-      border-left:4px solid #999;
-      margin-top:14px;
-      border-radius:6px;
+    .reflection {
+      background: #f7f7f7;
+      padding: 15px;
+      border-left: 4px solid #999;
+      margin-top: 15px;
     }
-    textarea{
-      width:100%;
-      min-height:100px;
-      margin-top:10px;
-      padding:10px;
-      font-family: Georgia, serif;
-      font-size:1em;
-      border:1px solid #ccc;
-      border-radius:6px;
-      box-sizing:border-box;
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
     }
-    .divider{
-      margin:34px 0;
-      border-top:1px solid #ccc;
+    .email-btn {
+      background: #2c6bed;
+      color: #fff;
     }
-
-    .email-box{
-      background:#f1f1f1;
-      padding:16px;
-      border-radius:8px;
-      margin-top:22px;
-      border:1px solid #ddd;
+    .return-btn {
+      background: #555;
+      color: #fff;
     }
-    input[type="email"]{
-      width:100%;
-      padding:10px;
-      font-size:1em;
-      margin:10px 0 12px 0;
-      border:1px solid #bbb;
-      border-radius:6px;
-      box-sizing:border-box;
-    }
-    .btn{
-      display:inline-block;
-      padding:12px 18px;
-      font-size:1em;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      text-align:center;
-    }
-    .send-btn{
-      background:#2d6cdf;
-      color:#fff;
-      width:100%;
-    }
-
-    /* Return link styled as button (uses <a>, not JS) */
-    .return-btn{
-      display:block;
-      text-align:center;
-      text-decoration:none;
-      padding:12px 18px;
-      font-size:1em;
-      border-radius:6px;
-      background:#444;
-      color:#fff;
-      width:100%;
-      margin-top:18px;
-    }
-
-    .failsafe{
-      margin-top:10px;
-      font-size:0.95em;
-      color:#444;
-    }
-
-    footer{
-      margin-top:34px;
-      font-size:0.9em;
-      color:#666;
-      text-align:center;
+    footer {
+      margin-top: 40px;
     }
   </style>
+
+  <script>
+    function emailNotes() {
+      const title = "Whitewashed Tombs: The Rotten Root of Envy";
+      const date = document.getElementById("sermonDate").innerText;
+
+      let body = title + "\n" + date + "\n\n";
+
+      document.querySelectorAll("textarea").forEach((box, i) => {
+        body += "Notes " + (i + 1) + ":\n" + box.value + "\n\n";
+      });
+
+      const mailtoLink = "mailto:?subject=" +
+        encodeURIComponent(title + " Sermon Notes") +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+    }
+  </script>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Whitewashed Tombs — Clean Outside and the Cracked Inside</h1>
-    <div class="subtitle">The Trap of Looking Righteous Without Being Transformed</div>
 
-    <div class="meta">
-      <div><strong>Scripture:</strong> Matthew 23:25–28; 1 Samuel 16:7</div>
-      <div style="margin-top:8px;"><strong>Key Verse:</strong><br>
-        “You are like whitewashed tombs. They look beautiful on the outside. But inside they are full of dead bones and all kinds of filth.
-        In the same way you look righteous to people. But inside you are full of pretense and rebellion.” — Matthew 23:27–28
-      </div>
-      <div class="keyline">You can impress people with the outside, but only intimacy with God transforms the inside.</div>
-      <div><strong>Big Idea:</strong> God doesn’t just see what we do—He sees who we are. Jesus isn’t impressed with our filters; He wants our hearts.</div>
-    </div>
-
-    <h2>1. Clean Outside, Neglected Inside</h2>
-    <p>
-      Jesus confronts the danger of focusing on external behavior while avoiding internal surrender.
-      Discipline without devotion leads to appearance without transformation.
-    </p>
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      Where have I focused more on appearing faithful than becoming faithful?
-    </div>
-    <textarea id="notes1" placeholder="Notes / reflections..."></textarea>
-
-    <div class="divider"></div>
-
-    <h2>2. Appearance Can Fool People, But Not God</h2>
-    <p>
-      People see behavior. God sees motive. Whitewash hides cracks—it does not heal them.
-      God is not impressed by image management; He desires honesty and humility.
-    </p>
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      What parts of my life look righteous to others but remain untouched by God?
-    </div>
-    <textarea id="notes2" placeholder="Notes / reflections..."></textarea>
-
-    <div class="divider"></div>
-
-    <h2>3. Performance Never Transforms — Presence Does</h2>
-    <p>
-      Transformation does not come from trying harder, but from staying closer.
-      Jesus calls us not to perform holiness, but to abide in His presence.
-    </p>
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      What would change if I spent more time with Jesus than managing my image?
-    </div>
-    <textarea id="notes3" placeholder="Notes / reflections..."></textarea>
-
-    <div class="divider"></div>
-
-    <!-- Email My Notes (BOTTOM) -->
-    <div class="email-box">
-      <h3>Email My Notes</h3>
-      <p style="margin:0 0 8px 0;">Enter your email to receive your notes from today’s sermon.</p>
-      <input type="email" id="email" placeholder="your@email.com" />
-      <button class="btn send-btn" type="button" onclick="sendNotes()">Send Notes</button>
-      <p style="margin:10px 0 0 0; font-size:0.9em; color:#555;">
-        Note: this uses your device’s email app to send the message.
-      </p>
-    </div>
-
-    <!-- Return to Church Center (use <a>, not window.location) -->
-    <a
-      class="return-btn"
-      href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
-      target="_top"
-      rel="noopener"
-    >
-      ← Return to Church Center
-    </a>
-
-    <div class="failsafe">
-      If the button doesn’t work, tap here:
-      <a href="https://versaillesumc.churchcenter.com/pages/vumc-hub" target="_top" rel="noopener">
-        Return to Church Center
-      </a>
-    </div>
-
-    <footer>
-      Versailles United Methodist Church · VUMC Connect
-    </footer>
+  <h1>Whitewashed Tombs: The Rotten Root of Envy</h1>
+  <div class="date" id="sermonDate">
+    February 8, 2026
   </div>
 
-  <script>
-    function sendNotes() {
-      const email = document.getElementById("email").value.trim();
-      if (!email) {
-        alert("Please enter your email address first.");
-        return;
-      }
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2>1. Envy Pollutes the Heart</h2>
+    <h3>James 3:14–16</h3>
 
-      const title = "Whitewashed Tombs — Clean Outside and the Cracked Inside";
-      const scripture = "Matthew 23:25–28; 1 Samuel 16:7";
-      const dateStr = new Date().toLocaleDateString();
+    <p>
+      “If you have bitter envy and selfish ambition in your heart… there you find
+      disorder and every kind of evil.”
+    </p>
 
-      const sections = [
-        { label: "1) Clean Outside, Neglected Inside", id: "notes1" },
-        { label: "2) Appearance Can Fool People, But Not God", id: "notes2" },
-        { label: "3) Performance Never Transforms — Presence Does", id: "notes3" }
-      ];
+    <p>
+      Envy is not harmless. Scripture exposes it as spiritual rot—earthly,
+      unspiritual, and destructive.
+    </p>
 
-      const bodyLines = [];
-      bodyLines.push(title);
-      bodyLines.push("Date: " + dateStr);
-      bodyLines.push("Scripture: " + scripture);
-      bodyLines.push("");
-      bodyLines.push("Key Line: You can impress people with the outside, but only intimacy with God transforms the inside.");
-      bodyLines.push("");
-      bodyLines.push("My Notes:");
-      bodyLines.push("");
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      Where might envy be hiding in my heart—disguised as ambition,
+      frustration, or comparison?
+    </div>
 
-      sections.forEach(s => {
-        const val = (document.getElementById(s.id).value || "").trim();
-        bodyLines.push(s.label);
-        bodyLines.push(val ? val : "(no notes)");
-        bodyLines.push("");
-      });
+    <textarea placeholder="My notes..."></textarea>
+  </div>
 
-      const subject = encodeURIComponent("Sermon Notes – Whitewashed Tombs");
-      const body = encodeURIComponent(bodyLines.join("\n"));
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2>2. Envy Poisons Your Peace</h2>
+    <h3>Proverbs 14:30</h3>
 
-      // mailto opens user's email client. Works best on mobile too.
-      window.location.href = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${body}`;
-    }
-  </script>
+    <p>
+      “A peaceful heart gives life to the body, but envy rots the bones.”
+    </p>
+
+    <p>
+      Envy steals joy, contentment, and rest. Peace and envy cannot coexist.
+    </p>
+
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      How has comparison affected my peace lately?
+    </div>
+
+    <textarea placeholder="My notes..."></textarea>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2>3. Envy Distorts Your Vision</h2>
+    <h3>Mark 15:9–11</h3>
+
+    <p>
+      Pilate knew the truth: Jesus was handed over out of envy.
+    </p>
+
+    <p>
+      Envy blinded religious leaders to the presence of God right in front of them.
+    </p>
+
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      Is envy shaping how I see others—or how I see Jesus?
+    </div>
+
+    <textarea placeholder="My notes..."></textarea>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section">
+    <h2>Closing Application</h2>
+
+    <ul>
+      <li>Rejoice with those who rejoice — clap loudest for others</li>
+      <li>Recognize what you have — gratitude opens your eyes</li>
+      <li>Give thanks daily — envy fades where thankfulness grows</li>
+    </ul>
+
+    <textarea placeholder="What is God inviting me to change this week?"></textarea>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <button class="email-btn" onclick="emailNotes()">
+      Email My Notes
+    </button>
+
+    <button class="return-btn" onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
+      Return to Church Center
+    </button>
+  </footer>
+
 </body>
 </html>

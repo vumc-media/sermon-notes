@@ -17,7 +17,6 @@
     h1, h2, h3 { color: #222; }
     h1 { margin-bottom: 0; }
     .date { color: #555; margin-bottom: 20px; }
-
     .section { margin-bottom: 30px; }
 
     textarea {
@@ -42,10 +41,14 @@
       background:#f7fbff;
       border:1px solid #cfe3ff;
       border-radius: 10px;
-      padding: 14px;
+      padding: 15px;
       margin: 18px 0 26px;
     }
-    .email-card label{ font-weight:700; display:block; margin-bottom:8px; }
+    .email-card label{
+      font-weight:700;
+      display:block;
+      margin-bottom:8px;
+    }
     .email-card input{
       width:100%;
       padding: 12px;
@@ -54,7 +57,11 @@
       border-radius: 8px;
       box-sizing:border-box;
     }
-    .hint{ font-size: 13px; color:#446; margin-top: 8px; }
+    .hint{
+      font-size: 13px;
+      color:#446;
+      margin-top: 8px;
+    }
 
     button {
       width: 100%;
@@ -69,21 +76,116 @@
     .email-btn { background: #2c6bed; color: #fff; }
     .return-btn { background: #555; color: #fff; }
 
-    .status {
-      margin-top: 12px;
-      font-weight: 700;
-    }
+    .status { margin-top: 10px; font-weight: 700; }
     .ok { color: #0a7a2f; }
     .err { color: #b00020; }
 
     footer { margin-top: 40px; }
+
+    /* hidden iframe */
+    #submitFrame { display:none; width:0; height:0; border:0; }
   </style>
+</head>
+
+<body>
+
+  <h1>Whitewashed Tombs: The Rotten Root of Envy</h1>
+  <div class="date" id="sermonDate">February 8, 2026</div>
+
+  <!-- EMAIL BOX -->
+  <div class="email-card">
+    <label for="emailTo">Email my notes to:</label>
+    <input id="emailTo" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
+    <div class="hint">Privacy note: these notes are emailed only to you and are not saved.</div>
+    <div id="status" class="status"></div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2>1. Envy Pollutes the Heart</h2>
+    <h3>James 3:14–16</h3>
+
+    <p>
+      “If you have bitter envy and selfish ambition in your heart… there you find
+      disorder and every kind of evil.”
+    </p>
+
+    <p>
+      Envy is not harmless. Scripture exposes it as spiritual rot—earthly,
+      unspiritual, and destructive.
+    </p>
+
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      Where might envy be hiding in my heart—disguised as ambition,
+      frustration, or comparison?
+    </div>
+
+    <textarea placeholder="My notes..."></textarea>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2>2. Envy Poisons Your Peace</h2>
+    <h3>Proverbs 14:30</h3>
+
+    <p>“A peaceful heart gives life to the body, but envy rots the bones.”</p>
+    <p>Envy steals joy, contentment, and rest. Peace and envy cannot coexist.</p>
+
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      How has comparison affected my peace lately?
+    </div>
+
+    <textarea placeholder="My notes..."></textarea>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2>3. Envy Distorts Your Vision</h2>
+    <h3>Mark 15:9–11</h3>
+
+    <p>Pilate knew the truth: Jesus was handed over out of envy.</p>
+    <p>Envy blinded religious leaders to the presence of God right in front of them.</p>
+
+    <div class="reflection">
+      <strong>Reflection:</strong><br>
+      Is envy shaping how I see others—or how I see Jesus?
+    </div>
+
+    <textarea placeholder="My notes..."></textarea>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section">
+    <h2>Closing Application</h2>
+    <ul>
+      <li>Rejoice with those who rejoice — clap loudest for others</li>
+      <li>Recognize what you have — gratitude opens your eyes</li>
+      <li>Give thanks daily — envy fades where thankfulness grows</li>
+    </ul>
+
+    <textarea placeholder="What is God inviting me to change this week?"></textarea>
+  </div>
+
+  <!-- Hidden form that posts to Apps Script (no CORS problems) -->
+  <form id="sendForm" method="POST" target="submitFrame"
+        action="https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec">
+    <input type="hidden" name="payload" id="payloadField" value="">
+  </form>
+  <iframe id="submitFrame" name="submitFrame"></iframe>
+
+  <!-- FOOTER -->
+  <footer>
+    <button id="emailBtn" class="email-btn" type="button">Email My Notes</button>
+
+    <button class="return-btn" type="button"
+            onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
+      Return to Church Center
+    </button>
+  </footer>
 
   <script>
-    // ✅ Paste your Google Apps Script Web App /exec URL here:
-    const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE";
-
-    // ✅ Where to send them back inside Church Center:
     const RETURN_URL = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
 
     function setStatus(msg, cls){
@@ -92,9 +194,23 @@
       el.className = "status " + (cls || "");
     }
 
-    function buildPayload() {
-      const title = "Whitewashed Tombs: The Rotten Root of Envy";
-      const date = document.getElementById("sermonDate").innerText.trim();
+    function isValidEmail(email){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function goBackToChurchCenter(){
+      try {
+        if (window.history.length > 1) {
+          window.history.back();
+          return;
+        }
+      } catch(e) {}
+      window.location.href = RETURN_URL;
+    }
+
+    function buildPayload(){
+      const title = document.querySelector("h1")?.innerText?.trim() || "Sermon Notes";
+      const date  = document.getElementById("sermonDate")?.innerText?.trim() || "";
       const email = (document.getElementById("emailTo").value || "").trim();
 
       const sections = [];
@@ -108,28 +224,32 @@
       return { title, date, email, sections, returnUrl: RETURN_URL };
     }
 
-    function goBackToChurchCenter() {
-      // Best UX: return to whatever Church Center screen launched the notes
-      try {
-        if (window.history.length > 1) {
-          window.history.back();
-          return;
-        }
-      } catch(e) {}
-      // Fallback: hub
-      window.location.href = RETURN_URL;
-    }
+    // Listen for Apps Script response (postMessage from iframe)
+    window.addEventListener("message", (event) => {
+      // Extra safety: only accept messages from Google's script domains
+      const origin = String(event.origin || "");
+      const okOrigin =
+        origin.startsWith("https://script.google.com") ||
+        origin.startsWith("https://script.googleusercontent.com");
 
-    async function emailNotes() {
-      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE")) {
-        setStatus("Missing Apps Script URL. Paste your /exec link into APPS_SCRIPT_URL.", "err");
-        return;
+      if (!okOrigin) return;
+
+      const data = event.data || {};
+      const btn = document.getElementById("emailBtn");
+
+      if (data.ok) {
+        setStatus("Sent! Taking you back to Church Center…", "ok");
+        setTimeout(goBackToChurchCenter, 650);
+      } else {
+        setStatus(data.message || "Could not send right now. Try again.", "err");
+        btn.disabled = false;
+        btn.textContent = "Email My Notes";
       }
+    });
 
-      const payload = buildPayload();
-
-      // Basic email validation
-      if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+    document.getElementById("emailBtn").addEventListener("click", () => {
+      const email = (document.getElementById("emailTo").value || "").trim();
+      if (!email || !isValidEmail(email)) {
         setStatus("Please enter a valid email address so we can send your notes.", "err");
         document.getElementById("emailTo").focus();
         return;
@@ -140,97 +260,13 @@
       btn.textContent = "Sending…";
       setStatus("Emailing your notes…", "");
 
-      try {
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+      const payload = buildPayload();
+      document.getElementById("payloadField").value = JSON.stringify(payload);
 
-        const text = await res.text();
-        if (!res.ok) throw new Error(text || "Request failed");
-
-        setStatus("Sent! Taking you back to Church Center…", "ok");
-
-        setTimeout(() => {
-          // Most “app-like” first:
-          goBackToChurchCenter();
-        }, 700);
-
-      } catch (err) {
-        console.error(err);
-        setStatus("Something went wrong sending your notes. You can tap Return to Church Center and try again.", "err");
-        btn.disabled = false;
-        btn.textContent = "Email My Notes";
-      }
-    }
+      // Submit the form to Apps Script in a hidden iframe (reliable)
+      document.getElementById("sendForm").submit();
+    });
   </script>
-</head>
-
-<body>
-
-  <h1>Whitewashed Tombs: The Rotten Root of Envy</h1>
-  <div class="date" id="sermonDate">February 8, 2026</div>
-
-  <!-- NEW EMAIL BOX -->
-  <div class="email-card">
-    <label for="emailTo">Email my notes to:</label>
-    <input id="emailTo" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
-    <div class="hint">Privacy note: these notes are emailed only to you and are not saved.</div>
-    <div id="status" class="status"></div>
-  </div>
-
-  <!-- SECTION 1 -->
-  <div class="section">
-    <h2>1. Envy Pollutes the Heart</h2>
-    <h3>James 3:14–16</h3>
-    <p>“If you have bitter envy and selfish ambition in your heart… there you find disorder and every kind of evil.”</p>
-    <p>Envy is not harmless. Scripture exposes it as spiritual rot—earthly, unspiritual, and destructive.</p>
-    <div class="reflection"><strong>Reflection:</strong><br>Where might envy be hiding in my heart—disguised as ambition, frustration, or comparison?</div>
-    <textarea placeholder="My notes..."></textarea>
-  </div>
-
-  <!-- SECTION 2 -->
-  <div class="section">
-    <h2>2. Envy Poisons Your Peace</h2>
-    <h3>Proverbs 14:30</h3>
-    <p>“A peaceful heart gives life to the body, but envy rots the bones.”</p>
-    <p>Envy steals joy, contentment, and rest. Peace and envy cannot coexist.</p>
-    <div class="reflection"><strong>Reflection:</strong><br>How has comparison affected my peace lately?</div>
-    <textarea placeholder="My notes..."></textarea>
-  </div>
-
-  <!-- SECTION 3 -->
-  <div class="section">
-    <h2>3. Envy Distorts Your Vision</h2>
-    <h3>Mark 15:9–11</h3>
-    <p>Pilate knew the truth: Jesus was handed over out of envy.</p>
-    <p>Envy blinded religious leaders to the presence of God right in front of them.</p>
-    <div class="reflection"><strong>Reflection:</strong><br>Is envy shaping how I see others—or how I see Jesus?</div>
-    <textarea placeholder="My notes..."></textarea>
-  </div>
-
-  <!-- CLOSING -->
-  <div class="section">
-    <h2>Closing Application</h2>
-    <ul>
-      <li>Rejoice with those who rejoice — clap loudest for others</li>
-      <li>Recognize what you have — gratitude opens your eyes</li>
-      <li>Give thanks daily — envy fades where thankfulness grows</li>
-    </ul>
-    <textarea placeholder="What is God inviting me to change this week?"></textarea>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <button id="emailBtn" class="email-btn" type="button" onclick="emailNotes()">
-      Email My Notes
-    </button>
-
-    <button class="return-btn" type="button" onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
-      Return to Church Center
-    </button>
-  </footer>
 
 </body>
 </html>

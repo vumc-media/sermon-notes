@@ -37,30 +37,32 @@
       margin-top: 15px;
     }
 
-    .email-card{
+    /* ACTION AREA (BOTTOM) */
+    .action-card {
       background:#f7fbff;
       border:1px solid #cfe3ff;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 18px 0 26px;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 40px;
     }
-    .email-card label{
-      font-weight:700;
+    .action-card label {
+      font-weight: 700;
       display:block;
-      margin-bottom:8px;
+      margin-bottom: 6px;
     }
-    .email-card input{
+    .action-card input {
       width:100%;
       padding: 12px;
       font-size: 16px;
       border:1px solid #b8c7dd;
       border-radius: 8px;
       box-sizing:border-box;
+      margin-bottom: 10px;
     }
-    .hint{
+    .hint {
       font-size: 13px;
       color:#446;
-      margin-top: 8px;
+      margin-bottom: 10px;
     }
 
     button {
@@ -70,7 +72,7 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 15px;
+      margin-top: 10px;
       font-weight: 700;
     }
     .email-btn { background: #2c6bed; color: #fff; }
@@ -80,9 +82,6 @@
     .ok { color: #0a7a2f; }
     .err { color: #b00020; }
 
-    footer { margin-top: 40px; }
-
-    /* hidden iframe */
     #submitFrame { display:none; width:0; height:0; border:0; }
   </style>
 </head>
@@ -92,35 +91,13 @@
   <h1>Whitewashed Tombs: The Rotten Root of Envy</h1>
   <div class="date" id="sermonDate">February 8, 2026</div>
 
-  <!-- EMAIL BOX -->
-  <div class="email-card">
-    <label for="emailTo">Email my notes to:</label>
-    <input id="emailTo" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
-    <div class="hint">Privacy note: these notes are emailed only to you and are not saved.</div>
-    <div id="status" class="status"></div>
-  </div>
-
   <!-- SECTION 1 -->
   <div class="section">
     <h2>1. Envy Pollutes the Heart</h2>
     <h3>James 3:14–16</h3>
-
-    <p>
-      “If you have bitter envy and selfish ambition in your heart… there you find
-      disorder and every kind of evil.”
-    </p>
-
-    <p>
-      Envy is not harmless. Scripture exposes it as spiritual rot—earthly,
-      unspiritual, and destructive.
-    </p>
-
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      Where might envy be hiding in my heart—disguised as ambition,
-      frustration, or comparison?
-    </div>
-
+    <p>“If you have bitter envy and selfish ambition in your heart… there you find disorder and every kind of evil.”</p>
+    <p>Envy is not harmless. Scripture exposes it as spiritual rot—earthly, unspiritual, and destructive.</p>
+    <div class="reflection"><strong>Reflection:</strong><br>Where might envy be hiding in my heart?</div>
     <textarea placeholder="My notes..."></textarea>
   </div>
 
@@ -128,15 +105,9 @@
   <div class="section">
     <h2>2. Envy Poisons Your Peace</h2>
     <h3>Proverbs 14:30</h3>
-
     <p>“A peaceful heart gives life to the body, but envy rots the bones.”</p>
-    <p>Envy steals joy, contentment, and rest. Peace and envy cannot coexist.</p>
-
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      How has comparison affected my peace lately?
-    </div>
-
+    <p>Envy steals joy, contentment, and rest.</p>
+    <div class="reflection"><strong>Reflection:</strong><br>How has comparison affected my peace?</div>
     <textarea placeholder="My notes..."></textarea>
   </div>
 
@@ -144,15 +115,9 @@
   <div class="section">
     <h2>3. Envy Distorts Your Vision</h2>
     <h3>Mark 15:9–11</h3>
-
-    <p>Pilate knew the truth: Jesus was handed over out of envy.</p>
-    <p>Envy blinded religious leaders to the presence of God right in front of them.</p>
-
-    <div class="reflection">
-      <strong>Reflection:</strong><br>
-      Is envy shaping how I see others—or how I see Jesus?
-    </div>
-
+    <p>Pilate knew Jesus was handed over out of envy.</p>
+    <p>Envy blinds us to God’s presence.</p>
+    <div class="reflection"><strong>Reflection:</strong><br>Is envy shaping how I see Jesus?</div>
     <textarea placeholder="My notes..."></textarea>
   </div>
 
@@ -160,30 +125,37 @@
   <div class="section">
     <h2>Closing Application</h2>
     <ul>
-      <li>Rejoice with those who rejoice — clap loudest for others</li>
-      <li>Recognize what you have — gratitude opens your eyes</li>
-      <li>Give thanks daily — envy fades where thankfulness grows</li>
+      <li>Rejoice with those who rejoice</li>
+      <li>Practice gratitude</li>
+      <li>Give thanks daily</li>
     </ul>
-
     <textarea placeholder="What is God inviting me to change this week?"></textarea>
   </div>
 
-  <!-- Hidden form that posts to Apps Script (no CORS problems) -->
-  <form id="sendForm" method="POST" target="submitFrame"
-        action="https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec">
-    <input type="hidden" name="payload" id="payloadField" value="">
-  </form>
-  <iframe id="submitFrame" name="submitFrame"></iframe>
+  <!-- ACTION AREA -->
+  <div class="action-card">
+    <label for="emailTo">Email my notes to:</label>
+    <input id="emailTo" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
+    <div class="hint">These notes are emailed only to you and are not saved.</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <button id="emailBtn" class="email-btn" type="button">Email My Notes</button>
+    <div id="status" class="status"></div>
+
+    <button id="emailBtn" class="email-btn" type="button">
+      Email My Notes
+    </button>
 
     <button class="return-btn" type="button"
-            onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
+      onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
       Return to Church Center
     </button>
-  </footer>
+  </div>
+
+  <!-- Hidden POST to Apps Script -->
+  <form id="sendForm" method="POST" target="submitFrame"
+        action="https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec">
+    <input type="hidden" name="payload" id="payloadField">
+  </form>
+  <iframe id="submitFrame" name="submitFrame"></iframe>
 
   <script>
     const RETURN_URL = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
@@ -204,14 +176,14 @@
           window.history.back();
           return;
         }
-      } catch(e) {}
+      } catch(e){}
       window.location.href = RETURN_URL;
     }
 
     function buildPayload(){
-      const title = document.querySelector("h1")?.innerText?.trim() || "Sermon Notes";
-      const date  = document.getElementById("sermonDate")?.innerText?.trim() || "";
-      const email = (document.getElementById("emailTo").value || "").trim();
+      const title = document.querySelector("h1").innerText.trim();
+      const date = document.getElementById("sermonDate").innerText.trim();
+      const email = document.getElementById("emailTo").value.trim();
 
       const sections = [];
       document.querySelectorAll("textarea").forEach((box, i) => {
@@ -224,33 +196,25 @@
       return { title, date, email, sections, returnUrl: RETURN_URL };
     }
 
-    // Listen for Apps Script response (postMessage from iframe)
     window.addEventListener("message", (event) => {
-      // Extra safety: only accept messages from Google's script domains
-      const origin = String(event.origin || "");
-      const okOrigin =
-        origin.startsWith("https://script.google.com") ||
-        origin.startsWith("https://script.googleusercontent.com");
+      const origin = event.origin || "";
+      if (!origin.includes("script.google")) return;
 
-      if (!okOrigin) return;
-
-      const data = event.data || {};
-      const btn = document.getElementById("emailBtn");
-
-      if (data.ok) {
-        setStatus("Sent! Taking you back to Church Center…", "ok");
+      if (event.data && event.data.ok) {
+        setStatus("Sent! Returning to Church Center…", "ok");
         setTimeout(goBackToChurchCenter, 650);
       } else {
-        setStatus(data.message || "Could not send right now. Try again.", "err");
+        setStatus(event.data.message || "Unable to send. Try again.", "err");
+        const btn = document.getElementById("emailBtn");
         btn.disabled = false;
         btn.textContent = "Email My Notes";
       }
     });
 
     document.getElementById("emailBtn").addEventListener("click", () => {
-      const email = (document.getElementById("emailTo").value || "").trim();
-      if (!email || !isValidEmail(email)) {
-        setStatus("Please enter a valid email address so we can send your notes.", "err");
+      const email = document.getElementById("emailTo").value.trim();
+      if (!isValidEmail(email)) {
+        setStatus("Please enter a valid email address.", "err");
         document.getElementById("emailTo").focus();
         return;
       }
@@ -260,10 +224,9 @@
       btn.textContent = "Sending…";
       setStatus("Emailing your notes…", "");
 
-      const payload = buildPayload();
-      document.getElementById("payloadField").value = JSON.stringify(payload);
+      document.getElementById("payloadField").value =
+        JSON.stringify(buildPayload());
 
-      // Submit the form to Apps Script in a hidden iframe (reliable)
       document.getElementById("sendForm").submit();
     });
   </script>

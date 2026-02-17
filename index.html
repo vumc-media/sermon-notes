@@ -1,189 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>From Tomb to Testimony</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Into the Wilderness — Interactive Sermon Notes</title>
 
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111;
-      margin: 0;
-      padding: 20px;
-      line-height: 1.6;
+    :root{
+      --bg:#ffffff;
+      --card:#f6f7f9;
+      --text:#111;
+      --muted:#5a6472;
+      --border:#d7dde5;
+      --accent:#1f6feb;
+      --accent2:#0b4aa2;
+      --good:#137333;
+      --warn:#b45309;
+      --danger:#b91c1c;
+      --shadow: 0 6px 18px rgba(0,0,0,.08);
+      --radius: 16px;
     }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 5px;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#ffffff 0%, #f8fafc 60%, #ffffff 100%);
     }
-
-    h2 {
-      margin-top: 30px;
-      color: #333;
+    header{
+      padding:22px 18px 14px;
+      max-width: 980px;
+      margin: 0 auto;
     }
-
-    .scripture {
-      background: #f4f4f4;
-      border-left: 4px solid #555;
-      padding: 12px;
-      margin: 15px 0;
-      font-size: 0.95em;
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      background:#fff;
+      margin-bottom:10px;
     }
-
-    .reflection {
-      margin-top: 10px;
-      font-weight: bold;
+    h1{
+      margin:6px 0 6px;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:-.3px;
     }
-
-    textarea {
-      width: 100%;
-      min-height: 90px;
-      margin-top: 8px;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+    .sub{
+      margin:0;
+      color:var(--muted);
+      line-height:1.45;
+      font-size:14px;
     }
-
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
+    main{
+      max-width:980px;
+      margin:0 auto;
+      padding: 8px 18px 80px;
     }
-
-    .email-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
     }
-
-    input[type="email"] {
-      flex: 1;
-      padding: 10px;
-      font-size: 1em;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
     }
-
-    button {
-      padding: 10px 16px;
-      font-size: 1em;
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
     }
-
-    button:hover {
-      opacity: 0.85;
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.2px;
     }
-
-    .center {
-      text-align: center;
+    .card h3{
+      margin:16px 0 8px;
+      font-size:15px;
+      color:#0f172a;
     }
-
-    .secondary-btn {
-      background: #666;
-      margin-top: 10px;
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .scripture{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      color:#0f172a;
+      line-height:1.55;
+      font-size:14px;
+    }
+    .scripture .ref{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    textarea, input[type="text"], input[type="email"]{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+    }
+    textarea{
+      min-height:110px;
+      resize:vertical;
+      line-height:1.45;
+    }
+    textarea:focus, input:focus{
+      border-color: rgba(31,111,235,.65);
+      box-shadow: 0 0 0 4px rgba(31,111,235,.12);
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--border);
+      background:#fff;
+      color:#0f172a;
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+      transition: .15s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      background:var(--accent);
+      border-color:var(--accent);
+      color:#fff;
+    }
+    .btn.primary:hover{ background:var(--accent2); border-color:var(--accent2); }
+    .btn.danger{
+      background:#fff;
+      border-color: rgba(185,28,28,.35);
+      color: var(--danger);
+    }
+    .btn.small{ padding:8px 10px; font-size:13px; }
+    .muted{ color:var(--muted); font-size:13px; line-height:1.45; }
+    .q{
+      margin:10px 0 6px;
+      color:#0f172a;
+      font-weight:700;
+      font-size:13px;
+    }
+    .divider{
+      height:1px;
+      background: var(--border);
+      margin:14px 0;
+    }
+    .status{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+    .status.good{ border-color: rgba(19,115,51,.35); color: var(--good); }
+    .status.warn{ border-color: rgba(180,83,9,.35); color: var(--warn); }
+    .status.bad{ border-color: rgba(185,28,28,.35); color: var(--danger); }
+    footer{
+      max-width:980px;
+      margin: 0 auto;
+      padding: 0 18px 30px;
+    }
+    .bottom-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:12px;
+    }
+    .email-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .email-row input{
+      min-width: 240px;
+      flex: 1 1 280px;
+    }
+    .right{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <div class="tag">VUMC Connect • Interactive Sermon Notes</div>
+    <h1>INTO THE WILDERNESS: Led Into the Wilderness</h1>
+    <p class="sub"><strong>Scripture:</strong> Matthew 4:1–11 (CEB) • Theme: Formation, identity, worship, obedience</p>
+  </header>
 
-<h1>From Tomb to Testimony</h1>
-<p class="center"><strong>Big Idea:</strong> God didn’t save you to stay hidden—He calls you into freedom, identity, and love.</p>
+  <main class="grid">
+    <!-- LEFT COLUMN -->
+    <section class="card">
+      <div class="pill">Scripture Focus</div>
+      <div class="scripture" id="scriptureBlock">
+        <div class="ref">
+          <span><strong>Matthew 4:1–11 (CEB)</strong></span>
+          <span class="muted">“Then the Spirit led Jesus…”</span>
+        </div>
+        <div>
+          The Spirit led Jesus into the wilderness where he was tempted. Jesus refuses to prove Himself, refuses to test God,
+          and refuses to worship outcomes. He stands firm on God’s Word and comes out formed and strengthened.
+        </div>
+      </div>
 
-<!-- POINT 1 -->
-<h2>1. Remove the Mask (Freedom)</h2>
+      <div class="divider"></div>
 
-<div class="scripture">
-  <strong>2 Corinthians 3:16–17</strong><br>
-  16 But whenever anyone turns to the Lord, the veil is taken away.<br>
-  17 Now the Lord is the Spirit, and where the Spirit of the Lord is, there is freedom.
-</div>
+      <h2>Message Notes</h2>
 
-<p>
-Jesus didn’t remove the stone so we could keep hiding behind a veil.  
-The Spirit doesn’t expose us to shame us—He frees us to live honestly and fully alive.
-</p>
+      <div class="q">Big idea (one sentence):</div>
+      <textarea id="bigIdea" placeholder="Example: The wilderness doesn’t destroy you — it forms you."></textarea>
 
-<p class="reflection">Reflection:</p>
-<textarea placeholder="Where am I still wearing a mask instead of walking in freedom?"></textarea>
+      <div class="q">Point 1 — The Wilderness Exposes False Identities</div>
+      <textarea id="p1" placeholder="Notes from Point 1..."></textarea>
 
-<!-- POINT 2 -->
-<h2>2. Stop Comparing (Identity)</h2>
+      <div class="q">Point 2 — The Wilderness Clarifies True Worship</div>
+      <textarea id="p2" placeholder="Notes from Point 2..."></textarea>
 
-<div class="scripture">
-  <strong>1 Corinthians 12:20–23</strong><br>
-  20 As it is, there are many parts, but one body.<br>
-  21 The eye cannot say to the hand, “I don’t need you!” And the head cannot say to the feet, “I don’t need you!”<br>
-  22 On the contrary, those parts of the body that seem to be weaker are indispensable,<br>
-  23 and the parts that we think are less honorable we treat with special honor.
-</div>
+      <div class="q">Luke’s addition (Luke 4:14): Led in… Empowered out</div>
+      <textarea id="luke" placeholder="What stood out to you about Luke 4:14?"></textarea>
 
-<p>
-Comparison robs us of joy and distorts our identity.  
-God didn’t make duplicates—He made a body, and every part matters.
-</p>
+      <div class="q">How Do We Love Like Jesus? (practical steps)</div>
+      <textarea id="steps" placeholder="1) Trust God in hard places... 2) Obedience over shortcuts..."></textarea>
 
-<p class="reflection">Reflection:</p>
-<textarea placeholder="Who am I comparing myself to—and how is that affecting my view of who God made me to be?"></textarea>
+      <div class="q">Anything God is highlighting to you today:</div>
+      <textarea id="highlight" placeholder="Write what you sense God is saying..."></textarea>
+    </section>
 
-<!-- POINT 3 -->
-<h2>3. Choose Real Community (Love)</h2>
+    <!-- RIGHT COLUMN -->
+    <aside class="card">
+      <h2>Reflection & Response</h2>
+      <p class="muted">
+        Formation often happens in wilderness seasons. Use these prompts to respond honestly.
+      </p>
 
-<div class="scripture">
-  <strong>Romans 12:15</strong><br>
-  15 Rejoice with those who rejoice; mourn with those who mourn.
-</div>
+      <div class="q">1) Where do you feel “in the wilderness” right now?</div>
+      <textarea id="r1" placeholder="Be specific: relationships, finances, health, faith, purpose..."></textarea>
 
-<p>
-Real community doesn’t rush past pain or compete for spotlight.  
-It shows up, stays present, and loves people where they actually are.
-</p>
+      <div class="q">2) What “false identity” tends to show up under pressure?</div>
+      <textarea id="r2" placeholder="Example: performer, fixer, people-pleaser, controller, achiever..."></textarea>
 
-<p class="reflection">Reflection:</p>
-<textarea placeholder="Who is God calling me to walk with more intentionally—in joy or in grief?"></textarea>
+      <div class="q">3) What is your biggest shortcut temptation?</div>
+      <textarea id="r3" placeholder="Example: avoiding discomfort, compromising integrity, chasing approval..."></textarea>
 
-<!-- NOTES -->
-<h2>My Notes</h2>
-<textarea placeholder="Write anything God is speaking to you today..."></textarea>
+      <div class="q">4) What would it look like to worship God above outcomes this week?</div>
+      <textarea id="r4" placeholder="Concrete actions, prayers, boundaries, choices..."></textarea>
 
-<!-- FOOTER -->
-<div class="footer">
-  <div class="email-row">
-    <input type="email" id="email" placeholder="Your email address">
-    <button onclick="emailNotes()">Email My Notes</button>
-  </div>
+      <div class="divider"></div>
 
-  <div class="center">
-    <button class="secondary-btn" onclick="goBack()">Return to Church Center Mobile App</button>
-  </div>
-</div>
+      <h3>Quick Actions</h3>
+      <div class="row">
+        <button class="btn small" id="btnPrint" type="button">🖨️ Print</button>
+        <button class="btn small" id="btnCopy" type="button">📋 Copy Notes</button>
+        <button class="btn small danger" id="btnClear" type="button">🧹 Clear</button>
+      </div>
 
-<script>
-  function emailNotes() {
-    const email = document.getElementById('email').value;
-    if (!email) {
-      alert("Please enter your email address.");
-      return;
+      <div class="status" id="saveStatus">
+        Autosave is on. Your notes are saved on this device.
+      </div>
+    </aside>
+  </main>
+
+  <!-- BOTTOM: EMAIL INPUT + EMAIL BUTTON SIDE BY SIDE -->
+  <footer>
+    <div class="card">
+      <h2>Email My Notes</h2>
+      <p class="muted">
+        Send your notes to yourself so you can revisit them later. (Tip: Use the same email you use for Church Center.)
+      </p>
+
+      <!-- EDIT THIS: your Google Apps Script Web App URL -->
+      <input type="hidden" id="scriptUrl" value="PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE" />
+
+      <div class="email-row">
+        <input id="emailTo" type="email" placeholder="your@email.com" autocomplete="email" />
+        <button class="btn primary" id="btnEmail" type="button">✉️ Email My Notes</button>
+      </div>
+
+      <div class="status" id="emailStatus">
+        When you tap “Email My Notes,” you’ll be sent back to Church Center after it sends.
+      </div>
+
+      <div class="bottom-actions">
+        <div class="muted">
+          <strong>Return link:</strong> opens the VUMC Hub inside Church Center.
+        </div>
+        <div class="right">
+          <a class="btn" id="btnReturn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">↩ Return to Church Center</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ======= CONFIG =======
+    const RETURN_URL = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
+    const STORAGE_KEY = "vumc_notes_into_the_wilderness_matt4";
+
+    // Collect all fields we want to save/send
+    const fieldIds = [
+      "bigIdea","p1","p2","luke","steps","highlight",
+      "r1","r2","r3","r4"
+    ];
+
+    const el = (id) => document.getElementById(id);
+
+    function getAllData(){
+      const data = {};
+      fieldIds.forEach(id => data[id] = (el(id).value || "").trim());
+      data.meta = {
+        title: "INTO THE WILDERNESS: Led Into the Wilderness",
+        scripture: "Matthew 4:1–11 (CEB)",
+        createdAt: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      };
+      return data;
     }
 
-    alert("Your notes will be emailed to: " + email);
-    // Hook this to Apps Script endpoint when ready
-  }
+    function setStatus(node, msg, kind){
+      node.className = "status" + (kind ? (" " + kind) : "");
+      node.textContent = msg;
+    }
 
-  function goBack() {
-    window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
-  }
-</script>
+    // ======= AUTOSAVE =======
+    function saveLocal(){
+      try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(getAllData()));
+        setStatus(el("saveStatus"), "Saved ✔ (on this device)", "good");
+        setTimeout(() => setStatus(el("saveStatus"), "Autosave is on. Your notes are saved on this device.", ""), 1600);
+      }catch(e){
+        setStatus(el("saveStatus"), "Autosave failed on this device/browser.", "warn");
+      }
+    }
 
+    function loadLocal(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return;
+        const data = JSON.parse(raw);
+        fieldIds.forEach(id => { if(data[id] !== undefined) el(id).value = data[id]; });
+      }catch(e){
+        // ignore
+      }
+    }
+
+    // Debounced input listener
+    let t;
+    function debounceSave(){
+      clearTimeout(t);
+      t = setTimeout(saveLocal, 250);
+    }
+
+    // ======= ACTIONS =======
+    function buildPlainText(){
+      const d = getAllData();
+      const lines = [];
+      lines.push(d.meta.title);
+      lines.push(d.meta.scripture);
+      lines.push("");
+      lines.push("BIG IDEA:");
+      lines.push(d.bigIdea || "");
+      lines.push("");
+      lines.push("POINT 1 — The Wilderness Exposes False Identities:");
+      lines.push(d.p1 || "");
+      lines.push("");
+      lines.push("POINT 2 — The Wilderness Clarifies True Worship:");
+      lines.push(d.p2 || "");
+      lines.push("");
+      lines.push("LUKE 4:14 — Led in, empowered out:");
+      lines.push(d.luke || "");
+      lines.push("");
+      lines.push("HOW DO WE LOVE LIKE JESUS? (Steps):");
+      lines.push(d.steps || "");
+      lines.push("");
+      lines.push("GOD IS HIGHLIGHTING:");
+      lines.push(d.highlight || "");
+      lines.push("");
+      lines.push("REFLECTIONS:");
+      lines.push("1) Wilderness right now: " + (d.r1 || ""));
+      lines.push("2) False identity under pressure: " + (d.r2 || ""));
+      lines.push("3) Shortcut temptation: " + (d.r3 || ""));
+      lines.push("4) Worship above outcomes: " + (d.r4 || ""));
+      lines.push("");
+      lines.push("— Sent from VUMC Connect Sermon Notes");
+      return lines.join("\n");
+    }
+
+    async function copyNotes(){
+      const txt = buildPlainText();
+      try{
+        await navigator.clipboard.writeText(txt);
+        setStatus(el("saveStatus"), "Copied to clipboard ✔", "good");
+        setTimeout(() => setStatus(el("saveStatus"), "Autosave is on. Your notes are saved on this device.", ""), 1600);
+      }catch(e){
+        setStatus(el("saveStatus"), "Copy failed. You can still print or email your notes.", "warn");
+      }
+    }
+
+    function clearNotes(){
+      if(!confirm("Clear all notes on this device?")) return;
+      fieldIds.forEach(id => el(id).value = "");
+      try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+      setStatus(el("saveStatus"), "Cleared ✔", "good");
+      setTimeout(() => setStatus(el("saveStatus"), "Autosave is on. Your notes are saved on this device.", ""), 1600);
+    }
+
+    function printNotes(){
+      // Ensure latest is saved before printing
+      saveLocal();
+      window.print();
+    }
+
+    // ======= EMAIL NOTES =======
+    async function emailNotes(){
+      const scriptUrl = el("scriptUrl").value.trim();
+      const email = (el("emailTo").value || "").trim();
+
+      if(!email){
+        setStatus(el("emailStatus"), "Please enter your email address first.", "warn");
+        el("emailTo").focus();
+        return;
+      }
+      // Basic email check
+      if(!/^\S+@\S+\.\S+$/.test(email)){
+        setStatus(el("emailStatus"), "That email address doesn’t look right. Please check it.", "warn");
+        el("emailTo").focus();
+        return;
+      }
+
+      if(!scriptUrl || scriptUrl.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")){
+        setStatus(el("emailStatus"), "Missing email service URL. Paste your Google Apps Script web app URL into the hidden field in the HTML.", "bad");
+        return;
+      }
+
+      const payload = {
+        to: email,
+        subject: "VUMC Sermon Notes — Into the Wilderness (Matthew 4:1–11)",
+        message: buildPlainText(),
+        returnUrl: RETURN_URL,
+        meta: getAllData().meta
+      };
+
+      setStatus(el("emailStatus"), "Sending…", "");
+
+      try{
+        // Prefer JSON POST. Your Apps Script should handle this.
+        const res = await fetch(scriptUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          mode: "cors"
+        });
+
+        // If the script returns JSON, parse it; otherwise just assume success on 200.
+        let ok = res.ok;
+        let data = null;
+        try{ data = await res.json(); } catch(e){ /* ignore */ }
+
+        if(ok && (!data || data.status !== "error")){
+          setStatus(el("emailStatus"), "Sent ✔ Redirecting back to Church Center…", "good");
+          saveLocal();
+          setTimeout(() => { window.location.href = RETURN_URL; }, 900);
+        }else{
+          const msg = (data && data.message) ? data.message : "Email service returned an error.";
+          setStatus(el("emailStatus"), msg + " You can still tap Return to Church Center.", "bad");
+        }
+      }catch(err){
+        setStatus(
+          el("emailStatus"),
+          "Could not reach the email service (CORS or URL issue). You can still tap Return to Church Center.",
+          "bad"
+        );
+      }
+    }
+
+    // ======= INIT =======
+    loadLocal();
+    fieldIds.forEach(id => el(id).addEventListener("input", debounceSave));
+
+    el("btnPrint").addEventListener("click", printNotes);
+    el("btnCopy").addEventListener("click", copyNotes);
+    el("btnClear").addEventListener("click", clearNotes);
+    el("btnEmail").addEventListener("click", emailNotes);
+
+    // Make sure return button always points correctly
+    el("btnReturn").setAttribute("href", RETURN_URL);
+  </script>
 </body>
 </html>

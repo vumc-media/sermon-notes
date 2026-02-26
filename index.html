@@ -1,98 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Into the Wilderness: The Way Down is the Way Up</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INTO THE WILDERNESS: The Way Down is the Way Up</title>
 
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #f4f6f8;
-  color: #111;
-}
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f6f8;
+      color: #111;
+    }
 
-h1 {
-  text-align: center;
-}
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-h2 {
-  margin-top: 30px;
-}
+    h1 {
+      text-align: center;
+      margin: 0;
+    }
 
-.section {
-  background: #ffffff;
-  padding: 15px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+    h2.sub {
+      text-align: center;
+      margin: 10px 0 0 0;
+      font-weight: 700;
+    }
 
-textarea {
-  width: 100%;
-  height: 120px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
+    .meta {
+      text-align: center;
+      margin: 10px 0 25px 0;
+      color: #333;
+    }
 
-.reflection {
-  background: #eef3f7;
-  padding: 10px;
-  margin-top: 10px;
-  border-left: 4px solid #5b7c99;
-  border-radius: 4px;
-}
+    .card {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 18px;
+    }
 
-.button-container {
-  margin-top: 40px;
-  text-align: center;
-}
+    .scripture p {
+      line-height: 1.5;
+      margin: 0;
+      white-space: pre-line;
+    }
 
-button {
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  margin: 5px;
-}
+    details.accordion {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 18px;
+      overflow: hidden;
+    }
 
-.email-btn {
-  background: #2c5d8a;
-  color: white;
-}
+    details.accordion > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
 
-.return-btn {
-  background: #444;
-  color: white;
-}
+    details.accordion > summary::-webkit-details-marker {
+      display: none;
+    }
 
-input[type="email"] {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 60%;
-  max-width: 300px;
-  margin-right: 10px;
-}
-</style>
+    .chev {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef3f7;
+      font-weight: 900;
+      transition: transform 150ms ease;
+      flex: 0 0 auto;
+    }
+
+    details.accordion[open] .chev {
+      transform: rotate(90deg);
+    }
+
+    .accordion-body {
+      padding: 0 16px 16px 16px;
+    }
+
+    .reflection {
+      background: #eef3f7;
+      padding: 10px;
+      margin-top: 10px;
+      border-left: 4px solid #5b7c99;
+      border-radius: 6px;
+      line-height: 1.45;
+    }
+
+    .note-label {
+      margin-top: 12px;
+      font-weight: 700;
+    }
+
+    textarea {
+      width: 100%;
+      height: 130px;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    .button-container {
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: min(360px, 90vw);
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .email-btn {
+      background: #2c5d8a;
+      color: white;
+    }
+
+    .return-btn {
+      background: #444;
+      color: white;
+    }
+
+    .small-btn {
+      background: #eef3f7;
+      color: #111;
+    }
+
+    .hint {
+      text-align: center;
+      color: #444;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <h1>INTO THE WILDERNESS</h1>
+    <h2 class="sub">The Way Down is the Way Up</h2>
+    <div class="meta">
+      <strong>March 1, 2026</strong><br />
+      Philippians 2:5–11
+    </div>
 
-<h1>INTO THE WILDERNESS</h1>
-<h2 style="text-align:center;">The Way Down is the Way Up</h2>
-<p style="text-align:center;"><strong>March 1, 2026</strong><br>
-Philippians 2:5–11</p>
-
-<div class="section">
-<h2>Philippians 2:5–11</h2>
-<p>
+    <div class="card scripture">
+      <h2 style="margin:0 0 10px 0;">Philippians 2:5–11</h2>
+      <p>
 “In your relationships with one another, have the same mindset as Christ Jesus:
 Who, being in very nature God,
 did not consider equality with God something to be used to his own advantage;
@@ -109,93 +201,140 @@ that at the name of Jesus every knee should bow,
 in heaven and on earth and under the earth,
 and every tongue acknowledge that Jesus Christ is Lord,
 to the glory of God the Father.”
-</p>
-</div>
+      </p>
+    </div>
 
-<div class="section">
-<h2>1. Jesus Let Go of His Rights</h2>
-<p><strong>(Philippians 2:5–7)</strong></p>
+    <details class="accordion" open>
+      <summary>
+        <span class="chev">›</span>
+        1. Jesus Let Go of His Rights <span style="font-weight:400;">(Philippians 2:5–7)</span>
+      </summary>
+      <div class="accordion-body">
+        <div class="reflection">
+          Jesus did not cling to status.<br />
+          He did not demand recognition.<br />
+          He emptied Himself.
+        </div>
 
-<div class="reflection">
-Jesus did not cling to status.  
-He did not demand recognition.  
-He emptied Himself.
-</div>
+        <p style="margin-top:12px; line-height:1.5;">
+          The wilderness teaches us that surrender precedes strength.
+          Jesus shows us that spiritual maturity begins with letting go.
+        </p>
 
-<p>
-The wilderness teaches us that surrender precedes strength.  
-Jesus shows us that spiritual maturity begins with letting go.
-</p>
+        <div class="note-label">My Notes / Response</div>
+        <textarea data-title="1. Jesus Let Go of His Rights (Philippians 2:5–7)"
+          placeholder="What rights, preferences, or expectations might God be asking you to release?"></textarea>
+      </div>
+    </details>
 
-<textarea placeholder="What rights, preferences, or expectations might God be asking you to release?"></textarea>
-</div>
+    <details class="accordion">
+      <summary>
+        <span class="chev">›</span>
+        2. Jesus Chose Obedience Over Status <span style="font-weight:400;">(Philippians 2:8–11)</span>
+      </summary>
+      <div class="accordion-body">
+        <div class="reflection">
+          Obedience led Jesus to the cross.<br />
+          Humility led Him to glory.<br />
+          The way down became the way up.
+        </div>
 
-<div class="section">
-<h2>2. Jesus Chose Obedience Over Status</h2>
-<p><strong>(Philippians 2:8–11)</strong></p>
+        <p style="margin-top:12px; line-height:1.5;">
+          The world says climb higher. Jesus says kneel lower. Exaltation belongs to God.
+        </p>
 
-<div class="reflection">
-Obedience led Jesus to the cross.  
-Humility led Him to glory.  
-The way down became the way up.
-</div>
+        <div class="note-label">My Notes / Response</div>
+        <textarea data-title="2. Jesus Chose Obedience Over Status (Philippians 2:8–11)"
+          placeholder="Where is God calling you to choose obedience over recognition?"></textarea>
+      </div>
+    </details>
 
-<p>
-The world says climb higher.  
-Jesus says kneel lower.  
-Exaltation belongs to God.
-</p>
+    <details class="accordion">
+      <summary>
+        <span class="chev">›</span>
+        Personal Response
+      </summary>
+      <div class="accordion-body">
+        <div class="reflection">
+          • Where is pride trying to protect your position?<br />
+          • What would humility look like in your current season?<br />
+          • How might God be forming you through a “wilderness” moment?
+        </div>
 
-<textarea placeholder="Where is God calling you to choose obedience over recognition?"></textarea>
-</div>
+        <div class="note-label">Prayer / Personal Response</div>
+        <textarea data-title="Personal Response"
+          placeholder="Write your prayer or response here..."></textarea>
+      </div>
+    </details>
 
-<div class="section">
-<h2>Personal Response</h2>
+    <div class="controls">
+      <button class="small-btn" type="button" onclick="openAll()">Open All</button>
+      <button class="small-btn" type="button" onclick="closeAll()">Close All</button>
+    </div>
 
-<div class="reflection">
-• Where is pride trying to protect your position?  
-• What would humility look like in your current season?  
-• How might God be forming you through a “wilderness” moment?
-</div>
+    <div class="button-container">
+      <div class="controls" style="margin-top:12px;">
+        <input type="email" id="email" placeholder="Enter your email" />
+        <button class="email-btn" type="button" onclick="sendNotes()">Email My Notes</button>
+      </div>
+      <div class="hint">Tip: You can type notes in any section, even if it’s collapsed later.</div>
 
-<textarea placeholder="Write your prayer or response here..."></textarea>
-</div>
-
-<div class="button-container">
-  <div style="margin-bottom:15px;">
-    <input type="email" id="email" placeholder="Enter your email">
-    <button class="email-btn" onclick="sendNotes()">Email My Notes</button>
+      <div style="margin-top:18px;">
+        <button class="return-btn" type="button" onclick="returnToChurchCenter()">Return to Church Center</button>
+      </div>
+    </div>
   </div>
 
-  <button class="return-btn" onclick="returnToChurchCenter()">Return to Church Center</button>
-</div>
+  <script>
+    function openAll() {
+      document.querySelectorAll("details.accordion").forEach(d => d.open = true);
+    }
 
-<script>
-function sendNotes() {
-  var email = document.getElementById("email").value;
-  var notes = document.querySelectorAll("textarea");
-  var compiledNotes = "";
+    function closeAll() {
+      document.querySelectorAll("details.accordion").forEach(d => d.open = false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-  notes.forEach(function(note, index) {
-    compiledNotes += "Section " + (index + 1) + ":\n" + note.value + "\n\n";
-  });
+    function compileNotes() {
+      const areas = document.querySelectorAll("textarea");
+      let compiled = "";
 
-  fetch("https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      email: email,
-      notes: compiledNotes,
-      sermon: "Into the Wilderness: The Way Down is the Way Up"
-    })
-  })
-  .then(response => alert("Your notes have been sent!"))
-  .catch(error => alert("There was an error sending your notes."));
-}
+      areas.forEach((ta) => {
+        const title = ta.getAttribute("data-title") || "Notes";
+        const val = (ta.value || "").trim();
+        compiled += title + ":\n" + (val ? val : "(no notes)") + "\n\n";
+      });
 
-function returnToChurchCenter() {
-  window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
-}
-</script>
+      return compiled.trim();
+    }
 
+    function sendNotes() {
+      const email = (document.getElementById("email").value || "").trim();
+      if (!email) {
+        alert("Please enter your email address first.");
+        return;
+      }
+
+      const compiledNotes = compileNotes();
+
+      fetch("https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec", {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          email: email,
+          notes: compiledNotes,
+          sermon: "INTO THE WILDERNESS: The Way Down is the Way Up",
+          date: "March 1, 2026",
+          scripture: "Philippians 2:5–11"
+        })
+      })
+      .then(() => alert("Your notes have been sent!"))
+      .catch(() => alert("There was an error sending your notes."));
+    }
+
+    function returnToChurchCenter() {
+      window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
+    }
+  </script>
 </body>
 </html>

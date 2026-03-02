@@ -3,267 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INTO THE WILDERNESS: The Way Down is the Way Up</title>
+  <title>INTO THE WILDERNESS — Table Talk</title>
 
   <style>
-    body {
+    body{
       font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f4f6f8;
-      color: #111;
+      margin:0;
+      padding:20px;
+      background:#f4f6f8;
+      color:#111;
+    }
+    .wrap{max-width:900px;margin:0 auto;}
+    h1{margin:0;text-align:center;}
+    h2.sub{margin:10px 0 0;text-align:center;font-weight:700;}
+    .meta{margin:10px 0 25px;text-align:center;color:#333;line-height:1.4;}
+
+    .card{
+      background:#fff;
+      padding:16px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      margin-top:18px;
+    }
+    .scripture p{
+      line-height:1.55;
+      margin:0;
+      white-space:pre-line;
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
+    details.accordion{
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      margin-top:18px;
+      overflow:hidden;
+    }
+    details.accordion > summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+    }
+    details.accordion > summary::-webkit-details-marker{display:none;}
+    .chev{
+      width:22px;height:22px;border-radius:6px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:#eef3f7;font-weight:900;transition:transform 150ms ease;
+      flex:0 0 auto;
+    }
+    details.accordion[open] .chev{transform:rotate(90deg);}
+    .accordion-body{padding:0 16px 16px 16px;}
+
+    .reflection{
+      background:#eef3f7;
+      padding:10px;
+      margin-top:10px;
+      border-left:4px solid #5b7c99;
+      border-radius:6px;
+      line-height:1.45;
     }
 
-    h1 {
-      text-align: center;
-      margin: 0;
+    .note-label{margin-top:12px;font-weight:700;}
+    textarea{
+      width:100%;
+      height:140px;
+      margin-top:8px;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:14px;
+      resize:vertical;
+      box-sizing:border-box;
     }
 
-    h2.sub {
-      text-align: center;
-      margin: 10px 0 0 0;
-      font-weight: 700;
+    .controls{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
     }
-
-    .meta {
-      text-align: center;
-      margin: 10px 0 25px 0;
-      color: #333;
+    .button-container{margin-top:26px;text-align:center;}
+    input[type="email"]{
+      padding:10px;border-radius:8px;border:1px solid #ccc;
+      width:min(360px,90vw);font-size:14px;
     }
-
-    .card {
-      background: #ffffff;
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-top: 18px;
+    button{
+      padding:10px 16px;
+      font-size:14px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
     }
-
-    .scripture p {
-      line-height: 1.5;
-      margin: 0;
-      white-space: pre-line;
-    }
-
-    details.accordion {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-top: 18px;
-      overflow: hidden;
-    }
-
-    details.accordion > summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      user-select: none;
-    }
-
-    details.accordion > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .chev {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #eef3f7;
-      font-weight: 900;
-      transition: transform 150ms ease;
-      flex: 0 0 auto;
-    }
-
-    details.accordion[open] .chev {
-      transform: rotate(90deg);
-    }
-
-    .accordion-body {
-      padding: 0 16px 16px 16px;
-    }
-
-    .reflection {
-      background: #eef3f7;
-      padding: 10px;
-      margin-top: 10px;
-      border-left: 4px solid #5b7c99;
-      border-radius: 6px;
-      line-height: 1.45;
-    }
-
-    .note-label {
-      margin-top: 12px;
-      font-weight: 700;
-    }
-
-    textarea {
-      width: 100%;
-      height: 130px;
-      margin-top: 8px;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: vertical;
-      box-sizing: border-box;
-    }
-
-    .button-container {
-      margin-top: 26px;
-      text-align: center;
-    }
-
-    .controls {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    input[type="email"] {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: min(360px, 90vw);
-      font-size: 14px;
-    }
-
-    button {
-      padding: 10px 16px;
-      font-size: 14px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .email-btn {
-      background: #2c5d8a;
-      color: white;
-    }
-
-    .return-btn {
-      background: #444;
-      color: white;
-    }
-
-    .small-btn {
-      background: #eef3f7;
-      color: #111;
-    }
-
-    .hint {
-      text-align: center;
-      color: #444;
-      margin-top: 10px;
-      font-size: 13px;
-    }
+    .email-btn{background:#2c5d8a;color:#fff;}
+    .return-btn{background:#444;color:#fff;}
+    .small-btn{background:#eef3f7;color:#111;}
+    .hint{margin-top:10px;color:#444;font-size:13px;}
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <h1>INTO THE WILDERNESS</h1>
-    <h2 class="sub">The Way Down is the Way Up</h2>
+    <h2 class="sub">Table Talk</h2>
     <div class="meta">
-      <strong>March 1, 2026</strong><br />
-      Philippians 2:5–11
+      <strong>John 13:1–17 (CEB)</strong>
     </div>
 
     <div class="card scripture">
-      <h2 style="margin:0 0 10px 0;">Philippians 2:5–11</h2>
+      <h2 style="margin:0 0 10px 0;">Scripture</h2>
       <p>
-“In your relationships with one another, have the same mindset as Christ Jesus:
-Who, being in very nature God,
-did not consider equality with God something to be used to his own advantage;
-rather, he made himself nothing
-by taking the very nature of a servant,
-being made in human likeness.
-And being found in appearance as a man,
-he humbled himself
-by becoming obedient to death—
-even death on a cross!
-Therefore God exalted him to the highest place
-and gave him the name that is above every name,
-that at the name of Jesus every knee should bow,
-in heaven and on earth and under the earth,
-and every tongue acknowledge that Jesus Christ is Lord,
-to the glory of God the Father.”
+13 1 Before the Festival of Passover, Jesus knew that his time had come to leave this world and go to the Father. Having loved his own who were in the world, he loved them fully.
+
+2 Jesus and his disciples were sharing the evening meal. The devil had already provoked Judas, Simon Iscariot’s son, to betray Jesus. 3 Jesus knew the Father had given everything into his hands and that he had come from God and was returning to God. 4 So he got up from the table and took off his robes. Picking up a linen towel, he tied it around his waist. 5 Then he poured water into a washbasin and began to wash the disciples’ feet, drying them with the towel he was wearing. 6 When Jesus came to Simon Peter, Peter said to him, “Lord, are you going to wash my feet?”
+
+7 Jesus replied, “You don’t understand what I’m doing now, but you will understand later.”
+
+8 “No!” Peter said. “You will never wash my feet!”
+
+Jesus replied, “Unless I wash you, you won’t have a place with me.”
+
+9 Simon Peter said, “Lord, not only my feet but also my hands and my head!”
+
+10 Jesus responded, “Those who have bathed need only to have their feet washed, because they are completely clean. You disciples are clean, but not every one of you.” 11 He knew who would betray him. That’s why he said, “Not every one of you is clean.”
+
+12 After he washed the disciples’ feet, he put on his robes and returned to his place at the table. He said to them, “Do you know what I’ve done for you? 13 You call me ‘Teacher’ and ‘Lord,’ and you speak correctly, because I am. 14 If I, your Lord and teacher, have washed your feet, you too must wash each other’s feet. 15 I have given you an example: Just as I have done, you also must do. 16 I assure you, servants aren’t greater than their master, nor are those who are sent greater than the one who sent them. 17 Since you know these things, you will be happy if you do them.
       </p>
     </div>
 
     <details class="accordion" open>
       <summary>
         <span class="chev">›</span>
-        1. Jesus Let Go of His Rights <span style="font-weight:400;">(Philippians 2:5–7)</span>
+        1. Jesus Serves From Security, Not Insecurity <span style="font-weight:400;">(v.3)</span>
       </summary>
       <div class="accordion-body">
         <div class="reflection">
-          Jesus did not cling to status.<br />
-          He did not demand recognition.<br />
-          He emptied Himself.
+          Jesus knew who He was: the Father had given everything into His hands.<br />
+          Secure identity produces humble service.
         </div>
 
         <p style="margin-top:12px; line-height:1.5;">
-          The wilderness teaches us that surrender precedes strength.
-          Jesus shows us that spiritual maturity begins with letting go.
+          In the wilderness, insecurity makes us grab for control, recognition, or protection.
+          But Jesus shows another way: when you’re anchored in the Father’s love, you can take the towel.
         </p>
 
         <div class="note-label">My Notes / Response</div>
-        <textarea data-title="1. Jesus Let Go of His Rights (Philippians 2:5–7)"
-          placeholder="What rights, preferences, or expectations might God be asking you to release?"></textarea>
+        <textarea data-title="1. Jesus Serves From Security, Not Insecurity (John 13:3)"
+          placeholder="Where do you feel most tempted to serve for approval instead of serving from a secure identity in Christ?"></textarea>
       </div>
     </details>
 
     <details class="accordion">
       <summary>
         <span class="chev">›</span>
-        2. Jesus Chose Obedience Over Status <span style="font-weight:400;">(Philippians 2:8–11)</span>
+        2. Jesus Loves Even Those Who Hurt Him <span style="font-weight:400;">(v.2)</span>
       </summary>
       <div class="accordion-body">
         <div class="reflection">
-          Obedience led Jesus to the cross.<br />
-          Humility led Him to glory.<br />
-          The way down became the way up.
+          Judas was already moving toward betrayal… and Jesus still stayed at the table.<br />
+          Love is not denial — it’s a decision.
         </div>
 
         <p style="margin-top:12px; line-height:1.5;">
-          The world says climb higher. Jesus says kneel lower. Exaltation belongs to God.
+          Jesus’ love isn’t fragile. It doesn’t disappear when people disappoint Him.
+          The wilderness exposes who we stop loving when love becomes costly.
         </p>
 
         <div class="note-label">My Notes / Response</div>
-        <textarea data-title="2. Jesus Chose Obedience Over Status (Philippians 2:8–11)"
-          placeholder="Where is God calling you to choose obedience over recognition?"></textarea>
+        <textarea data-title="2. Jesus Loves Even Those Who Hurt Him (John 13:2)"
+          placeholder="Who is difficult for you to love right now, and what might it look like to keep showing Christlike love with wisdom and boundaries?"></textarea>
       </div>
     </details>
 
     <details class="accordion">
       <summary>
         <span class="chev">›</span>
-        Personal Response
+        Table Talk Takeaways
       </summary>
       <div class="accordion-body">
         <div class="reflection">
-          • Where is pride trying to protect your position?<br />
-          • What would humility look like in your current season?<br />
-          • How might God be forming you through a “wilderness” moment?
+          • Secure people don’t have to prove themselves.<br />
+          • Love that looks like Jesus keeps the towel in hand—even when it’s hard.<br />
+          • The table is where Jesus forms us for the wilderness.
         </div>
 
+        <div class="note-label">My Notes / Next Step</div>
+        <textarea data-title="Table Talk Takeaways"
+          placeholder="One takeaway + one practical next step for this week..."></textarea>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>
+        <span class="chev">›</span>
+        Prayer
+      </summary>
+      <div class="accordion-body">
         <div class="note-label">Prayer / Personal Response</div>
-        <textarea data-title="Personal Response"
-          placeholder="Write your prayer or response here..."></textarea>
+        <textarea data-title="Prayer"
+          placeholder="Write your prayer here..."></textarea>
       </div>
     </details>
 
@@ -277,7 +219,7 @@ to the glory of God the Father.”
         <input type="email" id="email" placeholder="Enter your email" />
         <button class="email-btn" type="button" onclick="sendNotes()">Email My Notes</button>
       </div>
-      <div class="hint">Tip: You can type notes in any section, even if it’s collapsed later.</div>
+      <div class="hint">Tip: You can type notes in any section, then collapse it and keep going.</div>
 
       <div style="margin-top:18px;">
         <button class="return-btn" type="button" onclick="returnToChurchCenter()">Return to Church Center</button>
@@ -286,31 +228,28 @@ to the glory of God the Father.”
   </div>
 
   <script>
-    function openAll() {
+    function openAll(){
       document.querySelectorAll("details.accordion").forEach(d => d.open = true);
     }
-
-    function closeAll() {
+    function closeAll(){
       document.querySelectorAll("details.accordion").forEach(d => d.open = false);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function compileNotes() {
+    function compileNotes(){
       const areas = document.querySelectorAll("textarea");
       let compiled = "";
-
       areas.forEach((ta) => {
         const title = ta.getAttribute("data-title") || "Notes";
         const val = (ta.value || "").trim();
         compiled += title + ":\n" + (val ? val : "(no notes)") + "\n\n";
       });
-
       return compiled.trim();
     }
 
-    function sendNotes() {
+    function sendNotes(){
       const email = (document.getElementById("email").value || "").trim();
-      if (!email) {
+      if(!email){
         alert("Please enter your email address first.");
         return;
       }
@@ -323,16 +262,15 @@ to the glory of God the Father.”
         body: JSON.stringify({
           email: email,
           notes: compiledNotes,
-          sermon: "INTO THE WILDERNESS: The Way Down is the Way Up",
-          date: "March 1, 2026",
-          scripture: "Philippians 2:5–11"
+          sermon: "INTO THE WILDERNESS — Table Talk",
+          scripture: "John 13:1–17 (CEB)"
         })
       })
       .then(() => alert("Your notes have been sent!"))
       .catch(() => alert("There was an error sending your notes."));
     }
 
-    function returnToChurchCenter() {
+    function returnToChurchCenter(){
       window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
     }
   </script>

@@ -3,276 +3,489 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INTO THE WILDERNESS — Table Talk</title>
-
+  <title>Into the Wilderness: The Garden Decision | VUMC Connect</title>
   <style>
+    :root{
+      --bg:#f4f1ea;
+      --card:#ffffff;
+      --ink:#2c2c2c;
+      --muted:#6b6b6b;
+      --accent:#6f4e37;
+      --accent-dark:#4e3627;
+      --gold:#c8a96b;
+      --border:#ddd4c7;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
     body{
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #ede7dc 0%, #f7f4ee 100%);
+      color:var(--ink);
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(111,78,55,.96), rgba(78,54,39,.95));
+      color:#fff;
+      border-radius: 24px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow{
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .82rem;
+      opacity: .9;
+      margin-bottom: 8px;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height:1.1;
+    }
+
+    .hero h2{
       margin:0;
-      padding:20px;
-      background:#f4f6f8;
-      color:#111;
-    }
-    .wrap{max-width:900px;margin:0 auto;}
-    h1{margin:0;text-align:center;}
-    h2.sub{margin:10px 0 0;text-align:center;font-weight:700;}
-    .meta{margin:10px 0 25px;text-align:center;color:#333;line-height:1.4;}
-
-    .card{
-      background:#fff;
-      padding:16px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      margin-top:18px;
-    }
-    .scripture p{
-      line-height:1.55;
-      margin:0;
-      white-space:pre-line;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: normal;
+      color:#f3e8d0;
     }
 
-    details.accordion{
-      background:#fff;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      margin-top:18px;
-      overflow:hidden;
-    }
-    details.accordion > summary{
-      list-style:none;
-      cursor:pointer;
-      padding:14px 16px;
-      font-weight:700;
+    .meta{
+      margin-top: 16px;
       display:flex;
-      align-items:center;
-      gap:10px;
-      user-select:none;
-    }
-    details.accordion > summary::-webkit-details-marker{display:none;}
-    .chev{
-      width:22px;height:22px;border-radius:6px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background:#eef3f7;font-weight:900;transition:transform 150ms ease;
-      flex:0 0 auto;
-    }
-    details.accordion[open] .chev{transform:rotate(90deg);}
-    .accordion-body{padding:0 16px 16px 16px;}
-
-    .reflection{
-      background:#eef3f7;
-      padding:10px;
-      margin-top:10px;
-      border-left:4px solid #5b7c99;
-      border-radius:6px;
-      line-height:1.45;
-    }
-
-    .note-label{margin-top:12px;font-weight:700;}
-    textarea{
-      width:100%;
-      height:140px;
-      margin-top:8px;
-      padding:10px;
-      border-radius:8px;
-      border:1px solid #ccc;
-      font-size:14px;
-      resize:vertical;
-      box-sizing:border-box;
-    }
-
-    .controls{
-      display:flex;
-      justify-content:center;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:18px;
     }
-    .button-container{margin-top:26px;text-align:center;}
-    input[type="email"]{
-      padding:10px;border-radius:8px;border:1px solid #ccc;
-      width:min(360px,90vw);font-size:14px;
+
+    .chip{
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .92rem;
     }
-    button{
-      padding:10px 16px;
-      font-size:14px;
-      border-radius:8px;
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--accent-dark);
+      font-size:1.35rem;
+    }
+
+    .card h4{
+      margin:18px 0 8px;
+      color:var(--accent);
+      font-size:1.06rem;
+    }
+
+    .scripture{
+      white-space: pre-line;
+      background:#faf8f4;
+      border-left: 5px solid var(--gold);
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    .point-title{
+      margin:0 0 8px;
+      font-size:1.2rem;
+      color:var(--accent-dark);
+    }
+
+    .verse-ref{
+      color:var(--muted);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .highlight{
+      background:#f8f2e6;
+      border:1px solid #ead8b2;
+      border-radius:12px;
+      padding:14px;
+      margin:14px 0;
+    }
+
+    ul{
+      padding-left: 22px;
+    }
+
+    label{
+      display:block;
+      font-weight: bold;
+      margin: 14px 0 6px;
+      color:var(--accent-dark);
+    }
+
+    textarea, input[type="text"], input[type="email"]{
+      width:100%;
+      border:1px solid #cfc4b4;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      background:#fff;
+      color:var(--ink);
+    }
+
+    textarea{
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .small-note{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-top:6px;
+    }
+
+    .question{
+      background:#faf8f4;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .question strong{
+      display:block;
+      margin-bottom:8px;
+      color:var(--accent-dark);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 18px;
+    }
+
+    .btn{
+      appearance:none;
       border:none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition: .2s ease;
     }
-    .email-btn{background:#2c5d8a;color:#fff;}
-    .return-btn{background:#444;color:#fff;}
-    .small-btn{background:#eef3f7;color:#111;}
-    .hint{margin-top:10px;color:#444;font-size:13px;}
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+    }
+
+    .btn-secondary{
+      background:#ece4d8;
+      color:var(--accent-dark);
+      border:1px solid #d9cab3;
+    }
+
+    .btn-secondary:hover{
+      background:#e4d9c8;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:var(--muted);
+      font-size:.92rem;
+      margin-top: 18px;
+    }
+
+    .prayer-box{
+      background: linear-gradient(180deg, #fbf8f2 0%, #f5eee3 100%);
+      border:1px solid #e5d8c0;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        padding:24px 18px;
+      }
+      .card{
+        padding:18px;
+      }
+      .btn{
+        width:100%;
+      }
+    }
   </style>
 </head>
-
 <body>
   <div class="wrap">
-    <h1>INTO THE WILDERNESS</h1>
-    <h2 class="sub">Table Talk</h2>
-    <div class="meta">
-      <strong>John 13:1–17 (CEB)</strong>
-    </div>
-
-    <div class="card scripture">
-      <h2 style="margin:0 0 10px 0;">Scripture</h2>
-      <p>
-13 1 Before the Festival of Passover, Jesus knew that his time had come to leave this world and go to the Father. Having loved his own who were in the world, he loved them fully.
-
-2 Jesus and his disciples were sharing the evening meal. The devil had already provoked Judas, Simon Iscariot’s son, to betray Jesus. 3 Jesus knew the Father had given everything into his hands and that he had come from God and was returning to God. 4 So he got up from the table and took off his robes. Picking up a linen towel, he tied it around his waist. 5 Then he poured water into a washbasin and began to wash the disciples’ feet, drying them with the towel he was wearing. 6 When Jesus came to Simon Peter, Peter said to him, “Lord, are you going to wash my feet?”
-
-7 Jesus replied, “You don’t understand what I’m doing now, but you will understand later.”
-
-8 “No!” Peter said. “You will never wash my feet!”
-
-Jesus replied, “Unless I wash you, you won’t have a place with me.”
-
-9 Simon Peter said, “Lord, not only my feet but also my hands and my head!”
-
-10 Jesus responded, “Those who have bathed need only to have their feet washed, because they are completely clean. You disciples are clean, but not every one of you.” 11 He knew who would betray him. That’s why he said, “Not every one of you is clean.”
-
-12 After he washed the disciples’ feet, he put on his robes and returned to his place at the table. He said to them, “Do you know what I’ve done for you? 13 You call me ‘Teacher’ and ‘Lord,’ and you speak correctly, because I am. 14 If I, your Lord and teacher, have washed your feet, you too must wash each other’s feet. 15 I have given you an example: Just as I have done, you also must do. 16 I assure you, servants aren’t greater than their master, nor are those who are sent greater than the one who sent them. 17 Since you know these things, you will be happy if you do them.
-      </p>
-    </div>
-
-    <details class="accordion" open>
-      <summary>
-        <span class="chev">›</span>
-        1. Jesus Serves From Security, Not Insecurity <span style="font-weight:400;">(v.3)</span>
-      </summary>
-      <div class="accordion-body">
-        <div class="reflection">
-          Jesus knew who He was: the Father had given everything into His hands.<br />
-          Secure identity produces humble service.
-        </div>
-
-        <p style="margin-top:12px; line-height:1.5;">
-          In the wilderness, insecurity makes us grab for control, recognition, or protection.
-          But Jesus shows another way: when you’re anchored in the Father’s love, you can take the towel.
-        </p>
-
-        <div class="note-label">My Notes / Response</div>
-        <textarea data-title="1. Jesus Serves From Security, Not Insecurity (John 13:3)"
-          placeholder="Where do you feel most tempted to serve for approval instead of serving from a secure identity in Christ?"></textarea>
+    <section class="hero">
+      <div class="eyebrow">VUMC Connect Interactive Sermon Notes</div>
+      <h1>INTO THE WILDERNESS</h1>
+      <h2>The Garden Decision</h2>
+      <div class="meta">
+        <div class="chip">March 15, 2026</div>
+        <div class="chip">Luke 22:39–46</div>
+        <div class="chip">Versailles United Methodist Church</div>
       </div>
-    </details>
+    </section>
 
-    <details class="accordion">
-      <summary>
-        <span class="chev">›</span>
-        2. Jesus Loves Even Those Who Hurt Him <span style="font-weight:400;">(v.2)</span>
-      </summary>
-      <div class="accordion-body">
-        <div class="reflection">
-          Judas was already moving toward betrayal… and Jesus still stayed at the table.<br />
-          Love is not denial — it’s a decision.
-        </div>
+    <section class="card">
+      <h3>Main Scripture</h3>
+      <div class="scripture">39 Jesus left and made his way to the Mount of Olives, as was his custom, and the disciples followed him. 40 When he arrived, he said to them, “Pray that you won’t give in to temptation.” 41 He withdrew from them about a stone’s throw, knelt down, and prayed. 42 He said, “Father, if it’s your will, take this cup of suffering away from me. However, not my will but your will must be done.” 43 Then a heavenly angel appeared to him and strengthened him. 44 He was in anguish and prayed even more earnestly. His sweat became like drops of blood falling on the ground. 45 When he got up from praying, he went to the disciples. He found them asleep, overcome by grief. 46 He said to them, “Why are you sleeping? Get up and pray so that you won’t give in to temptation.”</div>
+    </section>
 
-        <p style="margin-top:12px; line-height:1.5;">
-          Jesus’ love isn’t fragile. It doesn’t disappear when people disappoint Him.
-          The wilderness exposes who we stop loving when love becomes costly.
-        </p>
+    <section class="card">
+      <h3>Worshiper Information</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your name">
 
-        <div class="note-label">My Notes / Response</div>
-        <textarea data-title="2. Jesus Loves Even Those Who Hurt Him (John 13:2)"
-          placeholder="Who is difficult for you to love right now, and what might it look like to keep showing Christlike love with wisdom and boundaries?"></textarea>
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="Your email for sending notes">
+
+      <div class="small-note">Your notes stay in your browser while you type unless you choose to email or print them.</div>
+    </section>
+
+    <section class="card">
+      <h3 class="point-title">1. Jesus Was Honest About His Pain</h3>
+      <div class="verse-ref">Luke 22:42a</div>
+
+      <p><strong>“Father, if it’s your will, take this cup of suffering away from me...”</strong></p>
+
+      <p>Before Jesus surrendered to the cross, He acknowledged the weight of what He was facing. In the garden, Jesus did not pretend everything was fine. He brought His pain honestly before the Father.</p>
+
+      <div class="highlight">
+        <strong>Key Truth:</strong> Faith does not mean denying pain. Faith means bringing our pain to God.
       </div>
-    </details>
 
-    <details class="accordion">
-      <summary>
-        <span class="chev">›</span>
-        Table Talk Takeaways
-      </summary>
-      <div class="accordion-body">
-        <div class="reflection">
-          • Secure people don’t have to prove themselves.<br />
-          • Love that looks like Jesus keeps the towel in hand—even when it’s hard.<br />
-          • The table is where Jesus forms us for the wilderness.
-        </div>
+      <ul>
+        <li>Jesus was honest, not fake.</li>
+        <li>Jesus was prayerful, not distant.</li>
+        <li>Jesus shows us that honesty before God is not weakness.</li>
+      </ul>
 
-        <div class="note-label">My Notes / Next Step</div>
-        <textarea data-title="Table Talk Takeaways"
-          placeholder="One takeaway + one practical next step for this week..."></textarea>
+      <label for="notes1">My notes on Point 1</label>
+      <textarea id="notes1" placeholder="What stands out to you from this point?"></textarea>
+    </section>
+
+    <section class="card">
+      <h3 class="point-title">2. Jesus Chose Surrender Over Control</h3>
+      <div class="verse-ref">Luke 22:42b–43</div>
+
+      <p><strong>“However, not my will but your will must be done.”</strong></p>
+
+      <p>This is the turning point in the garden. Jesus did not cling to control. He surrendered Himself completely to the Father’s will.</p>
+
+      <div class="highlight">
+        <strong>Key Truth:</strong> Surrender is not weakness. Surrender is trust.
       </div>
-    </details>
 
-    <details class="accordion">
-      <summary>
-        <span class="chev">›</span>
-        Prayer
-      </summary>
-      <div class="accordion-body">
-        <div class="note-label">Prayer / Personal Response</div>
-        <textarea data-title="Prayer"
-          placeholder="Write your prayer here..."></textarea>
+      <ul>
+        <li>Jesus understood the cost.</li>
+        <li>Jesus still chose obedience.</li>
+        <li>God did not remove the suffering, but God gave strength to endure it.</li>
+      </ul>
+
+      <p><strong>Verse 43 reminds us:</strong> Heaven met Jesus in His surrender.</p>
+
+      <label for="notes2">My notes on Point 2</label>
+      <textarea id="notes2" placeholder="Where do you see surrender instead of control in this passage?"></textarea>
+    </section>
+
+    <section class="card">
+      <h3>The Battle Was Won in Prayer</h3>
+
+      <p>Before the arrest, before the trial, and before the cross, Jesus fought the real battle in prayer. The disciples, however, slept through the moment.</p>
+
+      <div class="highlight">
+        <strong>Key Truth:</strong> Prayer prepares us for battles we cannot yet see.
       </div>
-    </details>
 
-    <div class="controls">
-      <button class="small-btn" type="button" onclick="openAll()">Open All</button>
-      <button class="small-btn" type="button" onclick="closeAll()">Close All</button>
-    </div>
+      <ul>
+        <li>Jesus prayed with urgency.</li>
+        <li>The disciples slept in grief and weakness.</li>
+        <li>Prayer is one of the ways God strengthens us when temptation and pressure come.</li>
+      </ul>
 
-    <div class="button-container">
-      <div class="controls" style="margin-top:12px;">
-        <input type="email" id="email" placeholder="Enter your email" />
-        <button class="email-btn" type="button" onclick="sendNotes()">Email My Notes</button>
+      <label for="notes3">My notes on prayer and preparation</label>
+      <textarea id="notes3" placeholder="What is God showing you about prayer through this passage?"></textarea>
+    </section>
+
+    <section class="card">
+      <h3>Reflection Questions</h3>
+
+      <div class="question">
+        <strong>1. What situation in your life feels like a “garden moment” right now?</strong>
+        <textarea id="q1" placeholder="Write your response here..."></textarea>
       </div>
-      <div class="hint">Tip: You can type notes in any section, then collapse it and keep going.</div>
 
-      <div style="margin-top:18px;">
-        <button class="return-btn" type="button" onclick="returnToChurchCenter()">Return to Church Center</button>
+      <div class="question">
+        <strong>2. Are you trying to control the outcome, or are you surrendering it to God?</strong>
+        <textarea id="q2" placeholder="Write your response here..."></textarea>
       </div>
+
+      <div class="question">
+        <strong>3. What would it look like for you to be fully honest with God in prayer this week?</strong>
+        <textarea id="q3" placeholder="Write your response here..."></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Personal Response</h3>
+
+      <label for="takeaway">My biggest takeaway from today’s message</label>
+      <textarea id="takeaway" placeholder="What is the one thing you do not want to forget?"></textarea>
+
+      <label for="prayerRequest">Prayer request or next step</label>
+      <textarea id="prayerRequest" placeholder="What do you want to surrender to God this week?"></textarea>
+    </section>
+
+    <section class="card">
+      <h3>Closing Prayer</h3>
+      <div class="prayer-box">
+        Lord, in moments when life feels overwhelming, remind us of the garden. Give us the courage to be honest with You about our pain. Teach us to trust Your will even when we do not understand it. Strengthen us through prayer so that we do not fall into temptation. Help us to surrender our lives to You just as Jesus surrendered in the garden. In Jesus’ name, Amen.
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Save or Share My Notes</h3>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="emailNotes()">Email My Notes</button>
+        <button class="btn btn-secondary" onclick="window.print()">Print Notes</button>
+        <button class="btn btn-secondary" onclick="clearNotes()">Clear My Notes</button>
+        <a class="btn btn-secondary" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
+      </div>
+      <div class="small-note">The email button uses your device’s default mail app and places your notes into the message body.</div>
+    </section>
+
+    <div class="footer-note">
+      Versailles United Methodist Church · Love Like Jesus
     </div>
   </div>
 
   <script>
-    function openAll(){
-      document.querySelectorAll("details.accordion").forEach(d => d.open = true);
-    }
-    function closeAll(){
-      document.querySelectorAll("details.accordion").forEach(d => d.open = false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    const fields = [
+      "name", "email", "notes1", "notes2", "notes3",
+      "q1", "q2", "q3", "takeaway", "prayerRequest"
+    ];
 
-    function compileNotes(){
-      const areas = document.querySelectorAll("textarea");
-      let compiled = "";
-      areas.forEach((ta) => {
-        const title = ta.getAttribute("data-title") || "Notes";
-        const val = (ta.value || "").trim();
-        compiled += title + ":\n" + (val ? val : "(no notes)") + "\n\n";
-      });
-      return compiled.trim();
-    }
-
-    function sendNotes(){
-      const email = (document.getElementById("email").value || "").trim();
-      if(!email){
-        alert("Please enter your email address first.");
-        return;
+    function saveField(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        localStorage.setItem("gardenDecision_" + id, el.value);
       }
-
-      const compiledNotes = compileNotes();
-
-      fetch("https://script.google.com/macros/s/AKfycbwzEZ2mzeZj0VLxT1UkEWjMrX36ZVg8JHyTXGSnv2RDIw3x3T1kgUBqzKaYImMmcZKrIw/exec", {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({
-          email: email,
-          notes: compiledNotes,
-          sermon: "INTO THE WILDERNESS — Table Talk",
-          scripture: "John 13:1–17 (CEB)"
-        })
-      })
-      .then(() => alert("Your notes have been sent!"))
-      .catch(() => alert("There was an error sending your notes."));
     }
 
-    function returnToChurchCenter(){
-      window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
+    function loadFields() {
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const saved = localStorage.getItem("gardenDecision_" + id);
+          if (saved !== null) el.value = saved;
+          el.addEventListener("input", () => saveField(id));
+        }
+      });
     }
+
+    function gatherNotes() {
+      const get = id => (document.getElementById(id)?.value || "").trim();
+
+      return {
+        name: get("name"),
+        email: get("email"),
+        notes1: get("notes1"),
+        notes2: get("notes2"),
+        notes3: get("notes3"),
+        q1: get("q1"),
+        q2: get("q2"),
+        q3: get("q3"),
+        takeaway: get("takeaway"),
+        prayerRequest: get("prayerRequest")
+      };
+    }
+
+    function emailNotes() {
+      const data = gatherNotes();
+
+      const subject = encodeURIComponent("My Sermon Notes - INTO THE WILDERNESS: The Garden Decision");
+
+      const body = encodeURIComponent(
+`INTO THE WILDERNESS: The Garden Decision
+Date: March 15, 2026
+Scripture: Luke 22:39–46
+
+Name: ${data.name}
+Email: ${data.email}
+
+1. Jesus Was Honest About His Pain
+${data.notes1}
+
+2. Jesus Chose Surrender Over Control
+${data.notes2}
+
+The Battle Was Won in Prayer
+${data.notes3}
+
+Reflection Question 1
+${data.q1}
+
+Reflection Question 2
+${data.q2}
+
+Reflection Question 3
+${data.q3}
+
+Biggest Takeaway
+${data.takeaway}
+
+Prayer Request / Next Step
+${data.prayerRequest}
+
+Versailles United Methodist Church
+VUMC Connect`
+      );
+
+      const recipient = data.email || "";
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    }
+
+    function clearNotes() {
+      if (!confirm("Are you sure you want to clear all saved notes for this sermon page?")) return;
+
+      fields.forEach(id => {
+        localStorage.removeItem("gardenDecision_" + id);
+        const el = document.getElementById(id);
+        if (el) el.value = "";
+      });
+    }
+
+    loadFields();
   </script>
 </body>
 </html>

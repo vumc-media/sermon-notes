@@ -3,489 +3,369 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Into the Wilderness: The Garden Decision | VUMC Connect</title>
+  <title>Into the Wilderness: The Crown and the Cross</title>
   <style>
-    :root{
-      --bg:#f4f1ea;
-      --card:#ffffff;
-      --ink:#2c2c2c;
-      --muted:#6b6b6b;
-      --accent:#6f4e37;
-      --accent-dark:#4e3627;
-      --gold:#c8a96b;
-      --border:#ddd4c7;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
-      --radius:18px;
+    :root {
+      --bg: #f5f1e8;
+      --card: #fffdf8;
+      --ink: #2f241c;
+      --muted: #6c5b4c;
+      --accent: #6d4c41;
+      --accent-2: #a67c52;
+      --line: #dccfbd;
+      --shadow: 0 10px 30px rgba(60, 40, 20, 0.12);
+      --radius: 18px;
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
-    body{
-      margin:0;
+    body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #ede7dc 0%, #f7f4ee 100%);
-      color:var(--ink);
-      line-height:1.6;
+      background: linear-gradient(180deg, #ede5d7 0%, #f8f4ec 100%);
+      color: var(--ink);
+      line-height: 1.55;
     }
 
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
+    .hero {
+      background: linear-gradient(135deg, rgba(62,39,35,0.95), rgba(121,85,72,0.9)),
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%);
+      color: #fff;
+      padding: 48px 20px 36px;
+      text-align: center;
     }
 
-    .hero{
-      background: linear-gradient(135deg, rgba(111,78,55,.96), rgba(78,54,39,.95));
-      color:#fff;
-      border-radius: 24px;
-      padding: 30px 24px;
-      box-shadow: var(--shadow);
-      margin-bottom: 22px;
-    }
-
-    .eyebrow{
+    .hero .series {
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: .82rem;
-      opacity: .9;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      opacity: 0.9;
       margin-bottom: 8px;
     }
 
-    .hero h1{
-      margin:0 0 8px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height:1.1;
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
     }
 
-    .hero h2{
-      margin:0;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-      font-weight: normal;
-      color:#f3e8d0;
+    .hero .scripture {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      opacity: 0.95;
     }
 
-    .meta{
-      margin-top: 16px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .container {
+      max-width: 900px;
+      margin: -18px auto 0;
+      padding: 0 16px 36px;
     }
 
-    .chip{
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.18);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: .92rem;
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 22px;
-      margin-bottom: 18px;
+      padding: 20px;
+      margin: 18px 0;
     }
 
-    .card h3{
-      margin:0 0 10px;
-      color:var(--accent-dark);
-      font-size:1.35rem;
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      color: var(--accent);
     }
 
-    .card h4{
-      margin:18px 0 8px;
-      color:var(--accent);
-      font-size:1.06rem;
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      color: var(--accent);
     }
 
-    .scripture{
-      white-space: pre-line;
-      background:#faf8f4;
-      border-left: 5px solid var(--gold);
-      padding: 16px;
+    p { margin: 10px 0; }
+
+    .verse-box {
+      background: #f7efe2;
+      border-left: 5px solid var(--accent-2);
       border-radius: 12px;
-      font-size: 1rem;
+      padding: 14px;
+      white-space: pre-line;
+      color: #4c3c31;
     }
 
-    .point-title{
-      margin:0 0 8px;
-      font-size:1.2rem;
-      color:var(--accent-dark);
+    .point-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
     }
 
-    .verse-ref{
-      color:var(--muted);
-      font-style: italic;
+    .point-ref {
+      color: var(--muted);
+      font-size: 0.95rem;
       margin-bottom: 12px;
     }
 
-    .highlight{
-      background:#f8f2e6;
-      border:1px solid #ead8b2;
-      border-radius:12px;
-      padding:14px;
-      margin:14px 0;
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
     }
 
-    ul{
-      padding-left: 22px;
+    li { margin: 8px 0; }
+
+    .prompt {
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 10px;
     }
 
-    label{
-      display:block;
-      font-weight: bold;
-      margin: 14px 0 6px;
-      color:var(--accent-dark);
-    }
-
-    textarea, input[type="text"], input[type="email"]{
-      width:100%;
-      border:1px solid #cfc4b4;
+    textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid #ccbba7;
       border-radius: 12px;
       padding: 12px 14px;
       font-size: 1rem;
-      background:#fff;
-      color:var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: var(--ink);
+      margin-top: 8px;
     }
 
-    textarea{
+    textarea {
       min-height: 120px;
       resize: vertical;
     }
 
-    .small-note{
-      color:var(--muted);
-      font-size:.92rem;
-      margin-top:6px;
+    .short-note { min-height: 90px; }
+    .prayer-note { min-height: 140px; }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
     }
 
-    .question{
-      background:#faf8f4;
-      border:1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
-
-    .question strong{
-      display:block;
-      margin-bottom:8px;
-      color:var(--accent-dark);
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top: 18px;
-    }
-
-    .btn{
-      appearance:none;
-      border:none;
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 12px 16px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition: .2s ease;
+      background: #fff;
     }
 
-    .btn-primary{
-      background:var(--accent);
-      color:#fff;
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2);
     }
 
-    .btn-primary:hover{
-      background:var(--accent-dark);
-    }
-
-    .btn-secondary{
-      background:#ece4d8;
-      color:var(--accent-dark);
-      border:1px solid #d9cab3;
-    }
-
-    .btn-secondary:hover{
-      background:#e4d9c8;
-    }
-
-    .footer-note{
-      text-align:center;
-      color:var(--muted);
-      font-size:.92rem;
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 18px;
     }
 
-    .prayer-box{
-      background: linear-gradient(180deg, #fbf8f2 0%, #f5eee3 100%);
-      border:1px solid #e5d8c0;
-      border-radius: 14px;
-      padding: 16px;
+    button, .return-btn {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
-    @media (max-width: 640px){
-      .hero{
-        padding:24px 18px;
-      }
-      .card{
-        padding:18px;
-      }
-      .btn{
-        width:100%;
-      }
+    button:hover, .return-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .secondary {
+      background: #e9dcc8;
+      color: var(--ink);
+    }
+
+    .return-wrap {
+      text-align: center;
+      margin: 28px 0 10px;
+    }
+
+    .return-btn {
+      background: #2f241c;
+      color: #fff;
+      padding: 14px 22px;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 40px 16px 30px; }
+      .card { padding: 16px; }
+      .actions { flex-direction: column; }
+      button, .return-btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <div class="eyebrow">VUMC Connect Interactive Sermon Notes</div>
-      <h1>INTO THE WILDERNESS</h1>
-      <h2>The Garden Decision</h2>
-      <div class="meta">
-        <div class="chip">March 15, 2026</div>
-        <div class="chip">Luke 22:39–46</div>
-        <div class="chip">Versailles United Methodist Church</div>
-      </div>
+  <header class="hero">
+    <div class="series">Into the Wilderness</div>
+    <h1>The Crown and the Cross</h1>
+    <div class="scripture">Matthew 27:27–54</div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Main Scripture</h2>
+      <div class="verse-box">Matthew 27:27–54</div>
+      <p>Jesus is mocked, crowned with thorns, nailed to the cross, and revealed as King not through worldly power, but through suffering love and saving sacrifice.</p>
     </section>
 
     <section class="card">
-      <h3>Main Scripture</h3>
-      <div class="scripture">39 Jesus left and made his way to the Mount of Olives, as was his custom, and the disciples followed him. 40 When he arrived, he said to them, “Pray that you won’t give in to temptation.” 41 He withdrew from them about a stone’s throw, knelt down, and prayed. 42 He said, “Father, if it’s your will, take this cup of suffering away from me. However, not my will but your will must be done.” 43 Then a heavenly angel appeared to him and strengthened him. 44 He was in anguish and prayed even more earnestly. His sweat became like drops of blood falling on the ground. 45 When he got up from praying, he went to the disciples. He found them asleep, overcome by grief. 46 He said to them, “Why are you sleeping? Get up and pray so that you won’t give in to temptation.”</div>
+      <h2>Sermon Focus</h2>
+      <p><strong>Big Idea:</strong> The crown of thorns and the cross both reveal who Jesus truly is: the King who takes our curse and the Savior who shows the power of God through sacrificial love.</p>
+      <p><strong>Key Truth:</strong> What looked like humiliation was actually holy revelation.</p>
     </section>
 
     <section class="card">
-      <h3>Worshiper Information</h3>
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Your name">
-
-      <label for="email">Email address</label>
-      <input type="email" id="email" placeholder="Your email for sending notes">
-
-      <div class="small-note">Your notes stay in your browser while you type unless you choose to email or print them.</div>
-    </section>
-
-    <section class="card">
-      <h3 class="point-title">1. Jesus Was Honest About His Pain</h3>
-      <div class="verse-ref">Luke 22:42a</div>
-
-      <p><strong>“Father, if it’s your will, take this cup of suffering away from me...”</strong></p>
-
-      <p>Before Jesus surrendered to the cross, He acknowledged the weight of what He was facing. In the garden, Jesus did not pretend everything was fine. He brought His pain honestly before the Father.</p>
-
-      <div class="highlight">
-        <strong>Key Truth:</strong> Faith does not mean denying pain. Faith means bringing our pain to God.
-      </div>
-
+      <h2>Point 1</h2>
+      <div class="point-title">The Crown of Thorns Reveals the True King</div>
+      <div class="point-ref">Supporting Scripture: Genesis 3:18</div>
+      <p>Thorns first appeared in Scripture as part of the curse after sin entered the world. When Jesus wore the crown of thorns, He was not only being mocked by soldiers. He was taking upon Himself the visible symbol of humanity’s brokenness.</p>
       <ul>
-        <li>Jesus was honest, not fake.</li>
-        <li>Jesus was prayerful, not distant.</li>
-        <li>Jesus shows us that honesty before God is not weakness.</li>
+        <li>The thorns point back to the fall.</li>
+        <li>Jesus wears what sin produced.</li>
+        <li>The true King steps into our pain instead of standing far away from it.</li>
+        <li>He does not rule by cruelty, but by sacrifice.</li>
       </ul>
-
-      <label for="notes1">My notes on Point 1</label>
-      <textarea id="notes1" placeholder="What stands out to you from this point?"></textarea>
+      <p><strong>Preaching line:</strong> Jesus wears the curse so we can receive grace.</p>
+      <div class="prompt">What stands out to you from Point 1?</div>
+      <textarea id="point1" class="short-note" placeholder="Write your notes here..."></textarea>
     </section>
 
     <section class="card">
-      <h3 class="point-title">2. Jesus Chose Surrender Over Control</h3>
-      <div class="verse-ref">Luke 22:42b–43</div>
-
-      <p><strong>“However, not my will but your will must be done.”</strong></p>
-
-      <p>This is the turning point in the garden. Jesus did not cling to control. He surrendered Himself completely to the Father’s will.</p>
-
-      <div class="highlight">
-        <strong>Key Truth:</strong> Surrender is not weakness. Surrender is trust.
-      </div>
-
+      <h2>Point 2</h2>
+      <div class="point-title">The Cross Reveals the Power of God</div>
+      <div class="point-ref">Supporting Scripture: Matthew 27:37</div>
+      <p>The sign above Jesus’ head was meant to mock Him: “This is Jesus, the King of the Jews.” But the cross did not expose weakness. It revealed the unexpected power of God.</p>
       <ul>
-        <li>Jesus understood the cost.</li>
-        <li>Jesus still chose obedience.</li>
-        <li>God did not remove the suffering, but God gave strength to endure it.</li>
+        <li>Human power takes. God’s power gives.</li>
+        <li>Human power protects itself. God’s power pours itself out.</li>
+        <li>The cross looked like defeat, but heaven declared victory.</li>
+        <li>In Jesus, suffering becomes the place where redemption breaks through.</li>
       </ul>
-
-      <p><strong>Verse 43 reminds us:</strong> Heaven met Jesus in His surrender.</p>
-
-      <label for="notes2">My notes on Point 2</label>
-      <textarea id="notes2" placeholder="Where do you see surrender instead of control in this passage?"></textarea>
+      <p><strong>Preaching line:</strong> The power of God is often seen most clearly where the world only sees weakness.</p>
+      <div class="prompt">What stands out to you from Point 2?</div>
+      <textarea id="point2" class="short-note" placeholder="Write your notes here..."></textarea>
     </section>
 
     <section class="card">
-      <h3>The Battle Was Won in Prayer</h3>
+      <h2>Scripture Reflection</h2>
+      <div class="prompt">What does this passage show you about Jesus?</div>
+      <textarea id="reflection1" placeholder="Jesus is... Jesus reveals... This passage reminds me..."></textarea>
 
-      <p>Before the arrest, before the trial, and before the cross, Jesus fought the real battle in prayer. The disciples, however, slept through the moment.</p>
-
-      <div class="highlight">
-        <strong>Key Truth:</strong> Prayer prepares us for battles we cannot yet see.
-      </div>
-
-      <ul>
-        <li>Jesus prayed with urgency.</li>
-        <li>The disciples slept in grief and weakness.</li>
-        <li>Prayer is one of the ways God strengthens us when temptation and pressure come.</li>
-      </ul>
-
-      <label for="notes3">My notes on prayer and preparation</label>
-      <textarea id="notes3" placeholder="What is God showing you about prayer through this passage?"></textarea>
+      <div class="prompt">Where do you need to trust God’s power even when life feels painful or confusing?</div>
+      <textarea id="reflection2" placeholder="Write your reflection here..."></textarea>
     </section>
 
     <section class="card">
-      <h3>Reflection Questions</h3>
-
-      <div class="question">
-        <strong>1. What situation in your life feels like a “garden moment” right now?</strong>
-        <textarea id="q1" placeholder="Write your response here..."></textarea>
-      </div>
-
-      <div class="question">
-        <strong>2. Are you trying to control the outcome, or are you surrendering it to God?</strong>
-        <textarea id="q2" placeholder="Write your response here..."></textarea>
-      </div>
-
-      <div class="question">
-        <strong>3. What would it look like for you to be fully honest with God in prayer this week?</strong>
-        <textarea id="q3" placeholder="Write your response here..."></textarea>
+      <h2>Personal Response</h2>
+      <div class="checklist">
+        <label class="check-item"><input type="checkbox" id="cb1" /> <span>I will remember that Jesus stepped into my pain and knows what suffering feels like.</span></label>
+        <label class="check-item"><input type="checkbox" id="cb2" /> <span>I will trust that God can still be at work even when things look broken.</span></label>
+        <label class="check-item"><input type="checkbox" id="cb3" /> <span>I will surrender an area of my life to the true King this week.</span></label>
+        <label class="check-item"><input type="checkbox" id="cb4" /> <span>I will look at the cross not only as suffering, but as the place where God’s love was fully revealed.</span></label>
       </div>
     </section>
 
     <section class="card">
-      <h3>Personal Response</h3>
-
-      <label for="takeaway">My biggest takeaway from today’s message</label>
-      <textarea id="takeaway" placeholder="What is the one thing you do not want to forget?"></textarea>
-
-      <label for="prayerRequest">Prayer request or next step</label>
-      <textarea id="prayerRequest" placeholder="What do you want to surrender to God this week?"></textarea>
+      <h2>Prayer</h2>
+      <p>Lord Jesus, thank You for wearing the crown of thorns and carrying the cross for us. Help me see You as the true King. Teach me to trust Your power, even in places that feel weak, painful, or uncertain. Shape my heart through Your sacrifice and lead me closer to You. Amen.</p>
+      <div class="prompt">My prayer today:</div>
+      <textarea id="prayer" class="prayer-note" placeholder="Write your prayer here..."></textarea>
     </section>
 
     <section class="card">
-      <h3>Closing Prayer</h3>
-      <div class="prayer-box">
-        Lord, in moments when life feels overwhelming, remind us of the garden. Give us the courage to be honest with You about our pain. Teach us to trust Your will even when we do not understand it. Strengthen us through prayer so that we do not fall into temptation. Help us to surrender our lives to You just as Jesus surrendered in the garden. In Jesus’ name, Amen.
-      </div>
-    </section>
-
-    <section class="card">
-      <h3>Save or Share My Notes</h3>
+      <h2>Email My Notes</h2>
+      <p>Enter your email address below and send yourself a copy of your sermon notes.</p>
+      <input type="text" id="email" placeholder="Enter your email address" />
       <div class="actions">
-        <button class="btn btn-primary" onclick="emailNotes()">Email My Notes</button>
-        <button class="btn btn-secondary" onclick="window.print()">Print Notes</button>
-        <button class="btn btn-secondary" onclick="clearNotes()">Clear My Notes</button>
-        <a class="btn btn-secondary" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
+        <button class="primary" onclick="sendNotes()">Email My Notes</button>
+        <button class="secondary" onclick="downloadNotes()">Download Notes</button>
+        <button class="secondary" onclick="clearForm()">Clear Form</button>
       </div>
-      <div class="small-note">The email button uses your device’s default mail app and places your notes into the message body.</div>
+      <p class="footer-note" id="status"></p>
     </section>
 
-    <div class="footer-note">
-      Versailles United Methodist Church · Love Like Jesus
+    <div class="return-wrap">
+      <a class="return-btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
     </div>
-  </div>
+  </main>
 
   <script>
-    const fields = [
-      "name", "email", "notes1", "notes2", "notes3",
-      "q1", "q2", "q3", "takeaway", "prayerRequest"
-    ];
-
-    function saveField(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        localStorage.setItem("gardenDecision_" + id, el.value);
-      }
-    }
-
-    function loadFields() {
-      fields.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          const saved = localStorage.getItem("gardenDecision_" + id);
-          if (saved !== null) el.value = saved;
-          el.addEventListener("input", () => saveField(id));
-        }
-      });
-    }
-
     function gatherNotes() {
-      const get = id => (document.getElementById(id)?.value || "").trim();
+      const checks = [];
+      if (document.getElementById('cb1').checked) checks.push('I will remember that Jesus stepped into my pain and knows what suffering feels like.');
+      if (document.getElementById('cb2').checked) checks.push('I will trust that God can still be at work even when things look broken.');
+      if (document.getElementById('cb3').checked) checks.push('I will surrender an area of my life to the true King this week.');
+      if (document.getElementById('cb4').checked) checks.push('I will look at the cross not only as suffering, but as the place where God’s love was fully revealed.');
 
-      return {
-        name: get("name"),
-        email: get("email"),
-        notes1: get("notes1"),
-        notes2: get("notes2"),
-        notes3: get("notes3"),
-        q1: get("q1"),
-        q2: get("q2"),
-        q3: get("q3"),
-        takeaway: get("takeaway"),
-        prayerRequest: get("prayerRequest")
-      };
+      return `INTO THE WILDERNESS: The Crown and the Cross\nMatthew 27:27–54\n\nMAIN IDEA\nThe crown of thorns and the cross reveal Jesus as the true King and the Savior who shows the power of God through sacrificial love.\n\nPOINT 1: The Crown of Thorns Reveals the True King\nGenesis 3:18\n${document.getElementById('point1').value || '(No notes entered)'}\n\nPOINT 2: The Cross Reveals the Power of God\nMatthew 27:37\n${document.getElementById('point2').value || '(No notes entered)'}\n\nSCRIPTURE REFLECTION\nWhat does this passage show you about Jesus?\n${document.getElementById('reflection1').value || '(No reflection entered)'}\n\nWhere do you need to trust God’s power even when life feels painful or confusing?\n${document.getElementById('reflection2').value || '(No reflection entered)'}\n\nPERSONAL RESPONSE\n${checks.length ? checks.map(item => '- ' + item).join('\n') : '(No boxes checked)'}\n\nMY PRAYER TODAY\n${document.getElementById('prayer').value || '(No prayer entered)'}\n`;
     }
 
-    function emailNotes() {
-      const data = gatherNotes();
+    function sendNotes() {
+      const email = document.getElementById('email').value.trim();
+      const status = document.getElementById('status');
+      const notes = gatherNotes();
 
-      const subject = encodeURIComponent("My Sermon Notes - INTO THE WILDERNESS: The Garden Decision");
+      if (!email) {
+        status.textContent = 'Please enter an email address first.';
+        return;
+      }
 
-      const body = encodeURIComponent(
-`INTO THE WILDERNESS: The Garden Decision
-Date: March 15, 2026
-Scripture: Luke 22:39–46
-
-Name: ${data.name}
-Email: ${data.email}
-
-1. Jesus Was Honest About His Pain
-${data.notes1}
-
-2. Jesus Chose Surrender Over Control
-${data.notes2}
-
-The Battle Was Won in Prayer
-${data.notes3}
-
-Reflection Question 1
-${data.q1}
-
-Reflection Question 2
-${data.q2}
-
-Reflection Question 3
-${data.q3}
-
-Biggest Takeaway
-${data.takeaway}
-
-Prayer Request / Next Step
-${data.prayerRequest}
-
-Versailles United Methodist Church
-VUMC Connect`
-      );
-
-      const recipient = data.email || "";
-      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+      const subject = encodeURIComponent('Sermon Notes - Into the Wilderness: The Crown and the Cross');
+      const body = encodeURIComponent(notes);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      status.textContent = 'Your email app should open with your notes.';
     }
 
-    function clearNotes() {
-      if (!confirm("Are you sure you want to clear all saved notes for this sermon page?")) return;
+    function downloadNotes() {
+      const notes = gatherNotes();
+      const blob = new Blob([notes], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'into-the-wilderness-crown-and-cross-sermon-notes.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+      document.getElementById('status').textContent = 'Your notes were downloaded.';
+    }
 
-      fields.forEach(id => {
-        localStorage.removeItem("gardenDecision_" + id);
-        const el = document.getElementById(id);
-        if (el) el.value = "";
+    function clearForm() {
+      ['point1','point2','reflection1','reflection2','prayer','email'].forEach(id => {
+        document.getElementById(id).value = '';
       });
+      ['cb1','cb2','cb3','cb4'].forEach(id => {
+        document.getElementById(id).checked = false;
+      });
+      document.getElementById('status').textContent = 'Form cleared.';
     }
-
-    loadFields();
   </script>
 </body>
 </html>

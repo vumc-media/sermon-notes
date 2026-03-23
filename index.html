@@ -1,371 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Into the Wilderness: The Crown and the Cross</title>
-  <style>
-    :root {
-      --bg: #f5f1e8;
-      --card: #fffdf8;
-      --ink: #2f241c;
-      --muted: #6c5b4c;
-      --accent: #6d4c41;
-      --accent-2: #a67c52;
-      --line: #dccfbd;
-      --shadow: 0 10px 30px rgba(60, 40, 20, 0.12);
-      --radius: 18px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VUMC Sermon Notes</title>
 
-    * { box-sizing: border-box; }
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.5;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #ede5d7 0%, #f8f4ec 100%);
-      color: var(--ink);
-      line-height: 1.55;
-    }
+.container {
+  max-width: 700px;
+  margin: auto;
+}
 
-    .hero {
-      background: linear-gradient(135deg, rgba(62,39,35,0.95), rgba(121,85,72,0.9)),
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%);
-      color: #fff;
-      padding: 48px 20px 36px;
-      text-align: center;
-    }
+h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+  text-align: center;
+}
 
-    .hero .series {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      margin-bottom: 8px;
-    }
+.scripture {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.1;
-    }
+.point {
+  background: #f5f5f5;
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 
-    .hero .scripture {
-      margin-top: 12px;
-      font-size: 1.05rem;
-      opacity: 0.95;
-    }
+.point-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
 
-    .container {
-      max-width: 900px;
-      margin: -18px auto 0;
-      padding: 0 16px 36px;
-    }
+.point-scripture {
+  color: #555;
+  margin-bottom: 12px;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
-      margin: 18px 0;
-    }
+.teaching-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-    h2 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      color: var(--accent);
-    }
+.reflect-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
 
-    h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      color: var(--accent);
-    }
+.label {
+  font-weight: bold;
+  margin-top: 14px;
+  display: block;
+}
 
-    p { margin: 10px 0; }
+textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 8px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  resize: vertical;
+}
 
-    .verse-box {
-      background: #f7efe2;
-      border-left: 5px solid var(--accent-2);
-      border-radius: 12px;
-      padding: 14px;
-      white-space: pre-line;
-      color: #4c3c31;
-    }
+.small-textarea {
+  height: 90px;
+}
 
-    .point-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
 
-    .point-ref {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
+.return {
+  background: #777;
+}
+</style>
 
-    ul {
-      padding-left: 20px;
-      margin: 10px 0;
-    }
+<script>
+function emailNotes() {
 
-    li { margin: 8px 0; }
+  let notes1 = document.getElementById("n1").value;
+  let reflect1 = document.getElementById("r1").value;
+  let prayer1 = document.getElementById("p1").value;
 
-    .prompt {
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 10px;
-    }
+  let notes2 = document.getElementById("n2").value;
+  let reflect2 = document.getElementById("r2").value;
+  let prayer2 = document.getElementById("p2").value;
 
-    textarea, input[type="text"] {
-      width: 100%;
-      border: 1px solid #ccbba7;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff;
-      color: var(--ink);
-      margin-top: 8px;
-    }
+  let body =
+    "INTO THE WILDERNESS: Hosanna or Crucify?\n" +
+    "Matthew 21:1–11; 27:15–26\n\n" +
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+    "1. The Crowd Wanted a King Who Would Fix Their Problems\n\n" +
+    "Notes:\n" + notes1 + "\n\n" +
+    "Reflection:\n" + reflect1 + "\n\n" +
+    "Prayer:\n" + prayer1 + "\n\n" +
 
-    .short-note { min-height: 90px; }
-    .prayer-note { min-height: 140px; }
+    "2. When Jesus Didn’t Meet Expectations, the Crowd Turned on Him\n\n" +
+    "Notes:\n" + notes2 + "\n\n" +
+    "Reflection:\n" + reflect2 + "\n\n" +
+    "Prayer:\n" + prayer2;
 
-    .checklist {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .check-item input {
-      margin-top: 3px;
-      transform: scale(1.2);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    button, .return-btn {
-      appearance: none;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-size: 0.98rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    button:hover, .return-btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .secondary {
-      background: #e9dcc8;
-      color: var(--ink);
-    }
-
-    .return-wrap {
-      text-align: center;
-      margin: 28px 0 10px;
-    }
-
-    .return-btn {
-      background: #2f241c;
-      color: #fff;
-      padding: 14px 22px;
-    }
-
-    .footer-note {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 14px;
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding: 40px 16px 30px; }
-      .card { padding: 16px; }
-      .actions { flex-direction: column; }
-      button, .return-btn { width: 100%; }
-    }
-  </style>
+  window.location.href =
+    "mailto:?subject=Sermon Notes - Hosanna or Crucify?&body=" + encodeURIComponent(body);
+}
+</script>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="series">Into the Wilderness</div>
-    <h1>The Crown and the Cross</h1>
-    <div class="scripture">Matthew 27:27–54</div>
-  </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Main Scripture</h2>
-      <div class="verse-box">Matthew 27:27–54</div>
-      <p>Jesus is mocked, crowned with thorns, nailed to the cross, and revealed as King not through worldly power, but through suffering love and saving sacrifice.</p>
-    </section>
+<div class="container">
 
-    <section class="card">
-      <h2>Sermon Focus</h2>
-      <p><strong>Big Idea:</strong> The crown of thorns and the cross both reveal who Jesus truly is: the King who takes our curse and the Savior who shows the power of God through sacrificial love.</p>
-      <p><strong>Key Truth:</strong> What looked like humiliation was actually holy revelation.</p>
-    </section>
+<h1>INTO THE WILDERNESS: Hosanna or Crucify?</h1>
+<div class="scripture">Matthew 21:1–11; 27:15–26</div>
 
-    <section class="card">
-      <h2>Point 1</h2>
-      <div class="point-title">The Crown of Thorns Reveals the True King</div>
-      <div class="point-ref">Supporting Scripture: Genesis 3:18</div>
-      <p>Thorns first appeared in Scripture as part of the curse after sin entered the world. When Jesus wore the crown of thorns, He was not only being mocked by soldiers. He was taking upon Himself the visible symbol of humanity’s brokenness.</p>
-      <ul>
-        <li>The thorns point back to the fall.</li>
-        <li>Jesus wears what sin produced.</li>
-        <li>The true King steps into our pain instead of standing far away from it.</li>
-        <li>He does not rule by cruelty, but by sacrifice.</li>
-      </ul>
-      <p><strong>Preaching line:</strong> Jesus wears the curse so we can receive grace.</p>
-      <div class="prompt">What stands out to you from Point 1?</div>
-      <textarea id="point1" class="short-note" placeholder="Write your notes here..."></textarea>
-    </section>
+<div class="point">
+<div class="point-title">1. The Crowd Wanted a King Who Would Fix Their Problems</div>
+<div class="point-scripture">(Matthew 21:1–11)</div>
 
-    <section class="card">
-      <h2>Point 2</h2>
-      <div class="point-title">The Cross Reveals the Power of God</div>
-      <div class="point-ref">Supporting Scripture: Matthew 27:37</div>
-      <p>The sign above Jesus’ head was meant to mock Him: “This is Jesus, the King of the Jews.” But the cross did not expose weakness. It revealed the unexpected power of God.</p>
-      <ul>
-        <li>Human power takes. God’s power gives.</li>
-        <li>Human power protects itself. God’s power pours itself out.</li>
-        <li>The cross looked like defeat, but heaven declared victory.</li>
-        <li>In Jesus, suffering becomes the place where redemption breaks through.</li>
-      </ul>
-      <p><strong>Preaching line:</strong> The power of God is often seen most clearly where the world only sees weakness.</p>
-      <div class="prompt">What stands out to you from Point 2?</div>
-      <textarea id="point2" class="short-note" placeholder="Write your notes here..."></textarea>
-    </section>
+<div class="teaching-content">
+The crowd welcomed Jesus with praise, but many were hoping for a king who would solve their immediate struggles. They wanted rescue on their terms. Sometimes we also want Jesus to fix circumstances without first changing our hearts.
+</div>
 
-    <section class="card">
-      <h2>Scripture Reflection</h2>
-      <div class="prompt">What does this passage show you about Jesus?</div>
-      <textarea id="reflection1" placeholder="Jesus is... Jesus reveals... This passage reminds me..."></textarea>
+<div class="reflect-content">
+Reflection Moment:  
+What expectations have you placed on Jesus? Have you ever wanted Him to move according to your plan instead of trusting His purpose? Where might God be inviting you to surrender your version of rescue and receive His deeper work in your life?
+</div>
 
-      <div class="prompt">Where do you need to trust God’s power even when life feels painful or confusing?</div>
-      <textarea id="reflection2" placeholder="Write your reflection here..."></textarea>
-    </section>
+<label class="label">My Notes</label>
+<textarea id="n1" placeholder="Write your sermon notes here…"></textarea>
 
-    <section class="card">
-      <h2>Personal Response</h2>
-      <div class="checklist">
-        <label class="check-item"><input type="checkbox" id="cb1" /> <span>I will remember that Jesus stepped into my pain and knows what suffering feels like.</span></label>
-        <label class="check-item"><input type="checkbox" id="cb2" /> <span>I will trust that God can still be at work even when things look broken.</span></label>
-        <label class="check-item"><input type="checkbox" id="cb3" /> <span>I will surrender an area of my life to the true King this week.</span></label>
-        <label class="check-item"><input type="checkbox" id="cb4" /> <span>I will look at the cross not only as suffering, but as the place where God’s love was fully revealed.</span></label>
-      </div>
-    </section>
+<label class="label">My Reflection / Personal Application</label>
+<textarea id="r1" class="small-textarea" placeholder="What is God showing me?"></textarea>
 
-    <section class="card">
-      <h2>Prayer</h2>
-      <p>Lord Jesus, thank You for wearing the crown of thorns and carrying the cross for us. Help me see You as the true King. Teach me to trust Your power, even in places that feel weak, painful, or uncertain. Shape my heart through Your sacrifice and lead me closer to You. Amen.</p>
-      <div class="prompt">My prayer today:</div>
-      <textarea id="prayer" class="prayer-note" placeholder="Write your prayer here..."></textarea>
-    </section>
+<label class="label">My Prayer</label>
+<textarea id="p1" class="small-textarea" placeholder="Write a short prayer…"></textarea>
 
-    <section class="card">
-      <h2>Email My Notes</h2>
-      <p>Enter your email address below and send yourself a copy of your sermon notes.</p>
-      <input type="text" id="email" placeholder="Enter your email address" />
-      <div class="actions">
-        <button class="primary" onclick="sendNotes()">Email My Notes</button>
-        <button class="secondary" onclick="downloadNotes()">Download Notes</button>
-        <button class="secondary" onclick="clearForm()">Clear Form</button>
-      </div>
-      <p class="footer-note" id="status"></p>
-    </section>
+</div>
 
-    <div class="return-wrap">
-      <a class="return-btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
-    </div>
-  </main>
+<div class="point">
 
-  <script>
-    function gatherNotes() {
-      const checks = [];
-      if (document.getElementById('cb1').checked) checks.push('I will remember that Jesus stepped into my pain and knows what suffering feels like.');
-      if (document.getElementById('cb2').checked) checks.push('I will trust that God can still be at work even when things look broken.');
-      if (document.getElementById('cb3').checked) checks.push('I will surrender an area of my life to the true King this week.');
-      if (document.getElementById('cb4').checked) checks.push('I will look at the cross not only as suffering, but as the place where God’s love was fully revealed.');
+<div class="point-title">2. When Jesus Didn’t Meet Expectations, the Crowd Turned on Him</div>
+<div class="point-scripture">(Matthew 27:15–26)</div>
 
-      return `INTO THE WILDERNESS: The Crown and the Cross\nMatthew 27:27–54\n\nMAIN IDEA\nThe crown of thorns and the cross reveal Jesus as the true King and the Savior who shows the power of God through sacrificial love.\n\nPOINT 1: The Crown of Thorns Reveals the True King\nGenesis 3:18\n${document.getElementById('point1').value || '(No notes entered)'}\n\nPOINT 2: The Cross Reveals the Power of God\nMatthew 27:37\n${document.getElementById('point2').value || '(No notes entered)'}\n\nSCRIPTURE REFLECTION\nWhat does this passage show you about Jesus?\n${document.getElementById('reflection1').value || '(No reflection entered)'}\n\nWhere do you need to trust God’s power even when life feels painful or confusing?\n${document.getElementById('reflection2').value || '(No reflection entered)'}\n\nPERSONAL RESPONSE\n${checks.length ? checks.map(item => '- ' + item).join('\n') : '(No boxes checked)'}\n\nMY PRAYER TODAY\n${document.getElementById('prayer').value || '(No prayer entered)'}\n`;
-    }
+<div class="teaching-content">
+The same voices that cried “Hosanna” were later part of the cry for crucifixion. When Jesus did not match their expectations, admiration turned into rejection. Following Jesus means trusting Him even when He does not move the way we thought He would.
+</div>
 
-    function sendNotes() {
-      const email = document.getElementById('email').value.trim();
-      const status = document.getElementById('status');
-      const notes = gatherNotes();
+<div class="reflect-content">
+Reflection Moment:  
+Have there been moments when your faith felt shaken because God did not respond the way you expected? How do disappointment, confusion, or delay affect your trust in Jesus? What would it look like to stay faithful even when you do not fully understand His way?
+</div>
 
-      if (!email) {
-        status.textContent = 'Please enter an email address first.';
-        return;
-      }
+<label class="label">My Notes</label>
+<textarea id="n2" placeholder="Write your sermon notes here…"></textarea>
 
-      const subject = encodeURIComponent('Sermon Notes - Into the Wilderness: The Crown and the Cross');
-      const body = encodeURIComponent(notes);
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-      status.textContent = 'Your email app should open with your notes.';
-    }
+<label class="label">My Reflection / Personal Application</label>
+<textarea id="r2" class="small-textarea" placeholder="How does this speak into my life?"></textarea>
 
-    function downloadNotes() {
-      const notes = gatherNotes();
-      const blob = new Blob([notes], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'into-the-wilderness-crown-and-cross-sermon-notes.txt';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(link.href);
-      document.getElementById('status').textContent = 'Your notes were downloaded.';
-    }
+<label class="label">My Prayer</label>
+<textarea id="p2" class="small-textarea" placeholder="Write a short prayer…"></textarea>
 
-    function clearForm() {
-      ['point1','point2','reflection1','reflection2','prayer','email'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      ['cb1','cb2','cb3','cb4'].forEach(id => {
-        document.getElementById(id).checked = false;
-      });
-      document.getElementById('status').textContent = 'Form cleared.';
-    }
-  </script>
+</div>
+
+<button onclick="emailNotes()">Email My Notes</button>
+
+<button class="return"
+onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
+Return to Church Center
+</button>
+
+</div>
+
 </body>
 </html>

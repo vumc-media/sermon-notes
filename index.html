@@ -1,198 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VUMC Sermon Notes</title>
+<title>The Grave Couldn’t Hold Him</title>
 
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #ffffff;
-  color: #111;
-  line-height: 1.5;
-}
-
-.container {
-  max-width: 700px;
-  margin: auto;
-}
-
-h1 {
-  font-size: 26px;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.scripture {
-  font-style: italic;
-  color: #555;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.point {
-  background: #f5f5f5;
-  padding: 18px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.point-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.point-scripture {
-  color: #555;
-  margin-bottom: 12px;
-}
-
-.teaching-content {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.reflect-content {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-.label {
-  font-weight: bold;
-  margin-top: 14px;
-  display: block;
-}
-
-textarea {
-  width: 100%;
-  height: 120px;
-  margin-top: 8px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
-.small-textarea {
-  height: 90px;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  background: #111;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.return {
-  background: #777;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    color: #111;
+  }
+  .container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .scripture {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+  }
+  .section {
+    margin-bottom: 30px;
+  }
+  .section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .challenge {
+    background: #f4f6f8;
+    padding: 12px;
+    border-left: 4px solid #444;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+  }
 </style>
 
 <script>
 function emailNotes() {
+  const subject = "Sermon Notes - The Grave Couldn’t Hold Him";
 
-  let notes1 = document.getElementById("n1").value;
-  let reflect1 = document.getElementById("r1").value;
-  let prayer1 = document.getElementById("p1").value;
+  const body = `
+Sermon: The Grave Couldn’t Hold Him
+Scripture: Luke 24:1-12
 
-  let notes2 = document.getElementById("n2").value;
-  let reflect2 = document.getElementById("r2").value;
-  let prayer2 = document.getElementById("p2").value;
+1. Resurrection Begins Where Hope Ends
+Notes:
+${document.getElementById('notes1').value}
 
-  let body =
-    "INTO THE WILDERNESS: Hosanna or Crucify?\n" +
-    "Matthew 21:1–11; 27:15–26\n\n" +
+Reflection:
+${document.getElementById('reflection1').value}
 
-    "1. The Crowd Wanted a King Who Would Fix Their Problems\n\n" +
-    "Notes:\n" + notes1 + "\n\n" +
-    "Reflection:\n" + reflect1 + "\n\n" +
-    "Prayer:\n" + prayer1 + "\n\n" +
+2. The Resurrection Changes Everything
+Notes:
+${document.getElementById('notes2').value}
 
-    "2. When Jesus Didn’t Meet Expectations, the Crowd Turned on Him\n\n" +
-    "Notes:\n" + notes2 + "\n\n" +
-    "Reflection:\n" + reflect2 + "\n\n" +
-    "Prayer:\n" + prayer2;
+Reflection:
+${document.getElementById('reflection2').value}
 
-  window.location.href =
-    "mailto:?subject=Sermon Notes - Hosanna or Crucify?&body=" + encodeURIComponent(body);
+Personal Application:
+${document.getElementById('application').value}
+
+Prayer:
+${document.getElementById('prayer').value}
+  `;
+
+  window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 </script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>INTO THE WILDERNESS: Hosanna or Crucify?</h1>
-<div class="scripture">Matthew 21:1–11; 27:15–26</div>
+<h1>The Grave Couldn’t Hold Him</h1>
+<div class="scripture">Luke 24:1-12</div>
 
-<div class="point">
-<div class="point-title">1. The Crowd Wanted a King Who Would Fix Their Problems</div>
-<div class="point-scripture">(Matthew 21:1–11)</div>
+<div class="section">
+  <h2>1. Resurrection Begins Where Hope Ends</h2>
+  <p>
+    The women came to the tomb expecting death, not resurrection. They brought spices, not celebration.
+    God often does His greatest work in the places where we feel like hope has died.
+  </p>
 
-<div class="teaching-content">
-The crowd welcomed Jesus with praise, but many were hoping for a king who would solve their immediate struggles. They wanted rescue on their terms. Sometimes we also want Jesus to fix circumstances without first changing our hearts.
+  <div class="challenge">
+    Where in your life have you given up hope? What if God is not finished yet?
+  </div>
+
+  <label>My Notes</label>
+  <textarea id="notes1" placeholder="Write your notes here..."></textarea>
+
+  <label>Reflection</label>
+  <textarea id="reflection1" placeholder="What is God showing you?"></textarea>
 </div>
 
-<div class="reflect-content">
-Reflection Moment:  
-What expectations have you placed on Jesus? Have you ever wanted Him to move according to your plan instead of trusting His purpose? Where might God be inviting you to surrender your version of rescue and receive His deeper work in your life?
+<div class="section">
+  <h2>2. The Resurrection Changes Everything</h2>
+  <p>
+    The empty tomb is not just a moment in history—it changes how we live today.
+    Fear becomes faith. Doubt becomes belief. Death gives way to life.
+  </p>
+
+  <div class="challenge">
+    What would change in your life if you truly lived like Jesus is alive?
+  </div>
+
+  <label>My Notes</label>
+  <textarea id="notes2" placeholder="Write your notes here..."></textarea>
+
+  <label>Reflection</label>
+  <textarea id="reflection2" placeholder="How will this change your week?"></textarea>
 </div>
 
-<label class="label">My Notes</label>
-<textarea id="n1" placeholder="Write your sermon notes here…"></textarea>
-
-<label class="label">My Reflection / Personal Application</label>
-<textarea id="r1" class="small-textarea" placeholder="What is God showing me?"></textarea>
-
-<label class="label">My Prayer</label>
-<textarea id="p1" class="small-textarea" placeholder="Write a short prayer…"></textarea>
-
+<div class="section">
+  <h2>Personal Application</h2>
+  <textarea id="application" placeholder="What is one step you will take this week?"></textarea>
 </div>
 
-<div class="point">
-
-<div class="point-title">2. When Jesus Didn’t Meet Expectations, the Crowd Turned on Him</div>
-<div class="point-scripture">(Matthew 27:15–26)</div>
-
-<div class="teaching-content">
-The same voices that cried “Hosanna” were later part of the cry for crucifixion. When Jesus did not match their expectations, admiration turned into rejection. Following Jesus means trusting Him even when He does not move the way we thought He would.
-</div>
-
-<div class="reflect-content">
-Reflection Moment:  
-Have there been moments when your faith felt shaken because God did not respond the way you expected? How do disappointment, confusion, or delay affect your trust in Jesus? What would it look like to stay faithful even when you do not fully understand His way?
-</div>
-
-<label class="label">My Notes</label>
-<textarea id="n2" placeholder="Write your sermon notes here…"></textarea>
-
-<label class="label">My Reflection / Personal Application</label>
-<textarea id="r2" class="small-textarea" placeholder="How does this speak into my life?"></textarea>
-
-<label class="label">My Prayer</label>
-<textarea id="p2" class="small-textarea" placeholder="Write a short prayer…"></textarea>
-
+<div class="section">
+  <h2>Prayer</h2>
+  <textarea id="prayer" placeholder="Write a short prayer..."></textarea>
 </div>
 
 <button onclick="emailNotes()">Email My Notes</button>
-
-<button class="return"
-onclick="window.location.href='https://versaillesumc.churchcenter.com/pages/vumc-hub'">
-Return to Church Center
-</button>
 
 </div>
 

@@ -1,188 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Grave Couldn’t Hold Him</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>This Is Just the Beginning: Alive On Purpose | Interactive Sermon Notes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    margin: 0;
-    padding: 0;
-    color: #111;
-  }
-  .container {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 5px;
-  }
-  .scripture {
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 25px;
-  }
-  .section {
-    margin-bottom: 30px;
-  }
-  .section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  .section p {
-    line-height: 1.6;
-  }
-  label {
-    display: block;
-    font-weight: bold;
-    margin-top: 12px;
-    margin-bottom: 6px;
-  }
-  textarea {
-    width: 100%;
-    min-height: 90px;
-    margin-top: 8px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    box-sizing: border-box;
-  }
-  .challenge {
-    background: #f4f6f8;
-    padding: 12px;
-    border-left: 4px solid #444;
-    margin-top: 10px;
-    border-radius: 6px;
-    line-height: 1.5;
-  }
-  .btn {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 14px;
-  }
-  .primary-btn {
-    background: #000;
-    color: #fff;
-  }
-  .secondary-btn {
-    background: #e5e7eb;
-    color: #111;
-  }
-</style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+      line-height: 1.6;
+    }
 
-<script>
-function emailNotes() {
-  const subject = "Sermon Notes - The Grave Couldn’t Hold Him";
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
 
-  const body = `
-Sermon: The Grave Couldn’t Hold Him
-Scripture: Luke 24:1-12
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
 
-1. Resurrection Begins Where Hope Ends
-Notes:
-${document.getElementById('notes1').value}
+    .hero {
+      background: linear-gradient(135deg, #1d3557, #457b9d);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    }
 
-Reflection:
-${document.getElementById('reflection1').value}
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
 
-2. The Resurrection Changes Everything
-Notes:
-${document.getElementById('notes2').value}
+    .hero .subtitle {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
 
-Reflection:
-${document.getElementById('reflection2').value}
+    .hero .scripture {
+      font-size: 1rem;
+      opacity: 0.95;
+    }
 
-Personal Application:
-${document.getElementById('application').value}
+    h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #1d3557;
+    }
 
-Prayer:
-${document.getElementById('prayer').value}
-  `;
+    h3 {
+      margin-bottom: 8px;
+      color: #2a4d69;
+      font-size: 1.1rem;
+    }
 
-  window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+    p {
+      margin-top: 0;
+    }
 
-function returnToChurchCenter() {
-  window.location.href = "https://versaillesumc.churchcenter.com/pages/vumc-hub";
-}
-</script>
+    ul {
+      padding-left: 20px;
+      margin-top: 8px;
+      margin-bottom: 18px;
+    }
 
+    li {
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      display: inline-block;
+      background: #eaf2f8;
+      color: #1d3557;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .scripture-box {
+      background: #f8fafc;
+      border-left: 5px solid #457b9d;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 14px 0 20px;
+    }
+
+    .note-label {
+      display: block;
+      font-weight: bold;
+      margin: 14px 0 8px;
+      color: #1d3557;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      border: 1px solid #cfd8dc;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .small-textarea {
+      min-height: 90px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    button,
+    .return-btn {
+      appearance: none;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .primary-btn {
+      background: #1d3557;
+      color: #fff;
+    }
+
+    .secondary-btn {
+      background: #457b9d;
+      color: #fff;
+    }
+
+    .light-btn {
+      background: #eaf2f8;
+      color: #1d3557;
+    }
+
+    .return-btn {
+      background: #2a9d8f;
+      color: #fff;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .closing-box {
+      background: #f1f8f6;
+      border-left: 5px solid #2a9d8f;
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    .footer-space {
+      height: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .card,
+      .hero {
+        padding: 20px 16px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      button,
+      .return-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="container">
-
-  <h1>The Grave Couldn’t Hold Him</h1>
-  <div class="scripture">Luke 24:1-12</div>
-
-  <div class="section">
-    <h2>1. Resurrection Begins Where Hope Ends</h2>
-    <p>
-      The women came to the tomb expecting death, not resurrection. They brought spices, not celebration.
-      What they expected to be the end became the place where God revealed a new beginning. The resurrection
-      reminds us that God is still working even when all signs seem to point to loss, silence, and disappointment.
-    </p>
-
-    <div class="challenge">
-      <strong>Reflection Challenge:</strong> Where have you been tempted to give up? What situation feels sealed, finished,
-      or hopeless? Invite Jesus into that place and ask Him to help you trust that He is still at work.
+  <div class="container">
+    <div class="hero">
+      <div class="subtitle">Interactive Sermon Notes</div>
+      <h1>This Is Just the Beginning: “Alive On Purpose”</h1>
+      <div class="scripture">Acts 1:3–8 • John 20:21</div>
     </div>
 
-    <label for="notes1">My Notes</label>
-    <textarea id="notes1" placeholder="Write your notes here..."></textarea>
+    <div class="card">
+      <div class="section-title">Opening Thought</div>
+      <p>
+        Jesus did not call perfect people. He called willing people.
+        The resurrection was not the end of the story. It was the beginning of a people
+        sent into the world with purpose, power, and hope.
+      </p>
 
-    <label for="reflection1">My Reflection</label>
-    <textarea id="reflection1" placeholder="What is God showing you in this point?"></textarea>
-  </div>
-
-  <div class="section">
-    <h2>2. The Resurrection Changes Everything</h2>
-    <p>
-      The empty tomb is not just good news for one morning long ago. It changes how we face fear, grief, sin,
-      doubt, and death right now. Because Jesus is alive, despair does not get the last word. The resurrection
-      gives us a living hope, a new identity, and a reason to keep walking by faith.
-    </p>
-
-    <div class="challenge">
-      <strong>Reflection Challenge:</strong> If you truly lived this week as though Jesus is alive and present with you,
-      what would change in your attitude, your priorities, your courage, or your obedience?
+      <label class="note-label" for="mainIdea">Main Idea I Want to Remember</label>
+      <textarea id="mainIdea" class="small-textarea" placeholder="Write the main takeaway from today’s message..."></textarea>
     </div>
 
-    <label for="notes2">My Notes</label>
-    <textarea id="notes2" placeholder="Write your notes here..."></textarea>
+    <div class="card">
+      <h2>1. Jesus Sends Ordinary People with Extraordinary Purpose</h2>
+      <div class="scripture-box">
+        <strong>John 20:21</strong> — “As the Father sent me, so I am sending you.”
+      </div>
 
-    <label for="reflection2">My Reflection</label>
-    <textarea id="reflection2" placeholder="How does the resurrection change the way you live?"></textarea>
+      <h3>Teaching Focus</h3>
+      <p>
+        Jesus entrusted His mission to ordinary people. The disciples were not famous,
+        polished, or powerful by worldly standards. They were real people with fears,
+        doubts, failures, and limitations. Yet Jesus still sent them.
+      </p>
+      <p>
+        God’s call is not reserved for the most impressive. It is given to those who are
+        willing to say yes.
+      </p>
+
+      <h3>Additional Reflection Points</h3>
+      <ul>
+        <li>Jesus does not wait for you to become perfect before He gives you purpose.</li>
+        <li>Your ordinary life can become holy ground when it is surrendered to God.</li>
+        <li>Being sent by Jesus means your everyday relationships matter deeply.</li>
+        <li>Purpose is not just about church activity; it is about how you live wherever God places you.</li>
+        <li>God often uses the people we overlook, including ourselves.</li>
+      </ul>
+
+      <h3>Questions to Consider</h3>
+      <ul>
+        <li>Where do I tend to disqualify myself from being used by God?</li>
+        <li>What gifts, experiences, or burdens has God already placed in my life?</li>
+        <li>Who around me may need encouragement, compassion, or truth this week?</li>
+        <li>Am I living like someone sent by Jesus, or just someone informed about Jesus?</li>
+      </ul>
+
+      <label class="note-label" for="notes1">My Notes</label>
+      <textarea id="notes1" placeholder="Write your notes for Point 1 here..."></textarea>
+
+      <label class="note-label" for="reflection1">My Reflection / Personal Application</label>
+      <textarea id="reflection1" class="small-textarea" placeholder="What is God showing me through this point?"></textarea>
+
+      <label class="note-label" for="prayer1">My Prayer</label>
+      <textarea id="prayer1" class="small-textarea" placeholder="Write a short prayer here..."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>2. We Cannot Fulfill God’s Mission Without God’s Power</h2>
+      <div class="scripture-box">
+        <strong>Acts 1:8</strong> — “But you will receive power when the Holy Spirit has come upon you, and you will be my witnesses...”
+      </div>
+
+      <h3>Teaching Focus</h3>
+      <p>
+        Jesus did not tell the disciples to rush ahead on their own. He told them to wait
+        for the Holy Spirit. God never intended His mission to be carried out through human
+        effort alone. We need more than good intentions. We need holy power.
+      </p>
+      <p>
+        Ministry without the Spirit becomes striving. Mission without the Spirit becomes
+        exhausting. But when God fills His people, ordinary lives become powerful witnesses.
+      </p>
+
+      <h3>Additional Reflection Points</h3>
+      <ul>
+        <li>God’s mission always requires God’s power.</li>
+        <li>The Holy Spirit empowers us not just to do more, but to become more like Christ.</li>
+        <li>Spiritual power is not about control; it is about surrender.</li>
+        <li>Waiting on God is not weakness. It is trust.</li>
+        <li>The Spirit equips us for witness in our homes, workplaces, community, and church.</li>
+      </ul>
+
+      <h3>Questions to Consider</h3>
+      <ul>
+        <li>Where am I trying to do God’s work in my own strength?</li>
+        <li>What does spiritual dependence look like in my daily life?</li>
+        <li>Have I created room for prayer, listening, and obedience?</li>
+        <li>What would change if I truly believed the Holy Spirit empowers me today?</li>
+      </ul>
+
+      <label class="note-label" for="notes2">My Notes</label>
+      <textarea id="notes2" placeholder="Write your notes for Point 2 here..."></textarea>
+
+      <label class="note-label" for="reflection2">My Reflection / Personal Application</label>
+      <textarea id="reflection2" class="small-textarea" placeholder="Where is God calling me to depend on His power?"></textarea>
+
+      <label class="note-label" for="prayer2">My Prayer</label>
+      <textarea id="prayer2" class="small-textarea" placeholder="Write a short prayer here..."></textarea>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Closing Reflection</div>
+      <div class="closing-box">
+        <p><strong>This is just the beginning.</strong></p>
+        <p>
+          Jesus sends ordinary people with extraordinary purpose, but He never sends them alone.
+          He sends them with the power of the Holy Spirit.
+        </p>
+        <p>
+          You are not called to sit still in fear. You are called to live on purpose.
+        </p>
+      </div>
+
+      <h3 style="margin-top:18px;">Final Reflection Questions</h3>
+      <ul>
+        <li>What is one next step God may be asking me to take?</li>
+        <li>Who is one person I need to serve, encourage, or reach this week?</li>
+        <li>How can I make space for the Holy Spirit to lead me daily?</li>
+      </ul>
+
+      <label class="note-label" for="finalResponse">My Final Response</label>
+      <textarea id="finalResponse" placeholder="What is my response to God today?"></textarea>
+
+      <label class="note-label" for="name">My Name</label>
+      <input type="text" id="name" placeholder="Your name" />
+
+      <label class="note-label" for="email">Email My Notes To</label>
+      <input type="email" id="email" placeholder="your@email.com" />
+
+      <div class="actions">
+        <button class="primary-btn" onclick="emailNotes()">Email My Notes</button>
+        <button class="light-btn" onclick="clearForm()">Clear Form</button>
+      </div>
+    </div>
+
+    <a
+      class="return-btn"
+      href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
+      target="_top"
+      rel="noopener"
+    >
+      Return to Church Center
+    </a>
+
+    <div class="footer-space"></div>
   </div>
 
-  <div class="section">
-    <h2>My Challenge This Week</h2>
-    <textarea id="application" placeholder="What is one step of faith, obedience, or hope you will take this week?"></textarea>
-  </div>
+  <script>
+    function buildNotesText() {
+      const title = "This Is Just the Beginning: Alive On Purpose";
+      const scripture = "Acts 1:3–8, John 20:21";
 
-  <div class="section">
-    <h2>My Prayer</h2>
-    <textarea id="prayer" placeholder="Write a short prayer..."></textarea>
-  </div>
+      const name = document.getElementById("name").value.trim();
+      const mainIdea = document.getElementById("mainIdea").value.trim();
+      const notes1 = document.getElementById("notes1").value.trim();
+      const reflection1 = document.getElementById("reflection1").value.trim();
+      const prayer1 = document.getElementById("prayer1").value.trim();
+      const notes2 = document.getElementById("notes2").value.trim();
+      const reflection2 = document.getElementById("reflection2").value.trim();
+      const prayer2 = document.getElementById("prayer2").value.trim();
+      const finalResponse = document.getElementById("finalResponse").value.trim();
 
-  <button class="btn primary-btn" onclick="emailNotes()">Email My Notes</button>
-  <button class="btn secondary-btn" onclick="returnToChurchCenter()">Return to Church Center</button>
+      return `
+Sermon Title: ${title}
+Scripture: ${scripture}
 
-</div>
+Name: ${name}
 
+Main Idea I Want to Remember:
+${mainIdea}
+
+1. Jesus Sends Ordinary People with Extraordinary Purpose
+My Notes:
+${notes1}
+
+My Reflection / Personal Application:
+${reflection1}
+
+My Prayer:
+${prayer1}
+
+2. We Cannot Fulfill God’s Mission Without God’s Power
+My Notes:
+${notes2}
+
+My Reflection / Personal Application:
+${reflection2}
+
+My Prayer:
+${prayer2}
+
+Final Response:
+${finalResponse}
+      `.trim();
+    }
+
+    function emailNotes() {
+      const email = document.getElementById("email").value.trim();
+      const subject = encodeURIComponent("Sermon Notes - Alive On Purpose");
+      const body = encodeURIComponent(buildNotesText());
+
+      if (!email) {
+        alert("Please enter your email address first.");
+        return;
+      }
+
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    }
+
+    function clearForm() {
+      const fields = document.querySelectorAll("textarea, input[type='text'], input[type='email']");
+      fields.forEach(field => field.value = "");
+    }
+  </script>
 </body>
 </html>

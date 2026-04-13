@@ -3,427 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>This Is Just the Beginning: Alive On Purpose | Interactive Sermon Notes</title>
+  <title>Sermon Notes | This Is Just the Beginning</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
+      background: #f4f4f4;
       color: #222;
-      line-height: 1.6;
     }
 
-    .container {
-      max-width: 900px;
+    .wrap {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
+      background: #ffffff;
+      min-height: 100vh;
+      padding: 24px 18px 40px;
+    }
+
+    .header {
+      text-align: center;
+      padding-top: 6px;
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.2;
+      color: #111;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: #1f1f1f;
+    }
+
+    .scripture {
+      margin-top: 8px;
+      font-size: 17px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .divider {
+      height: 2px;
+      background: #d9d9d9;
+      margin: 24px 0 26px;
+      border-radius: 999px;
     }
 
     .card {
-      background: #ffffff;
+      background: #fff;
+      border: 1px solid #e7e7e7;
       border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
     }
 
-    .hero {
-      background: linear-gradient(135deg, #1d3557, #457b9d);
-      color: #fff;
-      border-radius: 20px;
-      padding: 28px 22px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 2rem;
-      line-height: 1.2;
-    }
-
-    .hero .subtitle {
-      font-size: 1.1rem;
-      font-weight: bold;
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7a7a7a;
       margin-bottom: 8px;
     }
 
-    .hero .scripture {
-      font-size: 1rem;
-      opacity: 0.95;
+    .point-title {
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
     }
 
-    h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      color: #1d3557;
+    .point-scripture {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 14px;
+      font-style: italic;
     }
 
-    h3 {
-      margin-bottom: 8px;
-      color: #2a4d69;
-      font-size: 1.1rem;
+    .point-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #2c2c2c;
+      margin-bottom: 16px;
     }
 
-    p {
-      margin-top: 0;
+    .mini-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin: 16px 0 8px;
     }
 
     ul {
-      padding-left: 20px;
-      margin-top: 8px;
-      margin-bottom: 18px;
+      margin: 0 0 0 18px;
+      padding: 0;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
-    .section-title {
-      display: inline-block;
-      background: #eaf2f8;
-      color: #1d3557;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: bold;
-      font-size: 0.95rem;
-      margin-bottom: 14px;
+    .reflection-box {
+      background: #f8f8f8;
+      border: 1px solid #ebebeb;
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 16px;
     }
 
-    .scripture-box {
-      background: #f8fafc;
-      border-left: 5px solid #457b9d;
-      padding: 14px 16px;
-      border-radius: 10px;
-      margin: 14px 0 20px;
+    .reflection-box p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .reflection-box p:last-child {
+      margin-bottom: 0;
     }
 
     .note-label {
       display: block;
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 700;
       margin: 14px 0 8px;
-      color: #1d3557;
-    }
-
-    textarea,
-    input[type="text"],
-    input[type="email"] {
-      width: 100%;
-      border: 1px solid #cfd8dc;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      font-family: inherit;
-      background: #fff;
+      color: #222;
     }
 
     textarea {
+      width: 100%;
       min-height: 120px;
       resize: vertical;
+      border: 1px solid #d9d9d9;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
     }
 
-    .small-textarea {
+    .short-notes textarea {
       min-height: 90px;
     }
 
-    .actions {
+    .highlight-card {
+      background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
+      border: 1px solid #e5e5e5;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .challenge {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .prayer {
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .button-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 26px;
     }
 
     button,
-    .return-btn {
+    .link-btn {
       appearance: none;
       border: none;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-size: 1rem;
-      font-weight: bold;
+      width: 100%;
+      border-radius: 14px;
+      padding: 15px 18px;
+      font-size: 16px;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
       text-align: center;
+      display: inline-block;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    button:hover,
+    .link-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .primary-btn {
-      background: #1d3557;
+      background: #111;
       color: #fff;
     }
 
     .secondary-btn {
-      background: #457b9d;
-      color: #fff;
-    }
-
-    .light-btn {
-      background: #eaf2f8;
-      color: #1d3557;
+      background: #eaeaea;
+      color: #111;
     }
 
     .return-btn {
-      background: #2a9d8f;
-      color: #fff;
-      width: 100%;
-      margin-top: 10px;
+      background: #d9ecff;
+      color: #0f3057;
     }
 
-    .closing-box {
-      background: #f1f8f6;
-      border-left: 5px solid #2a9d8f;
-      padding: 16px;
-      border-radius: 10px;
-    }
-
-    .footer-space {
-      height: 8px;
+    .footer-note {
+      text-align: center;
+      margin-top: 16px;
+      color: #666;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     @media (max-width: 640px) {
-      .hero h1 {
-        font-size: 1.6rem;
+      .wrap {
+        padding: 18px 14px 34px;
       }
 
-      .card,
-      .hero {
-        padding: 20px 16px;
+      h1 {
+        font-size: 25px;
       }
 
-      .actions {
-        flex-direction: column;
+      .subtitle {
+        font-size: 18px;
       }
 
-      button,
-      .return-btn {
-        width: 100%;
+      .point-title {
+        font-size: 21px;
+      }
+
+      .point-text,
+      .challenge,
+      .prayer,
+      li,
+      .reflection-box p {
+        font-size: 15.5px;
+      }
+
+      textarea {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="hero">
-      <div class="subtitle">Interactive Sermon Notes</div>
-      <h1>This Is Just the Beginning: “Alive On Purpose”</h1>
-      <div class="scripture">Acts 1:3–8 • John 20:21</div>
+  <div class="wrap">
+    <div class="header">
+      <div class="eyebrow">Sermon Notes</div>
+      <h1>This Is Just the Beginning</h1>
+      <div class="subtitle">From Attenders to Builders</div>
+      <div class="scripture">Nehemiah 2:17–18; Ephesians 4:11–13</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="card">
+      <div class="section-label">Main Point 1</div>
+      <div class="point-title">God Calls His People to Build Together</div>
+      <div class="point-scripture">Nehemiah 2:17–18</div>
+
+      <div class="point-text">
+        Nehemiah did not call the people to stand at a distance and admire the need. He called
+        them to rise up and build. God’s work has never been designed for spectators alone.
+        He calls His people to carry the burden together, to catch the vision together, and to
+        participate in the rebuilding together.
+      </div>
+
+      <div class="mini-heading">Key Reflections</div>
+      <ul>
+        <li>God’s vision requires participation, not passive attendance.</li>
+        <li>Broken walls in Nehemiah’s day point to broken commitment in ours.</li>
+        <li>When God stirs hearts, His people are called to respond with action.</li>
+        <li>The work becomes possible when the people say, “Let us rise up and build.”</li>
+      </ul>
+
+      <div class="reflection-box">
+        <p><strong>Reflection:</strong> Where is God calling me to move from simply attending to actively building?</p>
+        <p><strong>Reflection:</strong> Am I strengthening the mission of the church, or standing on the sidelines?</p>
+        <p><strong>Reflection:</strong> What part of God’s work have I been assuming belongs to someone else?</p>
+      </div>
+
+      <label class="note-label" for="notes1">Notes on Point 1</label>
+      <textarea id="notes1" placeholder="Write what stood out to you from this point..."></textarea>
     </div>
 
     <div class="card">
-      <div class="section-title">Opening Thought</div>
-      <p>
-        Jesus did not call perfect people. He called willing people.
-        The resurrection was not the end of the story. It was the beginning of a people
-        sent into the world with purpose, power, and hope.
-      </p>
+      <div class="section-label">Main Point 2</div>
+      <div class="point-title">God Has Given Every Believer a Role to Play</div>
+      <div class="point-scripture">Ephesians 4:11–13</div>
 
-      <label class="note-label" for="mainIdea">Main Idea I Want to Remember</label>
-      <textarea id="mainIdea" class="small-textarea" placeholder="Write the main takeaway from today’s message..."></textarea>
-    </div>
-
-    <div class="card">
-      <h2>1. Jesus Sends Ordinary People with Extraordinary Purpose</h2>
-      <div class="scripture-box">
-        <strong>John 20:21</strong> — “As the Father sent me, so I am sending you.”
+      <div class="point-text">
+        The church is not built by a handful of leaders while everyone else watches. God gives
+        gifts to His people so the whole body can grow, serve, and mature. Every believer matters.
+        Every believer has purpose. Every believer has a place in the work of ministry.
       </div>
 
-      <h3>Teaching Focus</h3>
-      <p>
-        Jesus entrusted His mission to ordinary people. The disciples were not famous,
-        polished, or powerful by worldly standards. They were real people with fears,
-        doubts, failures, and limitations. Yet Jesus still sent them.
-      </p>
-      <p>
-        God’s call is not reserved for the most impressive. It is given to those who are
-        willing to say yes.
-      </p>
-
-      <h3>Additional Reflection Points</h3>
+      <div class="mini-heading">Key Reflections</div>
       <ul>
-        <li>Jesus does not wait for you to become perfect before He gives you purpose.</li>
-        <li>Your ordinary life can become holy ground when it is surrendered to God.</li>
-        <li>Being sent by Jesus means your everyday relationships matter deeply.</li>
-        <li>Purpose is not just about church activity; it is about how you live wherever God places you.</li>
-        <li>God often uses the people we overlook, including ourselves.</li>
+        <li>Spiritual maturity is not only about learning more, but serving more faithfully.</li>
+        <li>The church is healthier when each person embraces their calling.</li>
+        <li>God does not call everyone to the same task, but He does call everyone to participate.</li>
+        <li>Unity grows when every part of the body does its work.</li>
       </ul>
 
-      <h3>Questions to Consider</h3>
-      <ul>
-        <li>Where do I tend to disqualify myself from being used by God?</li>
-        <li>What gifts, experiences, or burdens has God already placed in my life?</li>
-        <li>Who around me may need encouragement, compassion, or truth this week?</li>
-        <li>Am I living like someone sent by Jesus, or just someone informed about Jesus?</li>
-      </ul>
-
-      <label class="note-label" for="notes1">My Notes</label>
-      <textarea id="notes1" placeholder="Write your notes for Point 1 here..."></textarea>
-
-      <label class="note-label" for="reflection1">My Reflection / Personal Application</label>
-      <textarea id="reflection1" class="small-textarea" placeholder="What is God showing me through this point?"></textarea>
-
-      <label class="note-label" for="prayer1">My Prayer</label>
-      <textarea id="prayer1" class="small-textarea" placeholder="Write a short prayer here..."></textarea>
-    </div>
-
-    <div class="card">
-      <h2>2. We Cannot Fulfill God’s Mission Without God’s Power</h2>
-      <div class="scripture-box">
-        <strong>Acts 1:8</strong> — “But you will receive power when the Holy Spirit has come upon you, and you will be my witnesses...”
+      <div class="reflection-box">
+        <p><strong>Reflection:</strong> Do I believe God has given me a role in the life of the church?</p>
+        <p><strong>Reflection:</strong> Have I been using my gifts, or burying them?</p>
+        <p><strong>Reflection:</strong> How could my obedience strengthen the body of Christ?</p>
       </div>
 
-      <h3>Teaching Focus</h3>
-      <p>
-        Jesus did not tell the disciples to rush ahead on their own. He told them to wait
-        for the Holy Spirit. God never intended His mission to be carried out through human
-        effort alone. We need more than good intentions. We need holy power.
-      </p>
-      <p>
-        Ministry without the Spirit becomes striving. Mission without the Spirit becomes
-        exhausting. But when God fills His people, ordinary lives become powerful witnesses.
-      </p>
-
-      <h3>Additional Reflection Points</h3>
-      <ul>
-        <li>God’s mission always requires God’s power.</li>
-        <li>The Holy Spirit empowers us not just to do more, but to become more like Christ.</li>
-        <li>Spiritual power is not about control; it is about surrender.</li>
-        <li>Waiting on God is not weakness. It is trust.</li>
-        <li>The Spirit equips us for witness in our homes, workplaces, community, and church.</li>
-      </ul>
-
-      <h3>Questions to Consider</h3>
-      <ul>
-        <li>Where am I trying to do God’s work in my own strength?</li>
-        <li>What does spiritual dependence look like in my daily life?</li>
-        <li>Have I created room for prayer, listening, and obedience?</li>
-        <li>What would change if I truly believed the Holy Spirit empowers me today?</li>
-      </ul>
-
-      <label class="note-label" for="notes2">My Notes</label>
-      <textarea id="notes2" placeholder="Write your notes for Point 2 here..."></textarea>
-
-      <label class="note-label" for="reflection2">My Reflection / Personal Application</label>
-      <textarea id="reflection2" class="small-textarea" placeholder="Where is God calling me to depend on His power?"></textarea>
-
-      <label class="note-label" for="prayer2">My Prayer</label>
-      <textarea id="prayer2" class="small-textarea" placeholder="Write a short prayer here..."></textarea>
+      <label class="note-label" for="notes2">Notes on Point 2</label>
+      <textarea id="notes2" placeholder="Write what stood out to you from this point..."></textarea>
     </div>
 
-    <div class="card">
-      <div class="section-title">Closing Reflection</div>
-      <div class="closing-box">
-        <p><strong>This is just the beginning.</strong></p>
-        <p>
-          Jesus sends ordinary people with extraordinary purpose, but He never sends them alone.
-          He sends them with the power of the Holy Spirit.
-        </p>
-        <p>
-          You are not called to sit still in fear. You are called to live on purpose.
-        </p>
+    <div class="card short-notes">
+      <div class="section-label">Personal Response</div>
+      <div class="point-title">Additional Reflection</div>
+
+      <div class="reflection-box">
+        <p>What is one area of ministry where I sense God calling me to step in?</p>
+        <p>What fears or excuses have kept me from building with others?</p>
+        <p>What would it look like for me to move from consumer to contributor?</p>
+        <p>How can I help build unity, faith, and strength in the church this week?</p>
       </div>
 
-      <h3 style="margin-top:18px;">Final Reflection Questions</h3>
-      <ul>
-        <li>What is one next step God may be asking me to take?</li>
-        <li>Who is one person I need to serve, encourage, or reach this week?</li>
-        <li>How can I make space for the Holy Spirit to lead me daily?</li>
-      </ul>
+      <label class="note-label" for="notes3">What is God saying to me today?</label>
+      <textarea id="notes3" placeholder="Write your personal reflection here..."></textarea>
 
-      <label class="note-label" for="finalResponse">My Final Response</label>
-      <textarea id="finalResponse" placeholder="What is my response to God today?"></textarea>
-
-      <label class="note-label" for="name">My Name</label>
-      <input type="text" id="name" placeholder="Your name" />
-
-      <label class="note-label" for="email">Email My Notes To</label>
-      <input type="email" id="email" placeholder="your@email.com" />
-
-      <div class="actions">
-        <button class="primary-btn" onclick="emailNotes()">Email My Notes</button>
-        <button class="light-btn" onclick="clearForm()">Clear Form</button>
-      </div>
+      <label class="note-label" for="notes4">What step do I need to take this week?</label>
+      <textarea id="notes4" placeholder="Write one clear next step..."></textarea>
     </div>
 
-    <a
-      class="return-btn"
-      href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
-      target="_top"
-      rel="noopener"
-    >
-      Return to Church Center
-    </a>
+    <div class="highlight-card">
+      <div class="section-label">Weekly Challenge</div>
+      <p class="challenge">
+        Pray and ask God, “Where do You want me to build?” Then take one practical step this week
+        to serve, encourage, invite, support, or strengthen the work of the church. Ask yourself
+        honestly: Am I attending, or am I building?
+      </p>
+    </div>
 
-    <div class="footer-space"></div>
+    <div class="highlight-card">
+      <div class="section-label">Closing Prayer</div>
+      <p class="prayer">
+        Lord, thank You for calling us not just to believe, but to build. Help us see that each of
+        us has a place in Your work. Give us willing hearts, open eyes, and courageous faith. Keep
+        us from being passive when You are calling us to act. Build Your church through us, and help
+        us serve together in unity for Your glory. Amen.
+      </p>
+    </div>
+
+    <div class="button-row">
+      <button class="primary-btn" onclick="emailNotes()">Email My Notes</button>
+      <button class="secondary-btn" onclick="clearNotes()">Clear Notes</button>
+      <a
+        class="link-btn return-btn"
+        href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
+      >
+        Return to Church Center
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Your notes stay on this device unless you choose to email them.
+    </div>
   </div>
 
   <script>
-    function buildNotesText() {
-      const title = "This Is Just the Beginning: Alive On Purpose";
-      const scripture = "Acts 1:3–8, John 20:21";
-
-      const name = document.getElementById("name").value.trim();
-      const mainIdea = document.getElementById("mainIdea").value.trim();
-      const notes1 = document.getElementById("notes1").value.trim();
-      const reflection1 = document.getElementById("reflection1").value.trim();
-      const prayer1 = document.getElementById("prayer1").value.trim();
-      const notes2 = document.getElementById("notes2").value.trim();
-      const reflection2 = document.getElementById("reflection2").value.trim();
-      const prayer2 = document.getElementById("prayer2").value.trim();
-      const finalResponse = document.getElementById("finalResponse").value.trim();
-
-      return `
-Sermon Title: ${title}
-Scripture: ${scripture}
-
-Name: ${name}
-
-Main Idea I Want to Remember:
-${mainIdea}
-
-1. Jesus Sends Ordinary People with Extraordinary Purpose
-My Notes:
-${notes1}
-
-My Reflection / Personal Application:
-${reflection1}
-
-My Prayer:
-${prayer1}
-
-2. We Cannot Fulfill God’s Mission Without God’s Power
-My Notes:
-${notes2}
-
-My Reflection / Personal Application:
-${reflection2}
-
-My Prayer:
-${prayer2}
-
-Final Response:
-${finalResponse}
-      `.trim();
+    function getAllNotes() {
+      return {
+        notes1: document.getElementById('notes1').value.trim(),
+        notes2: document.getElementById('notes2').value.trim(),
+        notes3: document.getElementById('notes3').value.trim(),
+        notes4: document.getElementById('notes4').value.trim()
+      };
     }
 
     function emailNotes() {
-      const email = document.getElementById("email").value.trim();
-      const subject = encodeURIComponent("Sermon Notes - Alive On Purpose");
-      const body = encodeURIComponent(buildNotesText());
+      const notes = getAllNotes();
 
-      if (!email) {
-        alert("Please enter your email address first.");
-        return;
-      }
+      const subject = encodeURIComponent("Sermon Notes - This Is Just the Beginning");
+      const body = encodeURIComponent(
+`This Is Just the Beginning | From Attenders to Builders
+Nehemiah 2:17–18; Ephesians 4:11–13
 
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+Main Point 1 - God Calls His People to Build Together
+${notes.notes1 || "[No notes entered]"}
+
+Main Point 2 - God Has Given Every Believer a Role to Play
+${notes.notes2 || "[No notes entered]"}
+
+What is God saying to me today?
+${notes.notes3 || "[No notes entered]"}
+
+What step do I need to take this week?
+${notes.notes4 || "[No notes entered]"}`
+      );
+
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
     }
 
-    function clearForm() {
-      const fields = document.querySelectorAll("textarea, input[type='text'], input[type='email']");
-      fields.forEach(field => field.value = "");
+    function clearNotes() {
+      const confirmed = confirm("Clear all sermon notes?");
+      if (!confirmed) return;
+
+      document.getElementById('notes1').value = "";
+      document.getElementById('notes2').value = "";
+      document.getElementById('notes3').value = "";
+      document.getElementById('notes4').value = "";
     }
   </script>
 </body>

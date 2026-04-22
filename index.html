@@ -22,10 +22,7 @@
       padding: 24px 18px 40px;
     }
 
-    .header {
-      text-align: center;
-      padding-top: 6px;
-    }
+    .header { text-align: center; }
 
     .eyebrow {
       font-size: 14px;
@@ -36,58 +33,44 @@
       margin-bottom: 8px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 30px;
-      line-height: 1.2;
-      color: #111;
-    }
+    h1 { margin: 0; font-size: 30px; }
 
     .subtitle {
       margin-top: 12px;
       font-size: 20px;
-      line-height: 1.35;
       font-weight: 700;
-      color: #1f1f1f;
     }
 
     .scripture {
       margin-top: 8px;
       font-size: 17px;
       color: #555;
-      line-height: 1.5;
     }
 
     .divider {
       height: 2px;
       background: #d9d9d9;
-      margin: 24px 0 26px;
-      border-radius: 999px;
+      margin: 24px 0;
     }
 
     .card {
-      background: #fff;
       border: 1px solid #e7e7e7;
       border-radius: 18px;
       padding: 18px;
       margin-bottom: 18px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
     }
 
     .section-label {
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
       color: #7a7a7a;
       margin-bottom: 8px;
     }
 
     .point-title {
       font-size: 24px;
-      line-height: 1.3;
       font-weight: 700;
-      color: #111;
       margin-bottom: 6px;
     }
 
@@ -101,396 +84,144 @@
     .point-text {
       font-size: 17px;
       line-height: 1.7;
-      color: #2c2c2c;
       margin-bottom: 16px;
     }
 
-    .mini-heading {
-      font-size: 16px;
-      font-weight: 700;
-      color: #111;
-      margin: 16px 0 8px;
-    }
+    ul { margin-left: 18px; }
 
-    ul {
-      margin: 0 0 0 18px;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-      font-size: 16px;
-    }
+    li { margin-bottom: 10px; }
 
     .reflection-box {
       background: #f8f8f8;
-      border: 1px solid #ebebeb;
       border-radius: 14px;
       padding: 14px;
       margin-top: 16px;
     }
 
-    .reflection-box p {
-      margin: 0 0 10px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .reflection-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .note-label {
-      display: block;
-      font-size: 15px;
-      font-weight: 700;
-      margin: 14px 0 8px;
-      color: #222;
-    }
-
     textarea {
       width: 100%;
       min-height: 120px;
-      resize: vertical;
-      border: 1px solid #d9d9d9;
       border-radius: 12px;
       padding: 12px;
-      font-size: 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff;
-      color: #222;
-    }
-
-    .short-notes textarea {
-      min-height: 90px;
-    }
-
-    .highlight-card {
-      background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
-      border: 1px solid #e5e5e5;
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 18px;
-    }
-
-    .challenge {
-      font-size: 17px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .prayer {
-      font-size: 17px;
-      line-height: 1.75;
-      margin: 0;
+      margin-top: 10px;
     }
 
     .button-row {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 20px;
     }
 
-    button,
-    .link-btn {
-      appearance: none;
+    button, .link-btn {
+      padding: 14px;
+      border-radius: 12px;
       border: none;
-      width: 100%;
-      border-radius: 14px;
-      padding: 15px 18px;
-      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      display: inline-block;
-      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
-    button:hover,
-    .link-btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
-    .primary-btn {
-      background: #111;
-      color: #fff;
-    }
-
-    .secondary-btn {
-      background: #eaeaea;
-      color: #111;
-    }
-
-    .return-btn {
-      background: #d9ecff;
-      color: #0f3057;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 16px;
-      color: #666;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        padding: 18px 14px 34px;
-      }
-
-      h1 {
-        font-size: 25px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-      }
-
-      .point-title {
-        font-size: 21px;
-      }
-
-      .point-text,
-      .challenge,
-      .prayer,
-      li,
-      .reflection-box p {
-        font-size: 15.5px;
-      }
-
-      textarea {
-        font-size: 16px;
-      }
-    }
+    .primary-btn { background: #111; color: #fff; }
+    .secondary-btn { background: #eaeaea; }
+    .return-btn { background: #d9ecff; }
   </style>
 </head>
 <body>
   <div class="wrap">
+
     <div class="header">
       <div class="eyebrow">Sermon Notes</div>
       <h1>This Is Just the Beginning</h1>
       <div class="subtitle">The Power of a Planted Life</div>
-      <div class="scripture">Psalm 92:12–15; John 15:4–5</div>
+      <div class="scripture">Psalm 92:12–15 | John 15:4–5</div>
     </div>
 
     <div class="divider"></div>
 
     <div class="card">
       <div class="section-label">Big Idea</div>
-      <div class="point-title">You Grow Where You Are Planted</div>
-      <div class="point-scripture">Psalm 92:12–15; John 15:4–5</div>
-
+      <div class="point-title">You grow where you're planted</div>
       <div class="point-text">
-        God is not looking for shallow, passing-through faith. He desires rooted disciples—people
-        who are planted in His presence, connected to Jesus, and growing in a way that produces
-        lasting fruit. Growth does not happen by drifting. Fruit does not come without roots.
+        God is not growing trees that keep uprooting. Growth requires being planted.
       </div>
-
-      <div class="mini-heading">Key Line</div>
       <ul>
         <li>If you want fruit, you need roots.</li>
-        <li>You grow where you’re planted.</li>
-        <li>God’s not growing trees that keep uprooting.</li>
       </ul>
-
-      <div class="reflection-box">
-        <p><strong>Vision Tie-In:</strong> Growth happens through discipleship pathways—classes, mentoring, Bible study, worship, and steady connection to the life of the church.</p>
-      </div>
     </div>
 
     <div class="card">
-      <div class="section-label">Main Point 1</div>
+      <div class="section-label">Point 1</div>
       <div class="point-title">Planted People Flourish</div>
       <div class="point-scripture">Psalm 92:12–13</div>
 
-      <div class="point-text">
-        Psalm 92 compares the righteous to strong, flourishing trees. They are not barely hanging on.
-        They are alive, rooted, growing, and useful. The image is clear: people who are planted in the
-        Lord do not live shallow lives. They become steady, fruitful, and strong because their lives are
-        anchored in God.
-      </div>
-
-      <div class="mini-heading">Key Reflections</div>
       <ul>
-        <li>Planted people are not just present; they are rooted.</li>
-        <li>Spiritual flourishing is connected to staying near the Lord.</li>
-        <li>God grows people who stay grounded in Him.</li>
-        <li>The house of the Lord is not a stopping point; it is a planting place.</li>
+        <li>The righteous will flourish like a palm tree.</li>
+        <li>They grow strong like a cedar of Lebanon.</li>
+        <li>Those planted in the house of the Lord will flourish.</li>
       </ul>
 
       <div class="reflection-box">
-        <p><strong>Reflection:</strong> Am I planted in the life of God, or only nearby?</p>
-        <p><strong>Reflection:</strong> What does rooted faith look like in my daily life?</p>
-        <p><strong>Reflection:</strong> Where have I been tempted to live as a spectator instead of someone planted?</p>
+        Am I planted or just passing through?
       </div>
 
-      <label class="note-label" for="notes1">Notes on Point 1</label>
-      <textarea id="notes1" placeholder="Write what stood out to you from this point..."></textarea>
+      <textarea id="notes1" placeholder="Notes..."></textarea>
     </div>
 
     <div class="card">
-      <div class="section-label">Main Point 2</div>
-      <div class="point-title">Planted People Keep Bearing Fruit</div>
-      <div class="point-scripture">Psalm 92:14–15</div>
-
-      <div class="point-text">
-        The Psalm says planted people still bear fruit even when they are old and gray. That means a
-        rooted life does not fade into uselessness. God’s people remain fresh, useful, and full of testimony.
-        A planted life keeps proclaiming the faithfulness of God.
-      </div>
-
-      <div class="mini-heading">Key Reflections</div>
-      <ul>
-        <li>Fruitfulness is not limited to one season of life.</li>
-        <li>God can keep using planted people for encouragement, witness, and ministry.</li>
-        <li>Freshness comes from being rooted in the Lord, not from age or appearance.</li>
-        <li>A fruitful life points back to the righteousness and goodness of God.</li>
-      </ul>
-
-      <div class="reflection-box">
-        <p><strong>Reflection:</strong> What kind of fruit is God trying to grow in me right now?</p>
-        <p><strong>Reflection:</strong> Is my life showing the faithfulness of God to others?</p>
-        <p><strong>Reflection:</strong> Am I open to bearing fruit in every season, not just easy ones?</p>
-      </div>
-
-      <label class="note-label" for="notes2">Notes on Point 2</label>
-      <textarea id="notes2" placeholder="Write what stood out to you from this point..."></textarea>
-    </div>
-
-    <div class="card">
-      <div class="section-label">Main Point 3</div>
+      <div class="section-label">Point 2</div>
       <div class="point-title">You Cannot Bear Fruit Unless You Stay Connected to Jesus</div>
       <div class="point-scripture">John 15:4–5</div>
 
-      <div class="point-text">
-        Jesus says a branch cannot produce fruit by itself. It must remain in the vine. In the same way,
-        our lives cannot produce real spiritual fruit apart from Him. Activity, busyness, and good intentions
-        are not enough. Fruit comes from abiding—staying connected to Jesus in a real and ongoing way.
-      </div>
-
-      <div class="mini-heading">Key Reflections</div>
       <ul>
-        <li>Connection to Jesus is not optional; it is essential.</li>
-        <li>Fruit is the result of abiding, not pretending.</li>
-        <li>Without Jesus, we may look active but remain spiritually empty.</li>
-        <li>The closer we remain to Christ, the more fruit He produces through us.</li>
+        <li>Remain in me, and I will remain in you.</li>
+        <li>A branch cannot produce fruit by itself.</li>
+        <li>You must remain in the vine.</li>
+        <li>Without me, you can do nothing.</li>
       </ul>
 
       <div class="reflection-box">
-        <p><strong>Reflection:</strong> Am I remaining in Jesus, or just visiting Him occasionally?</p>
-        <p><strong>Reflection:</strong> What habits help me stay connected to Christ?</p>
-        <p><strong>Reflection:</strong> Where do I keep trying to produce fruit in my own strength?</p>
+        Am I truly connected to Jesus, or just nearby?
       </div>
 
-      <label class="note-label" for="notes3">Notes on Point 3</label>
-      <textarea id="notes3" placeholder="Write what stood out to you from this point..."></textarea>
+      <textarea id="notes2" placeholder="Notes..."></textarea>
     </div>
 
-    <div class="card short-notes">
-      <div class="section-label">Personal Response</div>
-      <div class="point-title">Additional Reflection</div>
+    <div class="card">
+      <div class="section-label">Application</div>
+      <div class="point-title">Personal Reflection</div>
 
       <div class="reflection-box">
         <p>Am I planted or just passing through?</p>
-        <p>Where is God calling me to put down deeper roots?</p>
-        <p>What does abiding in Jesus need to look like in this season of my life?</p>
-        <p>What fruit does God want to grow through me?</p>
       </div>
 
-      <label class="note-label" for="notes4">What is God saying to me today?</label>
-      <textarea id="notes4" placeholder="Write your personal reflection here..."></textarea>
-
-      <label class="note-label" for="notes5">What step do I need to take this week?</label>
-      <textarea id="notes5" placeholder="Write one clear next step..."></textarea>
-    </div>
-
-    <div class="highlight-card">
-      <div class="section-label">Weekly Challenge</div>
-      <p class="challenge">
-        This week, ask the Lord to deepen your roots. Commit to one practical step that keeps you planted—
-        worship consistently, join a study, reconnect in prayer, begin mentoring, or spend intentional time in
-        scripture. Ask yourself honestly: Am I planted, or just passing through?
-      </p>
-    </div>
-
-    <div class="highlight-card">
-      <div class="section-label">Closing Prayer</div>
-      <p class="prayer">
-        Lord, plant me deeply in You. Keep me from living a shallow life that drifts from place to place without
-        lasting fruit. Root me in Your presence, connect me more fully to Jesus, and grow in me what only You can
-        grow. Make my life steady, fruitful, and faithful. Let my life proclaim that You are righteous, good, and
-        trustworthy. Amen.
-      </p>
+      <textarea id="notes3" placeholder="What is God saying to me?"></textarea>
     </div>
 
     <div class="button-row">
       <button class="primary-btn" onclick="emailNotes()">Email My Notes</button>
       <button class="secondary-btn" onclick="clearNotes()">Clear Notes</button>
-      <a
-        class="link-btn return-btn"
-        href="https://versaillesumc.churchcenter.com/pages/vumc-hub"
-      >
-        Return to Church Center
-      </a>
+      <a class="link-btn return-btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
     </div>
 
-    <div class="footer-note">
-      Your notes stay on this device unless you choose to email them.
-    </div>
   </div>
 
   <script>
-    function getAllNotes() {
-      return {
-        notes1: document.getElementById('notes1').value.trim(),
-        notes2: document.getElementById('notes2').value.trim(),
-        notes3: document.getElementById('notes3').value.trim(),
-        notes4: document.getElementById('notes4').value.trim(),
-        notes5: document.getElementById('notes5').value.trim()
-      };
-    }
-
     function emailNotes() {
-      const notes = getAllNotes();
+      const n1 = document.getElementById('notes1').value;
+      const n2 = document.getElementById('notes2').value;
+      const n3 = document.getElementById('notes3').value;
 
       const subject = encodeURIComponent("Sermon Notes - This Is Just the Beginning");
-      const body = encodeURIComponent(
-`This Is Just the Beginning | The Power of a Planted Life
-Psalm 92:12–15; John 15:4–5
-
-Big Idea - You Grow Where You Are Planted
-${notes.notes1 || "[No notes entered]"}
-
-Main Point 2 - Planted People Keep Bearing Fruit
-${notes.notes2 || "[No notes entered]"}
-
-Main Point 3 - You Cannot Bear Fruit Unless You Stay Connected to Jesus
-${notes.notes3 || "[No notes entered]"}
-
-What is God saying to me today?
-${notes.notes4 || "[No notes entered]"}
-
-What step do I need to take this week?
-${notes.notes5 || "[No notes entered]"}`
-      );
+      const body = encodeURIComponent(`
+Point 1:\n${n1}\n\nPoint 2:\n${n2}\n\nReflection:\n${n3}`);
 
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
     }
 
     function clearNotes() {
-      const confirmed = confirm("Clear all sermon notes?");
-      if (!confirmed) return;
-
       document.getElementById('notes1').value = "";
       document.getElementById('notes2').value = "";
       document.getElementById('notes3').value = "";
-      document.getElementById('notes4').value = "";
-      document.getElementById('notes5').value = "";
     }
   </script>
 </body>

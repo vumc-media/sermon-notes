@@ -54,17 +54,37 @@
     }
 
     .card {
-      border: 1px solid #e7e7e7;
       border-radius: 18px;
       padding: 18px;
       margin-bottom: 18px;
+    }
+
+    /* COLOR BLOCKS */
+    .bigidea {
+      background: #f9f9f9;
+      border-left: 6px solid #999;
+    }
+
+    .point1 {
+      background: #eef7f0;
+      border-left: 6px solid #2f5d3a;
+    }
+
+    .point2 {
+      background: #fff4e5;
+      border-left: 6px solid #c88a00;
+    }
+
+    .application {
+      background: #f3f6ff;
+      border-left: 6px solid #3b5bdb;
     }
 
     .section-label {
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      color: #7a7a7a;
+      color: #555;
       margin-bottom: 8px;
     }
 
@@ -81,21 +101,17 @@
       font-style: italic;
     }
 
-    .point-text {
-      font-size: 17px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
     ul { margin-left: 18px; }
 
     li { margin-bottom: 10px; }
 
     .reflection-box {
-      background: #f8f8f8;
-      border-radius: 14px;
-      padding: 14px;
-      margin-top: 16px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 14px;
+      border: 1px solid #ddd;
+      font-weight: 600;
     }
 
     textarea {
@@ -104,6 +120,7 @@
       border-radius: 12px;
       padding: 12px;
       margin-top: 10px;
+      border: 1px solid #ccc;
     }
 
     .button-row {
@@ -119,11 +136,22 @@
       border: none;
       font-weight: 700;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
     }
 
     .primary-btn { background: #111; color: #fff; }
     .secondary-btn { background: #eaeaea; }
-    .return-btn { background: #d9ecff; }
+
+    /* STRONG BUTTON STYLE */
+    .return-btn {
+      background: #2f5d3a;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
   </style>
 </head>
 <body>
@@ -138,20 +166,18 @@
 
     <div class="divider"></div>
 
-    <div class="card">
+    <div class="card bigidea">
       <div class="section-label">Big Idea</div>
       <div class="point-title">You grow where you're planted</div>
-      <div class="point-text">
-        God is not growing trees that keep uprooting. Growth requires being planted.
-      </div>
       <ul>
         <li>If you want fruit, you need roots.</li>
+        <li>God’s not growing trees that keep uprooting.</li>
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card point1">
       <div class="section-label">Point 1</div>
-      <div class="point-title">Planted People Flourish</div>
+      <div class="point-title">🌱 Planted People Flourish</div>
       <div class="point-scripture">Psalm 92:12–13</div>
 
       <ul>
@@ -167,9 +193,9 @@
       <textarea id="notes1" placeholder="Notes..."></textarea>
     </div>
 
-    <div class="card">
+    <div class="card point2">
       <div class="section-label">Point 2</div>
-      <div class="point-title">You Cannot Bear Fruit Unless You Stay Connected to Jesus</div>
+      <div class="point-title">🔗 You Cannot Bear Fruit Unless You Stay Connected to Jesus</div>
       <div class="point-scripture">John 15:4–5</div>
 
       <ul>
@@ -186,12 +212,12 @@
       <textarea id="notes2" placeholder="Notes..."></textarea>
     </div>
 
-    <div class="card">
+    <div class="card application">
       <div class="section-label">Application</div>
       <div class="point-title">Personal Reflection</div>
 
       <div class="reflection-box">
-        <p>Am I planted or just passing through?</p>
+        Am I planted or just passing through?
       </div>
 
       <textarea id="notes3" placeholder="What is God saying to me?"></textarea>
@@ -212,8 +238,7 @@
       const n3 = document.getElementById('notes3').value;
 
       const subject = encodeURIComponent("Sermon Notes - This Is Just the Beginning");
-      const body = encodeURIComponent(`
-Point 1:\n${n1}\n\nPoint 2:\n${n2}\n\nReflection:\n${n3}`);
+      const body = encodeURIComponent(`Point 1:\n${n1}\n\nPoint 2:\n${n2}\n\nReflection:\n${n3}`);
 
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
     }

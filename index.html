@@ -10,81 +10,20 @@
 
 <link rel="canonical" href="https://sermon.versaillesumc.org/">
 
-<meta property="og:title" content="Sermon Notes | This Is Just the Beginning">
-<meta property="og:description" content="Follow along with interactive sermon notes from Versailles United Methodist Church. This message reflects on Philippians 1:6 and Acts 2:42–47.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sermon.versaillesumc.org/">
-<meta property="og:site_name" content="Versailles United Methodist Church">
-<meta property="og:image" content="https://versaillesumc.org/og-image.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sermon Notes | This Is Just the Beginning">
-<meta name="twitter:description" content="Interactive sermon notes from Versailles United Methodist Church based on Philippians 1:6 and Acts 2:42–47.">
-<meta name="twitter:image" content="https://versaillesumc.org/og-image.jpg">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Church",
-  "name": "Versailles United Methodist Church",
-  "alternateName": "VUMC",
-  "url": "https://versaillesumc.org",
-  "sameAs": [
-    "https://www.youtube.com/@versaillesumc",
-    "https://versaillesumc.churchcenter.com"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Versailles",
-    "addressRegion": "KY",
-    "addressCountry": "US"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "This Is Just the Beginning",
-  "alternateName": "We’re Just Getting Started",
-  "description": "Interactive sermon notes from Versailles United Methodist Church based on Philippians 1:6 and Acts 2:42–47.",
-  "about": [
-    "Philippians 1:6",
-    "Acts 2:42-47",
-    "God finishes what He starts",
-    "The church grows when people show up fully"
-  ],
-  "publisher": {
-    "@type": "Church",
-    "name": "Versailles United Methodist Church",
-    "url": "https://versaillesumc.org"
-  }
-}
-</script>
-
 <style>
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  * { box-sizing: border-box; }
 
   body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0d1b2a, #1b263b);
     color: #fff;
-    overflow-x: hidden;
   }
 
   .container {
     max-width: 900px;
     margin: auto;
     padding: 20px;
-    width: 100%;
   }
 
   .header {
@@ -95,13 +34,11 @@
   .header h1 {
     margin: 0;
     font-size: 28px;
-    line-height: 1.2;
   }
 
   .header p {
     margin-top: 10px;
     color: #ccc;
-    line-height: 1.5;
   }
 
   .seo-intro {
@@ -109,8 +46,6 @@
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 20px;
-    color: #e8edf5;
-    line-height: 1.6;
   }
 
   .scripture {
@@ -118,171 +53,135 @@
     padding: 15px;
     border-radius: 12px;
     margin-bottom: 20px;
-    line-height: 1.6;
   }
 
   .block {
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 20px;
-    line-height: 1.6;
   }
 
-  .block h2 {
-    margin-top: 0;
-    line-height: 1.25;
-  }
-
-  .point1 {
-    background: linear-gradient(135deg, #415a77, #1b263b);
-  }
-
-  .point2 {
-    background: linear-gradient(135deg, #778da9, #415a77);
-  }
-
-  .reflection {
-    margin-top: 15px;
-  }
+  .point1 { background: linear-gradient(135deg, #415a77, #1b263b); }
+  .point2 { background: linear-gradient(135deg, #778da9, #415a77); }
 
   textarea {
     width: 100%;
-    max-width: 100%;
     min-height: 100px;
     border-radius: 10px;
     border: none;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .email-box {
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .email-box input {
+    width: 100%;
     padding: 12px;
     margin-top: 10px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    resize: vertical;
-    display: block;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
   }
 
-  .button-container {
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  .return-btn {
+  .btn {
     display: inline-block;
+    margin-top: 15px;
     padding: 14px 24px;
     background: #e0a800;
     color: #000;
     font-weight: bold;
     border-radius: 10px;
     text-decoration: none;
+    cursor: pointer;
   }
 
-  .return-btn:hover {
-    background: #ffc107;
-  }
+  .btn:hover { background: #ffc107; }
 
-  @media (max-width: 600px) {
-    .container {
-      padding: 14px;
-    }
-
-    .header {
-      padding: 24px 6px;
-    }
-
-    .header h1 {
-      font-size: 24px;
-    }
-
-    .block {
-      padding: 16px;
-    }
-
-    .block h2 {
-      font-size: 21px;
-    }
-
-    .return-btn {
-      width: 100%;
-      text-align: center;
-    }
+  @media (max-width:600px){
+    .btn { width:100%; }
   }
 </style>
+
+<script>
+function emailNotes() {
+  let notes = "";
+
+  document.querySelectorAll("textarea").forEach((box, i) => {
+    if (box.value.trim() !== "") {
+      notes += "Section " + (i + 1) + ":\n" + box.value + "\n\n";
+    }
+  });
+
+  const subject = encodeURIComponent("My Sermon Notes - Versailles UMC");
+  const body = encodeURIComponent(notes || "My notes from today’s message.");
+
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+}
+</script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <header class="header">
+  <div class="header">
     <h1>This Is Just the Beginning</h1>
     <p>We’re Just Getting Started</p>
-  </header>
+  </div>
 
-  <section class="seo-intro">
-    <p>
-      These interactive sermon notes from Versailles United Methodist Church help you follow along with the message
-      “This Is Just the Beginning: We’re Just Getting Started.” This sermon reflects on Philippians 1:6 and Acts 2:42–47,
-      reminding us that God finishes what He starts and that the church grows when people show up fully.
-    </p>
-  </section>
+  <div class="seo-intro">
+    These interactive sermon notes from Versailles United Methodist Church help you follow along with the message and reflect on Philippians 1:6 and Acts 2:42–47.
+  </div>
 
-  <section class="scripture">
+  <div class="scripture">
     <strong>Scripture:</strong> Philippians 1:6; Acts 2:42–47
-  </section>
+  </div>
 
-  <section class="block point1">
+  <div class="block point1">
     <h2>1. God Finishes What He Starts</h2>
     <p><em>Philippians 1:6</em></p>
+    <p>God does not begin something and abandon it halfway through.</p>
 
-    <p>
-      God does not begin something and abandon it halfway through.
-      What He starts, He continues. What He plants, He grows.
-      What He calls into being, He completes.
-    </p>
+    <p><strong>Reflection:</strong> Where do I need to trust that God is still working?</p>
+    <textarea placeholder="Write your thoughts..."></textarea>
+  </div>
 
-    <div class="reflection">
-      <strong>Reflection:</strong>
-      <p>Where do I need to trust that God is still working?</p>
-      <textarea placeholder="Write your thoughts..."></textarea>
-    </div>
-  </section>
-
-  <section class="block point2">
+  <div class="block point2">
     <h2>2. The Church Grows When People Show Up Fully</h2>
     <p><em>Acts 2:42–47</em></p>
 
-    <p>
-      The early church was devoted—to teaching, fellowship, prayer, and generosity.
-      They didn’t just attend… they belonged.
-    </p>
+    <p>The early church was devoted and engaged deeply in community.</p>
 
-    <p>
-      A growing church is not built by spectators.
-      It’s built by people who show up fully.
-    </p>
+    <p><strong>Reflection:</strong> Am I showing up partially or fully?</p>
+    <textarea placeholder="Write your thoughts..."></textarea>
+  </div>
 
-    <div class="reflection">
-      <strong>Reflection:</strong>
-      <p>Am I showing up partially or fully?</p>
-      <textarea placeholder="Write your thoughts..."></textarea>
-    </div>
-  </section>
-
-  <section class="block" style="background: rgba(255,255,255,0.08);">
+  <div class="block" style="background: rgba(255,255,255,0.08);">
     <h2>Closing Thought</h2>
-    <p>
-      This is not the end of the story.
-      God is still working. God is still forming us.
-      We’re just getting started.
-    </p>
+    <p>We’re just getting started.</p>
 
-    <div class="reflection">
-      <strong>Next Step:</strong>
-      <p>What is one step I can take this week?</p>
-      <textarea placeholder="Write your response..."></textarea>
-    </div>
-  </section>
+    <p><strong>Next Step:</strong></p>
+    <textarea placeholder="What is one step I can take this week?"></textarea>
+  </div>
 
-  <div class="button-container">
-    <a href="https://versaillesumc.churchcenter.com/pages/vumc-hub" class="return-btn">
+  <!-- EMAIL NOTES -->
+  <div class="email-box">
+    <h2>Email My Notes</h2>
+    <p>Send your notes to yourself to reflect on later.</p>
+    <button class="btn" onclick="emailNotes()">Send My Notes</button>
+  </div>
+
+  <div style="text-align:center;margin-top:20px;">
+    <a href="https://versaillesumc.churchcenter.com/pages/vumc-hub" class="btn">
       Return to Church Center
     </a>
   </div>

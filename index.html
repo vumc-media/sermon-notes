@@ -2,166 +2,279 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Sermon Notes | Still Loved</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Can These Bones Live? | Sermon Notes</title>
 
 <style>
+:root {
+  --blue:#0076a8;
+  --darkblue:#005a7f;
+  --green:#8cc63f;
+  --light:#f6fbfd;
+  --text:#1f2937;
+  --muted:#64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0d1b2a, #1b263b);
-  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef9fc, #ffffff);
+  color: var(--text);
+}
+
+.header {
+  background: linear-gradient(135deg, var(--blue), var(--darkblue));
+  color: white;
+  padding: 34px 20px;
+  text-align: center;
+}
+
+.header img {
+  max-width: 260px;
+  background: white;
+  padding: 14px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.header p {
+  margin: 10px 0 0;
+  font-size: 1.05rem;
+  opacity: .95;
 }
 
 .container {
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
 }
 
-h1, h2, h3 {
-  margin-bottom: 10px;
-}
-
-.block {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 12px;
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
   margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+  border-left: 8px solid var(--green);
 }
 
-.highlight {
-  border-left: 5px solid #d4af37;
+.scripture {
+  border-left-color: var(--blue);
+}
+
+h2 {
+  color: var(--blue);
+  margin-top: 0;
+}
+
+.point-title {
+  font-size: 1.45rem;
+  color: var(--darkblue);
+  margin-bottom: 8px;
+}
+
+.reflection {
+  background: var(--light);
+  padding: 14px;
+  border-radius: 12px;
+  margin: 14px 0;
+  line-height: 1.55;
+}
+
+.questions ul {
+  padding-left: 20px;
+}
+
+.questions li {
+  margin-bottom: 8px;
 }
 
 textarea {
   width: 100%;
-  height: 100px;
+  min-height: 110px;
+  border: 2px solid #d6eaf2;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  resize: vertical;
   margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-  padding: 10px;
-  font-size: 1em;
 }
 
-button {
-  background: #d4af37;
+button, .button {
+  display: inline-block;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 999px;
+  padding: 13px 20px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 15px;
-  width: 100%;
-}
-
-button:hover {
-  background: #c19b2e;
-}
-
-.footer-btn {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  background: #ffffff;
-  color: #000;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+  margin: 8px 6px 0 0;
+}
+
+.email-btn {
+  background: var(--blue);
+  color: white;
+}
+
+.return-btn {
+  background: var(--green);
+  color: #15340b;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  padding-top: 10px;
+}
+
+@media(max-width:600px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="header">
+  <img src="https://kyumh.org/wp-content/uploads/2021/09/KYUMH-logo.jpg" alt="Kentucky United Methodist Children's Homes Logo">
+  <h1>Can These Bones Live?</h1>
+  <p>Ezekiel 37:1–14 | Interactive Sermon Notes</p>
+</div>
+
 <div class="container">
 
-  <h2>Still Loved</h2>
-  <h1>When It Hurts Too Much to Pray</h1>
-
-  <!-- Scripture -->
-  <div class="block">
-    <h3>Scripture</h3>
-    <p>Romans 8:26–28 | Psalm 34:18</p>
+  <div class="card scripture">
+    <h2>Scripture Focus</h2>
+    <p><strong>Ezekiel 37:3</strong> — “Mortal, can these bones live?”</p>
+    <p><strong>Ezekiel 37:14</strong> — “I will put my spirit within you, and you shall live…”</p>
   </div>
 
-  <!-- Point 1 -->
-  <div class="block highlight">
-    <h3>1. God Meets You in the Silence</h3>
-    <p><strong>Romans 8:26–28</strong></p>
-
-    <h4>Reflection</h4>
-    <p>
-      Even when you don’t have the words, God is still listening and the Spirit is still moving.
-    </p>
-
-    <h4>Questions</h4>
-    <ul>
-      <li>Where have I run out of words with God?</li>
-      <li>Am I trying to perform in prayer instead of just being present?</li>
-      <li>Do I believe God is still near in my silence?</li>
-    </ul>
-
+  <div class="card">
+    <div class="point-title">1. The Bones Are Everywhere...</div>
+    <div class="reflection">
+      Ezekiel is brought into a valley filled with dry bones. Before God brings life, He first makes Ezekiel look honestly at what is broken, scattered, and lifeless.
+    </div>
+    <div class="questions">
+      <strong>Reflection Questions:</strong>
+      <ul>
+        <li>Where do I see dryness or discouragement in my life?</li>
+        <li>What situation feels too far gone to be restored?</li>
+        <li>Am I willing to let God show me the valley before He shows me the miracle?</li>
+      </ul>
+    </div>
     <textarea id="notes1" placeholder="Your notes for Point 1..."></textarea>
   </div>
 
-  <!-- Point 2 -->
-  <div class="block highlight">
-    <h3>2. God Stays Close in the Breaking</h3>
-    <p><strong>Psalm 34:18</strong></p>
-
-    <h4>Reflection</h4>
-    <p>
-      God does not step away from brokenness—He draws near to it.
-    </p>
-
-    <h4>Questions</h4>
-    <ul>
-      <li>Where do I feel broken right now?</li>
-      <li>What am I trying to hide from God?</li>
-      <li>Can I trust that God is close even in pain?</li>
-    </ul>
-
+  <div class="card">
+    <div class="point-title">2. Something Starts to Happen.</div>
+    <div class="reflection">
+      As Ezekiel speaks what God commands, the bones begin to come together. Restoration often begins before the full picture is complete.
+    </div>
+    <div class="questions">
+      <strong>Reflection Questions:</strong>
+      <ul>
+        <li>Where might God already be moving, even if I do not see the full result yet?</li>
+        <li>What step of obedience is God asking me to take?</li>
+        <li>Do I trust God enough to speak hope into dry places?</li>
+      </ul>
+    </div>
     <textarea id="notes2" placeholder="Your notes for Point 2..."></textarea>
   </div>
 
-  <!-- Final Reflection -->
-  <div class="block">
-    <h3>Final Reflection</h3>
-    <p>
-      When it hurts too much to pray… God is still near.
-    </p>
-
-    <textarea id="notes3" placeholder="Final thoughts or prayer..."></textarea>
+  <div class="card">
+    <div class="point-title">3. Hope Rises Up!</div>
+    <div class="reflection">
+      God does not simply organize the bones; He raises hope. What looked dead begins to stand again because God’s word is stronger than despair.
+    </div>
+    <div class="questions">
+      <strong>Reflection Questions:</strong>
+      <ul>
+        <li>What hope has God been trying to awaken in me?</li>
+        <li>Where have I accepted defeat too quickly?</li>
+        <li>How can I hold on to hope while I wait for God’s breath?</li>
+      </ul>
+    </div>
+    <textarea id="notes3" placeholder="Your notes for Point 3..."></textarea>
   </div>
 
-  <!-- Email Button -->
-  <button onclick="emailNotes()">Email My Notes</button>
+  <div class="card">
+    <div class="point-title">4. Life Returns!</div>
+    <div class="reflection">
+      The final miracle is not just movement, but breath. God puts His Spirit within His people, and what was dead becomes alive again.
+    </div>
+    <div class="questions">
+      <strong>Reflection Questions:</strong>
+      <ul>
+        <li>Where do I need God’s Spirit to breathe new life into me?</li>
+        <li>What would it look like for life to return in my faith, family, church, or community?</li>
+        <li>Do I believe God can still speak and act today?</li>
+      </ul>
+    </div>
+    <textarea id="notes4" placeholder="Your notes for Point 4..."></textarea>
+  </div>
 
-  <!-- Church Center Button -->
-  <a href="https://versaillesumc.churchcenter.com/pages/vumc-hub" class="footer-btn">
-    Return to Church Center
-  </a>
+  <div class="card">
+    <h2>Final Reflection</h2>
+    <p>God does not look at dry bones and see the end. He sees what can live again when His Spirit begins to move.</p>
+    <textarea id="finalNotes" placeholder="Your final reflection..."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>Email My Notes</h2>
+    <p>Type your email below and send your sermon notes to yourself.</p>
+    <input id="email" type="email" placeholder="Your email address" style="width:100%;padding:13px;border:2px solid #d6eaf2;border-radius:12px;font-size:1rem;">
+    <button class="email-btn" onclick="emailNotes()">Email My Notes</button>
+    <a class="button return-btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
+  </div>
+
+  <div class="footer">
+    Versailles United Methodist Church
+  </div>
 
 </div>
 
 <script>
 function emailNotes() {
-  const n1 = document.getElementById("notes1").value;
-  const n2 = document.getElementById("notes2").value;
-  const n3 = document.getElementById("notes3").value;
-
-  const subject = encodeURIComponent("Sermon Notes - Still Loved");
+  const email = document.getElementById('email').value;
+  const subject = encodeURIComponent("Sermon Notes: Can These Bones Live?");
   const body = encodeURIComponent(
-    "Still Loved: When It Hurts Too Much to Pray\n\n" +
-    "Point 1 Notes:\n" + n1 + "\n\n" +
-    "Point 2 Notes:\n" + n2 + "\n\n" +
-    "Final Reflection:\n" + n3
+`Can These Bones Live?
+Ezekiel 37:1–14
+
+1. The Bones Are Everywhere...
+${document.getElementById('notes1').value}
+
+2. Something Starts to Happen.
+${document.getElementById('notes2').value}
+
+3. Hope Rises Up!
+${document.getElementById('notes3').value}
+
+4. Life Returns!
+${document.getElementById('notes4').value}
+
+Final Reflection:
+${document.getElementById('finalNotes').value}`
   );
 
-  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  if (!email) {
+    alert("Please enter your email address first.");
+    return;
+  }
+
+  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 }
 </script>
 

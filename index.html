@@ -1,402 +1,248 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Courage to Love Well | Sermon Notes</title>
-  <style>
-    :root {
-      --navy: #102333;
-      --gold: #b08b4f;
-      --cream: #f7f1e6;
-      --paper: #fffaf1;
-      --soft: #efe4d1;
-      --text: #24313a;
-      --muted: #66727a;
-      --white: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faith in the Fog</title>
 
-    * { box-sizing: border-box; }
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6f8;
+color:#222;
+}
+.header{
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop");
+background-size:cover;
+background-position:center;
+color:white;
+padding:55px 20px;
+text-align:center;
+}
+.header h1{
+font-size:42px;
+margin:0;
+}
+.header p{
+font-size:18px;
+margin:8px 0;
+}
+.wrap{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+.card{
+background:white;
+border-radius:14px;
+margin-bottom:18px;
+box-shadow:0 3px 10px rgba(0,0,0,.12);
+overflow:hidden;
+}
+.toggle{
+width:100%;
+background:#22384d;
+color:white;
+border:none;
+padding:18px;
+font-size:20px;
+text-align:left;
+cursor:pointer;
+}
+.content{
+display:none;
+padding:22px;
+}
+.content.open{
+display:block;
+}
+.scripture{
+background:#eef5ff;
+border-left:5px solid #356da8;
+padding:14px;
+margin:12px 0;
+}
+.reflection{
+background:#fff8e6;
+border-left:5px solid #d6a21f;
+padding:14px;
+margin:12px 0;
+}
+.question{
+background:#f1f4f7;
+padding:14px;
+border-radius:8px;
+margin:12px 0;
+}
+textarea{
+width:100%;
+min-height:120px;
+padding:12px;
+font-size:16px;
+border:1px solid #bbb;
+border-radius:8px;
+box-sizing:border-box;
+}
+.checkitem{
+display:block;
+margin:10px 0;
+font-size:17px;
+}
+.btnbar{
+text-align:center;
+margin:30px 0;
+}
+.btn{
+display:inline-block;
+background:#22384d;
+color:white;
+padding:14px 22px;
+border-radius:8px;
+border:none;
+text-decoration:none;
+font-size:16px;
+margin:6px;
+cursor:pointer;
+}
+.btn:hover{
+background:#162637;
+}
+.footer{
+text-align:center;
+padding:30px;
+color:#666;
+}
+</style>
 
-    body {
-      margin: 0;
-      font-family: Georgia, 'Times New Roman', serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(176,139,79,.22), transparent 35%),
-        linear-gradient(180deg, #f8f0e2 0%, #efe3cf 100%);
-      line-height: 1.6;
-    }
+<script>
+function toggleSection(id){
+document.getElementById(id).classList.toggle("open");
+}
 
-    .page {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 18px;
-    }
+function emailNotes(){
+let message = "Faith in the Fog Sermon Notes%0D%0A%0D%0A";
 
-    .hero {
-      text-align: center;
-      padding: 38px 22px;
-      border-radius: 26px;
-      background:
-        linear-gradient(rgba(255,250,241,.92), rgba(255,250,241,.92)),
-        radial-gradient(circle at bottom right, rgba(176,139,79,.25), transparent 40%);
-      border: 1px solid rgba(176,139,79,.35);
-      box-shadow: 0 12px 35px rgba(16,35,51,.12);
-      margin-bottom: 22px;
-    }
+document.querySelectorAll("textarea").forEach(function(box){
+let label = box.getAttribute("data-label");
+message += label + "%0D%0A";
+message += box.value + "%0D%0A%0D%0A";
+});
 
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .82rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--navy);
-      font-size: clamp(2.4rem, 8vw, 5rem);
-      line-height: .95;
-      letter-spacing: 1px;
-    }
-
-    .scripture-line {
-      margin-top: 16px;
-      color: var(--navy);
-      font-size: 1.05rem;
-      letter-spacing: 1px;
-    }
-
-    .card {
-      background: rgba(255,250,241,.96);
-      border: 1px solid rgba(176,139,79,.25);
-      border-radius: 22px;
-      padding: 22px;
-      margin: 18px 0;
-      box-shadow: 0 8px 24px rgba(16,35,51,.08);
-    }
-
-    h2, h3 {
-      color: var(--navy);
-      line-height: 1.2;
-      margin-top: 0;
-    }
-
-    h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); }
-    h3 { font-size: 1.25rem; }
-
-    .point-label {
-      display: inline-block;
-      background: var(--navy);
-      color: var(--white);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: .8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .quote {
-      border-left: 5px solid var(--gold);
-      padding: 12px 16px;
-      background: rgba(239,228,209,.65);
-      border-radius: 14px;
-      font-size: 1.05rem;
-      color: var(--navy);
-      margin: 14px 0;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      color: var(--navy);
-      margin: 16px 0 6px;
-    }
-
-    textarea, input[type="text"] {
-      width: 100%;
-      border: 1px solid rgba(16,35,51,.18);
-      border-radius: 14px;
-      background: #fffdf8;
-      padding: 13px;
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      color: var(--text);
-      outline: none;
-      transition: border .2s, box-shadow .2s;
-    }
-
-    textarea { min-height: 105px; resize: vertical; }
-
-    textarea:focus, input[type="text"]:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(176,139,79,.18);
-    }
-
-    .checklist label {
-      font-weight: normal;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin: 10px 0;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"] {
-      transform: scale(1.25);
-      margin-top: 5px;
-      accent-color: var(--gold);
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 12px;
-      margin: 22px 0 34px;
-    }
-
-    button, .button-link {
-      border: none;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      transition: transform .15s, box-shadow .15s, opacity .15s;
-      display: inline-block;
-    }
-
-    button:hover, .button-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(16,35,51,.15);
-    }
-
-    .primary { background: var(--navy); color: var(--white); }
-    .secondary { background: var(--gold); color: var(--white); }
-    .light { background: var(--paper); color: var(--navy); border: 1px solid rgba(16,35,51,.15); }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-      padding: 18px 0 38px;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 22px;
-      transform: translateX(-50%);
-      background: var(--navy);
-      color: white;
-      padding: 12px 16px;
-      border-radius: 999px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s, bottom .25s;
-      font-family: Arial, sans-serif;
-      z-index: 10;
-    }
-
-    .toast.show { opacity: 1; bottom: 34px; }
-
-    @media print {
-      body { background: white; }
-      .actions, .toast { display: none; }
-      .card, .hero { box-shadow: none; break-inside: avoid; }
-    }
-  </style>
+window.location.href = "mailto:?subject=Faith in the Fog Sermon Notes&body=" + message;
+}
+</script>
 </head>
+
 <body>
-  <div class="page">
-    <section class="hero">
-      <div class="eyebrow">Interactive Sermon Notes</div>
-      <h1>The Courage<br />to Love Well</h1>
-      <div class="scripture-line">1 Corinthians 13 | Micah 6:8</div>
-    </section>
 
-    <section class="card">
-      <h2>Opening Reflection</h2>
-      <p>Love is not weakness. Love requires courage. It takes courage to show grace, extend mercy, seek understanding, and walk humbly with God and others.</p>
-      <div class="quote">“And now faith, hope, and love abide, these three; and the greatest of these is love.” — 1 Corinthians 13:13</div>
-      <label for="openingNotes">What is God speaking to me as the message begins?</label>
-      <textarea id="openingNotes" data-save placeholder="Type your notes here..."></textarea>
-    </section>
+<div class="header">
+<h1>Faith in the Fog</h1>
+<p>Trusting God When You Can't See the Road Ahead</p>
+<p><strong>Still Loved Sermon Series</strong></p>
+<p>Psalm 23 | John 11:1–44</p>
+</div>
 
-    <section class="card">
-      <span class="point-label">Sermon Point 1</span>
-      <h2>Love Is More Important Than What We Do</h2>
-      <div class="quote">“If I speak... but do not have love, I am a noisy gong or a clanging cymbal.” — 1 Corinthians 13:1</div>
-      <p>Paul reminds us that spiritual gifts, knowledge, faith, sacrifice, and religious activity mean little if love is absent.</p>
-      <h3>Reflection Questions</h3>
-      <div class="checklist">
-        <label><input type="checkbox" data-save id="q1a"> Am I known more for being right or for being loving?</label>
-        <label><input type="checkbox" data-save id="q1b"> How do my actions reflect the love of Christ?</label>
-        <label><input type="checkbox" data-save id="q1c"> Is there anyone I struggle to love well?</label>
-      </div>
-      <label for="point1Notes">My notes and response</label>
-      <textarea id="point1Notes" data-save placeholder="Write your thoughts..."></textarea>
-    </section>
+<div class="wrap">
 
-    <section class="card">
-      <span class="point-label">Sermon Point 2</span>
-      <h2>Love Is a Way of Life</h2>
-      <div class="quote">“Love is patient; love is kind... It bears all things, believes all things, hopes all things, endures all things.” — 1 Corinthians 13:4-7</div>
-      <p>Biblical love is more than a feeling. It is a daily decision about how we treat people when life is easy and when life is difficult.</p>
-      <h3>Reflection Questions</h3>
-      <div class="checklist">
-        <label><input type="checkbox" data-save id="q2a"> Which characteristic of love challenges me the most?</label>
-        <label><input type="checkbox" data-save id="q2b"> Where is God calling me to show more patience?</label>
-        <label><input type="checkbox" data-save id="q2c"> How can I practice kindness this week?</label>
-      </div>
-      <label for="point2Notes">One way I will love someone intentionally this week</label>
-      <textarea id="point2Notes" data-save placeholder="Write your commitment..."></textarea>
-    </section>
+<div class="card">
+<button class="toggle" onclick="toggleSection('intro')">+ Big Idea</button>
+<div id="intro" class="content open">
+<div class="scripture">
+Faith is trusting God when the road ahead is hidden. Even when Jesus seems delayed, He is still present, still loving, and still working.
+</div>
+<textarea data-label="Big Idea Notes" placeholder="What is God showing you today?"></textarea>
+</div>
+</div>
 
-    <section class="card">
-      <span class="point-label">Sermon Point 3</span>
-      <h2>Love Leads Us Toward Maturity</h2>
-      <div class="quote">“When I became an adult, I put an end to childish ways.” — 1 Corinthians 13:11</div>
-      <p>Growing in Christ means moving beyond self-centeredness and becoming more like Jesus in the way we think, speak, and respond.</p>
-      <h3>Reflection Questions</h3>
-      <div class="checklist">
-        <label><input type="checkbox" data-save id="q3a"> Where have I matured spiritually in recent years?</label>
-        <label><input type="checkbox" data-save id="q3b"> What childish attitudes or habits need to be surrendered?</label>
-        <label><input type="checkbox" data-save id="q3c"> How is God stretching my faith today?</label>
-      </div>
-      <label for="point3Notes">Areas where I sense God helping me grow</label>
-      <textarea id="point3Notes" data-save placeholder="Type your notes here..."></textarea>
-    </section>
+<div class="card">
+<button class="toggle" onclick="toggleSection('point1')">+ Point 1: God's Delays Are Not God's Denials</button>
+<div id="point1" class="content">
+<h2>John 11:1–44</h2>
+<div class="reflection">
+Mary and Martha thought Jesus was late. But Jesus was preparing them to see something greater than healing — resurrection.
+</div>
 
-    <section class="card">
-      <span class="point-label">Sermon Point 4</span>
-      <h2>The Greatest Virtue Is Love</h2>
-      <div class="quote">“And now faith, hope, and love abide, these three; and the greatest of these is love.” — 1 Corinthians 13:13</div>
-      <p>Everything else fades. Love remains because love reflects the very nature of God.</p>
-      <label for="point4Notes">What would change if love became my highest priority?</label>
-      <textarea id="point4Notes" data-save placeholder="Write your response..."></textarea>
-    </section>
+<label class="checkitem"><input type="checkbox"> I have struggled with God’s timing.</label>
+<label class="checkitem"><input type="checkbox"> I am waiting on an answer to prayer.</label>
+<label class="checkitem"><input type="checkbox"> I need to trust that God is still working.</label>
 
-    <section class="card">
-      <h2>Living It Out</h2>
-      <div class="quote">“I hope that either all of us, or none of us, are judged by the actions of our weakest moments.” — Ted Lasso</div>
-      <label for="graceNotes">How would extending grace change the way I view others?</label>
-      <textarea id="graceNotes" data-save placeholder="Write your thoughts..."></textarea>
+<div class="question">
+<strong>Reflection Questions:</strong>
+<ul>
+<li>Where have you mistaken delay for denial?</li>
+<li>What are you waiting on God to do?</li>
+<li>How might God be working beyond what you can see?</li>
+</ul>
+</div>
 
-      <div class="quote">“What might this person be going through?” — Mr. Rogers</div>
-      <label for="understandingNotes">Before reacting to someone, what might change if I first sought understanding?</label>
-      <textarea id="understandingNotes" data-save placeholder="Write your thoughts..."></textarea>
-    </section>
+<textarea data-label="Point 1 Notes" placeholder="Write your notes for Point 1..."></textarea>
+</div>
+</div>
 
-    <section class="card">
-      <h2>Final Challenge: Love in Action</h2>
-      <div class="quote">“What does the Lord require of you but to do justice, love mercy, and walk humbly with your God?” — Micah 6:8</div>
-      <p>Choose one way to practice courageous love this week.</p>
-      <div class="checklist">
-        <label><input type="checkbox" data-save id="justice"> Do justice</label>
-        <label><input type="checkbox" data-save id="mercy"> Love mercy</label>
-        <label><input type="checkbox" data-save id="humility"> Walk humbly</label>
-      </div>
-      <label for="commitment">My commitment this week</label>
-      <textarea id="commitment" data-save placeholder="Write one practical step..."></textarea>
-    </section>
+<div class="card">
+<button class="toggle" onclick="toggleSection('point2')">+ Point 2: The Shepherd Walks With You Through the Valley</button>
+<div id="point2" class="content">
+<h2>Psalm 23</h2>
+<div class="reflection">
+Psalm 23 does not promise that we avoid the valley. It promises that the Shepherd walks with us through it.
+</div>
 
-    <section class="card">
-      <h2>Closing Prayer</h2>
-      <p>Lord, give us the courage to love well. Help us to be patient, kind, merciful, and humble. Teach us to see others through Your eyes and to live out Your love in practical ways every day. May our faith be known not only by what we believe, but by how we love. In Jesus’ name, Amen.</p>
-      <label for="prayerNotes">My prayer today</label>
-      <textarea id="prayerNotes" data-save placeholder="Write your prayer..."></textarea>
-    </section>
+<label class="checkitem"><input type="checkbox"> I need God’s comfort in a valley.</label>
+<label class="checkitem"><input type="checkbox"> I need courage to keep walking.</label>
+<label class="checkitem"><input type="checkbox"> I need to remember I am not alone.</label>
 
-    <div class="actions">
-      <button class="primary" onclick="emailNotes()">Email My Notes</button>
-      <button class="secondary" onclick="print()">Print / Save PDF</button>
-      <button class="light" onclick="clearNotes()">Clear Notes</button>
-      <a class="button-link primary" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">Return to Church Center</a>
-    </div>
+<div class="question">
+<strong>Reflection Questions:</strong>
+<ul>
+<li>What valley are you walking through right now?</li>
+<li>Where do you need to recognize God’s presence?</li>
+<li>What is one faithful step you can take this week?</li>
+</ul>
+</div>
 
-    <div class="footer">Versailles United Methodist Church | Interactive Sermon Notes</div>
-  </div>
+<textarea data-label="Point 2 Notes" placeholder="Write your notes for Point 2..."></textarea>
+</div>
+</div>
 
-  <div class="toast" id="toast">Notes saved</div>
+<div class="card">
+<button class="toggle" onclick="toggleSection('next')">+ My Next Step</button>
+<div id="next" class="content">
+<div class="reflection">
+When you cannot see the whole road, follow the Shepherd one step at a time.
+</div>
 
-  <script>
-    const storageKey = 'sermonNotes_courageToLoveWell';
-    const saveFields = document.querySelectorAll('[data-save]');
-    const toast = document.getElementById('toast');
+<label class="checkitem"><input type="checkbox"> I will keep praying even when God feels delayed.</label>
+<label class="checkitem"><input type="checkbox"> I will trust God in the valley.</label>
+<label class="checkitem"><input type="checkbox"> I will take one faithful step this week.</label>
 
-    function getSavedData() {
-      try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
-      catch { return {}; }
-    }
+<textarea data-label="My Next Step" placeholder="What is your next step?"></textarea>
+</div>
+</div>
 
-    function saveData(showToast = true) {
-      const data = {};
-      saveFields.forEach(field => {
-        if (!field.id) return;
-        data[field.id] = field.type === 'checkbox' ? field.checked : field.value;
-      });
-      localStorage.setItem(storageKey, JSON.stringify(data));
-      if (showToast) showSavedToast();
-    }
+<div class="card">
+<button class="toggle" onclick="toggleSection('prayer')">+ Prayer</button>
+<div id="prayer" class="content">
+<p>
+Lord, when life feels uncertain and the road ahead is hidden, help me trust You. Remind me that Your delays are not denials and that Your presence never leaves me. Lead me one step at a time. Amen.
+</p>
+<textarea data-label="Prayer Requests" placeholder="Write prayer requests or personal reflections..."></textarea>
+</div>
+</div>
 
-    function loadData() {
-      const data = getSavedData();
-      saveFields.forEach(field => {
-        if (!field.id || data[field.id] === undefined) return;
-        if (field.type === 'checkbox') field.checked = data[field.id];
-        else field.value = data[field.id];
-      });
-    }
+<div class="btnbar">
+<button class="btn" onclick="emailNotes()">📧 Email My Notes</button>
+<a class="btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">🏠 Return to Church Center</a>
+</div>
 
-    let toastTimer;
-    function showSavedToast() {
-      clearTimeout(toastTimer);
-      toast.classList.add('show');
-      toastTimer = setTimeout(() => toast.classList.remove('show'), 1200);
-    }
+</div>
 
-    saveFields.forEach(field => {
-      field.addEventListener('input', () => saveData(false));
-      field.addEventListener('change', () => saveData(false));
-      field.addEventListener('blur', () => saveData(true));
-    });
+<div class="footer">
+<p><strong>Versailles United Methodist Church</strong></p>
+<p>#LoveLikeJesus</p>
+</div>
 
-    function collectNotes() {
-      const checkboxText = (id, text) => document.getElementById(id).checked ? '[x] ' + text : '[ ] ' + text;
-      return `The Courage to Love Well\n1 Corinthians 13 | Micah 6:8\n\nOpening Reflection:\n${document.getElementById('openingNotes').value}\n\nSermon Point 1 - Love Is More Important Than What We Do:\n${checkboxText('q1a','Am I known more for being right or for being loving?')}\n${checkboxText('q1b','How do my actions reflect the love of Christ?')}\n${checkboxText('q1c','Is there anyone I struggle to love well?')}\nNotes: ${document.getElementById('point1Notes').value}\n\nSermon Point 2 - Love Is a Way of Life:\n${checkboxText('q2a','Which characteristic of love challenges me the most?')}\n${checkboxText('q2b','Where is God calling me to show more patience?')}\n${checkboxText('q2c','How can I practice kindness this week?')}\nNotes: ${document.getElementById('point2Notes').value}\n\nSermon Point 3 - Love Leads Us Toward Maturity:\n${checkboxText('q3a','Where have I matured spiritually in recent years?')}\n${checkboxText('q3b','What childish attitudes or habits need to be surrendered?')}\n${checkboxText('q3c','How is God stretching my faith today?')}\nNotes: ${document.getElementById('point3Notes').value}\n\nSermon Point 4 - The Greatest Virtue Is Love:\n${document.getElementById('point4Notes').value}\n\nLiving It Out:\nGrace Reflection: ${document.getElementById('graceNotes').value}\nUnderstanding Reflection: ${document.getElementById('understandingNotes').value}\n\nFinal Challenge:\n${checkboxText('justice','Do justice')}\n${checkboxText('mercy','Love mercy')}\n${checkboxText('humility','Walk humbly')}\nCommitment: ${document.getElementById('commitment').value}\n\nPrayer:\n${document.getElementById('prayerNotes').value}`;
-    }
-
-    function emailNotes() {
-      saveData(false);
-      const subject = encodeURIComponent('My Sermon Notes - The Courage to Love Well');
-      const body = encodeURIComponent(collectNotes());
-      window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    }
-
-    function clearNotes() {
-      if (!confirm('Clear all notes from this page?')) return;
-      localStorage.removeItem(storageKey);
-      saveFields.forEach(field => {
-        if (field.type === 'checkbox') field.checked = false;
-        else field.value = '';
-      });
-      showSavedToast();
-    }
-
-    loadData();
-  </script>
 </body>
 </html>
+```

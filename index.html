@@ -1,104 +1,152 @@
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Faith in the Fog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith in the Fog | VUMC Connect</title>
 
 <style>
+*{
+box-sizing:border-box;
+}
+
 body{
 margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#f4f6f8;
 color:#222;
+line-height:1.6;
 }
-.header{
-background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop");
+
+.hero{
+background:linear-gradient(rgba(20,35,50,.72),rgba(20,35,50,.72)),
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop");
 background-size:cover;
 background-position:center;
 color:white;
-padding:55px 20px;
+padding:70px 20px;
 text-align:center;
 }
-.header h1{
-font-size:42px;
-margin:0;
+
+.hero h1{
+font-size:44px;
+margin:0 0 10px;
+letter-spacing:.5px;
 }
-.header p{
-font-size:18px;
-margin:8px 0;
+
+.hero h2{
+font-size:22px;
+font-weight:normal;
+margin:0 0 12px;
 }
-.wrap{
-max-width:900px;
+
+.hero p{
+font-size:17px;
+margin:6px 0;
+}
+
+.container{
+max-width:950px;
 margin:auto;
-padding:20px;
+padding:22px;
 }
+
 .card{
 background:white;
 border-radius:14px;
-margin-bottom:18px;
-box-shadow:0 3px 10px rgba(0,0,0,.12);
-overflow:hidden;
+padding:24px;
+margin-bottom:20px;
+box-shadow:0 3px 12px rgba(0,0,0,.1);
 }
-.toggle{
-width:100%;
-background:#22384d;
-color:white;
-border:none;
-padding:18px;
-font-size:20px;
-text-align:left;
-cursor:pointer;
+
+h2{
+color:#22384d;
+margin-top:0;
+font-size:26px;
 }
-.content{
-display:none;
-padding:22px;
+
+h3{
+color:#22384d;
+margin-bottom:8px;
 }
-.content.open{
-display:block;
-}
-.scripture{
+
+.scripture-box{
 background:#eef5ff;
-border-left:5px solid #356da8;
-padding:14px;
-margin:12px 0;
+border-left:6px solid #356da8;
+padding:16px;
+border-radius:8px;
+margin:14px 0;
 }
+
 .reflection{
 background:#fff8e6;
-border-left:5px solid #d6a21f;
-padding:14px;
-margin:12px 0;
-}
-.question{
-background:#f1f4f7;
-padding:14px;
+border-left:6px solid #d6a21f;
+padding:16px;
 border-radius:8px;
-margin:12px 0;
+margin:14px 0;
 }
+
+.question-box{
+background:#f1f4f7;
+border-left:6px solid #7d8fa3;
+padding:16px;
+border-radius:8px;
+margin:14px 0;
+}
+
+.fill-blank{
+background:#f9fafb;
+border:1px solid #d6dce2;
+padding:16px;
+border-radius:8px;
+margin:14px 0;
+font-size:18px;
+}
+
+input[type="text"]{
+width:100%;
+padding:13px;
+font-size:16px;
+border:1px solid #b8c0c8;
+border-radius:8px;
+margin-top:8px;
+}
+
 textarea{
 width:100%;
-min-height:120px;
-padding:12px;
+min-height:125px;
+padding:13px;
 font-size:16px;
-border:1px solid #bbb;
+border:1px solid #b8c0c8;
 border-radius:8px;
-box-sizing:border-box;
+resize:vertical;
 }
+
+label{
+font-weight:bold;
+display:block;
+margin-top:14px;
+margin-bottom:6px;
+}
+
 .checkitem{
 display:block;
+font-weight:normal;
 margin:10px 0;
 font-size:17px;
 }
+
 .btnbar{
 text-align:center;
-margin:30px 0;
+margin:35px 0;
 }
+
 .btn{
 display:inline-block;
 background:#22384d;
 color:white;
-padding:14px 22px;
+padding:14px 24px;
 border-radius:8px;
 border:none;
 text-decoration:none;
@@ -106,109 +154,149 @@ font-size:16px;
 margin:6px;
 cursor:pointer;
 }
+
 .btn:hover{
 background:#162637;
 }
+
 .footer{
 text-align:center;
-padding:30px;
+padding:35px 20px;
+color:#666;
+}
+
+.small-note{
+font-size:14px;
 color:#666;
 }
 </style>
 
 <script>
-function toggleSection(id){
-document.getElementById(id).classList.toggle("open");
-}
-
 function emailNotes(){
-let message = "Faith in the Fog Sermon Notes%0D%0A%0D%0A";
 
-document.querySelectorAll("textarea").forEach(function(box){
-let label = box.getAttribute("data-label");
+let message = "Faith in the Fog Sermon Notes%0D%0A";
+message += "Still Loved Sermon Series%0D%0A";
+message += "Psalm 23 | John 11:1-44%0D%0A%0D%0A";
+
+document.querySelectorAll("[data-label]").forEach(function(field){
+let label = field.getAttribute("data-label");
+let value = field.value;
+
+if(value && value.trim() !== ""){
 message += label + "%0D%0A";
-message += box.value + "%0D%0A%0D%0A";
+message += value + "%0D%0A%0D%0A";
+}
 });
 
-window.location.href = "mailto:?subject=Faith in the Fog Sermon Notes&body=" + message;
+window.location.href =
+"mailto:?subject=Faith in the Fog Sermon Notes&body=" + message;
 }
 </script>
+
 </head>
 
 <body>
 
-<div class="header">
+<section class="hero">
 <h1>Faith in the Fog</h1>
-<p>Trusting God When You Can't See the Road Ahead</p>
+<h2>Trusting God When You Can't See the Road Ahead</h2>
 <p><strong>Still Loved Sermon Series</strong></p>
-<p>Psalm 23 | John 11:1–44</p>
+<p>Psalm 23 | John 11:1-44</p>
+</section>
+
+<main class="container">
+
+<section class="card">
+<h2>Scripture Focus</h2>
+
+<div class="scripture-box">
+<strong>Psalm 23</strong> reminds us that the Shepherd remains with us in life’s darkest valleys.
+<br><br>
+<strong>John 11:1-44</strong> reminds us that even when Jesus seems delayed, He is still at work.
 </div>
 
-<div class="wrap">
+<label>What stands out to you from today’s scripture?</label>
+<textarea data-label="Scripture Reflection" placeholder="Write your thoughts here..."></textarea>
+</section>
 
-<div class="card">
-<button class="toggle" onclick="toggleSection('intro')">+ Big Idea</button>
-<div id="intro" class="content open">
-<div class="scripture">
-Faith is trusting God when the road ahead is hidden. Even when Jesus seems delayed, He is still present, still loving, and still working.
-</div>
-<textarea data-label="Big Idea Notes" placeholder="What is God showing you today?"></textarea>
-</div>
-</div>
+<section class="card">
+<h2>Big Idea</h2>
 
-<div class="card">
-<button class="toggle" onclick="toggleSection('point1')">+ Point 1: God's Delays Are Not God's Denials</button>
-<div id="point1" class="content">
-<h2>John 11:1–44</h2>
 <div class="reflection">
-Mary and Martha thought Jesus was late. But Jesus was preparing them to see something greater than healing — resurrection.
+Faith is not having all the answers. Faith is trusting God when the road ahead is hidden by fog. Even when God feels silent, delayed, or distant, He is still present, still working, and still leading.
+</div>
+
+<label>Big Idea Notes</label>
+<textarea data-label="Big Idea Notes" placeholder="What is God showing you through this message?"></textarea>
+</section>
+
+<section class="card">
+<h2>Point 1: God’s Delays Are Not God’s Denials</h2>
+
+<p><strong>Scripture:</strong> John 11:1-44</p>
+
+<div class="reflection">
+Mary and Martha thought Jesus was late. They believed that if Jesus had arrived sooner, Lazarus would not have died. But what looked like abandonment was actually preparation for a greater miracle.
+</div>
+
+<div class="fill-blank">
+<strong>Fill in the Blank:</strong>
+<p>God’s __________ are not God’s __________.</p>
+<input type="text" data-label="Point 1 Fill in the Blank" placeholder="Type your answer here...">
+</div>
+
+<div class="question-box">
+<h3>Reflection Questions</h3>
+<ul>
+<li>Have you ever felt like God was taking too long?</li>
+<li>What prayers are you still waiting for God to answer?</li>
+<li>How might God be working beyond what you can currently see?</li>
+</ul>
 </div>
 
 <label class="checkitem"><input type="checkbox"> I have struggled with God’s timing.</label>
 <label class="checkitem"><input type="checkbox"> I am waiting on an answer to prayer.</label>
 <label class="checkitem"><input type="checkbox"> I need to trust that God is still working.</label>
 
-<div class="question">
-<strong>Reflection Questions:</strong>
-<ul>
-<li>Where have you mistaken delay for denial?</li>
-<li>What are you waiting on God to do?</li>
-<li>How might God be working beyond what you can see?</li>
-</ul>
-</div>
+<label>Notes on Point 1</label>
+<textarea data-label="Point 1 Notes" placeholder="Write your notes for Point 1 here..."></textarea>
+</section>
 
-<textarea data-label="Point 1 Notes" placeholder="Write your notes for Point 1..."></textarea>
-</div>
-</div>
+<section class="card">
+<h2>Point 2: The Shepherd Walks With You Through the Valley</h2>
 
-<div class="card">
-<button class="toggle" onclick="toggleSection('point2')">+ Point 2: The Shepherd Walks With You Through the Valley</button>
-<div id="point2" class="content">
-<h2>Psalm 23</h2>
+<p><strong>Scripture:</strong> Psalm 23</p>
+
 <div class="reflection">
-Psalm 23 does not promise that we avoid the valley. It promises that the Shepherd walks with us through it.
+Psalm 23 does not promise that we avoid every valley. It promises that the Shepherd walks with us through the valley. The comfort is not that life is always easy. The comfort is that we are never alone.
+</div>
+
+<div class="fill-blank">
+<strong>Fill in the Blank:</strong>
+<p>The Shepherd walks __________ me through the valley.</p>
+<input type="text" data-label="Point 2 Fill in the Blank" placeholder="Type your answer here...">
+</div>
+
+<div class="question-box">
+<h3>Reflection Questions</h3>
+<ul>
+<li>What valley are you currently walking through?</li>
+<li>Where have you seen God’s presence recently?</li>
+<li>What would trusting the Shepherd look like this week?</li>
+</ul>
 </div>
 
 <label class="checkitem"><input type="checkbox"> I need God’s comfort in a valley.</label>
 <label class="checkitem"><input type="checkbox"> I need courage to keep walking.</label>
 <label class="checkitem"><input type="checkbox"> I need to remember I am not alone.</label>
 
-<div class="question">
-<strong>Reflection Questions:</strong>
-<ul>
-<li>What valley are you walking through right now?</li>
-<li>Where do you need to recognize God’s presence?</li>
-<li>What is one faithful step you can take this week?</li>
-</ul>
-</div>
+<label>Notes on Point 2</label>
+<textarea data-label="Point 2 Notes" placeholder="Write your notes for Point 2 here..."></textarea>
+</section>
 
-<textarea data-label="Point 2 Notes" placeholder="Write your notes for Point 2..."></textarea>
-</div>
-</div>
+<section class="card">
+<h2>Personal Application</h2>
 
-<div class="card">
-<button class="toggle" onclick="toggleSection('next')">+ My Next Step</button>
-<div id="next" class="content">
 <div class="reflection">
 When you cannot see the whole road, follow the Shepherd one step at a time.
 </div>
@@ -217,31 +305,42 @@ When you cannot see the whole road, follow the Shepherd one step at a time.
 <label class="checkitem"><input type="checkbox"> I will trust God in the valley.</label>
 <label class="checkitem"><input type="checkbox"> I will take one faithful step this week.</label>
 
-<textarea data-label="My Next Step" placeholder="What is your next step?"></textarea>
-</div>
-</div>
+<label>My Next Step This Week</label>
+<textarea data-label="My Next Step This Week" placeholder="What is your next step this week?"></textarea>
+</section>
 
-<div class="card">
-<button class="toggle" onclick="toggleSection('prayer')">+ Prayer</button>
-<div id="prayer" class="content">
+<section class="card">
+<h2>Prayer Requests</h2>
+
+<label>Prayer Requests or Personal Reflections</label>
+<textarea data-label="Prayer Requests" placeholder="Write your prayer requests here..."></textarea>
+</section>
+
+<section class="card">
+<h2>Closing Prayer</h2>
+
 <p>
-Lord, when life feels uncertain and the road ahead is hidden, help me trust You. Remind me that Your delays are not denials and that Your presence never leaves me. Lead me one step at a time. Amen.
+Lord, when life feels uncertain and the road ahead is hidden, help me trust You.
+Remind me that Your delays are not denials and that Your presence never leaves me.
+Give me courage in the valley, peace in the waiting, and faith to follow You one step at a time.
+In Jesus’ name, Amen.
 </p>
-<textarea data-label="Prayer Requests" placeholder="Write prayer requests or personal reflections..."></textarea>
-</div>
-</div>
+</section>
 
 <div class="btnbar">
 <button class="btn" onclick="emailNotes()">📧 Email My Notes</button>
-<a class="btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">🏠 Return to Church Center</a>
+
+<a class="btn" href="https://versaillesumc.churchcenter.com/pages/vumc-hub">
+🏠 Return to Church Center
+</a>
 </div>
 
-</div>
+</main>
 
-<div class="footer">
+<footer class="footer">
 <p><strong>Versailles United Methodist Church</strong></p>
 <p>#LoveLikeJesus</p>
-</div>
+</footer>
 
 </body>
 </html>

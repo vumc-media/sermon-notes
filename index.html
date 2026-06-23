@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beauty from Broken Things</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why Two | Interactive Sermon Outline</title>
 
 <style>
 :root{
-  --primary:#2d6a4f;
-  --secondary:#40916c;
-  --accent:#d4a373;
-  --light:#f8f9fa;
-  --dark:#212529;
-  --border:#dfe5e8;
+  --primary:#2f5d50;
+  --secondary:#4f8f7a;
+  --accent:#d9a441;
+  --light:#f7f8f6;
+  --dark:#1f2933;
+  --muted:#6b7280;
+  --border:#d8dedb;
 }
 
 *{
@@ -22,279 +23,384 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f4f6f8;
+  background:#eef2f1;
   color:var(--dark);
   line-height:1.6;
 }
 
 .hero{
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55));
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
   color:white;
   text-align:center;
   padding:80px 20px;
 }
 
-.hero h3{
-  margin:0;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:.95rem;
-  opacity:.9;
-}
-
 .hero h1{
-  margin:10px 0;
   font-size:3rem;
+  margin:0 0 10px;
 }
 
-.hero h2{
-  margin:0;
-  font-weight:normal;
-  color:#f1f1f1;
+.hero p{
+  font-size:1.2rem;
+  margin:5px 0;
 }
 
 .container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 18px;
 }
 
 .card{
   background:white;
-  border-radius:12px;
-  padding:25px;
-  margin-bottom:20px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  margin-bottom:24px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
 }
 
-.scripture-box{
-  background:#eef7f1;
-  border-left:5px solid var(--primary);
-  padding:20px;
-  border-radius:8px;
-}
-
-.point-title{
+.card h2{
   color:var(--primary);
   margin-top:0;
 }
 
-textarea{
-  width:100%;
-  min-height:120px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:12px;
-  font-size:15px;
-  resize:vertical;
-  margin-top:8px;
+.scripture{
+  color:var(--secondary);
+  font-weight:bold;
+  margin-bottom:16px;
 }
 
-.question{
-  background:#fafafa;
-  border-left:4px solid var(--accent);
-  padding:12px;
-  margin:12px 0;
-  border-radius:6px;
+.big-idea{
+  font-size:1.25rem;
+  font-weight:bold;
+  color:var(--primary);
+  background:#f1f6f4;
+  border-left:6px solid var(--accent);
+  padding:18px;
+  border-radius:12px;
 }
 
-.btn-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+.reflection{
+  background:var(--light);
+  border-radius:14px;
+  padding:20px;
   margin-top:20px;
 }
 
-button,a.action-btn{
-  background:var(--primary);
-  color:white;
-  border:none;
-  padding:12px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  text-decoration:none;
-  font-size:15px;
+.reflection h3{
+  margin-top:0;
+  color:var(--primary);
 }
 
-button:hover,
-a.action-btn:hover{
+.question{
+  margin:14px 0;
+}
+
+textarea{
+  width:100%;
+  min-height:70px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  font-size:1rem;
+  resize:vertical;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+input[type="text"]{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  font-size:1rem;
+}
+
+.checkbox-line{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin:12px 0;
+}
+
+.checkbox-line input{
+  margin-top:6px;
+}
+
+.challenge{
+  text-align:center;
+  background:linear-gradient(135deg, var(--primary), var(--secondary));
+  color:white;
+}
+
+.challenge h2{
+  color:white;
+}
+
+.challenge strong{
+  color:#ffe8a3;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin:28px 0;
+}
+
+button{
+  border:none;
+  background:var(--primary);
+  color:white;
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+button:hover{
   background:var(--secondary);
 }
 
-.footer-note{
+.footer{
   text-align:center;
-  color:#666;
-  padding:20px;
+  color:var(--muted);
+  padding:30px 15px;
+  font-size:.95rem;
 }
 
-@media(max-width:768px){
-.hero h1{
-font-size:2.2rem;
-}
+@media print{
+  .hero, .buttons, .footer{
+    display:none;
+  }
+
+  body{
+    background:white;
+  }
+
+  .card{
+    box-shadow:none;
+    page-break-inside:avoid;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <h3>June 21, 2026</h3>
-  <h1>Beauty from Broken Things</h1>
-  <h2>Isaiah 61:1-3 • 2 Corinthians 4:7-10</h2>
-</div>
+<section class="hero">
+  <h1>Why Two</h1>
+  <p>Luke 15:1–7</p>
+  <p>The Parable of the Lost Sheep</p>
+</section>
 
 <div class="container">
 
-  <div class="card scripture-box">
-    <h2>Key Truth</h2>
+  <div class="card">
+    <h2>Opening Thought</h2>
     <p>
-      God does not wait for perfect people before He begins His work.
-      He takes broken places, wounded hearts, painful experiences, and
-      imperfect people and creates something beautiful through His grace.
+      Jesus tells the story of a shepherd who leaves ninety-nine sheep to search for one that is lost.
+      His message is clear: lost people matter to God.
+    </p>
+
+    <div class="big-idea">
+      The mission is simple: Love God. Love People.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1. Loved People Love People</h2>
+    <div class="scripture">1 John 4:19 — “We love because he first loved us.”</div>
+
+    <p>
+      Before we can genuinely love others, we must first understand that we are deeply loved by God.
+      God’s love comes first. When we receive that love, it changes how we see people.
+    </p>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>When did you first realize that God loved you personally?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>Is there anyone in your life who is difficult to love right now?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="question">
+        <label><strong>This week I will intentionally show God’s love to:</strong></label>
+        <input type="text" placeholder="Name or situation">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Saved People Serve People</h2>
+    <div class="scripture">Mark 10:45 — “For even the Son of Man came not to be served but to serve...”</div>
+
+    <p>
+      Jesus never viewed people as interruptions. He stopped for the hurting, welcomed the overlooked,
+      and served with humility. A saved heart becomes a serving heart.
+    </p>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>Where might God be inviting you to serve right now?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>Do you view service as an obligation or an opportunity?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="question">
+        <label><strong>One practical way I can serve someone this week:</strong></label>
+        <textarea placeholder="Write one action step..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Found People Find People</h2>
+    <div class="scripture">John 1:40–42</div>
+
+    <p>
+      After Andrew met Jesus, he went and found his brother Simon and brought him to Jesus.
+      He did not have all the answers. He simply invited someone to meet Christ.
+    </p>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>Who first introduced you to Jesus?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="checkbox-line">
+        <input type="checkbox">
+        <label>Is there someone God keeps placing on your heart?</label>
+      </div>
+      <textarea placeholder="Write your reflection here..."></textarea>
+
+      <div class="question">
+        <label><strong>The person I will begin praying for daily is:</strong></label>
+        <input type="text" placeholder="Name">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Digging Deeper</h2>
+    <div class="scripture">Luke 15:1–7</div>
+
+    <div class="checkbox-line">
+      <input type="checkbox">
+      <label>Why do you think the shepherd left the ninety-nine to find the one?</label>
+    </div>
+    <textarea placeholder="Write your thoughts here..."></textarea>
+
+    <div class="checkbox-line">
+      <input type="checkbox">
+      <label>What does this reveal about God’s heart?</label>
+    </div>
+    <textarea placeholder="Write your thoughts here..."></textarea>
+
+    <div class="checkbox-line">
+      <input type="checkbox">
+      <label>Have you ever felt like the lost sheep?</label>
+    </div>
+    <textarea placeholder="Write your thoughts here..."></textarea>
+  </div>
+
+  <div class="card challenge">
+    <h2>Closing Challenge</h2>
+    <p><strong>Loved people love people.</strong></p>
+    <p><strong>Saved people serve people.</strong></p>
+    <p><strong>Found people find people.</strong></p>
+
+    <p>This week, ask yourself:</p>
+    <p>Who can I love? Who can I serve? Who can I help find Jesus?</p>
+  </div>
+
+  <div class="card">
+    <h2>Prayer</h2>
+    <p>
+      Lord, thank You for loving me when I was lost. Help me to love others as You have loved me.
+      Give me a servant’s heart, and help me point people toward You. Amen.
     </p>
   </div>
 
-  <!-- POINT 1 -->
-  <div class="card">
-    <h2 class="point-title">
-      1. God Turns Mourning Into Mission
-    </h2>
-
-    <p>
-      Isaiah speaks to people who knew grief, loss, disappointment, and
-      brokenness. Ashes represented mourning, pain, and what felt destroyed.
-      Yet God promises beauty instead of ashes, joy instead of mourning,
-      and praise instead of despair.
-    </p>
-
-    <p>
-      God does not waste our pain. He can take what wounded us and turn it
-      into a place of compassion, testimony, and ministry. Sometimes our
-      mission grows out of the places where we have mourned the most.
-    </p>
-
-    <div class="question">
-      <strong>Reflection Question:</strong><br>
-      What loss, disappointment, or difficult season has shaped your faith?
-    </div>
-
-    <div class="question">
-      <strong>Reflection Question:</strong><br>
-      Where have you experienced God’s comfort in a painful season?
-    </div>
-
-    <div class="question">
-      <strong>Application:</strong><br>
-      Ask God how He might use your story to bring encouragement, healing,
-      or hope to someone else.
-    </div>
-
-    <h3>My Notes</h3>
-    <textarea placeholder="Write your notes here..."></textarea>
-  </div>
-
-  <!-- POINT 2 -->
-  <div class="card">
-    <h2 class="point-title">
-      2. God’s Power Shines Through Imperfect People
-    </h2>
-
-    <p>
-      Paul reminds us that we carry the treasure of Christ in jars of clay.
-      Clay jars were ordinary, fragile, and breakable. Their value was not
-      in the container itself, but in what the container carried.
-    </p>
-
-    <p>
-      God’s power is not limited by our weakness. Our cracks do not disqualify
-      us. In fact, those imperfect places can become the very places where
-      God’s strength, grace, and glory shine through.
-    </p>
-
-    <div class="question">
-      <strong>Reflection Question:</strong><br>
-      What weakness or imperfection do you often try to hide from others?
-    </div>
-
-    <div class="question">
-      <strong>Reflection Question:</strong><br>
-      How has God worked through your limitations in the past?
-    </div>
-
-    <div class="question">
-      <strong>Application:</strong><br>
-      Stop believing that brokenness disqualifies you. Trust that God’s power
-      can shine through imperfect people.
-    </div>
-
-    <h3>My Notes</h3>
-    <textarea placeholder="Write your notes here..."></textarea>
-  </div>
-
-  <!-- RESPONSE -->
-  <div class="card">
-    <h2>Personal Response</h2>
-
-    <p><strong>What is God saying to me today?</strong></p>
-    <textarea placeholder="What stood out to you during today's message?"></textarea>
-
-    <p><strong>What broken place am I asking God to redeem?</strong></p>
-    <textarea placeholder="Write your response here..."></textarea>
-
-    <p><strong>What step of faith will I take this week?</strong></p>
-    <textarea placeholder="Write one action step here..."></textarea>
-
-    <p><strong>Prayer</strong></p>
-    <textarea placeholder="Write a personal prayer response..."></textarea>
-  </div>
-
-  <!-- MEMORY VERSE -->
-  <div class="card">
-    <h2>Scripture to Remember</h2>
-
-    <blockquote style="font-size:18px;">
-      “But we have this treasure in clay vessels, that the exceeding greatness
-      of the power may be of God, and not from ourselves.”
-      <br><br>
-      <strong>2 Corinthians 4:7</strong>
-    </blockquote>
-  </div>
-
-  <!-- BUTTONS -->
-  <div class="card">
-    <h2>Stay Connected</h2>
-
-    <div class="btn-row">
-      <a class="action-btn" href="https://versaillesumc.churchcenter.com" target="_blank">
-        Church Center
-      </a>
-
-      <button onclick="window.print()">
-        Print Notes
-      </button>
-
-      <button onclick="emailNotes()">
-        Email My Notes
-      </button>
-    </div>
+  <div class="buttons">
+    <button onclick="window.print()">Print Outline</button>
+    <button onclick="saveNotes()">Save Notes</button>
+    <button onclick="clearNotes()">Clear Notes</button>
   </div>
 
 </div>
 
-<div class="footer-note">
-  Beauty from Broken Things • Versailles United Methodist Church
+<div class="footer">
+  Versailles United Methodist Church | Interactive Sermon Notes
 </div>
 
 <script>
-function emailNotes(){
+const fields = document.querySelectorAll("textarea, input[type='text'], input[type='checkbox']");
 
-const notes = Array.from(document.querySelectorAll('textarea'))
-.map((box,i)=>`Section ${i+1}:\n${box.value}`)
-.join('\n\n-----------------\n\n');
+fields.forEach((field, index) => {
+  const saved = localStorage.getItem("whyTwoField" + index);
 
-window.location.href =
-'mailto:?subject=Beauty from Broken Things Sermon Notes&body=' +
-encodeURIComponent(notes);
+  if (field.type === "checkbox") {
+    field.checked = saved === "true";
+  } else if (saved) {
+    field.value = saved;
+  }
+
+  field.addEventListener("input", () => {
+    if (field.type === "checkbox") {
+      localStorage.setItem("whyTwoField" + index, field.checked);
+    } else {
+      localStorage.setItem("whyTwoField" + index, field.value);
+    }
+  });
+
+  field.addEventListener("change", () => {
+    if (field.type === "checkbox") {
+      localStorage.setItem("whyTwoField" + index, field.checked);
+    }
+  });
+});
+
+function saveNotes(){
+  alert("Your notes have been saved on this device.");
+}
+
+function clearNotes(){
+  if(confirm("Clear all notes for this outline?")){
+    fields.forEach((field, index) => {
+      localStorage.removeItem("whyTwoField" + index);
+      if(field.type === "checkbox"){
+        field.checked = false;
+      } else {
+        field.value = "";
+      }
+    });
+  }
 }
 </script>
 

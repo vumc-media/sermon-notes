@@ -3,146 +3,235 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Why Two | Interactive Sermon Outline</title>
+<title>Love Like Jesus | Interactive Sermon Outline</title>
 
 <style>
 :root{
-  --primary:#2f5d50;
-  --secondary:#4f8f7a;
-  --accent:#d9a441;
-  --light:#f7f8f6;
-  --dark:#1f2933;
-  --muted:#6b7280;
-  --border:#d8dedb;
+  --primary:#7b1e3a;
+  --primary-dark:#531326;
+  --secondary:#b23a48;
+  --accent:#f4a261;
+  --gold:#ffd166;
+  --cream:#fff8f2;
+  --bg:#f7f3f0;
+  --dark:#231f20;
+  --muted:#6c757d;
+  --border:#ead7d1;
+  --white:#ffffff;
 }
 
-*{
-  box-sizing:border-box;
+*{box-sizing:border-box;}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#eef2f1;
+  background:var(--bg);
   color:var(--dark);
-  line-height:1.6;
+  line-height:1.65;
 }
 
 .hero{
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(135deg, rgba(83,19,38,.92), rgba(178,58,72,.78)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80');
   background-size:cover;
   background-position:center;
   color:white;
+  padding:78px 20px 95px;
   text-align:center;
-  padding:80px 20px;
+}
+
+.hero-inner{
+  max-width:1050px;
+  margin:0 auto;
+}
+
+.series-label{
+  display:inline-block;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:.95rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:18px;
 }
 
 .hero h1{
-  font-size:3rem;
-  margin:0 0 10px;
+  font-size:clamp(2.3rem,7vw,5rem);
+  margin:0;
+  line-height:1;
+  letter-spacing:1px;
 }
 
-.hero p{
-  font-size:1.2rem;
-  margin:5px 0;
+.hero h2{
+  font-size:clamp(1.15rem,3vw,2rem);
+  font-weight:400;
+  margin:18px auto 0;
+  max-width:980px;
+}
+
+.scripture-chips{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:28px;
+}
+
+.chip{
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:.95rem;
 }
 
 .container{
-  max-width:1000px;
-  margin:30px auto;
+  max-width:1050px;
+  margin:-50px auto 60px;
   padding:0 18px;
 }
 
 .card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:28px;
+  background:var(--white);
+  border-radius:22px;
+  padding:30px;
   margin-bottom:24px;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  box-shadow:0 10px 30px rgba(0,0,0,.09);
+  border:1px solid var(--border);
 }
 
-.card h2{
+.section-title{
   color:var(--primary);
+  margin:0 0 12px;
+  font-size:clamp(1.6rem,3vw,2.1rem);
+  line-height:1.2;
+}
+
+.point-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+.point-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--primary);
+  color:white;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  font-weight:bold;
+  flex:0 0 auto;
+}
+
+.scripture-line{
+  color:var(--muted);
+  font-weight:bold;
   margin-top:0;
 }
 
-.scripture{
-  color:var(--secondary);
-  font-weight:bold;
-  margin-bottom:16px;
-}
-
-.big-idea{
-  font-size:1.25rem;
-  font-weight:bold;
-  color:var(--primary);
-  background:#f1f6f4;
+.verse{
+  background:var(--cream);
   border-left:6px solid var(--accent);
-  padding:18px;
+  padding:18px 20px;
+  margin:20px 0;
+  font-style:italic;
   border-radius:12px;
 }
 
-.reflection{
-  background:var(--light);
-  border-radius:14px;
-  padding:20px;
-  margin-top:20px;
+.big-idea{
+  font-size:1.35rem;
+  font-weight:bold;
+  color:var(--primary-dark);
 }
 
-.reflection h3{
+.callout{
+  background:linear-gradient(135deg,#fff7dc,#fff1cc);
+  border:1px solid #f1d48b;
+  padding:18px;
+  border-radius:16px;
+  font-weight:bold;
+  color:#553b00;
+  margin:18px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.mini-card{
+  background:#fbfbfb;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+}
+
+.mini-card h3{
   margin-top:0;
   color:var(--primary);
 }
 
-.question{
-  margin:14px 0;
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin-bottom:8px;
+}
+
+.checkbox-group label{
+  display:block;
+  background:#fafafa;
+  border:1px solid var(--border);
+  padding:12px 14px;
+  border-radius:12px;
+  margin:10px 0;
+  cursor:pointer;
+}
+
+input[type="checkbox"]{
+  transform:scale(1.18);
+  margin-right:10px;
 }
 
 textarea{
   width:100%;
-  min-height:70px;
+  min-height:115px;
+  padding:14px;
+  border-radius:14px;
   border:1px solid var(--border);
-  border-radius:10px;
-  padding:12px;
+  font-family:inherit;
   font-size:1rem;
   resize:vertical;
-  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
 }
 
-input[type="text"]{
-  width:100%;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:12px;
-  font-size:1rem;
+.note-box{
+  background:#fffdf9;
+  border:1px dashed var(--secondary);
+  padding:18px;
+  border-radius:16px;
+  margin-top:18px;
 }
 
-.checkbox-line{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
+.fill-line{
+  border-bottom:2px solid var(--border);
+  min-height:38px;
   margin:12px 0;
-}
-
-.checkbox-line input{
-  margin-top:6px;
-}
-
-.challenge{
-  text-align:center;
-  background:linear-gradient(135deg, var(--primary), var(--secondary));
-  color:white;
-}
-
-.challenge h2{
-  color:white;
-}
-
-.challenge strong{
-  color:#ffe8a3;
 }
 
 .buttons{
@@ -150,42 +239,84 @@ input[type="text"]{
   flex-wrap:wrap;
   gap:12px;
   justify-content:center;
-  margin:28px 0;
+  margin:32px 0 10px;
 }
 
-button{
+button,
+.action-btn{
   border:none;
   background:var(--primary);
   color:white;
-  padding:12px 18px;
+  padding:14px 22px;
   border-radius:999px;
   font-size:1rem;
   cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  box-shadow:0 6px 16px rgba(123,30,58,.22);
 }
 
-button:hover{
+button:hover,
+.action-btn:hover{
   background:var(--secondary);
 }
 
 .footer{
   text-align:center;
   color:var(--muted);
-  padding:30px 15px;
-  font-size:.95rem;
+  padding:30px 15px 45px;
+}
+
+@media(max-width:720px){
+  .hero{
+    padding:58px 16px 80px;
+  }
+
+  .container{
+    margin:-42px auto 40px;
+    padding:0 14px;
+  }
+
+  .card{
+    padding:22px;
+    border-radius:18px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  button,
+  .action-btn{
+    width:100%;
+    text-align:center;
+  }
 }
 
 @media print{
-  .hero, .buttons, .footer{
+  .buttons{
     display:none;
   }
 
-  body{
-    background:white;
+  .hero{
+    padding:35px 20px;
+  }
+
+  .container{
+    margin:0 auto;
   }
 
   .card{
     box-shadow:none;
-    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+
+  textarea{
+    min-height:90px;
   }
 }
 </style>
@@ -194,215 +325,267 @@ button:hover{
 <body>
 
 <section class="hero">
-  <h1>Why Two</h1>
-  <p>Luke 15:1–7</p>
-  <p>The Parable of the Lost Sheep</p>
+  <div class="hero-inner">
+    <div class="series-label">Interactive Sermon Outline</div>
+    <h1>LOVE LIKE JESUS</h1>
+    <h2>Why Is There a Gap Between “Sunday Morning Me” and “Monday Morning Me”?</h2>
+
+    <div class="scripture-chips">
+      <span class="chip">James 3:9-12</span>
+      <span class="chip">Galatians 5:16-25</span>
+      <span class="chip">John 13:34-35</span>
+    </div>
+  </div>
 </section>
 
-<div class="container">
+<main class="container">
 
-  <div class="card">
-    <h2>Opening Thought</h2>
-    <p>
-      Jesus tells the story of a shepherd who leaves ninety-nine sheep to search for one that is lost.
-      His message is clear: lost people matter to God.
+  <section class="card">
+    <h2 class="section-title">Big Idea</h2>
+    <p class="big-idea">
+      Following Jesus is not measured only by how we worship on Sunday, but by how we reflect Him on Monday.
     </p>
 
-    <div class="big-idea">
-      The mission is simple: Love God. Love People.
+    <div class="verse">
+      “By this everyone will know that you are my disciples, if you love one another.”
+      <br><strong>John 13:35</strong>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>1. Loved People Love People</h2>
-    <div class="scripture">1 John 4:19 — “We love because he first loved us.”</div>
+    <div class="note-box">
+      <strong>Opening Question:</strong>
+      <p>If someone only observed my life Monday through Saturday, would they know I belong to Jesus?</p>
+      <textarea placeholder="Write your thoughts here..."></textarea>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="point-header">
+      <span class="point-number">1</span>
+      <h2 class="section-title">Your Mouth Reveals Your Master</h2>
+    </div>
+
+    <p class="scripture-line">James 3:9-12</p>
+
+    <div class="verse">
+      “With the tongue we praise our Lord and Father, and with it we curse human beings, who have been made in God’s likeness.”
+      <br><strong>James 3:9</strong>
+    </div>
 
     <p>
-      Before we can genuinely love others, we must first understand that we are deeply loved by God.
-      God’s love comes first. When we receive that love, it changes how we see people.
+      James teaches us that our words are not just sounds coming from our mouths.
+      They are signs revealing what is happening in our hearts.
     </p>
-
-    <div class="reflection">
-      <h3>Reflection</h3>
-
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>When did you first realize that God loved you personally?</label>
-      </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
-
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>Is there anyone in your life who is difficult to love right now?</label>
-      </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
-
-      <div class="question">
-        <label><strong>This week I will intentionally show God’s love to:</strong></label>
-        <input type="text" placeholder="Name or situation">
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>2. Saved People Serve People</h2>
-    <div class="scripture">Mark 10:45 — “For even the Son of Man came not to be served but to serve...”</div>
 
     <p>
-      Jesus never viewed people as interruptions. He stopped for the hurting, welcomed the overlooked,
-      and served with humility. A saved heart becomes a serving heart.
+      A spring does not produce both fresh water and salt water.
+      In the same way, a follower of Jesus should not praise God on Sunday and poison people with words on Monday.
     </p>
 
-    <div class="reflection">
-      <h3>Reflection</h3>
+    <div class="callout">
+      Your mouth does not create your character. It reveals it.
+    </div>
 
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>Where might God be inviting you to serve right now?</label>
+    <div class="grid">
+      <div class="mini-card">
+        <h3>Ask Yourself</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> What do my words sound like outside of church?</label>
+          <label><input type="checkbox"> Would my family describe me the same way my church family would?</label>
+          <label><input type="checkbox"> Do my conversations point people toward Jesus or away from Him?</label>
+        </div>
       </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
 
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>Do you view service as an obligation or an opportunity?</label>
-      </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
-
-      <div class="question">
-        <label><strong>One practical way I can serve someone this week:</strong></label>
-        <textarea placeholder="Write one action step..."></textarea>
+      <div class="mini-card">
+        <h3>Heart Check</h3>
+        <p>Before asking, “How can I control my tongue?” ask:</p>
+        <strong>“What is controlling my heart?”</strong>
+        <div class="fill-line"></div>
+        <div class="fill-line"></div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>3. Found People Find People</h2>
-    <div class="scripture">John 1:40–42</div>
+    <div class="note-box">
+      <strong>My Notes:</strong>
+      <textarea placeholder="Write sermon notes here..."></textarea>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="point-header">
+      <span class="point-number">2</span>
+      <h2 class="section-title">Walk By The Spirit Before You Speak To People</h2>
+    </div>
+
+    <p class="scripture-line">Galatians 5:16-25</p>
+
+    <div class="verse">
+      “So I say, walk by the Spirit, and you will not gratify the desires of the flesh.”
+      <br><strong>Galatians 5:16</strong>
+    </div>
 
     <p>
-      After Andrew met Jesus, he went and found his brother Simon and brought him to Jesus.
-      He did not have all the answers. He simply invited someone to meet Christ.
+      Paul does not simply tell us to try harder.
+      He tells us to walk by the Spirit.
     </p>
 
-    <div class="reflection">
-      <h3>Reflection</h3>
+    <div class="callout">
+      The flesh reacts. The Spirit responds.
+    </div>
 
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>Who first introduced you to Jesus?</label>
+    <div class="grid">
+      <div class="mini-card">
+        <h3>The Flesh Wants To...</h3>
+        <ul>
+          <li>Win the argument</li>
+          <li>Be right at all costs</li>
+          <li>Get even</li>
+          <li>Protect pride</li>
+          <li>Speak before praying</li>
+        </ul>
       </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
 
-      <div class="checkbox-line">
-        <input type="checkbox">
-        <label>Is there someone God keeps placing on your heart?</label>
+      <div class="mini-card">
+        <h3>The Spirit Produces...</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Love</label>
+          <label><input type="checkbox"> Joy</label>
+          <label><input type="checkbox"> Peace</label>
+          <label><input type="checkbox"> Patience</label>
+          <label><input type="checkbox"> Kindness</label>
+          <label><input type="checkbox"> Goodness</label>
+          <label><input type="checkbox"> Faithfulness</label>
+          <label><input type="checkbox"> Gentleness</label>
+          <label><input type="checkbox"> Self-Control</label>
+        </div>
       </div>
-      <textarea placeholder="Write your reflection here..."></textarea>
-
-      <div class="question">
-        <label><strong>The person I will begin praying for daily is:</strong></label>
-        <input type="text" placeholder="Name">
-      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>Digging Deeper</h2>
-    <div class="scripture">Luke 15:1–7</div>
-
-    <div class="checkbox-line">
-      <input type="checkbox">
-      <label>Why do you think the shepherd left the ninety-nine to find the one?</label>
+    <div class="callout">
+      The fruit of the Spirit is not just Sunday fruit. It is Monday fruit.
     </div>
-    <textarea placeholder="Write your thoughts here..."></textarea>
 
-    <div class="checkbox-line">
-      <input type="checkbox">
-      <label>What does this reveal about God’s heart?</label>
+    <div class="note-box">
+      <strong>Which fruit of the Spirit do I need most right now?</strong>
+      <textarea placeholder="Write your answer here..."></textarea>
     </div>
-    <textarea placeholder="Write your thoughts here..."></textarea>
+  </section>
 
-    <div class="checkbox-line">
-      <input type="checkbox">
-      <label>Have you ever felt like the lost sheep?</label>
+  <section class="card">
+    <div class="point-header">
+      <span class="point-number">3</span>
+      <h2 class="section-title">Love Isn’t A Feeling—It’s Your New Identity</h2>
     </div>
-    <textarea placeholder="Write your thoughts here..."></textarea>
-  </div>
 
-  <div class="card challenge">
-    <h2>Closing Challenge</h2>
-    <p><strong>Loved people love people.</strong></p>
-    <p><strong>Saved people serve people.</strong></p>
-    <p><strong>Found people find people.</strong></p>
+    <p class="scripture-line">John 13:34-35</p>
 
-    <p>This week, ask yourself:</p>
-    <p>Who can I love? Who can I serve? Who can I help find Jesus?</p>
-  </div>
+    <div class="verse">
+      “A new command I give you: Love one another. As I have loved you, so you must love one another.”
+      <br><strong>John 13:34</strong>
+    </div>
 
-  <div class="card">
-    <h2>Prayer</h2>
     <p>
-      Lord, thank You for loving me when I was lost. Help me to love others as You have loved me.
-      Give me a servant’s heart, and help me point people toward You. Amen.
+      Jesus does not describe love as a mood, preference, or emotion.
+      He gives love as a command and a mark of identity.
     </p>
-  </div>
+
+    <p>
+      People will not know we belong to Jesus simply because we attend church,
+      sing worship songs, or know Bible verses.
+    </p>
+
+    <div class="callout">
+      Jesus said people would know we are His disciples by the way we love.
+    </div>
+
+    <div class="grid">
+      <div class="mini-card">
+        <h3>Love Like Jesus Means...</h3>
+        <ul>
+          <li>Loving people who disagree with you</li>
+          <li>Extending grace instead of revenge</li>
+          <li>Choosing forgiveness over resentment</li>
+          <li>Speaking truth without cruelty</li>
+          <li>Reflecting Christ when no one is watching</li>
+        </ul>
+      </div>
+
+      <div class="mini-card">
+        <h3>Complete This Sentence</h3>
+        <p>People know I am a follower of Jesus because...</p>
+        <textarea placeholder="Write your response here..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Taking It Home</h2>
+    <p>
+      This week, I will ask the Holy Spirit to help me close the gap between Sunday morning and Monday morning.
+    </p>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Pause before speaking.</label>
+      <label><input type="checkbox"> Pray before reacting.</label>
+      <label><input type="checkbox"> Encourage someone intentionally.</label>
+      <label><input type="checkbox"> Show kindness to someone difficult.</label>
+      <label><input type="checkbox"> Ask the Holy Spirit to grow His fruit in me.</label>
+      <label><input type="checkbox"> Love someone like Jesus this week.</label>
+    </div>
+
+    <div class="note-box">
+      <strong>My Prayer This Week:</strong>
+      <textarea placeholder="Holy Spirit, help me..."></textarea>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Memory Verse</h2>
+    <div class="verse">
+      “By this everyone will know that you are my disciples, if you love one another.”
+      <br><strong>John 13:35</strong>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Weekly Challenge</h2>
+
+    <p>
+      Instead of only asking,
+      <strong>“Did I go to church this week?”</strong>
+    </p>
+
+    <p>
+      Ask,
+      <strong>“Did I look like Jesus today?”</strong>
+    </p>
+
+    <div class="verse">
+      The greatest evidence of Sunday worship is not only what happens in the sanctuary.
+      It is what happens when we leave it.
+    </div>
+  </section>
 
   <div class="buttons">
-    <button onclick="window.print()">Print Outline</button>
-    <button onclick="saveNotes()">Save Notes</button>
-    <button onclick="clearNotes()">Clear Notes</button>
+    <button onclick="window.print()">🖨️ Print Outline</button>
+
+    <a class="action-btn"
+       href="mailto:?subject=Love Like Jesus Sermon Notes&body=Love Like Jesus: Why Is There a Gap Between Sunday Morning Me and Monday Morning Me?%0D%0A%0D%0AScripture: James 3:9-12; Galatians 5:16-25; John 13:34-35">
+      ✉️ Email Outline
+    </a>
+
+    <a class="action-btn"
+       href="https://versaillesumc.churchcenter.com/home"
+       target="_blank"
+       rel="noopener">
+      ⛪ Return to Church Center
+    </a>
   </div>
 
-</div>
+</main>
 
-<div class="footer">
-  Versailles United Methodist Church | Interactive Sermon Notes
-</div>
-
-<script>
-const fields = document.querySelectorAll("textarea, input[type='text'], input[type='checkbox']");
-
-fields.forEach((field, index) => {
-  const saved = localStorage.getItem("whyTwoField" + index);
-
-  if (field.type === "checkbox") {
-    field.checked = saved === "true";
-  } else if (saved) {
-    field.value = saved;
-  }
-
-  field.addEventListener("input", () => {
-    if (field.type === "checkbox") {
-      localStorage.setItem("whyTwoField" + index, field.checked);
-    } else {
-      localStorage.setItem("whyTwoField" + index, field.value);
-    }
-  });
-
-  field.addEventListener("change", () => {
-    if (field.type === "checkbox") {
-      localStorage.setItem("whyTwoField" + index, field.checked);
-    }
-  });
-});
-
-function saveNotes(){
-  alert("Your notes have been saved on this device.");
-}
-
-function clearNotes(){
-  if(confirm("Clear all notes for this outline?")){
-    fields.forEach((field, index) => {
-      localStorage.removeItem("whyTwoField" + index);
-      if(field.type === "checkbox"){
-        field.checked = false;
-      } else {
-        field.value = "";
-      }
-    });
-  }
-}
-</script>
+<footer class="footer">
+  <p>Love Like Jesus • Interactive Sermon Outline</p>
+</footer>
 
 </body>
 </html>

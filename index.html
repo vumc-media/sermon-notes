@@ -1,388 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Run Your Race | Interactive Sermon Outline</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>At the Movies: Toy Story — You’ve Got a Friend in Me</title>
 
 <style>
 :root{
-  --primary:#2f3e46;
-  --primary-dark:#1f2d33;
-  --secondary:#52796f;
-  --accent:#d4a373;
-  --cream:#fff8f0;
-  --bg:#f3f4f5;
+  --primary:#2878b8;
+  --secondary:#2f855a;
+  --accent:#f4b942;
+  --red:#c84545;
+  --light:#f8fafc;
   --dark:#1f2933;
-  --muted:#6b7280;
-  --border:#d9e2e7;
-  --white:#ffffff;
+  --border:#d9e2ec;
 }
 
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth;}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:var(--bg);
+  background:#eef3f7;
   color:var(--dark);
-  line-height:1.65;
+  line-height:1.6;
 }
 
 .hero{
   background:
-    linear-gradient(135deg, rgba(31,45,51,.94), rgba(82,121,111,.78)),
-    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80');
+    linear-gradient(rgba(15,45,70,.68),rgba(15,45,70,.68)),
+    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80");
   background-size:cover;
   background-position:center;
-  color:white;
-  padding:78px 20px 95px;
+  color:#fff;
+  padding:72px 20px;
   text-align:center;
 }
 
-.hero-inner{
-  max-width:1050px;
-  margin:0 auto;
-}
-
-.series-label{
-  display:inline-block;
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.35);
-  padding:8px 16px;
-  border-radius:999px;
-  font-size:.95rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-}
-
 .hero h1{
-  font-size:clamp(2.3rem,7vw,5rem);
   margin:0;
-  line-height:1;
-  letter-spacing:1px;
+  font-size:2.35rem;
 }
 
 .hero h2{
-  font-size:clamp(1.15rem,3vw,2rem);
-  font-weight:400;
-  margin:18px auto 0;
-  max-width:980px;
+  margin:12px 0 8px;
+  font-size:1.8rem;
+  line-height:1.25;
 }
 
-.scripture-chips{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:28px;
-}
-
-.chip{
-  background:rgba(255,255,255,.18);
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-  padding:9px 14px;
-  border-radius:999px;
-  font-size:.95rem;
+.hero p{
+  margin:8px auto 0;
+  max-width:760px;
+  font-size:1rem;
 }
 
 .container{
-  max-width:1050px;
-  margin:-50px auto 60px;
-  padding:0 18px;
+  max-width:900px;
+  margin:28px auto;
+  padding:0 16px 40px;
 }
 
 .card{
-  background:var(--white);
-  border-radius:22px;
-  padding:30px;
-  margin-bottom:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,.09);
+  background:#fff;
   border:1px solid var(--border);
-}
-
-.section-title{
-  color:var(--primary);
-  margin:0 0 12px;
-  font-size:clamp(1.6rem,3vw,2.1rem);
-  line-height:1.2;
-}
-
-.point-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-bottom:8px;
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
 }
 
 .point-number{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background:var(--primary);
-  color:white;
-  width:46px;
-  height:46px;
+  width:42px;
+  height:42px;
   border-radius:50%;
+  background:var(--primary);
+  color:#fff;
   font-weight:bold;
-  flex:0 0 auto;
+  margin-bottom:12px;
 }
 
-.scripture-line{
-  color:var(--muted);
-  font-weight:bold;
-  margin-top:0;
+h3{
+  color:var(--primary);
+  margin:0 0 12px;
+  line-height:1.3;
 }
 
-.verse{
-  background:var(--cream);
-  border-left:6px solid var(--accent);
-  padding:18px 20px;
-  margin:20px 0;
-  font-style:italic;
-  border-radius:12px;
+h4{
+  margin-bottom:8px;
+}
+
+.scripture{
+  background:#f5f9fd;
+  border-left:5px solid var(--primary);
+  padding:15px;
+  margin:16px 0;
+  border-radius:7px;
 }
 
 .big-idea{
-  font-size:1.35rem;
-  font-weight:bold;
-  color:var(--primary-dark);
+  background:#fff9e8;
+  border-left:5px solid var(--accent);
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
-
-.mini-card{
-  background:#fbfbfb;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:18px;
-}
-
-.mini-card h3{
-  margin-top:0;
-  color:var(--primary);
-}
-
-.checkbox-group label{
-  display:block;
-  background:#fafafa;
-  border:1px solid var(--border);
-  padding:12px 14px;
-  border-radius:12px;
-  margin:10px 0;
-  cursor:pointer;
-}
-
-input[type="checkbox"]{
-  transform:scale(1.18);
-  margin-right:10px;
+.question{
+  margin-top:18px;
+  padding:16px;
+  background:#f8fafc;
+  border-left:4px solid var(--accent);
+  border-radius:8px;
 }
 
 textarea{
   width:100%;
-  min-height:115px;
-  padding:14px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  font-family:inherit;
-  font-size:1rem;
-  resize:vertical;
+  min-height:120px;
+  margin-top:10px;
+  border:1px solid #bcccdc;
+  border-radius:9px;
+  padding:12px;
+  resize:none;
+  overflow:hidden;
+  font:inherit;
+  line-height:1.5;
   background:#fff;
 }
 
-.note-box{
-  background:#fffdf9;
-  border:1px dashed var(--secondary);
-  padding:18px;
-  border-radius:16px;
-  margin-top:18px;
+textarea:focus{
+  outline:3px solid rgba(40,120,184,.18);
+  border-color:var(--primary);
 }
 
-.buttons{
+.checklist label{
   display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-  margin:32px 0 10px;
+  align-items:flex-start;
+  gap:10px;
+  margin:12px 0;
+  cursor:pointer;
 }
 
-button,
-.action-btn{
+.checklist input{
+  width:20px;
+  height:20px;
+  margin-top:3px;
+  flex:0 0 auto;
+}
+
+.button-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:30px;
+}
+
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
   border:none;
-  background:var(--primary);
-  color:white;
-  padding:14px 22px;
-  border-radius:999px;
+  border-radius:9px;
+  padding:13px 18px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
   font-size:1rem;
   cursor:pointer;
-  text-decoration:none;
-  display:inline-block;
-  box-shadow:0 6px 16px rgba(47,62,70,.22);
+  text-align:center;
 }
 
-button:hover,
-.action-btn:hover{
+.btn-print{
+  background:var(--primary);
+}
+
+.btn-email{
+  background:var(--red);
+}
+
+.btn-give{
   background:var(--secondary);
+}
+
+.btn-home{
+  background:#4a5568;
+}
+
+.btn:hover{
+  filter:brightness(.94);
+}
+
+.status{
+  display:none;
+  margin-top:14px;
+  padding:12px;
+  border-radius:8px;
+  background:#edfdf4;
+  border:1px solid #9ae6b4;
+  color:#22543d;
+  text-align:center;
 }
 
 .footer{
   text-align:center;
-  color:var(--muted);
-  padding:30px 15px 45px;
+  color:#66788a;
+  font-size:.9rem;
+  margin-top:28px;
 }
 
-@media(max-width:720px){
-  .hero{padding:58px 16px 80px;}
-  .container{margin:-42px auto 40px;padding:0 14px;}
-  .card{padding:22px;border-radius:18px;}
-  .grid{grid-template-columns:1fr;}
-  .buttons{flex-direction:column;}
-  button,.action-btn{width:100%;text-align:center;}
+@media(max-width:650px){
+  .hero{
+    padding:54px 18px;
+  }
+
+  .hero h1{
+    font-size:1.8rem;
+  }
+
+  .hero h2{
+    font-size:1.42rem;
+  }
+
+  .card{
+    padding:19px;
+  }
+
+  .button-row{
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+  }
 }
 
 @media print{
-  .buttons{display:none;}
-  .hero{padding:35px 20px;}
-  .container{margin:0 auto;}
-  .card{box-shadow:none;break-inside:avoid;}
-  textarea{min-height:90px;}
+  body{
+    background:#fff;
+  }
+
+  .hero{
+    background:none;
+    color:#000;
+    padding:20px 0;
+  }
+
+  .container{
+    max-width:none;
+    margin:0;
+    padding:0;
+  }
+
+  .card{
+    box-shadow:none;
+    break-inside:avoid;
+    border:1px solid #bbb;
+  }
+
+  .button-row,
+  .status,
+  .footer{
+    display:none !important;
+  }
+
+  textarea{
+    border:1px solid #aaa;
+    min-height:90px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="series-label">Interactive Sermon Outline</div>
-    <h1>AT THE MOVIES</h1>
-    <h2>Forrest Gump: Run Your Race</h2>
-
-    <div class="scripture-chips">
-      <span class="chip">Hebrews 12:1-2</span>
-      <span class="chip">Colossians 3:23</span>
-      <span class="chip">Philippians 3:13-14</span>
-    </div>
-  </div>
-</section>
+<header class="hero">
+  <h1>🎬 At the Movies</h1>
+  <h2>Toy Story: You’ve Got a Friend in Me</h2>
+  <p>
+    Ecclesiastes 4:9–12 • John 15:12–17 • Proverbs 17:17 • Galatians 6:2
+  </p>
+</header>
 
 <main class="container">
 
-  <section class="card">
-    <h2 class="section-title">Big Idea</h2>
-
-    <div class="verse">
-      “Let us run with perseverance the race marked out for us, fixing our eyes on Jesus.”
-      <br><strong>Hebrews 12:1-2</strong>
-    </div>
-
-    <div class="note-box">
-      <strong>Opening Question:</strong>
-      <p>What race has God called me to run?</p>
-      <textarea placeholder="Write your thoughts here..."></textarea>
-    </div>
+  <section class="card big-idea">
+    <h3>Big Idea</h3>
+    <p>
+      God never intended us to carry life alone. Real friendship reflects the
+      faithful, sacrificial love Jesus has shown us.
+    </p>
   </section>
 
   <section class="card">
-    <div class="point-header">
-      <span class="point-number">1</span>
-      <h2 class="section-title">God Measures Faithfulness More Than Success</h2>
-    </div>
+    <h3>Opening Question</h3>
 
-    <p class="scripture-line">Colossians 3:23</p>
+    <p>
+      Who has helped carry you through a difficult season of life?
+    </p>
 
-    <div class="verse">
-      “Whatever you do, work at it with all your heart, as working for the Lord.”
-      <br><strong>Colossians 3:23</strong>
-    </div>
-
-    <div class="grid">
-      <div class="mini-card">
-        <h3>Heart Check</h3>
-        <div class="checkbox-group">
-          <label><input type="checkbox"> Am I being faithful with what God has given me?</label>
-          <label><input type="checkbox"> Am I more focused on success than faithfulness?</label>
-        </div>
-      </div>
-
-      <div class="mini-card">
-        <h3>Personal Reflection</h3>
-        <p>What does faithfulness look like in the race God has given me?</p>
-        <textarea placeholder="Write your response here..."></textarea>
-      </div>
-    </div>
-
-    <div class="note-box">
-      <strong>My Notes:</strong>
-      <textarea placeholder="Write sermon notes here..."></textarea>
-    </div>
+    <textarea
+      id="opening-notes"
+      class="note-field"
+      data-label="Opening Question"
+      placeholder="Write your thoughts here..."
+    ></textarea>
   </section>
 
   <section class="card">
-    <div class="point-header">
-      <span class="point-number">2</span>
-      <h2 class="section-title">Keep Your Eyes On Jesus, Not Everyone Else’s Finish Line</h2>
+    <div class="point-number">1</div>
+
+    <h3>Real Friends Help Carry What You Cannot Carry Alone</h3>
+
+    <div class="scripture">
+      <strong>Ecclesiastes 4:9–12</strong>
+      <p>
+        “Two are better than one, because they have a good return for their
+        labor: If either of them falls down, one can help the other up.”
+      </p>
     </div>
 
-    <p class="scripture-line">Philippians 3:13-14</p>
-
-    <div class="verse">
-      “Forgetting what is behind and straining toward what is ahead, I press on toward the goal.”
-      <br><strong>Philippians 3:13-14</strong>
+    <div class="scripture">
+      <strong>Galatians 6:2</strong>
+      <p>
+        “Carry each other’s burdens, and in this way you will fulfill the law
+        of Christ.”
+      </p>
     </div>
 
-    <div class="grid">
-      <div class="mini-card">
-        <h3>Heart Check</h3>
-        <div class="checkbox-group">
-          <label><input type="checkbox"> Am I comparing my race to someone else’s?</label>
-          <label><input type="checkbox"> Am I keeping my eyes on Jesus?</label>
-        </div>
-      </div>
+    <h4>Heart Check</h4>
 
-      <div class="mini-card">
-        <h3>Personal Reflection</h3>
-        <p>Where do I need to stop comparing and refocus on Jesus?</p>
-        <textarea placeholder="Write your response here..."></textarea>
-      </div>
+    <div class="checklist">
+      <label>
+        <input type="checkbox">
+        <span>Am I trying to carry life’s burdens by myself?</span>
+      </label>
+
+      <label>
+        <input type="checkbox">
+        <span>Do I allow trusted friends to help me?</span>
+      </label>
+
+      <label>
+        <input type="checkbox">
+        <span>Who needs me to help carry a burden this week?</span>
+      </label>
     </div>
 
-    <div class="note-box">
-      <strong>My Notes:</strong>
-      <textarea placeholder="Write sermon notes here..."></textarea>
+    <div class="question">
+      <strong>Personal Reflection</strong>
+
+      <p>
+        What burden would become lighter if you invited someone to walk beside
+        you?
+      </p>
+
+      <textarea
+        id="point-one-notes"
+        class="note-field"
+        data-label="Point 1 Reflection"
+        placeholder="Write your response here..."
+      ></textarea>
     </div>
+
+    <textarea
+      id="point-one-sermon-notes"
+      class="note-field"
+      data-label="Point 1 Sermon Notes"
+      placeholder="Write sermon notes here..."
+    ></textarea>
   </section>
 
-  <div class="buttons">
-    <button onclick="window.print()">🖨️ Print Outline</button>
+  <section class="card">
+    <div class="point-number">2</div>
 
-    <a class="action-btn"
-       href="mailto:?subject=Run Your Race Sermon Notes&body=At The Movies: Forrest Gump - Run Your Race%0D%0A%0D%0AScripture: Hebrews 12:1-2; Colossians 3:23; Philippians 3:13-14">
-      ✉️ Email Outline
+    <h3>Jesus Didn’t Just Command Friendship—He Modeled It</h3>
+
+    <div class="scripture">
+      <strong>John 15:12–17</strong>
+      <p>
+        “My command is this: Love each other as I have loved you. Greater love
+        has no one than this: to lay down one’s life for one’s friends.”
+      </p>
+    </div>
+
+    <div class="scripture">
+      <strong>Proverbs 17:17</strong>
+      <p>
+        “A friend loves at all times, and a brother is born for a time of
+        adversity.”
+      </p>
+    </div>
+
+    <h4>Heart Check</h4>
+
+    <div class="checklist">
+      <label>
+        <input type="checkbox">
+        <span>Am I becoming the kind of friend Jesus has been to me?</span>
+      </label>
+
+      <label>
+        <input type="checkbox">
+        <span>Do my friendships reflect the love of Christ?</span>
+      </label>
+
+      <label>
+        <input type="checkbox">
+        <span>Who needs encouragement or support from me this week?</span>
+      </label>
+    </div>
+
+    <div class="question">
+      <strong>Personal Reflection</strong>
+
+      <p>
+        How can you intentionally love someone this week the way Jesus has
+        loved you?
+      </p>
+
+      <textarea
+        id="point-two-notes"
+        class="note-field"
+        data-label="Point 2 Reflection"
+        placeholder="Write your response here..."
+      ></textarea>
+    </div>
+
+    <textarea
+      id="point-two-sermon-notes"
+      class="note-field"
+      data-label="Point 2 Sermon Notes"
+      placeholder="Write sermon notes here..."
+    ></textarea>
+  </section>
+
+  <section class="card">
+    <h3>My Next Step</h3>
+
+    <p>
+      Who is one person God may be calling you to encourage, support, or walk
+      beside this week?
+    </p>
+
+    <textarea
+      id="next-step-notes"
+      class="note-field"
+      data-label="My Next Step"
+      placeholder="Write your next step here..."
+    ></textarea>
+  </section>
+
+  <section class="card">
+    <h3>Prayer</h3>
+
+    <p>
+      Jesus, thank You for loving us faithfully and calling us Your friends.
+      Teach us to carry one another’s burdens, remain faithful in difficult
+      seasons, and love others the way You have loved us. Amen.
+    </p>
+  </section>
+
+  <div class="button-row">
+    <button class="btn btn-print" type="button" onclick="printOutline()">
+      🖨️ Print Outline
+    </button>
+
+    <button class="btn btn-email" type="button" onclick="emailNotes()">
+      📧 Email My Notes
+    </button>
+
+    <a
+      class="btn btn-give"
+      href="https://versaillesumc.org/give"
+      target="_blank"
+      rel="noopener"
+    >
+      ❤️ Give Online
     </a>
 
-    <a class="action-btn"
-       href="https://versaillesumc.churchcenter.com/home"
-       target="_blank"
-       rel="noopener">
-      ⛪ Return to Church Center
+    <a
+      class="btn btn-home"
+      href="https://versaillesumc.churchcenter.com/home"
+    >
+      🏠 Return to Church Center
     </a>
+  </div>
+
+  <div id="status-message" class="status">
+    Your email app should open with your sermon notes.
+  </div>
+
+  <div class="footer">
+    Versailles United Methodist Church
   </div>
 
 </main>
 
-<footer class="footer">
-  <p>At The Movies • Forrest Gump: Run Your Race • Interactive Sermon Outline</p>
-</footer>
+<script>
+const noteFields = document.querySelectorAll(".note-field");
+
+function autoResize(field){
+  field.style.height = "auto";
+  field.style.height = field.scrollHeight + "px";
+}
+
+noteFields.forEach((field) => {
+  const savedValue = localStorage.getItem(field.id);
+
+  if(savedValue){
+    field.value = savedValue;
+  }
+
+  autoResize(field);
+
+  field.addEventListener("input", () => {
+    localStorage.setItem(field.id, field.value);
+    autoResize(field);
+  });
+});
+
+function printOutline(){
+  window.print();
+}
+
+function emailNotes(){
+  const subject = "Sermon Notes — You’ve Got a Friend in Me";
+
+  let body = "";
+  body += "AT THE MOVIES\n";
+  body += "Toy Story: You’ve Got a Friend in Me\n";
+  body += "July 26, 2026\n";
+  body += "Versailles United Methodist Church\n\n";
+
+  noteFields.forEach((field) => {
+    const label = field.dataset.label || "Notes";
+    const value = field.value.trim();
+
+    if(value){
+      body += label.toUpperCase() + "\n";
+      body += value + "\n\n";
+    }
+  });
+
+  if(!body.includes("OPENING QUESTION") &&
+     !body.includes("POINT 1") &&
+     !body.includes("POINT 2") &&
+     !body.includes("MY NEXT STEP")){
+    body += "No notes were entered.\n";
+  }
+
+  const mailtoLink =
+    "mailto:?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
+
+  const status = document.getElementById("status-message");
+  status.style.display = "block";
+
+  window.location.href = mailtoLink;
+
+  setTimeout(() => {
+    status.style.display = "none";
+  }, 5000);
+}
+</script>
 
 </body>
 </html>

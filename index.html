@@ -3,275 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>At the Movies: Toy Story — You’ve Got a Friend in Me</title>
+<title>ACTS: The Church That Changed the World — Week 1</title>
 
 <style>
 :root{
-  --primary:#2878b8;
-  --secondary:#2f855a;
-  --accent:#f4b942;
-  --red:#c84545;
-  --light:#f8fafc;
-  --dark:#1f2933;
-  --border:#d9e2ec;
+  --navy:#0b2a52;
+  --blue:#1f5f99;
+  --gold:#d6a84b;
+  --light:#f5f7fa;
+  --white:#ffffff;
+  --text:#1f2933;
+  --muted:#667085;
+  --border:#d8dee8;
+  --success:#2f7d4a;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#eef3f7;
-  color:var(--dark);
+  background:var(--light);
+  color:var(--text);
   line-height:1.6;
 }
 
 .hero{
-  background:
-    linear-gradient(rgba(15,45,70,.68),rgba(15,45,70,.68)),
-    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80");
-  background-size:cover;
-  background-position:center;
-  color:#fff;
-  padding:72px 20px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:white;
+  padding:42px 20px 34px;
   text-align:center;
 }
 
+.hero .series{
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.9;
+}
+
 .hero h1{
-  margin:0;
-  font-size:2.35rem;
-}
-
-.hero h2{
-  margin:12px 0 8px;
-  font-size:1.8rem;
-  line-height:1.25;
-}
-
-.hero p{
-  margin:8px auto 0;
+  margin:8px auto 6px;
   max-width:760px;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  line-height:1.1;
+}
+
+.hero .week{
+  font-size:1.15rem;
+  font-weight:700;
+  margin-top:8px;
+}
+
+.hero .scripture{
+  margin-top:8px;
   font-size:1rem;
+  opacity:.95;
 }
 
 .container{
-  max-width:900px;
-  margin:28px auto;
-  padding:0 16px 40px;
+  width:min(920px,calc(100% - 28px));
+  margin:24px auto 44px;
 }
 
 .card{
-  background:#fff;
+  background:var(--white);
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:24px;
-  margin-bottom:22px;
-  box-shadow:0 4px 14px rgba(0,0,0,.06);
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 4px 14px rgba(15,35,60,.06);
 }
 
-.point-number{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:var(--primary);
-  color:#fff;
-  font-weight:bold;
-  margin-bottom:12px;
-}
-
-h3{
-  color:var(--primary);
-  margin:0 0 12px;
-  line-height:1.3;
-}
-
-h4{
-  margin-bottom:8px;
-}
-
-.scripture{
-  background:#f5f9fd;
-  border-left:5px solid var(--primary);
-  padding:15px;
-  margin:16px 0;
-  border-radius:7px;
+.label{
+  display:inline-block;
+  background:#e9f0f8;
+  color:var(--navy);
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  padding:6px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
 }
 
 .big-idea{
-  background:#fff9e8;
-  border-left:5px solid var(--accent);
+  border-left:5px solid var(--gold);
 }
 
-.question{
-  margin-top:18px;
-  padding:16px;
-  background:#f8fafc;
-  border-left:4px solid var(--accent);
-  border-radius:8px;
+.point-number{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--navy);
+  color:white;
+  font-weight:800;
+  font-size:1.15rem;
+  margin-bottom:12px;
+}
+
+h2{
+  margin:0 0 8px;
+  color:var(--navy);
+  font-size:clamp(1.35rem,4vw,1.8rem);
+  line-height:1.25;
+}
+
+h3{
+  margin:18px 0 8px;
+  color:var(--navy);
+  font-size:1.05rem;
+}
+
+.scripture-ref{
+  color:var(--blue);
+  font-weight:700;
+  margin-bottom:14px;
 }
 
 textarea{
   width:100%;
-  min-height:120px;
-  margin-top:10px;
-  border:1px solid #bcccdc;
-  border-radius:9px;
-  padding:12px;
-  resize:none;
-  overflow:hidden;
+  min-height:110px;
+  resize:vertical;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
   font:inherit;
-  line-height:1.5;
+  color:var(--text);
   background:#fff;
 }
 
 textarea:focus{
-  outline:3px solid rgba(40,120,184,.18);
-  border-color:var(--primary);
+  outline:3px solid rgba(31,95,153,.16);
+  border-color:var(--blue);
 }
 
-.checklist label{
-  display:flex;
-  align-items:flex-start;
+.checklist{
+  display:grid;
   gap:10px;
-  margin:12px 0;
-  cursor:pointer;
+  margin-top:10px;
 }
 
-.checklist input{
+.check-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:11px 12px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.check-item input{
   width:20px;
   height:20px;
-  margin-top:3px;
+  margin-top:2px;
   flex:0 0 auto;
 }
 
-.button-row{
+.actions{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-top:30px;
-}
-
-.btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:52px;
-  border:none;
-  border-radius:9px;
-  padding:13px 18px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:bold;
-  font-size:1rem;
-  cursor:pointer;
-  text-align:center;
-}
-
-.btn-print{
-  background:var(--primary);
-}
-
-.btn-email{
-  background:var(--red);
-}
-
-.btn-give{
-  background:var(--secondary);
-}
-
-.btn-home{
-  background:#4a5568;
-}
-
-.btn:hover{
-  filter:brightness(.94);
-}
-
-.status{
-  display:none;
-  margin-top:14px;
-  padding:12px;
-  border-radius:8px;
-  background:#edfdf4;
-  border:1px solid #9ae6b4;
-  color:#22543d;
-  text-align:center;
-}
-
-.footer{
-  text-align:center;
-  color:#66788a;
-  font-size:.9rem;
   margin-top:28px;
 }
 
-@media(max-width:650px){
-  .hero{
-    padding:54px 18px;
-  }
+.btn{
+  appearance:none;
+  border:none;
+  border-radius:12px;
+  padding:14px 16px;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  text-align:center;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+}
 
-  .hero h1{
-    font-size:1.8rem;
-  }
+.btn-print{background:var(--navy);color:white}
+.btn-email{background:var(--blue);color:white}
+.btn-church{background:var(--success);color:white}
 
-  .hero h2{
-    font-size:1.42rem;
-  }
+.footer-note{
+  text-align:center;
+  color:var(--muted);
+  font-size:.85rem;
+  margin-top:18px;
+}
 
-  .card{
-    padding:19px;
-  }
-
-  .button-row{
-    grid-template-columns:1fr;
-  }
-
-  .btn{
-    width:100%;
-  }
+@media (max-width:650px){
+  .hero{padding:32px 16px 28px}
+  .container{width:min(100% - 18px,920px);margin-top:16px}
+  .card{padding:18px;border-radius:14px}
+  .actions{grid-template-columns:1fr}
+  textarea{min-height:95px}
 }
 
 @media print{
-  body{
-    background:#fff;
-  }
-
+  body{background:#fff}
   .hero{
-    background:none;
+    background:#fff!important;
     color:#000;
+    border-bottom:2px solid #000;
     padding:20px 0;
   }
-
-  .container{
-    max-width:none;
-    margin:0;
-    padding:0;
-  }
-
+  .hero .series,.hero .scripture{opacity:1}
+  .container{width:100%;margin:18px 0}
   .card{
     box-shadow:none;
+    border:1px solid #999;
     break-inside:avoid;
-    border:1px solid #bbb;
   }
-
-  .button-row,
-  .status,
-  .footer{
-    display:none !important;
-  }
-
+  .actions,.footer-note{display:none}
   textarea{
-    border:1px solid #aaa;
+    border:1px solid #bbb;
     min-height:90px;
   }
 }
@@ -281,296 +237,163 @@ textarea:focus{
 <body>
 
 <header class="hero">
-  <h1>🎬 At the Movies</h1>
-  <h2>Toy Story: You’ve Got a Friend in Me</h2>
-  <p>
-    Ecclesiastes 4:9–12 • John 15:12–17 • Proverbs 17:17 • Galatians 6:2
-  </p>
+  <div class="series">ACTS: The Church That Changed the World</div>
+  <h1>It Starts Here</h1>
+  <div class="week">Week 1</div>
+  <div class="scripture">Acts 1:1–11</div>
 </header>
 
 <main class="container">
 
   <section class="card big-idea">
-    <h3>Big Idea</h3>
-    <p>
-      God never intended us to carry life alone. Real friendship reflects the
-      faithful, sacrificial love Jesus has shown us.
-    </p>
-  </section>
-
-  <section class="card">
-    <h3>Opening Question</h3>
-
-    <p>
-      Who has helped carry you through a difficult season of life?
-    </p>
-
-    <textarea
-      id="opening-notes"
-      class="note-field"
-      data-label="Opening Question"
-      placeholder="Write your thoughts here..."
-    ></textarea>
+    <div class="label">Opening Reflection</div>
+    <h2>What does it look like for the mission of Jesus to continue through us today?</h2>
+    <textarea id="opening" placeholder="Write your thoughts here..."></textarea>
   </section>
 
   <section class="card">
     <div class="point-number">1</div>
+    <h2>Jesus Continues His Mission Through His Church</h2>
+    <div class="scripture-ref">Acts 1:1–11</div>
 
-    <h3>Real Friends Help Carry What You Cannot Carry Alone</h3>
-
-    <div class="scripture">
-      <strong>Ecclesiastes 4:9–12</strong>
-      <p>
-        “Two are better than one, because they have a good return for their
-        labor: If either of them falls down, one can help the other up.”
-      </p>
-    </div>
-
-    <div class="scripture">
-      <strong>Galatians 6:2</strong>
-      <p>
-        “Carry each other’s burdens, and in this way you will fulfill the law
-        of Christ.”
-      </p>
-    </div>
-
-    <h4>Heart Check</h4>
-
+    <h3>Heart Check</h3>
     <div class="checklist">
-      <label>
+      <label class="check-item">
         <input type="checkbox">
-        <span>Am I trying to carry life’s burdens by myself?</span>
+        <span>Do I see the church as a place I attend, or a mission I am part of?</span>
       </label>
-
-      <label>
+      <label class="check-item">
         <input type="checkbox">
-        <span>Do I allow trusted friends to help me?</span>
-      </label>
-
-      <label>
-        <input type="checkbox">
-        <span>Who needs me to help carry a burden this week?</span>
+        <span>Where is Jesus calling me to participate in His work?</span>
       </label>
     </div>
 
-    <div class="question">
-      <strong>Personal Reflection</strong>
+    <h3>Personal Reflection</h3>
+    <textarea id="point1" placeholder="Write your response here..."></textarea>
 
-      <p>
-        What burden would become lighter if you invited someone to walk beside
-        you?
-      </p>
-
-      <textarea
-        id="point-one-notes"
-        class="note-field"
-        data-label="Point 1 Reflection"
-        placeholder="Write your response here..."
-      ></textarea>
-    </div>
-
-    <textarea
-      id="point-one-sermon-notes"
-      class="note-field"
-      data-label="Point 1 Sermon Notes"
-      placeholder="Write sermon notes here..."
-    ></textarea>
+    <h3>My Notes</h3>
+    <textarea id="notes1" placeholder="Write sermon notes here..."></textarea>
   </section>
 
   <section class="card">
     <div class="point-number">2</div>
+    <h2>We Are Empowered Before We Are Sent</h2>
+    <div class="scripture-ref">Acts 1:8</div>
 
-    <h3>Jesus Didn’t Just Command Friendship—He Modeled It</h3>
-
-    <div class="scripture">
-      <strong>John 15:12–17</strong>
-      <p>
-        “My command is this: Love each other as I have loved you. Greater love
-        has no one than this: to lay down one’s life for one’s friends.”
-      </p>
-    </div>
-
-    <div class="scripture">
-      <strong>Proverbs 17:17</strong>
-      <p>
-        “A friend loves at all times, and a brother is born for a time of
-        adversity.”
-      </p>
-    </div>
-
-    <h4>Heart Check</h4>
-
+    <h3>Heart Check</h3>
     <div class="checklist">
-      <label>
+      <label class="check-item">
         <input type="checkbox">
-        <span>Am I becoming the kind of friend Jesus has been to me?</span>
+        <span>Am I trying to do God’s work in my own strength?</span>
       </label>
-
-      <label>
+      <label class="check-item">
         <input type="checkbox">
-        <span>Do my friendships reflect the love of Christ?</span>
-      </label>
-
-      <label>
-        <input type="checkbox">
-        <span>Who needs encouragement or support from me this week?</span>
+        <span>Where do I need to depend more fully on the Holy Spirit?</span>
       </label>
     </div>
 
-    <div class="question">
-      <strong>Personal Reflection</strong>
+    <h3>Personal Reflection</h3>
+    <textarea id="point2" placeholder="Write your response here..."></textarea>
 
-      <p>
-        How can you intentionally love someone this week the way Jesus has
-        loved you?
-      </p>
-
-      <textarea
-        id="point-two-notes"
-        class="note-field"
-        data-label="Point 2 Reflection"
-        placeholder="Write your response here..."
-      ></textarea>
-    </div>
-
-    <textarea
-      id="point-two-sermon-notes"
-      class="note-field"
-      data-label="Point 2 Sermon Notes"
-      placeholder="Write sermon notes here..."
-    ></textarea>
+    <h3>My Notes</h3>
+    <textarea id="notes2" placeholder="Write sermon notes here..."></textarea>
   </section>
 
   <section class="card">
-    <h3>My Next Step</h3>
-
-    <p>
-      Who is one person God may be calling you to encourage, support, or walk
-      beside this week?
-    </p>
-
-    <textarea
-      id="next-step-notes"
-      class="note-field"
-      data-label="My Next Step"
-      placeholder="Write your next step here..."
-    ></textarea>
+    <div class="label">Response</div>
+    <h2>My Next Step</h2>
+    <textarea id="nextstep" placeholder="What is one step God is calling you to take this week?"></textarea>
   </section>
 
-  <section class="card">
-    <h3>Prayer</h3>
-
-    <p>
-      Jesus, thank You for loving us faithfully and calling us Your friends.
-      Teach us to carry one another’s burdens, remain faithful in difficult
-      seasons, and love others the way You have loved us. Amen.
-    </p>
-  </section>
-
-  <div class="button-row">
-    <button class="btn btn-print" type="button" onclick="printOutline()">
-      🖨️ Print Outline
-    </button>
-
-    <button class="btn btn-email" type="button" onclick="emailNotes()">
-      📧 Email My Notes
-    </button>
-
-    <a
-      class="btn btn-give"
-      href="https://versaillesumc.org/give"
-      target="_blank"
-      rel="noopener"
-    >
-      ❤️ Give Online
-    </a>
-
-    <a
-      class="btn btn-home"
-      href="https://versaillesumc.churchcenter.com/home"
-    >
-      🏠 Return to Church Center
-    </a>
+  <div class="actions">
+    <button class="btn btn-print" onclick="window.print()">Print Notes</button>
+    <button class="btn btn-email" onclick="emailNotes()">Email Notes</button>
+    <a class="btn btn-church" href="https://versaillesumc.churchcenter.com/pages/vumc-hub" target="_blank" rel="noopener">Church Center</a>
   </div>
 
-  <div id="status-message" class="status">
-    Your email app should open with your sermon notes.
-  </div>
-
-  <div class="footer">
-    Versailles United Methodist Church
-  </div>
+  <div class="footer-note">Your notes stay on this device unless you choose to print or email them.</div>
 
 </main>
 
 <script>
-const noteFields = document.querySelectorAll(".note-field");
+const fields = ["opening","point1","notes1","point2","notes2","nextstep"];
 
-function autoResize(field){
-  field.style.height = "auto";
-  field.style.height = field.scrollHeight + "px";
+function saveNotes(){
+  fields.forEach(id=>{
+    const el=document.getElementById(id);
+    localStorage.setItem("acts-week1-"+id,el.value);
+  });
+
+  document.querySelectorAll('input[type="checkbox"]').forEach((box,index)=>{
+    localStorage.setItem("acts-week1-check-"+index,box.checked ? "1" : "0");
+  });
 }
 
-noteFields.forEach((field) => {
-  const savedValue = localStorage.getItem(field.id);
-
-  if(savedValue){
-    field.value = savedValue;
-  }
-
-  autoResize(field);
-
-  field.addEventListener("input", () => {
-    localStorage.setItem(field.id, field.value);
-    autoResize(field);
+function loadNotes(){
+  fields.forEach(id=>{
+    const el=document.getElementById(id);
+    const saved=localStorage.getItem("acts-week1-"+id);
+    if(saved!==null) el.value=saved;
+    el.addEventListener("input",saveNotes);
   });
-});
 
-function printOutline(){
-  window.print();
+  document.querySelectorAll('input[type="checkbox"]').forEach((box,index)=>{
+    box.checked=localStorage.getItem("acts-week1-check-"+index)==="1";
+    box.addEventListener("change",saveNotes);
+  });
 }
 
 function emailNotes(){
-  const subject = "Sermon Notes — You’ve Got a Friend in Me";
+  saveNotes();
 
-  let body = "";
-  body += "AT THE MOVIES\n";
-  body += "Toy Story: You’ve Got a Friend in Me\n";
-  body += "July 26, 2026\n";
-  body += "Versailles United Methodist Church\n\n";
-
-  noteFields.forEach((field) => {
-    const label = field.dataset.label || "Notes";
-    const value = field.value.trim();
-
-    if(value){
-      body += label.toUpperCase() + "\n";
-      body += value + "\n\n";
-    }
+  const checks=[...document.querySelectorAll('.check-item')].map((item,index)=>{
+    const box=item.querySelector('input');
+    return `${box.checked ? "☑" : "☐"} ${item.innerText.trim()}`;
   });
 
-  if(!body.includes("OPENING QUESTION") &&
-     !body.includes("POINT 1") &&
-     !body.includes("POINT 2") &&
-     !body.includes("MY NEXT STEP")){
-    body += "No notes were entered.\n";
-  }
+  const subject=encodeURIComponent("Sermon Notes — ACTS Week 1: It Starts Here");
+  const body=encodeURIComponent(
+`ACTS: The Church That Changed the World
+Week 1 — It Starts Here
+Acts 1:1–11
 
-  const mailtoLink =
-    "mailto:?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
+OPENING REFLECTION
+${document.getElementById("opening").value}
 
-  const status = document.getElementById("status-message");
-  status.style.display = "block";
+1. JESUS CONTINUES HIS MISSION THROUGH HIS CHURCH
+Acts 1:1–11
 
-  window.location.href = mailtoLink;
+Heart Check:
+${checks[0]}
+${checks[1]}
 
-  setTimeout(() => {
-    status.style.display = "none";
-  }, 5000);
+Personal Reflection:
+${document.getElementById("point1").value}
+
+My Notes:
+${document.getElementById("notes1").value}
+
+2. WE ARE EMPOWERED BEFORE WE ARE SENT
+Acts 1:8
+
+Heart Check:
+${checks[2]}
+${checks[3]}
+
+Personal Reflection:
+${document.getElementById("point2").value}
+
+My Notes:
+${document.getElementById("notes2").value}
+
+MY NEXT STEP
+${document.getElementById("nextstep").value}
+`);
+
+  window.location.href=`mailto:?subject=${subject}&body=${body}`;
 }
+
+loadNotes();
 </script>
 
 </body>

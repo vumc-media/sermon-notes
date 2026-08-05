@@ -1,400 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACTS: The Church That Changed the World — Week 1</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#243f4b" />
+  <title>ACTS: The Church That Changed the World | Week 2</title>
+  <style>
+    :root {
+      --primary: #243f4b;
+      --secondary: #3f6875;
+      --accent: #b78a4a;
+      --background: #f4f6f7;
+      --card: #ffffff;
+      --text: #20262a;
+      --muted: #667178;
+      --border: #d9e0e3;
+      --shadow: 0 12px 30px rgba(27, 43, 51, 0.11);
+      --radius: 20px;
+    }
 
-<style>
-:root{
-  --navy:#0b2a52;
-  --blue:#1f5f99;
-  --gold:#d6a84b;
-  --light:#f5f7fa;
-  --white:#ffffff;
-  --text:#1f2933;
-  --muted:#667085;
-  --border:#d8dee8;
-  --success:#2f7d4a;
-}
+    * { box-sizing: border-box; }
 
-*{box-sizing:border-box}
+    html { scroll-behavior: smooth; }
 
-html{scroll-behavior:smooth}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--light);
-  color:var(--text);
-  line-height:1.6;
-}
+    .hero {
+      padding: 56px 20px 48px;
+      color: #fff;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(26, 52, 63, .97), rgba(61, 100, 112, .93));
+      border-bottom: 5px solid var(--accent);
+    }
 
-.hero{
-  background:linear-gradient(135deg,var(--navy),var(--blue));
-  color:white;
-  padding:42px 20px 34px;
-  text-align:center;
-}
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: 0 auto;
+    }
 
-.hero .series{
-  font-size:.95rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  opacity:.9;
-}
+    .series {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 5vw, 3.3rem);
+      line-height: 1.12;
+      letter-spacing: -.02em;
+    }
 
-.hero h1{
-  margin:8px auto 6px;
-  max-width:760px;
-  font-size:clamp(1.8rem,5vw,2.8rem);
-  line-height:1.1;
-}
+    .week {
+      margin: 0 0 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f1d19f;
+    }
 
-.hero .week{
-  font-size:1.15rem;
-  font-weight:700;
-  margin-top:8px;
-}
+    .editable-title,
+    .editable-scripture {
+      width: min(720px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px dashed rgba(255,255,255,.5);
+      border-radius: 12px;
+      padding: 10px 14px;
+      outline: none;
+      transition: background .2s ease, border-color .2s ease;
+    }
 
-.hero .scripture{
-  margin-top:8px;
-  font-size:1rem;
-  opacity:.95;
-}
+    .editable-title {
+      margin-bottom: 10px;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      font-weight: 700;
+    }
 
-.container{
-  width:min(920px,calc(100% - 28px));
-  margin:24px auto 44px;
-}
+    .editable-scripture {
+      font-size: 1.05rem;
+      color: #eef4f6;
+    }
 
-.card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:22px;
-  margin-bottom:20px;
-  box-shadow:0 4px 14px rgba(15,35,60,.06);
-}
+    .editable-title:focus,
+    .editable-scripture:focus {
+      background: rgba(255,255,255,.1);
+      border-color: #fff;
+    }
 
-.label{
-  display:inline-block;
-  background:#e9f0f8;
-  color:var(--navy);
-  font-size:.78rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  padding:6px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-}
+    .edit-note {
+      margin: 12px 0 0;
+      font-size: .82rem;
+      color: rgba(255,255,255,.78);
+    }
 
-.big-idea{
-  border-left:5px solid var(--gold);
-}
+    main {
+      width: min(900px, calc(100% - 28px));
+      margin: 34px auto;
+    }
 
-.point-number{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--navy);
-  color:white;
-  font-weight:800;
-  font-size:1.15rem;
-  margin-bottom:12px;
-}
+    .intro {
+      margin-bottom: 24px;
+      padding: 20px;
+      border-left: 5px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
 
-h2{
-  margin:0 0 8px;
-  color:var(--navy);
-  font-size:clamp(1.35rem,4vw,1.8rem);
-  line-height:1.25;
-}
+    .intro p { margin: 0; }
 
-h3{
-  margin:18px 0 8px;
-  color:var(--navy);
-  font-size:1.05rem;
-}
+    .point {
+      margin: 0 0 26px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.scripture-ref{
-  color:var(--blue);
-  font-weight:700;
-  margin-bottom:14px;
-}
+    .point-heading {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 22px 22px 18px;
+      background: linear-gradient(135deg, #fff, #f5f8f9);
+      border-bottom: 1px solid var(--border);
+    }
 
-textarea{
-  width:100%;
-  min-height:110px;
-  resize:vertical;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:14px;
-  font:inherit;
-  color:var(--text);
-  background:#fff;
-}
+    .number {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
 
-textarea:focus{
-  outline:3px solid rgba(31,95,153,.16);
-  border-color:var(--blue);
-}
+    .point-heading h2 {
+      margin: 3px 0 0;
+      font-size: clamp(1.25rem, 4vw, 1.65rem);
+      line-height: 1.3;
+    }
 
-.checklist{
-  display:grid;
-  gap:10px;
-  margin-top:10px;
-}
+    .point-body { padding: 22px; }
 
-.check-item{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:11px 12px;
-  background:#f8fafc;
-  border:1px solid var(--border);
-  border-radius:10px;
-}
+    .reflection-label,
+    .notes-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
 
-.check-item input{
-  width:20px;
-  height:20px;
-  margin-top:2px;
-  flex:0 0 auto;
-}
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      padding: 14px;
+      border: 1px solid #bac7cc;
+      border-radius: 12px;
+      background: #fbfcfc;
+      color: var(--text);
+      font: inherit;
+      line-height: 1.5;
+    }
 
-.actions{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:28px;
-}
+    textarea:focus {
+      outline: 3px solid rgba(63,104,117,.18);
+      border-color: var(--secondary);
+    }
 
-.btn{
-  appearance:none;
-  border:none;
-  border-radius:12px;
-  padding:14px 16px;
-  font-size:1rem;
-  font-weight:700;
-  cursor:pointer;
-  text-align:center;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-}
+    .saved {
+      min-height: 21px;
+      margin-top: 7px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
 
-.btn-print{background:var(--navy);color:white}
-.btn-email{background:var(--blue);color:white}
-.btn-church{background:var(--success);color:white}
+    .prayer-card {
+      margin-top: 30px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.footer-note{
-  text-align:center;
-  color:var(--muted);
-  font-size:.85rem;
-  margin-top:18px;
-}
+    .prayer-card h2 {
+      margin: 0 0 14px;
+      font-size: 1.45rem;
+    }
 
-@media (max-width:650px){
-  .hero{padding:32px 16px 28px}
-  .container{width:min(100% - 18px,920px);margin-top:16px}
-  .card{padding:18px;border-radius:14px}
-  .actions{grid-template-columns:1fr}
-  textarea{min-height:95px}
-}
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 30px 0 18px;
+    }
 
-@media print{
-  body{background:#fff}
-  .hero{
-    background:#fff!important;
-    color:#000;
-    border-bottom:2px solid #000;
-    padding:20px 0;
-  }
-  .hero .series,.hero .scripture{opacity:1}
-  .container{width:100%;margin:18px 0}
-  .card{
-    box-shadow:none;
-    border:1px solid #999;
-    break-inside:avoid;
-  }
-  .actions,.footer-note{display:none}
-  textarea{
-    border:1px solid #bbb;
-    min-height:90px;
-  }
-}
-</style>
+    .button {
+      appearance: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+    .button:active { transform: translateY(0); }
+
+    .print { background: var(--primary); color: #fff; }
+    .email { background: var(--accent); color: #172027; }
+    .church { background: var(--secondary); color: #fff; }
+
+    .footer-note {
+      margin: 0 0 38px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 40px 16px 36px; }
+      main { width: min(100% - 20px, 900px); margin-top: 22px; }
+      .point-heading { padding: 18px 16px 15px; }
+      .point-body { padding: 17px 16px; }
+      .number { flex-basis: 38px; width: 38px; height: 38px; }
+      .actions { grid-template-columns: 1fr; }
+      textarea { min-height: 170px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .hero {
+        color: #000;
+        background: #fff;
+        border: 0;
+        padding: 20px 0;
+      }
+      .week, .editable-scripture { color: #000; }
+      .editable-title, .editable-scripture { border: 0; }
+      .edit-note, .actions, .saved, .footer-note { display: none !important; }
+      main { width: 100%; margin: 0; }
+      .intro, .point, .prayer-card { box-shadow: none; break-inside: avoid; }
+      textarea {
+        min-height: 180px;
+        background: #fff;
+        border: 1px solid #aaa;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 class="series">ACTS: The Church That Changed the World</h1>
+      <p class="week">Week 2</p>
+      <div id="sermonTitle" class="editable-title" contenteditable="true" role="textbox" aria-label="Sermon title">Sermon Title Goes Here</div>
+      <div id="scripture" class="editable-scripture" contenteditable="true" role="textbox" aria-label="Scripture passage">Scripture Goes Here</div>
+      <p class="edit-note">Tap or click the title and scripture above to replace them when the final details are available.</p>
+    </div>
+  </header>
 
-<header class="hero">
-  <div class="series">ACTS: The Church That Changed the World</div>
-  <h1>It Starts Here</h1>
-  <div class="week">Week 1</div>
-  <div class="scripture">Acts 1:1–11</div>
-</header>
+  <main>
+    <section class="intro" aria-label="Sermon introduction notes">
+      <span class="notes-label">Opening Notes</span>
+      <textarea id="openingNotes" placeholder="Type opening thoughts, key phrases, or questions here..."></textarea>
+      <div class="saved" id="openingStatus" aria-live="polite"></div>
+    </section>
 
-<main class="container">
+    <section class="point">
+      <div class="point-heading">
+        <div class="number">1</div>
+        <h2>God Does His Deepest Work While We Wait</h2>
+      </div>
+      <div class="point-body">
+        <label class="reflection-label" for="point1Notes">My Notes</label>
+        <textarea id="point1Notes" placeholder="Write notes, insights, or application here..."></textarea>
+        <div class="saved" id="point1Status" aria-live="polite"></div>
+      </div>
+    </section>
 
-  <section class="card big-idea">
-    <div class="label">Opening Reflection</div>
-    <h2>What does it look like for the mission of Jesus to continue through us today?</h2>
-    <textarea id="opening" placeholder="Write your thoughts here..."></textarea>
-  </section>
+    <section class="point">
+      <div class="point-heading">
+        <div class="number">2</div>
+        <h2>God Is Preparing the Right People for the Right Moment</h2>
+      </div>
+      <div class="point-body">
+        <label class="reflection-label" for="point2Notes">My Notes</label>
+        <textarea id="point2Notes" placeholder="Write notes, insights, or application here..."></textarea>
+        <div class="saved" id="point2Status" aria-live="polite"></div>
+      </div>
+    </section>
 
-  <section class="card">
-    <div class="point-number">1</div>
-    <h2>Jesus Continues His Mission Through His Church</h2>
-    <div class="scripture-ref">Acts 1:1–11</div>
+    <section class="prayer-card">
+      <h2>Prayer &amp; Next Step</h2>
+      <label class="notes-label" for="prayerNotes">What is God inviting me to trust, notice, or do?</label>
+      <textarea id="prayerNotes" placeholder="Record your prayer or next step here..."></textarea>
+      <div class="saved" id="prayerStatus" aria-live="polite"></div>
+    </section>
 
-    <h3>Heart Check</h3>
-    <div class="checklist">
-      <label class="check-item">
-        <input type="checkbox">
-        <span>Do I see the church as a place I attend, or a mission I am part of?</span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox">
-        <span>Where is Jesus calling me to participate in His work?</span>
-      </label>
+    <div class="actions">
+      <button class="button print" type="button" onclick="window.print()">Print My Notes</button>
+      <button class="button email" type="button" onclick="emailNotes()">Email My Notes</button>
+      <a class="button church" href="https://versaillesumc.churchcenter.com/home" target="_blank" rel="noopener">Return to Church Center</a>
     </div>
 
-    <h3>Personal Reflection</h3>
-    <textarea id="point1" placeholder="Write your response here..."></textarea>
+    <p class="footer-note">Your notes are saved automatically on this device.</p>
+  </main>
 
-    <h3>My Notes</h3>
-    <textarea id="notes1" placeholder="Write sermon notes here..."></textarea>
-  </section>
+  <script>
+    const fields = [
+      ['sermonTitle', 'actsWeek2SermonTitle'],
+      ['scripture', 'actsWeek2Scripture'],
+      ['openingNotes', 'actsWeek2OpeningNotes'],
+      ['point1Notes', 'actsWeek2Point1Notes'],
+      ['point2Notes', 'actsWeek2Point2Notes'],
+      ['prayerNotes', 'actsWeek2PrayerNotes']
+    ];
 
-  <section class="card">
-    <div class="point-number">2</div>
-    <h2>We Are Empowered Before We Are Sent</h2>
-    <div class="scripture-ref">Acts 1:8</div>
+    const statuses = {
+      openingNotes: 'openingStatus',
+      point1Notes: 'point1Status',
+      point2Notes: 'point2Status',
+      prayerNotes: 'prayerStatus'
+    };
 
-    <h3>Heart Check</h3>
-    <div class="checklist">
-      <label class="check-item">
-        <input type="checkbox">
-        <span>Am I trying to do God’s work in my own strength?</span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox">
-        <span>Where do I need to depend more fully on the Holy Spirit?</span>
-      </label>
-    </div>
+    fields.forEach(([id, key]) => {
+      const element = document.getElementById(id);
+      const savedValue = localStorage.getItem(key);
 
-    <h3>Personal Reflection</h3>
-    <textarea id="point2" placeholder="Write your response here..."></textarea>
+      if (savedValue !== null) {
+        if (element.tagName === 'TEXTAREA') element.value = savedValue;
+        else element.textContent = savedValue;
+      }
 
-    <h3>My Notes</h3>
-    <textarea id="notes2" placeholder="Write sermon notes here..."></textarea>
-  </section>
+      const eventName = element.tagName === 'TEXTAREA' ? 'input' : 'input';
+      element.addEventListener(eventName, () => {
+        const value = element.tagName === 'TEXTAREA' ? element.value : element.textContent.trim();
+        localStorage.setItem(key, value);
 
-  <section class="card">
-    <div class="label">Response</div>
-    <h2>My Next Step</h2>
-    <textarea id="nextstep" placeholder="What is one step God is calling you to take this week?"></textarea>
-  </section>
+        const statusId = statuses[id];
+        if (statusId) {
+          const status = document.getElementById(statusId);
+          status.textContent = 'Saved';
+          clearTimeout(status._timer);
+          status._timer = setTimeout(() => status.textContent = '', 1400);
+        }
+      });
+    });
 
-  <div class="actions">
-    <button class="btn btn-print" onclick="window.print()">Print Notes</button>
-    <button class="btn btn-email" onclick="emailNotes()">Email Notes</button>
-    <a class="btn btn-church" href="https://versaillesumc.churchcenter.com/pages/vumc-hub" target="_blank" rel="noopener">Church Center</a>
-  </div>
+    function emailNotes() {
+      const title = document.getElementById('sermonTitle').textContent.trim();
+      const scripture = document.getElementById('scripture').textContent.trim();
+      const opening = document.getElementById('openingNotes').value.trim();
+      const point1 = document.getElementById('point1Notes').value.trim();
+      const point2 = document.getElementById('point2Notes').value.trim();
+      const prayer = document.getElementById('prayerNotes').value.trim();
 
-  <div class="footer-note">Your notes stay on this device unless you choose to print or email them.</div>
+      const subject = `Sermon Notes: ${title}`;
+      const body = [
+        'ACTS: The Church That Changed the World — Week 2',
+        title,
+        scripture,
+        '',
+        'OPENING NOTES',
+        opening || '(No notes entered)',
+        '',
+        '1. God Does His Deepest Work While We Wait',
+        point1 || '(No notes entered)',
+        '',
+        '2. God Is Preparing the Right People for the Right Moment',
+        point2 || '(No notes entered)',
+        '',
+        'PRAYER & NEXT STEP',
+        prayer || '(No notes entered)'
+      ].join('\n');
 
-</main>
-
-<script>
-const fields = ["opening","point1","notes1","point2","notes2","nextstep"];
-
-function saveNotes(){
-  fields.forEach(id=>{
-    const el=document.getElementById(id);
-    localStorage.setItem("acts-week1-"+id,el.value);
-  });
-
-  document.querySelectorAll('input[type="checkbox"]').forEach((box,index)=>{
-    localStorage.setItem("acts-week1-check-"+index,box.checked ? "1" : "0");
-  });
-}
-
-function loadNotes(){
-  fields.forEach(id=>{
-    const el=document.getElementById(id);
-    const saved=localStorage.getItem("acts-week1-"+id);
-    if(saved!==null) el.value=saved;
-    el.addEventListener("input",saveNotes);
-  });
-
-  document.querySelectorAll('input[type="checkbox"]').forEach((box,index)=>{
-    box.checked=localStorage.getItem("acts-week1-check-"+index)==="1";
-    box.addEventListener("change",saveNotes);
-  });
-}
-
-function emailNotes(){
-  saveNotes();
-
-  const checks=[...document.querySelectorAll('.check-item')].map((item,index)=>{
-    const box=item.querySelector('input');
-    return `${box.checked ? "☑" : "☐"} ${item.innerText.trim()}`;
-  });
-
-  const subject=encodeURIComponent("Sermon Notes — ACTS Week 1: It Starts Here");
-  const body=encodeURIComponent(
-`ACTS: The Church That Changed the World
-Week 1 — It Starts Here
-Acts 1:1–11
-
-OPENING REFLECTION
-${document.getElementById("opening").value}
-
-1. JESUS CONTINUES HIS MISSION THROUGH HIS CHURCH
-Acts 1:1–11
-
-Heart Check:
-${checks[0]}
-${checks[1]}
-
-Personal Reflection:
-${document.getElementById("point1").value}
-
-My Notes:
-${document.getElementById("notes1").value}
-
-2. WE ARE EMPOWERED BEFORE WE ARE SENT
-Acts 1:8
-
-Heart Check:
-${checks[2]}
-${checks[3]}
-
-Personal Reflection:
-${document.getElementById("point2").value}
-
-My Notes:
-${document.getElementById("notes2").value}
-
-MY NEXT STEP
-${document.getElementById("nextstep").value}
-`);
-
-  window.location.href=`mailto:?subject=${subject}&body=${body}`;
-}
-
-loadNotes();
-</script>
-
+      window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+  </script>
 </body>
 </html>

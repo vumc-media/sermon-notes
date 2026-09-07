@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BOLD | Sermon Notes</title>
+<title>Open Hands | Acts – Week 7</title>
 
 <style>
 :root{
-  --primary:#172d3e;
-  --secondary:#b69347;
-  --accent:#d6bd7a;
-  --background:#f4f5f6;
-  --card:#ffffff;
-  --text:#20262b;
-  --muted:#68737c;
-  --border:#d9dee2;
+  --primary:#315f52;
+  --secondary:#52796f;
+  --accent:#c99b63;
+  --light:#f7f5f0;
+  --white:#ffffff;
+  --dark:#252525;
+  --muted:#68706c;
+  --border:#dfe4e1;
 }
 
 *{
@@ -28,88 +28,72 @@ html{
 
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--background);
-  color:var(--text);
-  line-height:1.6;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:#f2f4f3;
+  color:var(--dark);
+  line-height:1.65;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   background:
-    linear-gradient(
-      135deg,
-      rgba(16,40,57,.97),
-      rgba(16,40,57,.88)
-    );
-  color:#fff;
-  padding:52px 20px 46px;
+    linear-gradient(rgba(27,52,45,.86),rgba(27,52,45,.90)),
+    url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:white;
   text-align:center;
-  border-bottom:5px solid var(--secondary);
+  padding:72px 20px;
+}
+
+.hero-inner{
+  max-width:850px;
+  margin:auto;
 }
 
 .series{
-  margin:0 0 8px;
-  font-size:.9rem;
-  font-weight:700;
   text-transform:uppercase;
-  letter-spacing:2px;
-  color:var(--accent);
+  letter-spacing:3px;
+  font-size:.82rem;
+  font-weight:700;
+  opacity:.9;
 }
 
 .hero h1{
-  margin:0;
-  font-size:clamp(2.5rem,9vw,4.8rem);
-  line-height:1;
-  letter-spacing:1px;
+  margin:10px 0 8px;
+  font-size:clamp(2.3rem,8vw,4.3rem);
+  line-height:1.05;
 }
 
-.subtitle{
-  margin:12px auto 0;
-  max-width:700px;
-  font-size:clamp(1rem,3vw,1.35rem);
+.hero .week{
+  font-size:1.05rem;
+  margin-bottom:18px;
+  opacity:.92;
 }
 
-.scripture{
+.scripture-pill{
   display:inline-block;
-  margin-top:18px;
-  padding:7px 15px;
-  border:1px solid rgba(255,255,255,.45);
+  padding:9px 18px;
+  border:1px solid rgba(255,255,255,.55);
   border-radius:30px;
-  font-weight:700;
-  font-size:.95rem;
+  font-weight:600;
+  background:rgba(255,255,255,.10);
 }
 
-.date{
-  margin-top:12px;
-  color:#e3e7e9;
-  font-size:.9rem;
-}
+/* MAIN */
 
-
-/* =========================
-   PAGE CONTAINER
-========================= */
-
-.container{
-  width:min(920px,calc(100% - 28px));
+main{
+  width:min(900px,calc(100% - 28px));
   margin:30px auto 60px;
 }
 
-
-/* =========================
-   INTRO
-========================= */
-
 .intro{
-  background:var(--card);
+  background:var(--white);
+  padding:25px;
+  border-radius:14px;
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:24px;
-  margin-bottom:24px;
+  margin-bottom:25px;
 }
 
 .intro h2{
@@ -121,280 +105,239 @@ body{
   margin-bottom:0;
 }
 
+/* SCRIPTURE */
 
-/* =========================
-   SERMON POINT
-========================= */
+.scripture-card{
+  background:#edf3f0;
+  border-left:5px solid var(--primary);
+  padding:20px 22px;
+  margin:25px 0;
+  border-radius:0 12px 12px 0;
+}
+
+.scripture-card strong{
+  color:var(--primary);
+}
+
+.bible-link{
+  display:inline-block;
+  margin-top:10px;
+  color:var(--primary);
+  font-weight:700;
+  text-decoration:none;
+}
+
+.bible-link:hover{
+  text-decoration:underline;
+}
+
+/* SERMON POINTS */
 
 .point{
-  background:var(--card);
+  background:var(--white);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:26px;
-  margin-bottom:26px;
-  border-top:5px solid var(--secondary);
+  border-radius:15px;
+  margin:26px 0;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.035);
+}
+
+.point-heading{
+  padding:25px;
+  border-bottom:1px solid var(--border);
 }
 
 .point-number{
+  display:inline-block;
+  color:var(--accent);
   font-size:.82rem;
-  text-transform:uppercase;
+  font-weight:800;
   letter-spacing:1.5px;
-  font-weight:700;
-  color:var(--secondary);
+  text-transform:uppercase;
   margin-bottom:6px;
 }
 
 .point h2{
-  margin:0 0 10px;
+  margin:0;
   color:var(--primary);
+  font-size:clamp(1.4rem,5vw,2rem);
   line-height:1.25;
-  font-size:clamp(1.45rem,5vw,2rem);
 }
 
-.reference{
+.point-content{
+  padding:25px;
+}
+
+.reflect{
+  background:var(--light);
+  border-radius:10px;
+  padding:18px;
+  margin-top:20px;
+}
+
+.reflect strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:7px;
+}
+
+/* NOTES */
+
+.notes{
+  margin-top:22px;
+}
+
+.notes label{
+  display:block;
   font-weight:700;
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-.truth{
-  background:#f7f3e8;
-  border-left:4px solid var(--secondary);
-  padding:16px 18px;
-  margin:20px 0;
-  border-radius:0 8px 8px 0;
-}
-
-.truth strong{
+  margin-bottom:8px;
   color:var(--primary);
-}
-
-
-/* =========================
-   REFLECTION
-========================= */
-
-.reflection{
-  margin-top:24px;
-}
-
-.reflection h3{
-  margin-bottom:6px;
-  color:var(--primary);
-  font-size:1.05rem;
-}
-
-.reflection p{
-  margin-top:0;
 }
 
 textarea{
   width:100%;
-  min-height:120px;
+  min-height:130px;
   resize:vertical;
-  font-family:inherit;
-  font-size:16px;
-  line-height:1.5;
+  border:1px solid #cdd5d1;
+  border-radius:10px;
   padding:14px;
-  border:1px solid #bcc5cb;
-  border-radius:8px;
-  background:#fff;
-  color:var(--text);
+  font:inherit;
+  line-height:1.5;
+  background:white;
 }
 
 textarea:focus{
-  outline:3px solid rgba(182,147,71,.25);
-  border-color:var(--secondary);
+  outline:2px solid rgba(49,95,82,.20);
+  border-color:var(--primary);
 }
 
+/* CLOSING REFLECTION */
 
-/* =========================
-   TAKE IT WITH YOU
-========================= */
-
-.takeaway{
+.closing{
   background:var(--primary);
   color:white;
-  border-radius:12px;
   padding:28px;
+  border-radius:15px;
   margin-top:30px;
 }
 
-.takeaway h2{
+.closing h2{
   margin-top:0;
-  color:var(--accent);
 }
 
-.takeaway h3{
-  margin-top:24px;
-  margin-bottom:6px;
-  font-size:1.05rem;
+.closing textarea{
+  margin-top:8px;
 }
 
-.takeaway textarea{
-  background:#fff;
-}
-
-.prayer{
-  margin-top:24px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.25);
-  font-style:italic;
-}
-
-
-/* =========================
-   SAVED STATUS
-========================= */
-
-.save-status{
-  text-align:center;
-  font-size:.85rem;
-  color:var(--muted);
-  margin:18px 0;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
 .actions{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin:35px 0 15px;
 }
 
-.button{
+.btn{
   appearance:none;
   border:none;
-  text-decoration:none;
-  border-radius:8px;
-  padding:14px 12px;
-  font-family:inherit;
+  border-radius:9px;
+  padding:12px 18px;
   font-size:.95rem;
   font-weight:700;
   cursor:pointer;
+  text-decoration:none;
   text-align:center;
   background:var(--primary);
-  color:#fff;
-  transition:opacity .2s ease;
+  color:white;
 }
 
-.button:hover{
-  opacity:.88;
-}
-
-.button.secondary{
+.btn.secondary{
   background:var(--secondary);
-  color:#fff;
 }
 
-.button.light{
-  background:#e3e7ea;
-  color:var(--primary);
+.btn.church{
+  background:#444;
 }
 
+.btn:hover{
+  opacity:.9;
+}
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
+.saved-message{
   text-align:center;
+  font-size:.85rem;
   color:var(--muted);
-  font-size:.82rem;
-  padding:10px 20px 34px;
+  margin-top:12px;
 }
 
+/* MOBILE */
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:650px){
+@media(max-width:600px){
 
   .hero{
-    padding:42px 18px 36px;
+    padding:55px 18px;
   }
 
-  .container{
-    width:min(100% - 20px,920px);
+  main{
+    width:min(100% - 20px,900px);
     margin-top:20px;
   }
 
   .intro,
-  .point,
-  .takeaway{
+  .point-heading,
+  .point-content{
     padding:20px;
   }
 
   .actions{
-    grid-template-columns:1fr;
+    flex-direction:column;
   }
 
-  .button{
+  .btn{
     width:100%;
-    padding:15px;
   }
 }
 
-
-/* =========================
-   PRINT
-========================= */
+/* PRINT */
 
 @media print{
 
   body{
     background:white;
+    font-size:11pt;
   }
 
   .hero{
-    color:#000;
-    background:white;
-    border-bottom:2px solid #000;
+    background:none !important;
+    color:black;
     padding:20px 0;
+    border-bottom:2px solid #333;
   }
 
-  .series,
-  .date,
-  .reference{
-    color:#000;
+  .hero h1{
+    font-size:28pt;
   }
 
-  .container{
+  main{
     width:100%;
-    margin:20px 0;
+    margin:15px 0;
   }
 
-  .intro,
-  .point,
-  .takeaway{
-    border:1px solid #aaa;
+  .point{
     box-shadow:none;
     break-inside:avoid;
   }
 
-  .takeaway{
-    background:white;
-    color:#000;
-  }
-
-  .takeaway h2{
-    color:#000;
+  .actions,
+  .saved-message{
+    display:none;
   }
 
   textarea{
-    min-height:80px;
-    border:1px solid #aaa;
-  }
-
-  .actions,
-  .save-status,
-  footer{
-    display:none;
+    border:1px solid #999;
+    min-height:90px;
   }
 }
 
@@ -404,390 +347,297 @@ footer{
 <body>
 
 <header class="hero">
+  <div class="hero-inner">
 
-  <p class="series">
-    ACTS: The Church That Changed the World
-  </p>
+    <div class="series">Acts: The Church That Changed the World</div>
 
-  <h1>BOLD</h1>
+    <h1>Open Hands</h1>
 
-  <p class="subtitle">
-    What happens when ordinary people become completely confident
-    in the presence and power of Jesus?
-  </p>
+    <div class="week">Week 7</div>
 
-  <div class="scripture">
-    Acts 4:1–31
+    <div class="scripture-pill">
+      Acts 4:32–5:11
+    </div>
+
   </div>
-
-  <div class="date">
-    September 6, 2026
-  </div>
-
 </header>
 
 
-<main class="container">
+<main>
 
 <section class="intro">
 
-  <h2>Today’s Message</h2>
+  <h2>Today’s Scripture</h2>
 
   <p>
-    Peter and John were ordinary men standing before powerful people.
-    They were threatened, questioned, and commanded to stop speaking
-    about Jesus.
+    In Acts 4, we see a church marked by extraordinary generosity,
+    unity, and open-handed living. But as the story moves into Acts 5,
+    we also encounter Ananias and Sapphira—and a sobering reminder that
+    God is concerned not only with what we give, but with the condition
+    of the heart behind it.
   </p>
 
-  <p>
-    But instead of retreating, the early church prayed for greater
-    boldness.
-  </p>
+  <div class="scripture-card">
 
-  <p>
-    Biblical boldness isn't pretending that we're not afraid.
-    It is knowing who is with us and trusting God enough to obey Him
-    even when obedience costs us something.
-  </p>
+    <strong>Acts 4:32–5:11</strong>
+
+    <p>
+      As you listen today, consider what this passage reveals about
+      generosity, honesty, community, and the condition of our hearts
+      before God.
+    </p>
+
+    <a
+      class="bible-link"
+      href="https://www.bible.com/bible/111/ACT.4.32-37.NIV"
+      target="_blank"
+      rel="noopener">
+      Read Acts 4:32–37 →
+    </a>
+
+    <br>
+
+    <a
+      class="bible-link"
+      href="https://www.bible.com/bible/111/ACT.5.1-11.NIV"
+      target="_blank"
+      rel="noopener">
+      Read Acts 5:1–11 →
+    </a>
+
+  </div>
 
 </section>
 
 
-
-<!-- =========================
-     POINT 1
-========================= -->
+<!-- POINT 1 -->
 
 <section class="point">
 
-  <div class="point-number">
-    Point 1
+  <div class="point-heading">
+
+    <span class="point-number">Point 1</span>
+
+    <h2>
+      Open Hands Begin With an Open Heart
+    </h2>
+
   </div>
 
-  <h2>
-    Boldness Comes From Knowing Who Is With You
-  </h2>
-
-  <div class="reference">
-    Acts 4:13–14, 31
-  </div>
-
-  <div class="truth">
-    <strong>Remember:</strong>
-    Christian boldness isn't confidence in ourselves.
-    It is confidence in Christ.
-  </div>
-
-  <p>
-    The religious leaders were amazed by Peter and John.
-    They weren't impressed by their education, position, or influence.
-    They recognized something much more important:
-    <strong>these men had been with Jesus.</strong>
-  </p>
-
-  <p>
-    Courage grows when our attention shifts away from the size of the
-    problem and toward the presence of the One who stands with us.
-  </p>
-
-  <div class="reflection">
-
-    <h3>Reflect</h3>
+  <div class="point-content">
 
     <p>
-      Where am I allowing fear, uncertainty, or the opinions of others
-      to keep me from faithfully following Jesus?
+      The generosity of the early church was more than a financial
+      practice. It flowed from a community whose hearts had been
+      transformed by Jesus.
     </p>
 
-    <textarea
-      id="note1"
-      aria-label="Reflection notes for sermon point one"
-      placeholder="Write your thoughts here..."></textarea>
+    <p>
+      Their willingness to share what they had demonstrated that they
+      understood their possessions differently. What God had placed in
+      their hands could become a blessing in the hands of someone else.
+    </p>
+
+    <div class="reflect">
+
+      <strong>Reflect</strong>
+
+      What might I be holding too tightly that God is inviting me
+      to hold with open hands?
+
+    </div>
+
+    <div class="notes">
+
+      <label for="notes1">My Notes</label>
+
+      <textarea
+        id="notes1"
+        data-save="sermon-note-1"
+        placeholder="Write your thoughts here..."></textarea>
+
+    </div>
 
   </div>
 
 </section>
 
 
-
-<!-- =========================
-     POINT 2
-========================= -->
+<!-- POINT 2 -->
 
 <section class="point">
 
-  <div class="point-number">
-    Point 2
+  <div class="point-heading">
+
+    <span class="point-number">Point 2</span>
+
+    <h2>
+      God Would Rather Have Your Honest Heart Than Your Impressive Image
+    </h2>
+
   </div>
 
-  <h2>
-    Bold People Don't Pray for an Easier Life; They Pray for Greater Courage
-  </h2>
-
-  <div class="reference">
-    Acts 4:23–31
-  </div>
-
-  <div class="truth">
-    <strong>Notice their prayer:</strong>
-    the believers didn't ask God to remove every threat.
-    They asked God to make them faithful in the middle of it.
-  </div>
-
-  <p>
-    After Peter and John were released, the church gathered to pray.
-    They had every reason to ask God to make life easier.
-  </p>
-
-  <p>
-    Instead they prayed:
-    <strong>“Enable your servants to speak your word with great boldness.”</strong>
-  </p>
-
-  <p>
-    Sometimes God's answer isn't to remove the difficult place.
-    Sometimes His answer is to give us the courage to faithfully
-    follow Him through it.
-  </p>
-
-  <div class="reflection">
-
-    <h3>Reflect</h3>
+  <div class="point-content">
 
     <p>
-      What situation have I been asking God to remove when perhaps
-      I should also be asking Him for courage to face it faithfully?
+      Ananias and Sapphira wanted the appearance of complete generosity
+      without the honesty that genuine generosity required.
     </p>
 
-    <textarea
-      id="note2"
-      aria-label="Reflection notes for sermon point two"
-      placeholder="Write your thoughts here..."></textarea>
+    <p>
+      Their story reminds us that God is not impressed by the image we
+      create for other people. God sees beyond appearances and desires
+      truth in the deepest places of our lives.
+    </p>
+
+    <div class="reflect">
+
+      <strong>Reflect</strong>
+
+      Is there an area of my life where I am more concerned with how
+      others see me than with being completely honest before God?
+
+    </div>
+
+    <div class="notes">
+
+      <label for="notes2">My Notes</label>
+
+      <textarea
+        id="notes2"
+        data-save="sermon-note-2"
+        placeholder="Write your thoughts here..."></textarea>
+
+    </div>
 
   </div>
 
 </section>
 
 
+<!-- RESPONSE -->
 
-<!-- =========================
-     TAKE IT WITH YOU
-========================= -->
+<section class="closing">
 
-<section class="takeaway">
-
-  <h2>Take It With You</h2>
+  <h2>My Response</h2>
 
   <p>
-    The question isn't whether we will ever feel afraid.
-    The question is whether fear will have the final word.
-  </p>
-
-  <p>
-    The same God who empowered the first disciples is still present
-    with His Church today.
-  </p>
-
-  <h3>My Step This Week</h3>
-
-  <p>
-    Where is God inviting me to choose faithful courage instead of
-    comfortable silence?
+    What is one step God may be inviting me to take this week toward
+    greater generosity, honesty, or openness?
   </p>
 
   <textarea
-    id="note3"
-    aria-label="Personal action step"
-    placeholder="My next step..."></textarea>
-
-
-  <div class="prayer">
-
-    <strong>Prayer:</strong><br>
-
-    Lord Jesus, remind me that I never stand alone.
-    When fear makes me want to retreat, give me courage.
-    When following You becomes uncomfortable, make me faithful.
-    Give me the boldness to love, serve, speak, and live in a way
-    that points others toward You. Amen.
-
-  </div>
+    id="response"
+    data-save="sermon-response"
+    placeholder="My response..."></textarea>
 
 </section>
 
 
-<div class="save-status" id="saveStatus">
-  Your notes are saved automatically on this device.
-</div>
-
-
-<!-- =========================
-     ACTION BUTTONS
-========================= -->
+<!-- ACTION BUTTONS -->
 
 <div class="actions">
 
-  <button
-    class="button light"
-    type="button"
-    onclick="window.print()">
+  <button class="btn" onclick="window.print()">
     Print Notes
   </button>
 
-  <button
-    class="button secondary"
-    type="button"
-    onclick="emailNotes()">
-    Email Notes
+  <button class="btn secondary" onclick="emailNotes()">
+    Email My Notes
   </button>
 
-  <!--
-  CHANGE THE URL BELOW TO YOUR CHURCH CENTER HOME PAGE
-  -->
-
   <a
-    class="button"
-    href="https://versaillesumc.churchcenter.com/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Church Center
+    class="btn church"
+    href="https://versaillesumc.churchcenter.com">
+    Return to Church Center
   </a>
 
+</div>
+
+<div class="saved-message">
+  Your notes are saved automatically on this device.
 </div>
 
 </main>
 
 
-<footer>
-  Versailles United Methodist Church
-</footer>
-
-
-
 <script>
 
-/* =========================
-   AUTO-SAVE NOTES
-========================= */
+/* ---------------------------------
+   AUTO SAVE NOTES LOCALLY
+---------------------------------- */
 
-const sermonId = "bold-acts-4-2026-09-06";
+const fields = document.querySelectorAll('[data-save]');
 
-const noteFields = [
-  "note1",
-  "note2",
-  "note3"
-];
+fields.forEach(field => {
 
-const status = document.getElementById("saveStatus");
+  const key = field.dataset.save;
 
-
-noteFields.forEach(function(id){
-
-  const field = document.getElementById(id);
-
-  const storageKey = sermonId + "-" + id;
-
-  const saved = localStorage.getItem(storageKey);
+  const saved = localStorage.getItem(key);
 
   if(saved){
     field.value = saved;
   }
 
-  field.addEventListener("input",function(){
-
-    localStorage.setItem(
-      storageKey,
-      field.value
-    );
-
-    showSavedStatus();
-
+  field.addEventListener('input', () => {
+    localStorage.setItem(key, field.value);
   });
 
 });
 
 
-let saveTimer;
-
-function showSavedStatus(){
-
-  status.textContent =
-    "✓ Notes saved on this device";
-
-  clearTimeout(saveTimer);
-
-  saveTimer = setTimeout(function(){
-
-    status.textContent =
-      "Your notes are saved automatically on this device.";
-
-  },1800);
-
-}
-
-
-/* =========================
+/* ---------------------------------
    EMAIL NOTES
-========================= */
+---------------------------------- */
 
 function emailNotes(){
 
-  const note1 =
-    document.getElementById("note1").value.trim();
+  const notes1 =
+    document.getElementById('notes1').value;
 
-  const note2 =
-    document.getElementById("note2").value.trim();
+  const notes2 =
+    document.getElementById('notes2').value;
 
-  const note3 =
-    document.getElementById("note3").value.trim();
-
+  const response =
+    document.getElementById('response').value;
 
   const subject =
-    "Sermon Notes — BOLD — September 6, 2026";
-
+    encodeURIComponent(
+      'Sermon Notes – Open Hands'
+    );
 
   const body =
-`ACTS: THE CHURCH THAT CHANGED THE WORLD
-BOLD
-Acts 4:1–31
-September 6, 2026
+    encodeURIComponent(
+
+`ACTS – WEEK 7
+OPEN HANDS
+
+Acts 4:32–5:11
 
 
-1. BOLDNESS COMES FROM KNOWING WHO IS WITH YOU
+POINT 1
+Open Hands Begin With an Open Heart
 
-Acts 4:13–14, 31
-
-My Reflection:
-
-${note1 || "(No notes entered)"}
+My Notes:
+${notes1}
 
 
-2. BOLD PEOPLE DON'T PRAY FOR AN EASIER LIFE; THEY PRAY FOR GREATER COURAGE
+POINT 2
+God Would Rather Have Your Honest Heart Than Your Impressive Image
 
-Acts 4:23–31
-
-My Reflection:
-
-${note2 || "(No notes entered)"}
+My Notes:
+${notes2}
 
 
-TAKE IT WITH YOU
+MY RESPONSE
 
-Where is God inviting me to choose faithful courage instead of comfortable silence?
+${response}
 
-My Step:
-
-${note3 || "(No notes entered)"}
-
-
-Versailles United Methodist Church`;
-
+Versailles United Methodist Church`
+    );
 
   window.location.href =
-    "mailto:?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
+    `mailto:?subject=${subject}&body=${body}`;
 
 }
 

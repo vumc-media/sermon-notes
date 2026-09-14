@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Open Hands | Acts – Week 7</title>
+<title>ACTS — Growing Pains | Sermon Notes</title>
 
 <style>
 :root{
-  --primary:#315f52;
-  --secondary:#52796f;
-  --accent:#c99b63;
-  --light:#f7f5f0;
+  --primary:#2d5f73;
+  --secondary:#4d7f8f;
+  --accent:#c79a5b;
+  --light:#f7f8f9;
+  --dark:#202428;
+  --muted:#687078;
+  --border:#d9dee2;
   --white:#ffffff;
-  --dark:#252525;
-  --muted:#68706c;
-  --border:#dfe4e1;
 }
 
 *{
@@ -28,619 +28,602 @@ html{
 
 body{
   margin:0;
-  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background:#f2f4f3;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f3f5f6;
   color:var(--dark);
-  line-height:1.65;
+  line-height:1.6;
 }
 
-/* HERO */
+.page{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 16px 40px;
+}
 
 .hero{
+  margin:0 -16px 24px;
+  padding:48px 20px;
   background:
-    linear-gradient(rgba(27,52,45,.86),rgba(27,52,45,.90)),
-    url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
+    linear-gradient(rgba(20,34,40,.78),rgba(20,34,40,.78)),
+    linear-gradient(135deg,#4b6d78,#9a7652);
   color:white;
   text-align:center;
-  padding:72px 20px;
-}
-
-.hero-inner{
-  max-width:850px;
-  margin:auto;
 }
 
 .series{
+  font-size:.95rem;
+  letter-spacing:.08em;
   text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:.82rem;
   font-weight:700;
   opacity:.9;
+  margin-bottom:8px;
 }
 
 .hero h1{
-  margin:10px 0 8px;
-  font-size:clamp(2.3rem,8vw,4.3rem);
-  line-height:1.05;
+  margin:0;
+  font-size:2.2rem;
+  line-height:1.15;
 }
 
-.hero .week{
+.scripture{
+  margin-top:12px;
   font-size:1.05rem;
-  margin-bottom:18px;
-  opacity:.92;
-}
-
-.scripture-pill{
-  display:inline-block;
-  padding:9px 18px;
-  border:1px solid rgba(255,255,255,.55);
-  border-radius:30px;
-  font-weight:600;
-  background:rgba(255,255,255,.10);
-}
-
-/* MAIN */
-
-main{
-  width:min(900px,calc(100% - 28px));
-  margin:30px auto 60px;
 }
 
 .intro{
   background:var(--white);
-  padding:25px;
-  border-radius:14px;
   border:1px solid var(--border);
-  margin-bottom:25px;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:22px;
 }
 
 .intro h2{
   margin-top:0;
   color:var(--primary);
+  font-size:1.35rem;
 }
-
-.intro p:last-child{
-  margin-bottom:0;
-}
-
-/* SCRIPTURE */
-
-.scripture-card{
-  background:#edf3f0;
-  border-left:5px solid var(--primary);
-  padding:20px 22px;
-  margin:25px 0;
-  border-radius:0 12px 12px 0;
-}
-
-.scripture-card strong{
-  color:var(--primary);
-}
-
-.bible-link{
-  display:inline-block;
-  margin-top:10px;
-  color:var(--primary);
-  font-weight:700;
-  text-decoration:none;
-}
-
-.bible-link:hover{
-  text-decoration:underline;
-}
-
-/* SERMON POINTS */
 
 .point{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:15px;
-  margin:26px 0;
+  border-radius:14px;
+  margin-bottom:24px;
   overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.035);
 }
 
-.point-heading{
-  padding:25px;
-  border-bottom:1px solid var(--border);
+.point-header{
+  background:var(--primary);
+  color:white;
+  padding:18px 20px;
 }
 
 .point-number{
-  display:inline-block;
-  color:var(--accent);
-  font-size:.82rem;
-  font-weight:800;
-  letter-spacing:1.5px;
+  display:block;
+  font-size:.8rem;
   text-transform:uppercase;
-  margin-bottom:6px;
+  letter-spacing:.08em;
+  opacity:.85;
+  margin-bottom:5px;
 }
 
-.point h2{
+.point-header h2{
   margin:0;
-  color:var(--primary);
-  font-size:clamp(1.4rem,5vw,2rem);
-  line-height:1.25;
+  font-size:1.35rem;
+  line-height:1.35;
 }
 
-.point-content{
-  padding:25px;
+.point-body{
+  padding:20px;
+}
+
+.scripture-box{
+  background:#eef3f5;
+  border-left:4px solid var(--secondary);
+  padding:15px 16px;
+  margin-bottom:20px;
+  border-radius:0 10px 10px 0;
+}
+
+.scripture-box strong{
+  color:var(--primary);
 }
 
 .reflect{
-  background:var(--light);
-  border-radius:10px;
-  padding:18px;
-  margin-top:20px;
+  margin-top:22px;
 }
 
-.reflect strong{
-  display:block;
+.reflect h3{
   color:var(--primary);
-  margin-bottom:7px;
+  margin-bottom:10px;
 }
 
-/* NOTES */
+.reflect ul{
+  padding-left:22px;
+}
+
+.reflect li{
+  margin-bottom:10px;
+}
 
 .notes{
-  margin-top:22px;
+  margin-top:18px;
 }
 
 .notes label{
   display:block;
   font-weight:700;
   margin-bottom:8px;
-  color:var(--primary);
 }
 
 textarea{
   width:100%;
   min-height:130px;
-  resize:vertical;
-  border:1px solid #cdd5d1;
-  border-radius:10px;
   padding:14px;
   font:inherit;
-  line-height:1.5;
-  background:white;
+  border:1px solid #bcc5ca;
+  border-radius:10px;
+  resize:vertical;
+  background:#fff;
 }
 
 textarea:focus{
-  outline:2px solid rgba(49,95,82,.20);
+  outline:3px solid rgba(45,95,115,.16);
   border-color:var(--primary);
 }
 
-/* CLOSING REFLECTION */
-
-.closing{
-  background:var(--primary);
-  color:white;
-  padding:28px;
-  border-radius:15px;
-  margin-top:30px;
+.application{
+  background:#fffaf2;
+  border:1px solid #ead7b8;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:24px;
 }
 
-.closing h2{
+.application h2{
+  color:#8b6230;
   margin-top:0;
 }
 
-.closing textarea{
-  margin-top:8px;
+.prayer{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:24px;
 }
 
-/* BUTTONS */
+.prayer h2{
+  color:var(--primary);
+  margin-top:0;
+}
 
 .actions{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:12px;
   justify-content:center;
-  margin:35px 0 15px;
+  margin-top:28px;
 }
 
-.btn{
-  appearance:none;
-  border:none;
-  border-radius:9px;
+.actions button,
+.actions a{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:46px;
   padding:12px 18px;
-  font-size:.95rem;
+  border-radius:9px;
+  border:none;
+  text-decoration:none;
+  font-size:1rem;
   font-weight:700;
   cursor:pointer;
-  text-decoration:none;
-  text-align:center;
+}
+
+.primary-btn{
   background:var(--primary);
   color:white;
 }
 
-.btn.secondary{
-  background:var(--secondary);
+.secondary-btn{
+  background:#e6ecef;
+  color:var(--dark);
 }
 
-.btn.church{
-  background:#444;
+.church-btn{
+  background:#202428;
+  color:white;
 }
 
-.btn:hover{
-  opacity:.9;
-}
-
-.saved-message{
+.footer-note{
   text-align:center;
   font-size:.85rem;
   color:var(--muted);
-  margin-top:12px;
+  margin-top:20px;
 }
-
-/* MOBILE */
 
 @media(max-width:600px){
 
   .hero{
-    padding:55px 18px;
+    padding:38px 18px;
   }
 
-  main{
-    width:min(100% - 20px,900px);
-    margin-top:20px;
+  .hero h1{
+    font-size:1.8rem;
   }
 
-  .intro,
-  .point-heading,
-  .point-content{
-    padding:20px;
+  .point-header h2{
+    font-size:1.2rem;
   }
 
   .actions{
     flex-direction:column;
   }
 
-  .btn{
+  .actions button,
+  .actions a{
     width:100%;
   }
 }
-
-/* PRINT */
 
 @media print{
 
   body{
     background:white;
-    font-size:11pt;
   }
 
-  .hero{
-    background:none !important;
-    color:black;
-    padding:20px 0;
-    border-bottom:2px solid #333;
-  }
-
-  .hero h1{
-    font-size:28pt;
-  }
-
-  main{
-    width:100%;
-    margin:15px 0;
-  }
-
-  .point{
-    box-shadow:none;
-    break-inside:avoid;
+  .page{
+    max-width:none;
   }
 
   .actions,
-  .saved-message{
+  .footer-note{
     display:none;
   }
 
   textarea{
-    border:1px solid #999;
-    min-height:90px;
+    border:1px solid #aaa;
+    min-height:80px;
+  }
+
+  .point,
+  .intro,
+  .application,
+  .prayer{
+    break-inside:avoid;
   }
 }
-
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
+<div class="page">
 
-    <div class="series">Acts: The Church That Changed the World</div>
+  <section class="hero">
 
-    <h1>Open Hands</h1>
+    <div class="series">ACTS — The Church That Changed the World</div>
 
-    <div class="week">Week 7</div>
+    <h1>Growing Pains</h1>
 
-    <div class="scripture-pill">
-      Acts 4:32–5:11
+    <div class="scripture">
+      Acts 6:1–7
     </div>
 
-  </div>
-</header>
+  </section>
 
 
-<main>
+  <section class="intro">
 
-<section class="intro">
-
-  <h2>Today’s Scripture</h2>
-
-  <p>
-    In Acts 4, we see a church marked by extraordinary generosity,
-    unity, and open-handed living. But as the story moves into Acts 5,
-    we also encounter Ananias and Sapphira—and a sobering reminder that
-    God is concerned not only with what we give, but with the condition
-    of the heart behind it.
-  </p>
-
-  <div class="scripture-card">
-
-    <strong>Acts 4:32–5:11</strong>
+    <h2>When Growth Creates Pressure</h2>
 
     <p>
-      As you listen today, consider what this passage reveals about
-      generosity, honesty, community, and the condition of our hearts
-      before God.
-    </p>
-
-    <a
-      class="bible-link"
-      href="https://www.bible.com/bible/111/ACT.4.32-37.NIV"
-      target="_blank"
-      rel="noopener">
-      Read Acts 4:32–37 →
-    </a>
-
-    <br>
-
-    <a
-      class="bible-link"
-      href="https://www.bible.com/bible/111/ACT.5.1-11.NIV"
-      target="_blank"
-      rel="noopener">
-      Read Acts 5:1–11 →
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- POINT 1 -->
-
-<section class="point">
-
-  <div class="point-heading">
-
-    <span class="point-number">Point 1</span>
-
-    <h2>
-      Open Hands Begin With an Open Heart
-    </h2>
-
-  </div>
-
-  <div class="point-content">
-
-    <p>
-      The generosity of the early church was more than a financial
-      practice. It flowed from a community whose hearts had been
-      transformed by Jesus.
+      Growth is exciting, but growth can also expose problems.
+      Acts 6 gives us an honest picture of a growing church facing
+      real tension, unmet needs, and the challenge of caring for people well.
     </p>
 
     <p>
-      Their willingness to share what they had demonstrated that they
-      understood their possessions differently. What God had placed in
-      their hands could become a blessing in the hands of someone else.
+      Instead of pretending the problem did not exist, the early church
+      faced it, addressed it, and developed new leaders to help move the
+      mission forward.
     </p>
 
-    <div class="reflect">
+  </section>
 
-      <strong>Reflect</strong>
 
-      What might I be holding too tightly that God is inviting me
-      to hold with open hands?
+  <section class="point">
+
+    <div class="point-header">
+
+      <span class="point-number">Point 1</span>
+
+      <h2>
+        Healthy churches don’t hide problems. They solve them.
+      </h2>
 
     </div>
+
+    <div class="point-body">
+
+      <div class="scripture-box">
+
+        <strong>Acts 6:1–2</strong>
+
+        <p>
+          As the number of disciples increased, a complaint arose because
+          some widows were being overlooked in the daily distribution of food.
+        </p>
+
+      </div>
+
+
+      <p>
+        The early church was growing, but growth did not mean everything
+        was perfect. A legitimate need surfaced, and the leaders did not
+        dismiss it, minimize it, or ignore it.
+      </p>
+
+      <p>
+        Healthy churches are willing to acknowledge problems because
+        unresolved problems do not disappear. They usually grow.
+      </p>
+
+
+      <div class="reflect">
+
+        <h3>Think About It</h3>
+
+        <ul>
+          <li>
+            How do I normally respond when a problem becomes uncomfortable?
+          </li>
+
+          <li>
+            Do I tend to ignore problems, complain about them, or help solve them?
+          </li>
+
+          <li>
+            Is there an issue God may be asking me to address with grace,
+            wisdom, and honesty?
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="notes">
+
+        <label for="notes1">
+          My Notes
+        </label>
+
+        <textarea
+          id="notes1"
+          placeholder="Write your notes, thoughts, or application here..."></textarea>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="point">
+
+    <div class="point-header">
+
+      <span class="point-number">Point 2</span>
+
+      <h2>
+        Healthy churches don’t just fill positions. They develop people.
+      </h2>
+
+    </div>
+
+    <div class="point-body">
+
+      <div class="scripture-box">
+
+        <strong>Acts 6:3–7</strong>
+
+        <p>
+          The church was instructed to choose people known to be full of
+          the Spirit and wisdom so responsibility could be shared and the
+          ministry could continue growing.
+        </p>
+
+      </div>
+
+
+      <p>
+        The apostles did not simply look for available bodies to fill empty
+        spots. They looked for people of character, wisdom, faith, and
+        spiritual maturity.
+      </p>
+
+      <p>
+        The goal of leadership in the church is not merely to keep programs
+        running. It is to help people grow into the gifts and calling God has
+        placed within them.
+      </p>
+
+
+      <div class="reflect">
+
+        <h3>Think About It</h3>
+
+        <ul>
+          <li>
+            Am I serving simply because there is a need, or am I growing in
+            the gifts God has given me?
+          </li>
+
+          <li>
+            Who has helped develop me spiritually?
+          </li>
+
+          <li>
+            Is there someone I could encourage, mentor, or help prepare for
+            greater responsibility?
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="notes">
+
+        <label for="notes2">
+          My Notes
+        </label>
+
+        <textarea
+          id="notes2"
+          placeholder="Write your notes, thoughts, or application here..."></textarea>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="application">
+
+    <h2>Personal Application</h2>
+
+    <p>
+      The early church became healthier because it was willing to deal
+      honestly with problems and intentionally develop people.
+    </p>
+
+    <p>
+      Consider one step God may be asking you to take this week.
+    </p>
 
     <div class="notes">
 
-      <label for="notes1">My Notes</label>
+      <label for="applicationNotes">
+        This week I will…
+      </label>
 
       <textarea
-        id="notes1"
-        data-save="sermon-note-1"
-        placeholder="Write your thoughts here..."></textarea>
+        id="applicationNotes"
+        placeholder="Write one practical step you can take this week..."></textarea>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- POINT 2 -->
+  <section class="prayer">
 
-<section class="point">
-
-  <div class="point-heading">
-
-    <span class="point-number">Point 2</span>
-
-    <h2>
-      God Would Rather Have Your Honest Heart Than Your Impressive Image
-    </h2>
-
-  </div>
-
-  <div class="point-content">
+    <h2>Closing Prayer</h2>
 
     <p>
-      Ananias and Sapphira wanted the appearance of complete generosity
-      without the honesty that genuine generosity required.
+      Lord, give us the courage to face problems with wisdom and grace.
+      Help us become people who do more than identify what is wrong.
+      Teach us to become part of the solution.
     </p>
 
     <p>
-      Their story reminds us that God is not impressed by the image we
-      create for other people. God sees beyond appearances and desires
-      truth in the deepest places of our lives.
+      Develop our character, strengthen our faith, and show us how to help
+      others grow into the people You have called them to become.
+      Use Your church to serve people well and faithfully carry out Your
+      mission. Amen.
     </p>
 
-    <div class="reflect">
+  </section>
 
-      <strong>Reflect</strong>
 
-      Is there an area of my life where I am more concerned with how
-      others see me than with being completely honest before God?
+  <div class="actions">
 
-    </div>
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="window.print()">
+      Print Notes
+    </button>
 
-    <div class="notes">
+    <button
+      class="secondary-btn"
+      type="button"
+      onclick="emailNotes()">
+      Email Notes
+    </button>
 
-      <label for="notes2">My Notes</label>
-
-      <textarea
-        id="notes2"
-        data-save="sermon-note-2"
-        placeholder="Write your thoughts here..."></textarea>
-
-    </div>
+    <a
+      class="church-btn"
+      href="https://versaillesumc.churchcenter.com/"
+      target="_blank"
+      rel="noopener noreferrer">
+      Return to Church Center
+    </a>
 
   </div>
 
-</section>
 
-
-<!-- RESPONSE -->
-
-<section class="closing">
-
-  <h2>My Response</h2>
-
-  <p>
-    What is one step God may be inviting me to take this week toward
-    greater generosity, honesty, or openness?
-  </p>
-
-  <textarea
-    id="response"
-    data-save="sermon-response"
-    placeholder="My response..."></textarea>
-
-</section>
-
-
-<!-- ACTION BUTTONS -->
-
-<div class="actions">
-
-  <button class="btn" onclick="window.print()">
-    Print Notes
-  </button>
-
-  <button class="btn secondary" onclick="emailNotes()">
-    Email My Notes
-  </button>
-
-  <a
-    class="btn church"
-    href="https://versaillesumc.churchcenter.com">
-    Return to Church Center
-  </a>
+  <div class="footer-note">
+    Versailles United Methodist Church
+  </div>
 
 </div>
-
-<div class="saved-message">
-  Your notes are saved automatically on this device.
-</div>
-
-</main>
 
 
 <script>
-
-/* ---------------------------------
-   AUTO SAVE NOTES LOCALLY
----------------------------------- */
-
-const fields = document.querySelectorAll('[data-save]');
-
-fields.forEach(field => {
-
-  const key = field.dataset.save;
-
-  const saved = localStorage.getItem(key);
-
-  if(saved){
-    field.value = saved;
-  }
-
-  field.addEventListener('input', () => {
-    localStorage.setItem(key, field.value);
-  });
-
-});
-
-
-/* ---------------------------------
-   EMAIL NOTES
----------------------------------- */
-
 function emailNotes(){
 
   const notes1 =
-    document.getElementById('notes1').value;
+    document.getElementById("notes1").value.trim();
 
   const notes2 =
-    document.getElementById('notes2').value;
+    document.getElementById("notes2").value.trim();
 
-  const response =
-    document.getElementById('response').value;
+  const application =
+    document.getElementById("applicationNotes").value.trim();
+
 
   const subject =
-    encodeURIComponent(
-      'Sermon Notes – Open Hands'
-    );
+    "Sermon Notes — ACTS: Growing Pains";
 
-  const body =
-    encodeURIComponent(
 
-`ACTS – WEEK 7
-OPEN HANDS
-
-Acts 4:32–5:11
-
+  const body = `
+ACTS — Growing Pains
+Acts 6:1–7
 
 POINT 1
-Open Hands Begin With an Open Heart
+Healthy churches don’t hide problems. They solve them.
 
 My Notes:
-${notes1}
+${notes1 || "(No notes entered)"}
 
 
 POINT 2
-God Would Rather Have Your Honest Heart Than Your Impressive Image
+Healthy churches don’t just fill positions. They develop people.
 
 My Notes:
-${notes2}
+${notes2 || "(No notes entered)"}
 
 
-MY RESPONSE
+PERSONAL APPLICATION
 
-${response}
+This week I will:
+${application || "(No application entered)"}
 
-Versailles United Methodist Church`
-    );
+
+Versailles United Methodist Church
+`;
+
 
   window.location.href =
-    `mailto:?subject=${subject}&body=${body}`;
-
+    "mailto:?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
 }
-
 </script>
 
 </body>

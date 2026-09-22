@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ACTS — Growing Pains | Sermon Notes</title>
+<title>When Standing Costs Everything | Sermon Notes</title>
 
 <style>
 :root{
-  --primary:#2d5f73;
-  --secondary:#4d7f8f;
-  --accent:#c79a5b;
-  --light:#f7f8f9;
-  --dark:#202428;
-  --muted:#687078;
-  --border:#d9dee2;
-  --white:#ffffff;
+  --primary:#7a5428;
+  --secondary:#b88642;
+  --accent:#d7a95b;
+  --light:#f8f6f1;
+  --dark:#25221f;
+  --muted:#6c6863;
+  --border:#ded8cf;
+  --card:#ffffff;
 }
 
 *{
@@ -29,244 +29,311 @@ html{
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f3f5f6;
+  background:#f3f1ed;
   color:var(--dark);
   line-height:1.6;
 }
 
-.page{
-  width:100%;
-  max-width:900px;
-  margin:0 auto;
-  padding:0 16px 40px;
-}
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  margin:0 -16px 24px;
-  padding:48px 20px;
   background:
-    linear-gradient(rgba(20,34,40,.78),rgba(20,34,40,.78)),
-    linear-gradient(135deg,#4b6d78,#9a7652);
+    linear-gradient(rgba(20,16,12,.66),rgba(20,16,12,.72)),
+    url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
   color:white;
+  padding:72px 20px;
   text-align:center;
 }
 
+.hero-inner{
+  max-width:900px;
+  margin:auto;
+}
+
 .series{
-  font-size:.95rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  margin:0 0 8px;
+  font-size:.85rem;
   font-weight:700;
-  opacity:.9;
-  margin-bottom:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#f1d29b;
 }
 
 .hero h1{
   margin:0;
-  font-size:2.2rem;
-  line-height:1.15;
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(2.2rem,7vw,4.4rem);
+  line-height:1.05;
 }
 
-.scripture{
-  margin-top:12px;
-  font-size:1.05rem;
+.hero .scripture{
+  margin:18px 0 0;
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+.hero .date{
+  margin:6px 0 0;
+  font-size:.95rem;
+  opacity:.88;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:28px 16px 60px;
 }
 
 .intro{
-  background:var(--white);
-  border:1px solid var(--border);
+  background:var(--card);
   border-radius:14px;
-  padding:20px;
-  margin-bottom:22px;
+  padding:24px;
+  margin-bottom:24px;
+  border:1px solid var(--border);
 }
 
 .intro h2{
   margin-top:0;
-  color:var(--primary);
-  font-size:1.35rem;
+  font-family:Georgia, "Times New Roman", serif;
 }
 
+.intro p:last-child{
+  margin-bottom:0;
+}
+
+/* =========================================================
+   SERMON POINTS
+========================================================= */
+
 .point{
-  background:var(--white);
-  border:1px solid var(--border);
+  background:var(--card);
   border-radius:14px;
-  margin-bottom:24px;
+  margin:0 0 26px;
   overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 4px 14px rgba(0,0,0,.04);
 }
 
 .point-header{
-  background:var(--primary);
+  padding:22px 24px;
+  background:linear-gradient(135deg,#49331d,#795328);
   color:white;
-  padding:18px 20px;
 }
 
 .point-number{
-  display:block;
-  font-size:.8rem;
+  display:inline-block;
+  margin-bottom:8px;
+  color:#f1d29b;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.15em;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  opacity:.85;
-  margin-bottom:5px;
 }
 
 .point-header h2{
   margin:0;
-  font-size:1.35rem;
-  line-height:1.35;
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(1.55rem,5vw,2.15rem);
+  line-height:1.25;
+}
+
+.reference{
+  margin:9px 0 0;
+  color:#f3d8aa;
+  font-weight:700;
 }
 
 .point-body{
-  padding:20px;
+  padding:24px;
 }
 
+/* =========================================================
+   SCRIPTURE CONNECTION
+========================================================= */
+
 .scripture-box{
-  background:#eef3f5;
+  background:#f8f4ec;
   border-left:4px solid var(--secondary);
-  padding:15px 16px;
-  margin-bottom:20px;
-  border-radius:0 10px 10px 0;
+  padding:18px;
+  border-radius:0 8px 8px 0;
+  margin-bottom:24px;
 }
 
 .scripture-box strong{
+  display:block;
   color:var(--primary);
+  margin-bottom:5px;
 }
 
-.reflect{
+/* =========================================================
+   REFLECTION
+========================================================= */
+
+.reflection{
   margin-top:22px;
 }
 
-.reflect h3{
-  color:var(--primary);
+.reflection h3,
+.notes h3{
+  font-family:Georgia, "Times New Roman", serif;
   margin-bottom:10px;
 }
 
-.reflect ul{
-  padding-left:22px;
+.question{
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  margin:12px 0;
+  font-weight:600;
 }
 
-.reflect li{
-  margin-bottom:10px;
-}
+/* =========================================================
+   NOTES
+========================================================= */
 
 .notes{
-  margin-top:18px;
-}
-
-.notes label{
-  display:block;
-  font-weight:700;
-  margin-bottom:8px;
+  margin-top:24px;
 }
 
 textarea{
   width:100%;
-  min-height:130px;
-  padding:14px;
-  font:inherit;
-  border:1px solid #bcc5ca;
-  border-radius:10px;
+  min-height:150px;
   resize:vertical;
-  background:#fff;
+  padding:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  color:var(--dark);
+  background:white;
+  border:1px solid #cfc8bd;
+  border-radius:9px;
 }
 
 textarea:focus{
-  outline:3px solid rgba(45,95,115,.16);
-  border-color:var(--primary);
+  outline:3px solid rgba(184,134,66,.22);
+  border-color:var(--secondary);
 }
 
-.application{
-  background:#fffaf2;
-  border:1px solid #ead7b8;
+/* =========================================================
+   CLOSING REFLECTION
+========================================================= */
+
+.closing{
+  background:#33281d;
+  color:white;
   border-radius:14px;
-  padding:20px;
-  margin-bottom:24px;
+  padding:28px 24px;
+  margin-top:30px;
 }
 
-.application h2{
-  color:#8b6230;
+.closing h2{
   margin-top:0;
+  font-family:Georgia, "Times New Roman", serif;
 }
 
-.prayer{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:24px;
+.closing .question{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.18);
+  color:white;
 }
 
-.prayer h2{
-  color:var(--primary);
-  margin-top:0;
-}
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
 
 .actions{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
   justify-content:center;
-  margin-top:28px;
+  margin-top:32px;
 }
 
-.actions button,
-.actions a{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  min-height:46px;
-  padding:12px 18px;
-  border-radius:9px;
-  border:none;
-  text-decoration:none;
-  font-size:1rem;
+button,
+.action-link{
+  appearance:none;
+  border:0;
+  border-radius:8px;
+  padding:13px 18px;
+  font-size:.95rem;
   font-weight:700;
   cursor:pointer;
-}
-
-.primary-btn{
+  text-decoration:none;
+  text-align:center;
   background:var(--primary);
   color:white;
 }
 
-.secondary-btn{
-  background:#e6ecef;
-  color:var(--dark);
+button:hover,
+.action-link:hover{
+  background:#5d3f20;
 }
 
-.church-btn{
-  background:#202428;
-  color:white;
+.secondary-button{
+  background:#5f6368;
 }
 
-.footer-note{
+.secondary-button:hover{
+  background:#45484c;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
   text-align:center;
-  font-size:.85rem;
+  padding:20px;
   color:var(--muted);
-  margin-top:20px;
+  font-size:.85rem;
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
   .hero{
-    padding:38px 18px;
+    padding:52px 18px;
   }
 
-  .hero h1{
-    font-size:1.8rem;
+  main{
+    padding:20px 12px 45px;
   }
 
-  .point-header h2{
-    font-size:1.2rem;
+  .intro,
+  .point-body,
+  .closing{
+    padding:19px;
+  }
+
+  .point-header{
+    padding:20px;
   }
 
   .actions{
     flex-direction:column;
   }
 
-  .actions button,
-  .actions a{
+  button,
+  .action-link{
     width:100%;
   }
 }
+
+/* =========================================================
+   PRINT
+========================================================= */
 
 @media print{
 
@@ -274,348 +341,371 @@ textarea:focus{
     background:white;
   }
 
-  .page{
-    max-width:none;
+  .hero{
+    background:none !important;
+    color:black;
+    padding:15px 0 25px;
   }
 
-  .actions,
-  .footer-note{
-    display:none;
+  .series,
+  .hero .scripture,
+  .hero .date{
+    color:black;
+  }
+
+  main{
+    max-width:none;
+    padding:0;
+  }
+
+  .point{
+    box-shadow:none;
+    break-inside:avoid;
+  }
+
+  .point-header{
+    background:none;
+    color:black;
+    border-bottom:2px solid #333;
+  }
+
+  .point-number,
+  .reference{
+    color:black;
+  }
+
+  .closing{
+    background:none;
+    color:black;
+    border:1px solid #aaa;
   }
 
   textarea{
-    border:1px solid #aaa;
-    min-height:80px;
+    border:1px solid #999;
   }
 
-  .point,
-  .intro,
-  .application,
-  .prayer{
-    break-inside:avoid;
+  .actions{
+    display:none;
+  }
+
+  footer{
+    display:none;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<header class="hero">
+  <div class="hero-inner">
 
-  <section class="hero">
-
-    <div class="series">ACTS — The Church That Changed the World</div>
-
-    <h1>Growing Pains</h1>
-
-    <div class="scripture">
-      Acts 6:1–7
-    </div>
-
-  </section>
-
-
-  <section class="intro">
-
-    <h2>When Growth Creates Pressure</h2>
-
-    <p>
-      Growth is exciting, but growth can also expose problems.
-      Acts 6 gives us an honest picture of a growing church facing
-      real tension, unmet needs, and the challenge of caring for people well.
+    <p class="series">
+      Acts: The Church That Changed the World
     </p>
 
-    <p>
-      Instead of pretending the problem did not exist, the early church
-      faced it, addressed it, and developed new leaders to help move the
-      mission forward.
-    </p>
+    <h1>When Standing Costs Everything</h1>
 
-  </section>
+    <p class="scripture">Acts 7</p>
 
+    <p class="date">September 27, 2026</p>
 
-  <section class="point">
-
-    <div class="point-header">
-
-      <span class="point-number">Point 1</span>
-
-      <h2>
-        Healthy churches don’t hide problems. They solve them.
-      </h2>
-
-    </div>
-
-    <div class="point-body">
-
-      <div class="scripture-box">
-
-        <strong>Acts 6:1–2</strong>
-
-        <p>
-          As the number of disciples increased, a complaint arose because
-          some widows were being overlooked in the daily distribution of food.
-        </p>
-
-      </div>
+  </div>
+</header>
 
 
-      <p>
-        The early church was growing, but growth did not mean everything
-        was perfect. A legitimate need surfaced, and the leaders did not
-        dismiss it, minimize it, or ignore it.
-      </p>
+<main>
 
-      <p>
-        Healthy churches are willing to acknowledge problems because
-        unresolved problems do not disappear. They usually grow.
-      </p>
+<section class="intro">
 
+  <h2>Standing Firm</h2>
 
-      <div class="reflect">
+  <p>
+    Acts 7 introduces us to Stephen at one of the most difficult
+    moments imaginable. His faithfulness to Jesus places him in
+    direct conflict with those around him.
+  </p>
 
-        <h3>Think About It</h3>
+  <p>
+    Stephen's story invites us to consider what it means to remain
+    faithful when obedience is difficult, costly, or unpopular.
+  </p>
 
-        <ul>
-          <li>
-            How do I normally respond when a problem becomes uncomfortable?
-          </li>
-
-          <li>
-            Do I tend to ignore problems, complain about them, or help solve them?
-          </li>
-
-          <li>
-            Is there an issue God may be asking me to address with grace,
-            wisdom, and honesty?
-          </li>
-        </ul>
-
-      </div>
+</section>
 
 
-      <div class="notes">
+<!-- =======================================================
+     POINT ONE
+======================================================= -->
 
-        <label for="notes1">
-          My Notes
-        </label>
+<section class="point">
 
-        <textarea
-          id="notes1"
-          placeholder="Write your notes, thoughts, or application here..."></textarea>
+  <div class="point-header">
 
-      </div>
+    <span class="point-number">Point 1</span>
+
+    <h2>
+      Standing firm means obeying God even when it costs you.
+    </h2>
+
+    <p class="reference">Acts 7:51–54</p>
+
+  </div>
+
+  <div class="point-body">
+
+    <div class="scripture-box">
+
+      <strong>Look again at Acts 7:51–54.</strong>
+
+      Stephen refuses to abandon the truth simply because speaking
+      it has become costly. His obedience is not determined by how
+      people respond to him.
 
     </div>
 
-  </section>
+    <div class="reflection">
 
+      <h3>Reflect</h3>
 
-  <section class="point">
-
-    <div class="point-header">
-
-      <span class="point-number">Point 2</span>
-
-      <h2>
-        Healthy churches don’t just fill positions. They develop people.
-      </h2>
-
-    </div>
-
-    <div class="point-body">
-
-      <div class="scripture-box">
-
-        <strong>Acts 6:3–7</strong>
-
-        <p>
-          The church was instructed to choose people known to be full of
-          the Spirit and wisdom so responsibility could be shared and the
-          ministry could continue growing.
-        </p>
-
+      <div class="question">
+        Where is following Jesus requiring courage from me right now?
       </div>
 
-
-      <p>
-        The apostles did not simply look for available bodies to fill empty
-        spots. They looked for people of character, wisdom, faith, and
-        spiritual maturity.
-      </p>
-
-      <p>
-        The goal of leadership in the church is not merely to keep programs
-        running. It is to help people grow into the gifts and calling God has
-        placed within them.
-      </p>
-
-
-      <div class="reflect">
-
-        <h3>Think About It</h3>
-
-        <ul>
-          <li>
-            Am I serving simply because there is a need, or am I growing in
-            the gifts God has given me?
-          </li>
-
-          <li>
-            Who has helped develop me spiritually?
-          </li>
-
-          <li>
-            Is there someone I could encourage, mentor, or help prepare for
-            greater responsibility?
-          </li>
-        </ul>
-
-      </div>
-
-
-      <div class="notes">
-
-        <label for="notes2">
-          My Notes
-        </label>
-
-        <textarea
-          id="notes2"
-          placeholder="Write your notes, thoughts, or application here..."></textarea>
-
+      <div class="question">
+        Am I ever tempted to choose what is comfortable over what I
+        know God is asking me to do?
       </div>
 
     </div>
-
-  </section>
-
-
-  <section class="application">
-
-    <h2>Personal Application</h2>
-
-    <p>
-      The early church became healthier because it was willing to deal
-      honestly with problems and intentionally develop people.
-    </p>
-
-    <p>
-      Consider one step God may be asking you to take this week.
-    </p>
 
     <div class="notes">
 
-      <label for="applicationNotes">
-        This week I will…
-      </label>
+      <h3>My Notes</h3>
 
       <textarea
-        id="applicationNotes"
-        placeholder="Write one practical step you can take this week..."></textarea>
+        id="notes1"
+        placeholder="Write your notes or reflections here..."
+      ></textarea>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <section class="prayer">
+<!-- =======================================================
+     POINT TWO
+======================================================= -->
 
-    <h2>Closing Prayer</h2>
+<section class="point">
 
-    <p>
-      Lord, give us the courage to face problems with wisdom and grace.
-      Help us become people who do more than identify what is wrong.
-      Teach us to become part of the solution.
-    </p>
+  <div class="point-header">
 
-    <p>
-      Develop our character, strengthen our faith, and show us how to help
-      others grow into the people You have called them to become.
-      Use Your church to serve people well and faithfully carry out Your
-      mission. Amen.
-    </p>
+    <span class="point-number">Point 2</span>
 
-  </section>
+    <h2>
+      Standing firm means keeping your eyes on Jesus.
+    </h2>
 
-
-  <div class="actions">
-
-    <button
-      class="primary-btn"
-      type="button"
-      onclick="window.print()">
-      Print Notes
-    </button>
-
-    <button
-      class="secondary-btn"
-      type="button"
-      onclick="emailNotes()">
-      Email Notes
-    </button>
-
-    <a
-      class="church-btn"
-      href="https://versaillesumc.churchcenter.com/"
-      target="_blank"
-      rel="noopener noreferrer">
-      Return to Church Center
-    </a>
+    <p class="reference">Acts 7:55–56</p>
 
   </div>
 
+  <div class="point-body">
 
-  <div class="footer-note">
-    Versailles United Methodist Church
+    <div class="scripture-box">
+
+      <strong>Look again at Acts 7:55–56.</strong>
+
+      In the middle of hostility and uncertainty, Stephen looks
+      toward heaven. His circumstances have not changed—but his
+      attention remains fixed on Jesus.
+
+    </div>
+
+    <div class="reflection">
+
+      <h3>Reflect</h3>
+
+      <div class="question">
+        What tends to capture my attention when life becomes difficult?
+      </div>
+
+      <div class="question">
+        What would it look like for me to intentionally keep my eyes
+        on Jesus this week?
+      </div>
+
+    </div>
+
+    <div class="notes">
+
+      <h3>My Notes</h3>
+
+      <textarea
+        id="notes2"
+        placeholder="Write your notes or reflections here..."
+      ></textarea>
+
+    </div>
+
   </div>
+
+</section>
+
+
+<!-- =======================================================
+     CLOSING
+======================================================= -->
+
+<section class="closing">
+
+  <h2>This Week</h2>
+
+  <p>
+    Stephen's faithfulness challenges us to think beyond a faith
+    that is convenient. Following Jesus sometimes requires us to
+    stand when standing has a cost.
+  </p>
+
+  <div class="question">
+    What is one step of faithful obedience God may be calling me
+    to take this week?
+  </div>
+
+  <div class="notes">
+
+    <h3>My Response</h3>
+
+    <textarea
+      id="response"
+      placeholder="Write your response here..."
+    ></textarea>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     BUTTONS
+======================================================= -->
+
+<div class="actions">
+
+  <button onclick="window.print()">
+    Print Notes
+  </button>
+
+  <button onclick="emailNotes()">
+    Email My Notes
+  </button>
+
+  <a
+    class="action-link secondary-button"
+    href="https://versaillesumc.churchcenter.com/"
+  >
+    Return to Church Center
+  </a>
 
 </div>
 
+</main>
+
+
+<footer>
+  Versailles United Methodist Church
+</footer>
+
 
 <script>
+
+/* =========================================================
+   SAVE NOTES LOCALLY
+========================================================= */
+
+const fields = ["notes1","notes2","response"];
+
+fields.forEach(function(id){
+
+  const field = document.getElementById(id);
+
+  const saved = localStorage.getItem(
+    "standing-costs-" + id
+  );
+
+  if(saved){
+    field.value = saved;
+  }
+
+  field.addEventListener("input",function(){
+
+    localStorage.setItem(
+      "standing-costs-" + id,
+      field.value
+    );
+
+  });
+
+});
+
+
+/* =========================================================
+   EMAIL NOTES
+========================================================= */
+
 function emailNotes(){
 
   const notes1 =
-    document.getElementById("notes1").value.trim();
+    document.getElementById("notes1").value;
 
   const notes2 =
-    document.getElementById("notes2").value.trim();
+    document.getElementById("notes2").value;
 
-  const application =
-    document.getElementById("applicationNotes").value.trim();
+  const response =
+    document.getElementById("response").value;
 
 
   const subject =
-    "Sermon Notes — ACTS: Growing Pains";
+    "Sermon Notes — When Standing Costs Everything";
 
 
-  const body = `
-ACTS — Growing Pains
-Acts 6:1–7
+  const body =
+`WHEN STANDING COSTS EVERYTHING
+Acts 7
+September 27, 2026
+
+ACTS: THE CHURCH THAT CHANGED THE WORLD
+
 
 POINT 1
-Healthy churches don’t hide problems. They solve them.
+Standing firm means obeying God even when it costs you.
+Acts 7:51–54
 
-My Notes:
+MY NOTES:
 ${notes1 || "(No notes entered)"}
 
 
 POINT 2
-Healthy churches don’t just fill positions. They develop people.
+Standing firm means keeping your eyes on Jesus.
+Acts 7:55–56
 
-My Notes:
+MY NOTES:
 ${notes2 || "(No notes entered)"}
 
 
-PERSONAL APPLICATION
+THIS WEEK
 
-This week I will:
-${application || "(No application entered)"}
+What is one step of faithful obedience God may be calling me to take this week?
+
+MY RESPONSE:
+${response || "(No response entered)"}
 
 
-Versailles United Methodist Church
-`;
+Versailles United Methodist Church`;
 
 
   window.location.href =
@@ -623,7 +713,9 @@ Versailles United Methodist Church
     encodeURIComponent(subject) +
     "&body=" +
     encodeURIComponent(body);
+
 }
+
 </script>
 
 </body>

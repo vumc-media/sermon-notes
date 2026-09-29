@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>When Standing Costs Everything | Sermon Notes</title>
+<title>What the Enemy Meant for Evil | Sermon Notes</title>
 
 <style>
 :root{
-  --primary:#7a5428;
-  --secondary:#b88642;
-  --accent:#d7a95b;
-  --light:#f8f6f1;
-  --dark:#25221f;
-  --muted:#6c6863;
-  --border:#ded8cf;
-  --card:#ffffff;
+  --primary:#7a3f20;
+  --secondary:#b56b35;
+  --accent:#d6a35c;
+  --cream:#f7f1e7;
+  --light:#faf9f7;
+  --dark:#29241f;
+  --muted:#6c655e;
+  --border:#ded7ce;
+  --white:#ffffff;
 }
 
 *{
@@ -29,79 +30,61 @@ html{
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f3f1ed;
+  background:#f3f1ee;
   color:var(--dark);
-  line-height:1.6;
+  line-height:1.65;
 }
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .hero{
   background:
-    linear-gradient(rgba(20,16,12,.66),rgba(20,16,12,.72)),
-    url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
+    linear-gradient(rgba(31,22,16,.60),rgba(31,22,16,.78)),
+    linear-gradient(135deg,#8b542e,#33261f);
   color:white;
-  padding:72px 20px;
+  padding:58px 20px 52px;
   text-align:center;
-}
-
-.hero-inner{
-  max-width:900px;
-  margin:auto;
 }
 
 .series{
   margin:0 0 8px;
-  font-size:.85rem;
-  font-weight:700;
-  letter-spacing:.16em;
   text-transform:uppercase;
-  color:#f1d29b;
+  letter-spacing:2px;
+  font-size:.82rem;
+  font-weight:700;
+  color:#f2cf9a;
 }
 
 .hero h1{
-  margin:0;
+  margin:0 auto;
+  max-width:850px;
   font-family:Georgia, "Times New Roman", serif;
-  font-size:clamp(2.2rem,7vw,4.4rem);
+  font-size:clamp(2.1rem,7vw,4.2rem);
   line-height:1.05;
 }
 
-.hero .scripture{
+.scripture{
   margin:18px 0 0;
-  font-size:1.15rem;
-  font-weight:600;
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:.5px;
 }
 
-.hero .date{
-  margin:6px 0 0;
-  font-size:.95rem;
-  opacity:.88;
-}
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-main{
-  max-width:900px;
-  margin:auto;
-  padding:28px 16px 60px;
+.container{
+  width:min(900px,calc(100% - 28px));
+  margin:0 auto;
 }
 
 .intro{
-  background:var(--card);
+  background:var(--white);
+  margin-top:-22px;
+  position:relative;
   border-radius:14px;
-  padding:24px;
-  margin-bottom:24px;
+  padding:26px;
   border:1px solid var(--border);
 }
 
 .intro h2{
   margin-top:0;
+  color:var(--primary);
   font-family:Georgia, "Times New Roman", serif;
 }
 
@@ -109,212 +92,213 @@ main{
   margin-bottom:0;
 }
 
-/* =========================================================
-   SERMON POINTS
-========================================================= */
+.section{
+  margin:28px 0;
+}
 
 .point{
-  background:var(--card);
-  border-radius:14px;
-  margin:0 0 26px;
-  overflow:hidden;
+  background:var(--white);
   border:1px solid var(--border);
-  box-shadow:0 4px 14px rgba(0,0,0,.04);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:28px;
 }
 
 .point-header{
-  padding:22px 24px;
-  background:linear-gradient(135deg,#49331d,#795328);
+  background:var(--primary);
   color:white;
+  padding:22px 24px;
 }
 
 .point-number{
-  display:inline-block;
-  margin-bottom:8px;
-  color:#f1d29b;
-  font-size:.78rem;
-  font-weight:700;
-  letter-spacing:.15em;
+  display:block;
   text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-size:.75rem;
+  font-weight:700;
+  color:#f3d7b3;
+  margin-bottom:5px;
 }
 
 .point-header h2{
   margin:0;
   font-family:Georgia, "Times New Roman", serif;
-  font-size:clamp(1.55rem,5vw,2.15rem);
+  font-size:clamp(1.45rem,5vw,2rem);
   line-height:1.25;
-}
-
-.reference{
-  margin:9px 0 0;
-  color:#f3d8aa;
-  font-weight:700;
 }
 
 .point-body{
   padding:24px;
 }
 
-/* =========================================================
-   SCRIPTURE CONNECTION
-========================================================= */
-
-.scripture-box{
-  background:#f8f4ec;
-  border-left:4px solid var(--secondary);
-  padding:18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:24px;
-}
-
-.scripture-box strong{
-  display:block;
+.verse{
+  display:inline-block;
   color:var(--primary);
-  margin-bottom:5px;
+  background:#f5e9dc;
+  border-radius:20px;
+  padding:5px 12px;
+  font-weight:700;
+  font-size:.9rem;
+  margin-bottom:14px;
 }
 
-/* =========================================================
-   REFLECTION
-========================================================= */
-
-.reflection{
-  margin-top:22px;
+.big-idea{
+  font-size:1.05rem;
+  margin-top:0;
 }
 
-.reflection h3,
-.notes h3{
-  font-family:Georgia, "Times New Roman", serif;
-  margin-bottom:10px;
+.callout{
+  border-left:4px solid var(--accent);
+  background:var(--cream);
+  padding:17px 18px;
+  margin:20px 0;
+  border-radius:0 8px 8px 0;
 }
 
-.question{
-  background:var(--light);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:16px;
-  margin:12px 0;
-  font-weight:600;
+.callout strong{
+  color:var(--primary);
 }
 
-/* =========================================================
-   NOTES
-========================================================= */
-
-.notes{
+.reflect{
   margin-top:24px;
+  border-top:1px solid var(--border);
+  padding-top:22px;
+}
+
+.reflect h3,
+.notes h3{
+  margin:0 0 10px;
+  color:var(--primary);
+  font-size:1.05rem;
+}
+
+.reflect p{
+  margin-top:0;
 }
 
 textarea{
+  display:block;
   width:100%;
-  min-height:150px;
+  min-height:120px;
   resize:vertical;
-  padding:15px;
+  border:1px solid #cfc8c0;
+  border-radius:9px;
+  padding:14px;
   font-family:Arial, Helvetica, sans-serif;
   font-size:16px;
   line-height:1.5;
   color:var(--dark);
   background:white;
-  border:1px solid #cfc8bd;
-  border-radius:9px;
 }
 
 textarea:focus{
-  outline:3px solid rgba(184,134,66,.22);
+  outline:3px solid rgba(181,107,53,.20);
   border-color:var(--secondary);
 }
 
-/* =========================================================
-   CLOSING REFLECTION
-========================================================= */
+.notes{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin:28px 0;
+}
 
-.closing{
-  background:#33281d;
+.notes textarea{
+  min-height:190px;
+}
+
+.challenge{
+  background:#352a23;
   color:white;
   border-radius:14px;
-  padding:28px 24px;
-  margin-top:30px;
+  padding:26px;
+  margin:28px 0;
 }
 
-.closing h2{
-  margin-top:0;
+.challenge h2{
   font-family:Georgia, "Times New Roman", serif;
+  margin-top:0;
+  color:#f1c98e;
 }
 
-.closing .question{
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.18);
-  color:white;
+.challenge p:last-child{
+  margin-bottom:0;
 }
-
-/* =========================================================
-   ACTION BUTTONS
-========================================================= */
 
 .actions{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
   gap:12px;
-  justify-content:center;
-  margin-top:32px;
+  margin:30px 0 16px;
 }
 
-button,
-.action-link{
+.action-btn,
+.church-btn{
   appearance:none;
-  border:0;
-  border-radius:8px;
-  padding:13px 18px;
+  border:none;
+  border-radius:9px;
+  min-height:50px;
+  padding:13px 15px;
   font-size:.95rem;
   font-weight:700;
   cursor:pointer;
-  text-decoration:none;
   text-align:center;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.action-btn{
   background:var(--primary);
   color:white;
 }
 
-button:hover,
-.action-link:hover{
-  background:#5d3f20;
+.action-btn:hover{
+  background:#633219;
 }
 
-.secondary-button{
-  background:#5f6368;
+.church-btn{
+  background:#ece7e1;
+  color:var(--dark);
+  border:1px solid #d5cec6;
 }
 
-.secondary-button:hover{
-  background:#45484c;
+.church-btn:hover{
+  background:#e3ddd6;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
+.saved{
+  min-height:22px;
   text-align:center;
-  padding:20px;
   color:var(--muted);
+  font-size:.85rem;
+  margin-bottom:28px;
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  padding:5px 20px 40px;
   font-size:.85rem;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
+@media(max-width:650px){
 
   .hero{
-    padding:52px 18px;
+    padding:46px 18px 42px;
   }
 
-  main{
-    padding:20px 12px 45px;
+  .container{
+    width:min(100% - 20px,900px);
   }
 
   .intro,
   .point-body,
-  .closing{
-    padding:19px;
+  .notes,
+  .challenge{
+    padding:20px;
   }
 
   .point-header{
@@ -322,73 +306,77 @@ footer{
   }
 
   .actions{
-    flex-direction:column;
+    grid-template-columns:1fr;
   }
 
-  button,
-  .action-link{
+  .action-btn,
+  .church-btn{
     width:100%;
   }
 }
-
-/* =========================================================
-   PRINT
-========================================================= */
 
 @media print{
 
   body{
     background:white;
+    font-size:11pt;
   }
 
   .hero{
-    background:none !important;
+    background:white !important;
     color:black;
-    padding:15px 0 25px;
+    padding:15px 0 20px;
+    border-bottom:2px solid black;
   }
 
   .series,
-  .hero .scripture,
-  .hero .date{
+  .scripture{
     color:black;
   }
 
-  main{
-    max-width:none;
-    padding:0;
+  .container{
+    width:100%;
   }
 
-  .point{
-    box-shadow:none;
+  .intro{
+    margin-top:15px;
+  }
+
+  .point,
+  .intro,
+  .notes,
+  .challenge{
     break-inside:avoid;
+    box-shadow:none;
   }
 
   .point-header{
-    background:none;
+    background:white;
     color:black;
-    border-bottom:2px solid #333;
+    border-bottom:1px solid #aaa;
   }
 
-  .point-number,
-  .reference{
+  .point-number{
     color:black;
   }
 
-  .closing{
-    background:none;
+  .challenge{
+    background:white;
     color:black;
     border:1px solid #aaa;
   }
 
+  .challenge h2{
+    color:black;
+  }
+
   textarea{
-    border:1px solid #999;
+    border:1px solid #aaa;
+    min-height:100px;
   }
 
-  .actions{
-    display:none;
-  }
-
-  footer{
+  .actions,
+  .saved{
     display:none;
   }
 }
@@ -399,322 +387,376 @@ footer{
 <body>
 
 <header class="hero">
-  <div class="hero-inner">
 
-    <p class="series">
-      Acts: The Church That Changed the World
-    </p>
+  <p class="series">
+    Acts: The Church That Changed the World
+  </p>
 
-    <h1>When Standing Costs Everything</h1>
+  <h1>
+    What the Enemy Meant for Evil
+  </h1>
 
-    <p class="scripture">Acts 7</p>
+  <p class="scripture">
+    Acts 8:1–25
+  </p>
 
-    <p class="date">September 27, 2026</p>
-
-  </div>
 </header>
 
 
-<main>
+<main class="container">
 
 <section class="intro">
 
-  <h2>Standing Firm</h2>
+  <h2>When disruption becomes mission</h2>
 
   <p>
-    Acts 7 introduces us to Stephen at one of the most difficult
-    moments imaginable. His faithfulness to Jesus places him in
-    direct conflict with those around him.
+    The church in Jerusalem had experienced incredible growth,
+    but everything changed when persecution broke out.
+    Believers were scattered throughout Judea and Samaria.
   </p>
 
   <p>
-    Stephen's story invites us to consider what it means to remain
-    faithful when obedience is difficult, costly, or unpopular.
+    What looked like the destruction of the church became the
+    movement that carried the good news beyond Jerusalem.
+    The enemy intended scattering, fear and silence—but God
+    was still at work.
   </p>
 
 </section>
 
 
-<!-- =======================================================
-     POINT ONE
-======================================================= -->
+<section class="section">
 
-<section class="point">
+<article class="point">
 
   <div class="point-header">
 
-    <span class="point-number">Point 1</span>
+    <span class="point-number">
+      Sermon Point 1
+    </span>
 
     <h2>
-      Standing firm means obeying God even when it costs you.
+      What scatters you doesn’t have to silence you.
     </h2>
-
-    <p class="reference">Acts 7:51–54</p>
 
   </div>
 
   <div class="point-body">
 
-    <div class="scripture-box">
+    <span class="verse">
+      Acts 8:4
+    </span>
 
-      <strong>Look again at Acts 7:51–54.</strong>
+    <p class="big-idea">
+      The believers were scattered, but they did not stop
+      sharing the good news. Their circumstances changed.
+      Their mission did not.
+    </p>
 
-      Stephen refuses to abandon the truth simply because speaking
-      it has become costly. His obedience is not determined by how
-      people respond to him.
-
+    <div class="callout">
+      <strong>Consider this:</strong>
+      Being displaced does not mean being disqualified.
+      God can still use your voice wherever life has placed you.
     </div>
 
-    <div class="reflection">
+    <div class="reflect">
 
       <h3>Reflect</h3>
 
-      <div class="question">
-        Where is following Jesus requiring courage from me right now?
-      </div>
-
-      <div class="question">
-        Am I ever tempted to choose what is comfortable over what I
-        know God is asking me to do?
-      </div>
-
-    </div>
-
-    <div class="notes">
-
-      <h3>My Notes</h3>
+      <p>
+        What disruption, disappointment or unexpected change
+        has made you tempted to become quiet, withdraw or give up?
+      </p>
 
       <textarea
-        id="notes1"
-        placeholder="Write your notes or reflections here..."
-      ></textarea>
+        id="reflection1"
+        aria-label="Reflection notes for sermon point one"
+        placeholder="Write your thoughts here..."></textarea>
 
     </div>
 
   </div>
 
-</section>
+</article>
 
 
-<!-- =======================================================
-     POINT TWO
-======================================================= -->
-
-<section class="point">
+<article class="point">
 
   <div class="point-header">
 
-    <span class="point-number">Point 2</span>
+    <span class="point-number">
+      Sermon Point 2
+    </span>
 
     <h2>
-      Standing firm means keeping your eyes on Jesus.
+      God can turn your disruption into somebody else’s destination.
     </h2>
-
-    <p class="reference">Acts 7:55–56</p>
 
   </div>
 
   <div class="point-body">
 
-    <div class="scripture-box">
+    <p class="big-idea">
+      Philip did not choose the circumstances that sent him
+      toward Samaria, but God used his journey to bring the
+      good news of Jesus to people who needed to hear it.
+    </p>
 
-      <strong>Look again at Acts 7:55–56.</strong>
+    <p>
+      What looked like interruption became opportunity.
+      What looked like scattering became sending.
+      And a place the disciples might never have reached
+      otherwise became a place of transformation and joy.
+    </p>
 
-      In the middle of hostility and uncertainty, Stephen looks
-      toward heaven. His circumstances have not changed—but his
-      attention remains fixed on Jesus.
-
+    <div class="callout">
+      <strong>Consider this:</strong>
+      Sometimes God does His greatest work through roads
+      we never planned to travel.
     </div>
 
-    <div class="reflection">
+    <div class="reflect">
 
       <h3>Reflect</h3>
 
-      <div class="question">
-        What tends to capture my attention when life becomes difficult?
-      </div>
-
-      <div class="question">
-        What would it look like for me to intentionally keep my eyes
-        on Jesus this week?
-      </div>
-
-    </div>
-
-    <div class="notes">
-
-      <h3>My Notes</h3>
+      <p>
+        Who might God be positioning you to encourage, serve
+        or reach because of something unexpected happening
+        in your life?
+      </p>
 
       <textarea
-        id="notes2"
-        placeholder="Write your notes or reflections here..."
-      ></textarea>
+        id="reflection2"
+        aria-label="Reflection notes for sermon point two"
+        placeholder="Write your thoughts here..."></textarea>
 
     </div>
 
   </div>
 
+</article>
+
 </section>
 
 
-<!-- =======================================================
-     CLOSING
-======================================================= -->
+<section class="challenge">
 
-<section class="closing">
-
-  <h2>This Week</h2>
+  <h2>Take It With You</h2>
 
   <p>
-    Stephen's faithfulness challenges us to think beyond a faith
-    that is convenient. Following Jesus sometimes requires us to
-    stand when standing has a cost.
+    The early church discovered that opposition could scatter
+    believers, but it could not stop the gospel.
   </p>
 
-  <div class="question">
-    What is one step of faithful obedience God may be calling me
-    to take this week?
-  </div>
-
-  <div class="notes">
-
-    <h3>My Response</h3>
-
-    <textarea
-      id="response"
-      placeholder="Write your response here..."
-    ></textarea>
-
-  </div>
+  <p>
+    This week, instead of asking only,
+    <strong>“Why is this happening to me?”</strong>
+    consider asking,
+    <strong>“Where might God be sending me through this?”</strong>
+  </p>
 
 </section>
 
 
-<!-- =======================================================
-     BUTTONS
-======================================================= -->
+<section class="notes">
+
+  <h3>My Notes</h3>
+
+  <textarea
+    id="generalNotes"
+    aria-label="General sermon notes"
+    placeholder="Add sermon notes, prayer thoughts, or something you want to remember..."></textarea>
+
+</section>
+
 
 <div class="actions">
 
-  <button onclick="window.print()">
+  <button
+    class="action-btn"
+    id="printButton"
+    type="button">
     Print Notes
   </button>
 
-  <button onclick="emailNotes()">
+  <button
+    class="action-btn"
+    id="emailButton"
+    type="button">
     Email My Notes
   </button>
 
+  <!--
+    Replace the href below with the direct Church Center URL
+    you want members to return to.
+  -->
+
   <a
-    class="action-link secondary-button"
+    class="church-btn"
     href="https://versaillesumc.churchcenter.com/"
-  >
+    id="churchCenterButton">
     Return to Church Center
   </a>
 
 </div>
 
+<div
+  class="saved"
+  id="savedMessage"
+  aria-live="polite">
+</div>
+
 </main>
 
 
-<footer>
+<footer class="footer">
+
   Versailles United Methodist Church
+
 </footer>
 
 
 <script>
 
-/* =========================================================
-   SAVE NOTES LOCALLY
-========================================================= */
+const reflection1 =
+  document.getElementById("reflection1");
 
-const fields = ["notes1","notes2","response"];
+const reflection2 =
+  document.getElementById("reflection2");
 
-fields.forEach(function(id){
+const generalNotes =
+  document.getElementById("generalNotes");
 
-  const field = document.getElementById(id);
+const savedMessage =
+  document.getElementById("savedMessage");
 
-  const saved = localStorage.getItem(
-    "standing-costs-" + id
-  );
 
-  if(saved){
-    field.value = saved;
+/*
+  Save notes automatically in the browser.
+  Each sermon uses its own storage keys.
+*/
+
+const fields = [
+  {
+    element: reflection1,
+    key: "vumc_2026_10_04_reflection1"
+  },
+  {
+    element: reflection2,
+    key: "vumc_2026_10_04_reflection2"
+  },
+  {
+    element: generalNotes,
+    key: "vumc_2026_10_04_notes"
+  }
+];
+
+
+fields.forEach(field => {
+
+  try {
+
+    const saved =
+      localStorage.getItem(field.key);
+
+    if(saved){
+      field.element.value = saved;
+    }
+
+  } catch(error){
+    console.log("Local storage unavailable.");
   }
 
-  field.addEventListener("input",function(){
 
-    localStorage.setItem(
-      "standing-costs-" + id,
-      field.value
-    );
+  field.element.addEventListener("input", () => {
+
+    try {
+
+      localStorage.setItem(
+        field.key,
+        field.element.value
+      );
+
+      savedMessage.textContent =
+        "Your notes are saved on this device.";
+
+      clearTimeout(window.noteSaveTimer);
+
+      window.noteSaveTimer =
+        setTimeout(() => {
+          savedMessage.textContent = "";
+        },2500);
+
+    } catch(error){
+
+      savedMessage.textContent =
+        "Notes cannot be saved automatically on this device.";
+
+    }
 
   });
 
 });
 
 
-/* =========================================================
-   EMAIL NOTES
-========================================================= */
+/*
+  PRINT
+*/
 
-function emailNotes(){
+document
+  .getElementById("printButton")
+  .addEventListener("click", () => {
 
-  const notes1 =
-    document.getElementById("notes1").value;
+    window.print();
 
-  const notes2 =
-    document.getElementById("notes2").value;
-
-  const response =
-    document.getElementById("response").value;
+  });
 
 
-  const subject =
-    "Sermon Notes — When Standing Costs Everything";
+/*
+  EMAIL
+*/
+
+document
+  .getElementById("emailButton")
+  .addEventListener("click", () => {
+
+    const subject =
+      "Sermon Notes – What the Enemy Meant for Evil";
+
+    const body =
+`WHAT THE ENEMY MEANT FOR EVIL
+Acts 8:1–25
+
+Acts: The Church That Changed the World
 
 
-  const body =
-`WHEN STANDING COSTS EVERYTHING
-Acts 7
-September 27, 2026
+1. WHAT SCATTERS YOU DOESN'T HAVE TO SILENCE YOU.
+Acts 8:4
 
-ACTS: THE CHURCH THAT CHANGED THE WORLD
-
-
-POINT 1
-Standing firm means obeying God even when it costs you.
-Acts 7:51–54
-
-MY NOTES:
-${notes1 || "(No notes entered)"}
+Reflection:
+${reflection1.value || "(No notes entered)"}
 
 
-POINT 2
-Standing firm means keeping your eyes on Jesus.
-Acts 7:55–56
+2. GOD CAN TURN YOUR DISRUPTION INTO SOMEBODY ELSE'S DESTINATION.
 
-MY NOTES:
-${notes2 || "(No notes entered)"}
+Reflection:
+${reflection2.value || "(No notes entered)"}
 
 
-THIS WEEK
+MY NOTES
 
-What is one step of faithful obedience God may be calling me to take this week?
-
-MY RESPONSE:
-${response || "(No response entered)"}
+${generalNotes.value || "(No additional notes entered)"}
 
 
 Versailles United Methodist Church`;
 
+    window.location.href =
+      "mailto:?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
 
-  window.location.href =
-    "mailto:?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
-
-}
+  });
 
 </script>
 

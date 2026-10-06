@@ -1,764 +1,497 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>What the Enemy Meant for Evil | Sermon Notes</title>
-
-<style>
-:root{
-  --primary:#7a3f20;
-  --secondary:#b56b35;
-  --accent:#d6a35c;
-  --cream:#f7f1e7;
-  --light:#faf9f7;
-  --dark:#29241f;
-  --muted:#6c655e;
-  --border:#ded7ce;
-  --white:#ffffff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f3f1ee;
-  color:var(--dark);
-  line-height:1.65;
-}
-
-.hero{
-  background:
-    linear-gradient(rgba(31,22,16,.60),rgba(31,22,16,.78)),
-    linear-gradient(135deg,#8b542e,#33261f);
-  color:white;
-  padding:58px 20px 52px;
-  text-align:center;
-}
-
-.series{
-  margin:0 0 8px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:.82rem;
-  font-weight:700;
-  color:#f2cf9a;
-}
-
-.hero h1{
-  margin:0 auto;
-  max-width:850px;
-  font-family:Georgia, "Times New Roman", serif;
-  font-size:clamp(2.1rem,7vw,4.2rem);
-  line-height:1.05;
-}
-
-.scripture{
-  margin:18px 0 0;
-  font-size:1.05rem;
-  font-weight:700;
-  letter-spacing:.5px;
-}
-
-.container{
-  width:min(900px,calc(100% - 28px));
-  margin:0 auto;
-}
-
-.intro{
-  background:var(--white);
-  margin-top:-22px;
-  position:relative;
-  border-radius:14px;
-  padding:26px;
-  border:1px solid var(--border);
-}
-
-.intro h2{
-  margin-top:0;
-  color:var(--primary);
-  font-family:Georgia, "Times New Roman", serif;
-}
-
-.intro p:last-child{
-  margin-bottom:0;
-}
-
-.section{
-  margin:28px 0;
-}
-
-.point{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-  margin-bottom:28px;
-}
-
-.point-header{
-  background:var(--primary);
-  color:white;
-  padding:22px 24px;
-}
-
-.point-number{
-  display:block;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  font-size:.75rem;
-  font-weight:700;
-  color:#f3d7b3;
-  margin-bottom:5px;
-}
-
-.point-header h2{
-  margin:0;
-  font-family:Georgia, "Times New Roman", serif;
-  font-size:clamp(1.45rem,5vw,2rem);
-  line-height:1.25;
-}
-
-.point-body{
-  padding:24px;
-}
-
-.verse{
-  display:inline-block;
-  color:var(--primary);
-  background:#f5e9dc;
-  border-radius:20px;
-  padding:5px 12px;
-  font-weight:700;
-  font-size:.9rem;
-  margin-bottom:14px;
-}
-
-.big-idea{
-  font-size:1.05rem;
-  margin-top:0;
-}
-
-.callout{
-  border-left:4px solid var(--accent);
-  background:var(--cream);
-  padding:17px 18px;
-  margin:20px 0;
-  border-radius:0 8px 8px 0;
-}
-
-.callout strong{
-  color:var(--primary);
-}
-
-.reflect{
-  margin-top:24px;
-  border-top:1px solid var(--border);
-  padding-top:22px;
-}
-
-.reflect h3,
-.notes h3{
-  margin:0 0 10px;
-  color:var(--primary);
-  font-size:1.05rem;
-}
-
-.reflect p{
-  margin-top:0;
-}
-
-textarea{
-  display:block;
-  width:100%;
-  min-height:120px;
-  resize:vertical;
-  border:1px solid #cfc8c0;
-  border-radius:9px;
-  padding:14px;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:16px;
-  line-height:1.5;
-  color:var(--dark);
-  background:white;
-}
-
-textarea:focus{
-  outline:3px solid rgba(181,107,53,.20);
-  border-color:var(--secondary);
-}
-
-.notes{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:24px;
-  margin:28px 0;
-}
-
-.notes textarea{
-  min-height:190px;
-}
-
-.challenge{
-  background:#352a23;
-  color:white;
-  border-radius:14px;
-  padding:26px;
-  margin:28px 0;
-}
-
-.challenge h2{
-  font-family:Georgia, "Times New Roman", serif;
-  margin-top:0;
-  color:#f1c98e;
-}
-
-.challenge p:last-child{
-  margin-bottom:0;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:30px 0 16px;
-}
-
-.action-btn,
-.church-btn{
-  appearance:none;
-  border:none;
-  border-radius:9px;
-  min-height:50px;
-  padding:13px 15px;
-  font-size:.95rem;
-  font-weight:700;
-  cursor:pointer;
-  text-align:center;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.action-btn{
-  background:var(--primary);
-  color:white;
-}
-
-.action-btn:hover{
-  background:#633219;
-}
-
-.church-btn{
-  background:#ece7e1;
-  color:var(--dark);
-  border:1px solid #d5cec6;
-}
-
-.church-btn:hover{
-  background:#e3ddd6;
-}
-
-.saved{
-  min-height:22px;
-  text-align:center;
-  color:var(--muted);
-  font-size:.85rem;
-  margin-bottom:28px;
-}
-
-.footer{
-  text-align:center;
-  color:var(--muted);
-  padding:5px 20px 40px;
-  font-size:.85rem;
-}
-
-@media(max-width:650px){
-
-  .hero{
-    padding:46px 18px 42px;
-  }
-
-  .container{
-    width:min(100% - 20px,900px);
-  }
-
-  .intro,
-  .point-body,
-  .notes,
-  .challenge{
-    padding:20px;
-  }
-
-  .point-header{
-    padding:20px;
-  }
-
-  .actions{
-    grid-template-columns:1fr;
-  }
-
-  .action-btn,
-  .church-btn{
-    width:100%;
-  }
-}
-
-@media print{
-
-  body{
-    background:white;
-    font-size:11pt;
-  }
-
-  .hero{
-    background:white !important;
-    color:black;
-    padding:15px 0 20px;
-    border-bottom:2px solid black;
-  }
-
-  .series,
-  .scripture{
-    color:black;
-  }
-
-  .container{
-    width:100%;
-  }
-
-  .intro{
-    margin-top:15px;
-  }
-
-  .point,
-  .intro,
-  .notes,
-  .challenge{
-    break-inside:avoid;
-    box-shadow:none;
-  }
-
-  .point-header{
-    background:white;
-    color:black;
-    border-bottom:1px solid #aaa;
-  }
-
-  .point-number{
-    color:black;
-  }
-
-  .challenge{
-    background:white;
-    color:black;
-    border:1px solid #aaa;
-  }
-
-  .challenge h2{
-    color:black;
-  }
-
-  textarea{
-    border:1px solid #aaa;
-    min-height:100px;
-  }
-
-  .actions,
-  .saved{
-    display:none;
-  }
-}
-
-</style>
-</head>
-
-<body>
-
-<header class="hero">
-
-  <p class="series">
-    Acts: The Church That Changed the World
-  </p>
-
-  <h1>
-    What the Enemy Meant for Evil
-  </h1>
-
-  <p class="scripture">
-    Acts 8:1–25
-  </p>
-
-</header>
-
-
-<main class="container">
-
-<section class="intro">
-
-  <h2>When disruption becomes mission</h2>
-
-  <p>
-    The church in Jerusalem had experienced incredible growth,
-    but everything changed when persecution broke out.
-    Believers were scattered throughout Judea and Samaria.
-  </p>
-
-  <p>
-    What looked like the destruction of the church became the
-    movement that carried the good news beyond Jerusalem.
-    The enemy intended scattering, fear and silence—but God
-    was still at work.
-  </p>
-
-</section>
-
-
-<section class="section">
-
-<article class="point">
-
-  <div class="point-header">
-
-    <span class="point-number">
-      Sermon Point 1
-    </span>
+<section class="sermon-notes" id="sermon-notes">
+
+  <style>
+    .sermon-notes {
+      --primary: #173f35;
+      --accent: #c79a45;
+      --soft: #f4f1e9;
+      --text: #252525;
+      --muted: #666;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .sermon-notes * {
+      box-sizing: border-box;
+    }
+
+    .sermon-header {
+      text-align: center;
+      padding: 30px 15px;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 30px;
+    }
+
+    .series {
+      color: var(--primary);
+      font-size: .9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .sermon-header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .scripture {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .intro {
+      background: var(--soft);
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 35px;
+    }
+
+    .point {
+      margin-bottom: 45px;
+    }
+
+    .point-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .point h2 {
+      color: var(--primary);
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      line-height: 1.2;
+      margin: 0 0 15px;
+    }
+
+    .point p {
+      margin: 0 0 16px;
+    }
+
+    .scripture-focus {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 22px 0;
+    }
+
+    .scripture-focus strong {
+      color: var(--primary);
+    }
+
+    .reflect {
+      margin-top: 25px;
+    }
+
+    .reflect h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .question {
+      margin: 18px 0;
+    }
+
+    .question label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .question textarea {
+      display: block;
+      width: 100%;
+      min-height: 100px;
+      padding: 12px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      font: inherit;
+      line-height: 1.4;
+      resize: vertical;
+      background: white;
+    }
+
+    .question textarea:focus {
+      outline: 3px solid rgba(23, 63, 53, .15);
+      border-color: var(--primary);
+    }
+
+    .takeaway {
+      background: var(--primary);
+      color: white;
+      padding: 24px;
+      border-radius: 10px;
+      margin: 40px 0 25px;
+    }
+
+    .takeaway h2 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .takeaway textarea {
+      width: 100%;
+      min-height: 110px;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font: inherit;
+      resize: vertical;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .actions button,
+    .actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      font-size: .95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .actions button:hover,
+    .actions a:hover {
+      opacity: .9;
+    }
+
+    .save-message {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .sermon-notes {
+        padding: 15px;
+      }
+
+      .sermon-header {
+        padding: 20px 5px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .question textarea {
+        min-height: 120px;
+      }
+    }
+
+    @media print {
+      .actions,
+      .save-message {
+        display: none;
+      }
+
+      .question textarea,
+      .takeaway textarea {
+        border: 1px solid #aaa;
+        min-height: 90px;
+      }
+
+      .takeaway {
+        color: black;
+        background: white;
+        border: 2px solid #173f35;
+      }
+
+      .takeaway h2 {
+        color: #173f35;
+      }
+    }
+  </style>
+
+
+  <header class="sermon-header">
+    <div class="series">ACTS: The Church That Changed the World</div>
+    <h1>Nobody Is Too Far Gone</h1>
+    <div class="scripture">Acts 9:1–31</div>
+  </header>
+
+
+  <div class="intro">
+    Saul begins Acts 9 as an enemy of the church. By the end of the
+    chapter, he is proclaiming the very Jesus he once opposed.
+    His story reminds us that grace can reach people in places
+    we may have already given up on.
+  </div>
+
+
+  <!-- POINT ONE -->
+
+  <section class="point">
+
+    <div class="point-number">1</div>
 
     <h2>
-      What scatters you doesn’t have to silence you.
+      Grace Meets Us Before We Get Our Act Together
     </h2>
 
-  </div>
-
-  <div class="point-body">
-
-    <span class="verse">
-      Acts 8:4
-    </span>
-
-    <p class="big-idea">
-      The believers were scattered, but they did not stop
-      sharing the good news. Their circumstances changed.
-      Their mission did not.
-    </p>
-
-    <div class="callout">
-      <strong>Consider this:</strong>
-      Being displaced does not mean being disqualified.
-      God can still use your voice wherever life has placed you.
-    </div>
-
-    <div class="reflect">
-
-      <h3>Reflect</h3>
-
-      <p>
-        What disruption, disappointment or unexpected change
-        has made you tempted to become quiet, withdraw or give up?
-      </p>
-
-      <textarea
-        id="reflection1"
-        aria-label="Reflection notes for sermon point one"
-        placeholder="Write your thoughts here..."></textarea>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<article class="point">
-
-  <div class="point-header">
-
-    <span class="point-number">
-      Sermon Point 2
-    </span>
-
-    <h2>
-      God can turn your disruption into somebody else’s destination.
-    </h2>
-
-  </div>
-
-  <div class="point-body">
-
-    <p class="big-idea">
-      Philip did not choose the circumstances that sent him
-      toward Samaria, but God used his journey to bring the
-      good news of Jesus to people who needed to hear it.
+    <p>
+      Saul wasn't searching for Jesus on the road to Damascus.
+      He was actively working against Him. Yet Jesus met Saul
+      right in the middle of who he was and what he was doing.
     </p>
 
     <p>
-      What looked like interruption became opportunity.
-      What looked like scattering became sending.
-      And a place the disciples might never have reached
-      otherwise became a place of transformation and joy.
+      Grace did not wait for Saul to become worthy of an encounter
+      with Christ. The encounter came first. Transformation followed.
     </p>
 
-    <div class="callout">
-      <strong>Consider this:</strong>
-      Sometimes God does His greatest work through roads
-      we never planned to travel.
+    <div class="scripture-focus">
+      <strong>Read: Acts 9:1–6</strong><br>
+      Notice where Saul was headed and what he intended to do
+      when Jesus interrupted his journey.
     </div>
 
     <div class="reflect">
 
       <h3>Reflect</h3>
 
-      <p>
-        Who might God be positioning you to encourage, serve
-        or reach because of something unexpected happening
-        in your life?
-      </p>
+      <div class="question">
+        <label for="q1">
+          Where has God met you before you had everything figured out?
+        </label>
+        <textarea
+          id="q1"
+          data-note="q1"
+          placeholder="Write your thoughts here..."></textarea>
+      </div>
 
-      <textarea
-        id="reflection2"
-        aria-label="Reflection notes for sermon point two"
-        placeholder="Write your thoughts here..."></textarea>
+      <div class="question">
+        <label for="q2">
+          Is there something in your life you've been trying to fix
+          before allowing God into it?
+        </label>
+        <textarea
+          id="q2"
+          data-note="q2"
+          placeholder="Write your thoughts here..."></textarea>
+      </div>
 
     </div>
 
+  </section>
+
+
+  <!-- POINT TWO -->
+
+  <section class="point">
+
+    <div class="point-number">2</div>
+
+    <h2>
+      Transformed People Need People Who Believe Grace Is Real
+    </h2>
+
+    <p>
+      Saul's encounter with Jesus changed him, but the church
+      understandably struggled to believe that change was real.
+      They remembered who Saul had been.
+    </p>
+
+    <p>
+      Then Barnabas stepped forward. He saw what God's grace
+      was doing in Saul and was willing to stand beside him.
+    </p>
+
+    <div class="scripture-focus">
+      <strong>Read: Acts 9:26–28</strong><br>
+      Pay attention to the disciples' reaction to Saul
+      and what Barnabas does next.
+    </div>
+
+    <div class="reflect">
+
+      <h3>Reflect</h3>
+
+      <div class="question">
+        <label for="q3">
+          Who has been a “Barnabas” in your life—someone who believed
+          God's grace was at work in you?
+        </label>
+        <textarea
+          id="q3"
+          data-note="q3"
+          placeholder="Write your thoughts here..."></textarea>
+      </div>
+
+      <div class="question">
+        <label for="q4">
+          Is there someone whose past makes it difficult for you
+          to believe that God can truly change them?
+        </label>
+        <textarea
+          id="q4"
+          data-note="q4"
+          placeholder="Write your thoughts here..."></textarea>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TAKEAWAY -->
+
+  <section class="takeaway">
+
+    <h2>My Takeaway</h2>
+
+    <p>
+      What is God saying to you through today's message?
+    </p>
+
+    <textarea
+      id="takeaway"
+      data-note="takeaway"
+      placeholder="Write what you want to remember..."></textarea>
+
+  </section>
+
+
+  <div class="actions">
+
+    <button type="button" onclick="window.print()">
+      Print Notes
+    </button>
+
+    <button type="button" onclick="emailNotes()">
+      Email My Notes
+    </button>
+
+    <a href="https://versaillesumc.churchcenter.com/"
+       target="_blank"
+       rel="noopener">
+      Church Center
+    </a>
+
   </div>
 
-</article>
-
-</section>
-
-
-<section class="challenge">
-
-  <h2>Take It With You</h2>
-
-  <p>
-    The early church discovered that opposition could scatter
-    believers, but it could not stop the gospel.
-  </p>
-
-  <p>
-    This week, instead of asking only,
-    <strong>“Why is this happening to me?”</strong>
-    consider asking,
-    <strong>“Where might God be sending me through this?”</strong>
-  </p>
-
-</section>
+  <div class="save-message">
+    Your notes are automatically saved on this device.
+  </div>
 
 
-<section class="notes">
+  <script>
+    (function () {
 
-  <h3>My Notes</h3>
+      const sermonKey = "sermon-notes-2026-10-11";
 
-  <textarea
-    id="generalNotes"
-    aria-label="General sermon notes"
-    placeholder="Add sermon notes, prayer thoughts, or something you want to remember..."></textarea>
-
-</section>
-
-
-<div class="actions">
-
-  <button
-    class="action-btn"
-    id="printButton"
-    type="button">
-    Print Notes
-  </button>
-
-  <button
-    class="action-btn"
-    id="emailButton"
-    type="button">
-    Email My Notes
-  </button>
-
-  <!--
-    Replace the href below with the direct Church Center URL
-    you want members to return to.
-  -->
-
-  <a
-    class="church-btn"
-    href="https://versaillesumc.churchcenter.com/"
-    id="churchCenterButton">
-    Return to Church Center
-  </a>
-
-</div>
-
-<div
-  class="saved"
-  id="savedMessage"
-  aria-live="polite">
-</div>
-
-</main>
-
-
-<footer class="footer">
-
-  Versailles United Methodist Church
-
-</footer>
-
-
-<script>
-
-const reflection1 =
-  document.getElementById("reflection1");
-
-const reflection2 =
-  document.getElementById("reflection2");
-
-const generalNotes =
-  document.getElementById("generalNotes");
-
-const savedMessage =
-  document.getElementById("savedMessage");
-
-
-/*
-  Save notes automatically in the browser.
-  Each sermon uses its own storage keys.
-*/
-
-const fields = [
-  {
-    element: reflection1,
-    key: "vumc_2026_10_04_reflection1"
-  },
-  {
-    element: reflection2,
-    key: "vumc_2026_10_04_reflection2"
-  },
-  {
-    element: generalNotes,
-    key: "vumc_2026_10_04_notes"
-  }
-];
-
-
-fields.forEach(field => {
-
-  try {
-
-    const saved =
-      localStorage.getItem(field.key);
-
-    if(saved){
-      field.element.value = saved;
-    }
-
-  } catch(error){
-    console.log("Local storage unavailable.");
-  }
-
-
-  field.element.addEventListener("input", () => {
-
-    try {
-
-      localStorage.setItem(
-        field.key,
-        field.element.value
+      const fields = document.querySelectorAll(
+        "#sermon-notes [data-note]"
       );
 
-      savedMessage.textContent =
-        "Your notes are saved on this device.";
+      fields.forEach(function (field) {
 
-      clearTimeout(window.noteSaveTimer);
+        const key =
+          sermonKey + "-" + field.getAttribute("data-note");
 
-      window.noteSaveTimer =
-        setTimeout(() => {
-          savedMessage.textContent = "";
-        },2500);
+        const saved = localStorage.getItem(key);
 
-    } catch(error){
+        if (saved !== null) {
+          field.value = saved;
+        }
 
-      savedMessage.textContent =
-        "Notes cannot be saved automatically on this device.";
+        field.addEventListener("input", function () {
+          localStorage.setItem(key, field.value);
+        });
+
+      });
+
+    })();
+
+
+    function emailNotes() {
+
+      const get = function (id) {
+        return document.getElementById(id).value.trim();
+      };
+
+      const subject =
+        "Sermon Notes — Nobody Is Too Far Gone";
+
+      const body =
+`ACTS: The Church That Changed the World
+Nobody Is Too Far Gone
+Acts 9:1–31
+
+
+1. GRACE MEETS US BEFORE WE GET OUR ACT TOGETHER
+
+Where has God met me before I had everything figured out?
+
+${get("q1")}
+
+
+Is there something I've been trying to fix before allowing God into it?
+
+${get("q2")}
+
+
+
+2. TRANSFORMED PEOPLE NEED PEOPLE WHO BELIEVE GRACE IS REAL
+
+Who has been a Barnabas in my life?
+
+${get("q3")}
+
+
+Is there someone whose past makes it difficult for me to believe God can truly change them?
+
+${get("q4")}
+
+
+
+MY TAKEAWAY
+
+${get("takeaway")}
+`;
+
+      window.location.href =
+        "mailto:?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
 
     }
+  </script>
 
-  });
-
-});
-
-
-/*
-  PRINT
-*/
-
-document
-  .getElementById("printButton")
-  .addEventListener("click", () => {
-
-    window.print();
-
-  });
-
-
-/*
-  EMAIL
-*/
-
-document
-  .getElementById("emailButton")
-  .addEventListener("click", () => {
-
-    const subject =
-      "Sermon Notes – What the Enemy Meant for Evil";
-
-    const body =
-`WHAT THE ENEMY MEANT FOR EVIL
-Acts 8:1–25
-
-Acts: The Church That Changed the World
-
-
-1. WHAT SCATTERS YOU DOESN'T HAVE TO SILENCE YOU.
-Acts 8:4
-
-Reflection:
-${reflection1.value || "(No notes entered)"}
-
-
-2. GOD CAN TURN YOUR DISRUPTION INTO SOMEBODY ELSE'S DESTINATION.
-
-Reflection:
-${reflection2.value || "(No notes entered)"}
-
-
-MY NOTES
-
-${generalNotes.value || "(No additional notes entered)"}
-
-
-Versailles United Methodist Church`;
-
-    window.location.href =
-      "mailto:?subject=" +
-      encodeURIComponent(subject) +
-      "&body=" +
-      encodeURIComponent(body);
-
-  });
-
-</script>
-
-</body>
-</html>
+</section>

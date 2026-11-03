@@ -4,460 +4,528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Worship in the Storm | VUMC Sermon Notes</title>
+<title>Turning the World Upside Down | VUMC</title>
 <style>
 :root {
-  --burgundy:#790b19;
-  --gold:#b78943;
-  --ink:#202833;
-  --muted:#626b75;
-  --paper:#fff;
-  --background:#f5f3ef;
-  --border:#e2ded8;
+  --navy: #172c45;
+  --blue: #285b86;
+  --gold: #b58a4b;
+  --paper: #f7f5f0;
+  --ink: #222b35;
 }
-* { box-sizing:border-box; }
+* { box-sizing: border-box; }
 body {
-  margin:0;
-  font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-  background:var(--background);
-  color:var(--ink);
-  line-height:1.65;
-}
-.container {
-  max-width:850px;
-  margin:32px auto;
-  padding:0 16px;
+  margin: 0;
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: #eef1f4;
+  color: var(--ink);
+  line-height: 1.65;
 }
 header {
-  text-align:center;
-  padding:34px 24px;
-  background:#fff;
-  border-top:5px solid var(--burgundy);
-  border-radius:12px;
+  background: linear-gradient(135deg, #172c45, #365a78);
+  color: white;
+  padding: 44px 20px;
+  text-align: center;
 }
-.series {
-  color:var(--burgundy);
-  font-size:.82rem;
-  font-weight:800;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
+header .series {
+  color: #e7c58b;
+  font-size: .85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-h1 {
-  font-family:Georgia,serif;
-  font-size:clamp(2rem,6vw,3rem);
-  line-height:1.15;
-  margin:12px 0;
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin: 14px 0;
 }
-.subtitle { color:var(--muted); }
+header p { margin: 5px 0; }
+main {
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 0 16px 40px;
+}
 .card {
-  background:var(--paper);
-  padding:26px;
-  margin-top:16px;
-  border-radius:10px;
-  border:1px solid var(--border);
+  background: white;
+  border-radius: 12px;
+  padding: 26px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 15px #172c4512;
 }
 h2 {
-  font-size:1.35rem;
-  line-height:1.4;
-  margin:0 0 15px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-top: 0;
 }
-.number { color:var(--burgundy); }
+h3 { color: var(--blue); }
 .scripture {
-  font-size:.85rem;
-  color:var(--muted);
-  border-top:1px solid var(--border);
-  margin-top:22px;
-  padding-top:10px;
+  color: #765a32;
+  font-weight: 700;
 }
-.scripture a {
-  color:var(--burgundy);
-  text-decoration:underline;
+.point {
+  border-left: 5px solid var(--gold);
 }
-.note {
-  background:#faf6ed;
-  padding:14px 18px;
-  border-left:4px solid var(--gold);
-  margin:16px 0;
+.point-number {
+  color: #916b36;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.question {
-  background:#f7f7f7;
-  padding:14px;
-  border-radius:8px;
-  margin:12px 0;
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
 }
-.question strong { display:block; }
+.check-item input {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  accent-color: var(--blue);
+  flex-shrink: 0;
+}
 textarea {
-  width:100%;
-  min-height:95px;
-  margin-top:10px;
-  padding:12px;
-  font:inherit;
-  border:1px solid #c9cdd2;
-  border-radius:7px;
-  resize:vertical;
-  background:#fff;
+  display: block;
+  width: 100%;
+  min-height: 105px;
+  border: 1px solid #bac4cf;
+  border-radius: 8px;
+  padding: 12px;
+  font: inherit;
+  resize: vertical;
+  background: #fff;
 }
 textarea:focus {
-  outline:2px solid var(--gold);
-  outline-offset:1px;
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+.reflection {
+  background: var(--paper);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 18px 0;
 }
 .actions {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin:20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
 }
-button {
-  border:0;
-  background:var(--burgundy);
-  color:#fff;
-  padding:12px 20px;
-  border-radius:7px;
-  font:inherit;
-  font-weight:700;
-  cursor:pointer;
+button, .button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 700;
+  background: var(--navy);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
-button.secondary {
-  background:#fff;
-  color:var(--burgundy);
-  border:1px solid var(--burgundy);
+button:hover, .button:hover {
+  background: var(--blue);
 }
+button.secondary { background: #607080; }
+button.danger { background: #8b3e3e; }
 footer {
-  text-align:center;
-  padding:22px;
-  font-size:.85rem;
-  color:var(--muted);
+  text-align: center;
+  padding: 25px;
+  color: #59636c;
+  font-size: .85rem;
 }
 @media print {
-  body { background:white; }
-  .container { margin:0; max-width:none; }
-  .actions { display:none; }
-  .card,header { break-inside:avoid; }
-  textarea { border:1px solid #aaa; }
+  body { background: white; }
+  header {
+    background: white !important;
+    color: black;
+    padding: 15px;
+  }
+  header .series { color: #555; }
+  main { margin: 0 auto; }
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  .actions, .no-print { display: none !important; }
+  textarea {
+    border: 1px solid #aaa;
+    min-height: 80px;
+  }
 }
 </style>
 </head>
 <body>
-<main class="container">
 
 <header>
   <div class="series">
-    ACTS: The Church That Changed the World
+    Acts: The Church That Changed the World
   </div>
-  <h1>Worship in the Storm</h1>
-  <div class="subtitle">
-    November 1, 2026<br>
-    Acts 16:16–34 (CEB)
-  </div>
-  <p>
-    <strong>Today's Big Idea:</strong><br>
-    Worship isn't dependent on perfect circumstances.
-    When we remain faithful through life's storms,
-    our worship can become a source of hope
-    for someone else.
-  </p>
+  <h1>Turning the World Upside Down</h1>
+  <p>Sunday, November 8, 2026</p>
+  <p><strong>Acts 17:16–34 (CEB)</strong></p>
 </header>
 
+<main>
+
 <section class="card">
-  <h2>Preparing Our Hearts</h2>
+  <h2>Today's Scripture</h2>
+  <p><strong>Main Passage:</strong> Acts 17:16–34</p>
+  <p><strong>Opening Context:</strong> Acts 17:1–9</p>
+  <p><strong>Worship Reading:</strong> Acts 17:22–31</p>
+  <p>Scripture translation: Common English Bible (CEB)</p>
+
   <p>
-    Life doesn't always unfold the way we expect.
-    Sometimes we encounter opposition, disappointment,
-    uncertainty, and circumstances beyond our control.
+    In Athens, Paul encountered people with different
+    beliefs and traditions. Rather than ignoring their
+    culture, he used what he observed as an opportunity
+    to share the good news of Jesus Christ.
   </p>
-  <p>
-    Paul and Silas knew what it meant to face
-    difficulty while faithfully serving God.
-    Their experience in Philippi reminds us that
-    worship is more than something we do when
-    life is going well.
-  </p>
-  <p>
-    Their response to suffering challenges us
-    to consider how our own faith can remain
-    strong through the storms of life.
-  </p>
-  <div class="note">
-    <strong>Think About It:</strong><br>
-    Is your worship determined by your circumstances,
-    or by the character and faithfulness of God?
-  </div>
 </section>
 
 <section class="card">
+  <h2>Today's Big Idea</h2>
+  <p>
+    The early Church changed the world not by changing
+    the Gospel, but by bringing its unchanging message
+    into a changing world.
+  </p>
+</section>
+
+<section class="card point">
+  <div class="point-number">Point 1</div>
   <h2>
-    <span class="number">1.</span>
-    Worship Doesn't Require Perfect Circumstances
+    Start Where People Are,
+    Not Where You Wish They Were.
   </h2>
+  <p class="scripture">Acts 17:16–23 (CEB)</p>
 
   <p>
-    Paul and Silas found themselves imprisoned
-    despite their efforts to serve God.
-    They had been mistreated, beaten, and
-    confined in a difficult situation.
+    Paul took time to observe the people of Athens.
+    He recognized their spiritual searching and used
+    something familiar to them as a starting point
+    for sharing the Gospel.
   </p>
 
-  <p>
-    Yet their circumstances did not prevent
-    them from praying and worshiping.
-    Instead of waiting for their situation
-    to improve, they chose to honor God
-    right where they were.
-  </p>
+  <h3>Key Takeaways</h3>
 
-  <div class="note">
-    <strong>Key Thought:</strong><br>
-    We don't have to wait until everything
-    is right in our lives before we worship
-    the One who is always faithful.
-  </div>
-
-  <div class="question">
-    <strong>Reflection Question 1</strong>
-    What circumstances in your life have made
-    it difficult to worship or trust God?
-    <textarea data-note="p1q1"
-      aria-label="Point one reflection one"
-      placeholder="Write your thoughts..."></textarea>
-  </div>
-
-  <div class="question">
-    <strong>Reflection Question 2</strong>
-    How might your perspective change if
-    you chose to worship God before your
-    circumstances improved?
-    <textarea data-note="p1q2"
-      aria-label="Point one reflection two"
-      placeholder="Write your thoughts..."></textarea>
-  </div>
-
-  <label for="notes1">
-    <strong>My Sermon Notes</strong>
+  <label class="check-item">
+    <input type="checkbox" data-save="p1a">
+    <span>Listen before you speak.</span>
   </label>
-  <textarea id="notes1" data-note="p1notes"
-    placeholder="Write additional notes here..."></textarea>
 
-  <div class="scripture">
-    Scripture Footnote:
-    <a href="https://www.biblegateway.com/passage/?search=Acts%2016%3A22-26&version=CEB"
-       target="_blank" rel="noopener noreferrer">
-      Acts 16:22–26 (CEB)
-    </a>
+  <label class="check-item">
+    <input type="checkbox" data-save="p1b">
+    <span>
+      Seek to understand before expecting
+      to be understood.
+    </span>
+  </label>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="p1c">
+    <span>
+      Recognize that everyone comes from different
+      experiences and backgrounds.
+    </span>
+  </label>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="p1d">
+    <span>
+      Build relationships that create opportunities
+      to share Christ.
+    </span>
+  </label>
+
+  <div class="reflection">
+    <strong>Personal Reflection</strong>
+    <p>
+      Am I meeting people where they are,
+      or expecting them to become like me
+      before I welcome them?
+    </p>
+    <textarea data-save="reflection1"
+      placeholder="Write your thoughts here..."></textarea>
   </div>
 </section>
 
-<section class="card">
+<section class="card point">
+  <div class="point-number">Point 2</div>
   <h2>
-    <span class="number">2.</span>
-    Your Worship Can Become Somebody Else's Hope
+    Change Your Approach,
+    Not Your Message.
   </h2>
+  <p class="scripture">Acts 17:24–31 (CEB)</p>
 
   <p>
-    Paul and Silas were not the only people
-    affected by what happened in that prison.
-    Other prisoners heard their worship,
-    and the jailer eventually encountered
-    the transforming message of Jesus Christ.
+    Paul adapted the way he communicated with the
+    Athenians, but he remained faithful to the truth
+    of God as Creator and to the resurrection
+    of Jesus Christ.
   </p>
 
-  <p>
-    Their response to suffering created
-    an opportunity to demonstrate faith,
-    compassion, and the hope found in Christ.
-  </p>
+  <h3>Key Takeaways</h3>
 
-  <p>
-    We may never know who is watching how
-    we respond to difficult circumstances.
-    Our faithfulness during challenging
-    seasons may encourage someone else
-    who is struggling to find hope.
-  </p>
-
-  <div class="note">
-    <strong>Key Thought:</strong><br>
-    Sometimes the most powerful testimony
-    isn't what we say about God when
-    everything is going well, but how
-    we trust Him when life is difficult.
-  </div>
-
-  <div class="question">
-    <strong>Reflection Question 1</strong>
-    Who in your life might be encouraged
-    by seeing you remain faithful
-    during difficult circumstances?
-    <textarea data-note="p2q1"
-      aria-label="Point two reflection one"
-      placeholder="Write your thoughts..."></textarea>
-  </div>
-
-  <div class="question">
-    <strong>Reflection Question 2</strong>
-    How can you use your experiences
-    to offer hope and encouragement
-    to someone facing their own storm?
-    <textarea data-note="p2q2"
-      aria-label="Point two reflection two"
-      placeholder="Write your thoughts..."></textarea>
-  </div>
-
-  <label for="notes2">
-    <strong>My Sermon Notes</strong>
+  <label class="check-item">
+    <input type="checkbox" data-save="p2a">
+    <span>
+      Methods may change, but the Gospel
+      remains the same.
+    </span>
   </label>
-  <textarea id="notes2" data-note="p2notes"
-    placeholder="Write additional notes here..."></textarea>
 
-  <div class="scripture">
-    Scripture Footnote:
-    <a href="https://www.biblegateway.com/passage/?search=Acts%2016%3A25-34&version=CEB"
-       target="_blank" rel="noopener noreferrer">
-      Acts 16:25–34 (CEB)
-    </a>
+  <label class="check-item">
+    <input type="checkbox" data-save="p2b">
+    <span>
+      Different people may need different approaches
+      to hear and understand God's truth.
+    </span>
+  </label>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="p2c">
+    <span>
+      Remain faithful to Scripture while finding
+      meaningful ways to reach the community.
+    </span>
+  </label>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="p2d">
+    <span>
+      Our mission is to proclaim Jesus Christ,
+      not simply preserve familiar traditions.
+    </span>
+  </label>
+
+  <div class="reflection">
+    <strong>Personal Reflection</strong>
+    <p>
+      Am I holding tightly to the message of Jesus,
+      or am I holding more tightly to the methods
+      I have always used?
+    </p>
+    <textarea data-save="reflection2"
+      placeholder="Write your thoughts here..."></textarea>
   </div>
 </section>
 
 <section class="card">
-  <h2>Living Out the Message</h2>
-
+  <h2>Putting Faith Into Action</h2>
   <p>
-    The story of Paul and Silas reminds us
-    that faith isn't measured by the absence
-    of hardship, but by our willingness
-    to trust God through it.
+    The early Church was willing to go beyond
+    familiar places, engage unfamiliar people,
+    and boldly share the hope of Jesus.
   </p>
 
-  <p>
-    Our worship can strengthen our own faith,
-    but it can also point others toward
-    the hope and salvation found in Jesus.
-  </p>
+  <h3>This Week's Challenge</h3>
 
-  <div class="note">
-    <strong>This Week's Challenge:</strong><br>
-    Choose one difficult situation in your
-    life and intentionally bring it before
-    God in prayer and worship. Then look
-    for an opportunity to encourage
-    someone else who may be facing
-    a similar struggle.
-  </div>
-
-  <label for="commitment">
-    <strong>My Personal Commitment</strong>
+  <label class="check-item">
+    <input type="checkbox" data-save="challenge1">
+    <span>
+      Identify someone outside my usual
+      circle of relationships.
+    </span>
   </label>
-  <textarea id="commitment" data-note="commitment"
-    placeholder="This week, I will..."></textarea>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="challenge2">
+    <span>
+      Take time to listen and understand their story.
+    </span>
+  </label>
+
+  <label class="check-item">
+    <input type="checkbox" data-save="challenge3">
+    <span>
+      Look for an opportunity to demonstrate
+      Christ's love through words and actions.
+    </span>
+  </label>
 </section>
 
 <section class="card">
-  <h2>Closing Prayer</h2>
-  <p>
-    Gracious God, thank You for remaining
-    faithful through every season of life.
-    Help us to worship You even when
-    circumstances are difficult and
-    answers seem far away.
-  </p>
-  <p>
-    Strengthen our faith, renew our hope,
-    and use our lives to encourage others
-    who are facing their own storms.
-    May our worship always point people
-    toward the love and grace of
-    Jesus Christ. Amen.
-  </p>
-
-  <div class="scripture">
-    Primary Scripture:
-    <a href="https://www.biblegateway.com/passage/?search=Acts%2016%3A16-34&version=CEB"
-       target="_blank" rel="noopener noreferrer">
-      Acts 16:16–34 (CEB)
-    </a>
-  </div>
+  <h2>My Sermon Notes</h2>
+  <textarea data-save="generalnotes"
+    style="min-height:180px"
+    placeholder="Additional notes, prayers, or reflections...">
+  </textarea>
 </section>
 
-<div class="actions">
+<section class="card">
+  <h2>Closing Thought</h2>
+  <p>
+    <strong>
+      We don't have to change the Gospel to reach
+      a changing world. We must be willing to change
+      how we reach the world with the Gospel.
+    </strong>
+  </p>
+</section>
+
+<div class="actions no-print">
   <button type="button" onclick="printNotes()">
     Print Notes
   </button>
+
   <button type="button" onclick="emailNotes()">
-    Email My Notes
+    Email Notes
   </button>
-  <button type="button" class="secondary"
-    onclick="openChurchCenter()">
+
+  <button type="button" onclick="copyNotes()">
+    Copy Notes
+  </button>
+
+  <a class="button"
+     href="https://versaillesumc.churchcenter.com/"
+     target="_blank"
+     rel="noopener noreferrer">
     Church Center
+  </a>
+
+  <button type="button" class="danger"
+    onclick="clearNotes()">
+    Clear Notes
   </button>
 </div>
 
-<footer>
-  Versailles United Methodist Church<br>
-  ACTS: The Church That Changed the World<br>
-  November 1, 2026
-  <p id="saveStatus" aria-live="polite">
-    Notes are saved automatically on this device.
-  </p>
-</footer>
+<p class="no-print" id="status"
+   role="status" aria-live="polite"></p>
 
 </main>
 
-<script>
-const STORAGE_KEY = "vumc-sermon-2026-11-01";
-const fields = document.querySelectorAll("[data-note]");
+<footer>
+  Versailles United Methodist Church<br>
+  Acts: The Church That Changed the World
+</footer>
 
-function loadNotes() {
-  try {
-    const saved = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "{}"
-    );
-    fields.forEach(field => {
-      field.value = saved[field.dataset.note] || "";
-    });
-  } catch (error) {
-    console.warn("Saved notes unavailable", error);
-  }
+<script>
+const STORAGE_KEY = "vumc-sermon-2026-11-08";
+
+function getFields() {
+  return Array.from(
+    document.querySelectorAll("[data-save]")
+  );
 }
 
 function saveNotes() {
-  const notes = {};
-  fields.forEach(field => {
-    notes[field.dataset.note] = field.value;
+  const data = {};
+
+  getFields().forEach(field => {
+    data[field.dataset.save] =
+      field.type === "checkbox"
+        ? field.checked
+        : field.value;
   });
+
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
-    document.getElementById("saveStatus").textContent =
-      "Notes saved automatically on this device.";
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+    setStatus("Notes saved on this device.");
   } catch (error) {
-    document.getElementById("saveStatus").textContent =
-      "Automatic saving unavailable. Email your notes to keep a copy.";
+    setStatus("Unable to save notes in this browser.");
   }
 }
 
-function collectNotes() {
-  let output =
-    "WORSHIP IN THE STORM\n" +
-    "November 1, 2026\n" +
-    "Acts 16:16-34 (CEB)\n\n";
+function loadNotes() {
+  let data = {};
 
-  const labels = {
-    p1q1:"Point 1 - Reflection 1",
-    p1q2:"Point 1 - Reflection 2",
-    p1notes:"Point 1 - Sermon Notes",
-    p2q1:"Point 2 - Reflection 1",
-    p2q2:"Point 2 - Reflection 2",
-    p2notes:"Point 2 - Sermon Notes",
-    commitment:"My Personal Commitment"
-  };
+  try {
+    data = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || "{}"
+    );
+  } catch (error) {
+    data = {};
+  }
 
-  fields.forEach(field => {
-    if (field.value.trim()) {
-      output += labels[field.dataset.note] +
-        "\n" + field.value.trim() + "\n\n";
+  getFields().forEach(field => {
+    const value = data[field.dataset.save];
+
+    if (value === undefined) return;
+
+    if (field.type === "checkbox") {
+      field.checked = value === true;
+    } else {
+      field.value = value;
     }
   });
+}
 
-  return output;
+function setStatus(message) {
+  document.getElementById("status").textContent =
+    message;
+}
+
+function getNotesText() {
+  const lines = [
+    "TURNING THE WORLD UPSIDE DOWN",
+    "November 8, 2026",
+    "Acts 17:16-34 (CEB)",
+    "",
+    "POINT 1: START WHERE PEOPLE ARE, NOT WHERE YOU WISH THEY WERE.",
+    "Acts 17:16-23",
+    ""
+  ];
+
+  const labels = {
+    p1a: "Listen before you speak.",
+    p1b: "Seek to understand before expecting to be understood.",
+    p1c: "Recognize different experiences and backgrounds.",
+    p1d: "Build relationships that create opportunities to share Christ.",
+    p2a: "Methods may change, but the Gospel remains the same.",
+    p2b: "Different people may need different approaches.",
+    p2c: "Remain faithful to Scripture while reaching the community.",
+    p2d: "Proclaim Jesus Christ, not simply preserve traditions.",
+    challenge1: "Identify someone outside my usual circle.",
+    challenge2: "Listen and understand their story.",
+    challenge3: "Demonstrate Christ's love."
+  };
+
+  function addChecks(keys) {
+    keys.forEach(key => {
+      const field = document.querySelector(
+        '[data-save="' + key + '"]'
+      );
+      lines.push(
+        (field.checked ? "[x] " : "[ ] ") + labels[key]
+      );
+    });
+  }
+
+  function fieldValue(key) {
+    return document.querySelector(
+      '[data-save="' + key + '"]'
+    ).value.trim();
+  }
+
+  addChecks(["p1a", "p1b", "p1c", "p1d"]);
+  lines.push("", "Reflection:", fieldValue("reflection1"));
+
+  lines.push(
+    "",
+    "POINT 2: CHANGE YOUR APPROACH, NOT YOUR MESSAGE.",
+    "Acts 17:24-31",
+    ""
+  );
+
+  addChecks(["p2a", "p2b", "p2c", "p2d"]);
+  lines.push("", "Reflection:", fieldValue("reflection2"));
+
+  lines.push("", "THIS WEEK'S CHALLENGE", "");
+  addChecks(["challenge1", "challenge2", "challenge3"]);
+
+  lines.push(
+    "",
+    "ADDITIONAL NOTES",
+    fieldValue("generalnotes"),
+    "",
+    "Versailles United Methodist Church"
+  );
+
+  return lines.join("\n");
 }
 
 function printNotes() {
@@ -466,27 +534,56 @@ function printNotes() {
 
 function emailNotes() {
   const subject = encodeURIComponent(
-    "My Sermon Notes - Worship in the Storm"
+    "Sermon Notes - Turning the World Upside Down"
   );
-  const body = encodeURIComponent(collectNotes());
+  const body = encodeURIComponent(getNotesText());
+
   window.location.href =
     "mailto:?subject=" + subject + "&body=" + body;
 }
 
-function openChurchCenter() {
-  // Replace with your church's direct Church Center URL.
-  window.open(
-    "https://churchcenter.com",
-    "_blank",
-    "noopener,noreferrer"
-  );
+async function copyNotes() {
+  try {
+    await navigator.clipboard.writeText(getNotesText());
+    setStatus("Sermon notes copied.");
+  } catch (error) {
+    setStatus(
+      "Copy unavailable. Try Email Notes instead."
+    );
+  }
 }
 
-fields.forEach(field => {
-  field.addEventListener("input", saveNotes);
-});
+function clearNotes() {
+  const confirmed = window.confirm(
+    "Clear all saved notes and checkboxes for this sermon?"
+  );
 
-loadNotes();
+  if (!confirmed) return;
+
+  getFields().forEach(field => {
+    if (field.type === "checkbox") {
+      field.checked = false;
+    } else {
+      field.value = "";
+    }
+  });
+
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {}
+
+  setStatus("Notes cleared.");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadNotes();
+
+  getFields().forEach(field => {
+    field.addEventListener("input", saveNotes);
+    field.addEventListener("change", saveNotes);
+  });
+});
 </script>
+
 </body>
 </html>

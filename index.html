@@ -4,585 +4,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Turning the World Upside Down | VUMC</title>
+<title>Shipwrecked but Not Sunk | Sermon Notes</title>
+
 <style>
 :root {
-  --navy: #172c45;
-  --blue: #285b86;
-  --gold: #b58a4b;
-  --paper: #f7f5f0;
-  --ink: #222b35;
+  --navy: #19334c;
+  --blue: #27648a;
+  --gold: #c49b52;
+  --light: #f4f7fa;
+  --border: #dce4ea;
+  --text: #253342;
 }
+
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Arial, sans-serif;
-  background: #eef1f4;
-  color: var(--ink);
-  line-height: 1.65;
+  background: var(--light);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
-header {
-  background: linear-gradient(135deg, #172c45, #365a78);
-  color: white;
-  padding: 44px 20px;
+
+.container {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 0 18px;
+}
+
+.header {
   text-align: center;
+  background: var(--navy);
+  color: white;
+  border-radius: 14px;
+  padding: 35px 22px;
 }
-header .series {
-  color: #e7c58b;
-  font-size: .85rem;
-  letter-spacing: 2px;
+
+.series {
+  color: #e8c98c;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
-header h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.15;
+
+.header h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2;
   margin: 14px 0;
 }
-header p { margin: 5px 0; }
-main {
-  max-width: 850px;
-  margin: 25px auto;
-  padding: 0 16px 40px;
+
+.subtitle {
+  font-size: 16px;
+  color: #e0e9f0;
 }
-.card {
+
+.intro {
   background: white;
-  border-radius: 12px;
-  padding: 26px;
-  margin-bottom: 20px;
-  box-shadow: 0 3px 15px #172c4512;
-}
-h2 {
-  color: var(--navy);
-  line-height: 1.3;
-  margin-top: 0;
-}
-h3 { color: var(--blue); }
-.scripture {
-  color: #765a32;
-  font-weight: 700;
-}
-.point {
   border-left: 5px solid var(--gold);
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
 }
-.point-number {
-  color: #916b36;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+
+.point {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  margin: 25px 0;
+  box-shadow: 0 3px 12px rgba(0,0,0,.04);
 }
-.check-item {
+
+.point-heading {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 9px 0;
+  gap: 14px;
 }
-.check-item input {
-  width: 20px;
-  height: 20px;
-  margin-top: 4px;
-  accent-color: var(--blue);
-  flex-shrink: 0;
+
+.number {
+  background: var(--navy);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-textarea {
+
+.point h2 {
+  font-size: clamp(21px, 4vw, 27px);
+  line-height: 1.3;
+  margin: 5px 0 14px;
+}
+
+.scripture {
+  background: #f0f5f9;
+  border-left: 4px solid var(--blue);
+  padding: 16px;
+  margin: 18px 0;
+  border-radius: 6px;
+}
+
+.scripture strong {
+  color: var(--navy);
+}
+
+.reflection {
+  margin-top: 22px;
+}
+
+.reflection label {
   display: block;
-  width: 100%;
-  min-height: 105px;
-  border: 1px solid #bac4cf;
-  border-radius: 8px;
-  padding: 12px;
-  font: inherit;
-  resize: vertical;
-  background: #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
+textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 14px;
+  font: inherit;
+  font-size: 16px;
+  border: 1px solid #bdcbd6;
+  border-radius: 8px;
+  resize: vertical;
+}
+
 textarea:focus {
   outline: 2px solid var(--blue);
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
-.reflection {
-  background: var(--paper);
-  padding: 16px;
-  border-radius: 8px;
-  margin: 18px 0;
+
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
 }
+
+.check-row input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+}
+
+.application {
+  background: #fff9eb;
+  border: 1px solid #eed9a8;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 25px 0;
+}
+
+.application h2 {
+  margin-top: 0;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 24px 0;
+  gap: 12px;
+  margin: 25px 0;
 }
-button, .button {
-  border: 0;
-  border-radius: 8px;
-  padding: 12px 18px;
-  font: inherit;
-  font-weight: 700;
+
+button {
   background: var(--navy);
   color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
 }
-button:hover, .button:hover {
+
+button:hover {
   background: var(--blue);
 }
-button.secondary { background: #607080; }
-button.danger { background: #8b3e3e; }
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #59636c;
-  font-size: .85rem;
+
+button.secondary {
+  background: #e2e9ee;
+  color: var(--navy);
 }
-@media print {
-  body { background: white; }
-  header {
-    background: white !important;
-    color: black;
-    padding: 15px;
-  }
-  header .series { color: #555; }
-  main { margin: 0 auto; }
-  .card {
-    box-shadow: none;
-    border: 1px solid #ddd;
-    break-inside: avoid;
-  }
-  .actions, .no-print { display: none !important; }
-  textarea {
-    border: 1px solid #aaa;
-    min-height: 80px;
-  }
+
+.status {
+  min-height: 24px;
+  font-size: 14px;
+}
+
+.footer {
+  text-align: center;
+  color: #607080;
+  font-size: 13px;
+  margin: 35px 0;
+}
+
+@media(max-width: 550px) {
+  .container { margin: 15px auto; }
+  .point { padding: 20px; }
+  .header { padding: 28px 18px; }
 }
 </style>
 </head>
+
 <body>
 
-<header>
+<main class="container">
+
+<header class="header">
   <div class="series">
-    Acts: The Church That Changed the World
+    ACTS: The Church That Changed the World
   </div>
-  <h1>Turning the World Upside Down</h1>
-  <p>Sunday, November 8, 2026</p>
-  <p><strong>Acts 17:16–34 (CEB)</strong></p>
+
+  <h1>Shipwrecked but Not Sunk</h1>
+
+  <div class="subtitle">
+    Acts 27:13–44 (CEB)<br>
+    November 15, 2026
+  </div>
 </header>
 
-<main>
-
-<section class="card">
-  <h2>Today's Scripture</h2>
-  <p><strong>Main Passage:</strong> Acts 17:16–34</p>
-  <p><strong>Opening Context:</strong> Acts 17:1–9</p>
-  <p><strong>Worship Reading:</strong> Acts 17:22–31</p>
-  <p>Scripture translation: Common English Bible (CEB)</p>
-
+<section class="intro">
+  <strong>Today's Scripture</strong>
   <p>
-    In Athens, Paul encountered people with different
-    beliefs and traditions. Rather than ignoring their
-    culture, he used what he observed as an opportunity
-    to share the good news of Jesus Christ.
+    In Acts 27, Paul finds himself aboard a ship
+    caught in a violent storm. Although the ship
+    will eventually be destroyed, God's promise
+    to preserve those aboard remains.
+  </p>
+  <p>
+    <strong>Something to consider:</strong>
+    What happens when life doesn't go according
+    to plan, but God is still present?
   </p>
 </section>
 
-<section class="card">
-  <h2>Today's Big Idea</h2>
+<section class="point">
+  <div class="point-heading">
+    <div class="number">1</div>
+    <h2>
+      YOU CAN LOSE YOUR BEARINGS
+      WITHOUT LOSING GOD.
+    </h2>
+  </div>
+
+  <div class="scripture">
+    <strong>Acts 27:20 (CEB)</strong>
+    <p>
+      When neither the sun nor the moon appeared
+      for many days and the raging storm continued
+      to pound us, all hope of our being saved
+      from this peril faded.
+    </p>
+  </div>
+
   <p>
-    The early Church changed the world not by changing
-    the Gospel, but by bringing its unchanging message
-    into a changing world.
+    Even when Paul and those aboard could no
+    longer navigate by the sun or stars,
+    God's presence had not disappeared.
   </p>
-</section>
-
-<section class="card point">
-  <div class="point-number">Point 1</div>
-  <h2>
-    Start Where People Are,
-    Not Where You Wish They Were.
-  </h2>
-  <p class="scripture">Acts 17:16–23 (CEB)</p>
-
-  <p>
-    Paul took time to observe the people of Athens.
-    He recognized their spiritual searching and used
-    something familiar to them as a starting point
-    for sharing the Gospel.
-  </p>
-
-  <h3>Key Takeaways</h3>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p1a">
-    <span>Listen before you speak.</span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p1b">
-    <span>
-      Seek to understand before expecting
-      to be understood.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p1c">
-    <span>
-      Recognize that everyone comes from different
-      experiences and backgrounds.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p1d">
-    <span>
-      Build relationships that create opportunities
-      to share Christ.
-    </span>
-  </label>
 
   <div class="reflection">
-    <strong>Personal Reflection</strong>
-    <p>
-      Am I meeting people where they are,
-      or expecting them to become like me
-      before I welcome them?
-    </p>
-    <textarea data-save="reflection1"
-      placeholder="Write your thoughts here..."></textarea>
+    <label for="notes1">
+      My Notes &amp; Reflections
+    </label>
+    <textarea id="notes1"
+      placeholder="What stands out to you from this point?"></textarea>
   </div>
+
+  <label class="check-row">
+    <input type="checkbox" id="check1">
+    <span>
+      I can trust God's presence even when
+      I cannot see the way forward.
+    </span>
+  </label>
 </section>
 
-<section class="card point">
-  <div class="point-number">Point 2</div>
-  <h2>
-    Change Your Approach,
-    Not Your Message.
-  </h2>
-  <p class="scripture">Acts 17:24–31 (CEB)</p>
+<section class="point">
+  <div class="point-heading">
+    <div class="number">2</div>
+    <h2>
+      GOD CAN USE YOU BEFORE
+      THE STORM IS OVER.
+    </h2>
+  </div>
+
+  <div class="scripture">
+    <strong>Acts 27:22–25 (CEB)</strong>
+    <p>
+      Paul encouraged those aboard to have
+      courage, reminding them of God's promise
+      that their lives would be spared.
+    </p>
+    <small>
+      Scripture summary — read Acts 27:22–25
+      for the complete passage.
+    </small>
+  </div>
 
   <p>
-    Paul adapted the way he communicated with the
-    Athenians, but he remained faithful to the truth
-    of God as Creator and to the resurrection
-    of Jesus Christ.
+    Paul didn't wait until the storm ended
+    to encourage others. Even while facing
+    uncertainty, he became a source of
+    hope for the people around him.
   </p>
-
-  <h3>Key Takeaways</h3>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p2a">
-    <span>
-      Methods may change, but the Gospel
-      remains the same.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p2b">
-    <span>
-      Different people may need different approaches
-      to hear and understand God's truth.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p2c">
-    <span>
-      Remain faithful to Scripture while finding
-      meaningful ways to reach the community.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="p2d">
-    <span>
-      Our mission is to proclaim Jesus Christ,
-      not simply preserve familiar traditions.
-    </span>
-  </label>
 
   <div class="reflection">
-    <strong>Personal Reflection</strong>
-    <p>
-      Am I holding tightly to the message of Jesus,
-      or am I holding more tightly to the methods
-      I have always used?
-    </p>
-    <textarea data-save="reflection2"
-      placeholder="Write your thoughts here..."></textarea>
+    <label for="notes2">
+      My Notes &amp; Reflections
+    </label>
+    <textarea id="notes2"
+      placeholder="How might God use you in your present circumstances?"></textarea>
   </div>
+
+  <label class="check-row">
+    <input type="checkbox" id="check2">
+    <span>
+      I will look for opportunities to
+      encourage someone even while
+      facing my own challenges.
+    </span>
+  </label>
 </section>
 
-<section class="card">
-  <h2>Putting Faith Into Action</h2>
+<section class="application">
+  <h2>Putting Faith into Action</h2>
+
   <p>
-    The early Church was willing to go beyond
-    familiar places, engage unfamiliar people,
-    and boldly share the hope of Jesus.
+    Paul's journey reminds us that God's
+    faithfulness is not measured by the
+    absence of storms.
   </p>
 
-  <h3>This Week's Challenge</h3>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="challenge1">
-    <span>
-      Identify someone outside my usual
-      circle of relationships.
-    </span>
+  <label for="application">
+    This week, one way I can put my faith
+    into action is:
   </label>
 
-  <label class="check-item">
-    <input type="checkbox" data-save="challenge2">
-    <span>
-      Take time to listen and understand their story.
-    </span>
-  </label>
-
-  <label class="check-item">
-    <input type="checkbox" data-save="challenge3">
-    <span>
-      Look for an opportunity to demonstrate
-      Christ's love through words and actions.
-    </span>
-  </label>
+  <textarea id="application"
+    placeholder="Write one practical step you can take this week..."></textarea>
 </section>
 
-<section class="card">
-  <h2>My Sermon Notes</h2>
-  <textarea data-save="generalnotes"
-    style="min-height:180px"
-    placeholder="Additional notes, prayers, or reflections...">
-  </textarea>
-</section>
-
-<section class="card">
-  <h2>Closing Thought</h2>
-  <p>
-    <strong>
-      We don't have to change the Gospel to reach
-      a changing world. We must be willing to change
-      how we reach the world with the Gospel.
-    </strong>
-  </p>
-</section>
-
-<div class="actions no-print">
-  <button type="button" onclick="printNotes()">
-    Print Notes
-  </button>
-
-  <button type="button" onclick="emailNotes()">
-    Email Notes
-  </button>
-
+<div class="actions">
   <button type="button" onclick="copyNotes()">
-    Copy Notes
+    Copy My Sermon Notes
   </button>
 
-  <a class="button"
-     href="https://versaillesumc.churchcenter.com/"
-     target="_blank"
-     rel="noopener noreferrer">
-    Church Center
-  </a>
-
-  <button type="button" class="danger"
-    onclick="clearNotes()">
-    Clear Notes
+  <button type="button" class="secondary"
+    onclick="window.print()">
+    Print Notes
   </button>
 </div>
 
-<p class="no-print" id="status"
-   role="status" aria-live="polite"></p>
+<p class="status" id="status" role="status"></p>
+
+<footer class="footer">
+  Versailles United Methodist Church<br>
+  Love Like Jesus
+</footer>
 
 </main>
 
-<footer>
-  Versailles United Methodist Church<br>
-  Acts: The Church That Changed the World
-</footer>
-
 <script>
-const STORAGE_KEY = "vumc-sermon-2026-11-08";
-
-function getFields() {
-  return Array.from(
-    document.querySelectorAll("[data-save]")
-  );
-}
+const fields = ["notes1", "notes2", "application"];
+const checks = ["check1", "check2"];
+const storageKey = "vumc-sermon-2026-11-15";
 
 function saveNotes() {
-  const data = {};
-
-  getFields().forEach(field => {
-    data[field.dataset.save] =
-      field.type === "checkbox"
-        ? field.checked
-        : field.value;
-  });
-
   try {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(data)
-    );
-    setStatus("Notes saved on this device.");
-  } catch (error) {
-    setStatus("Unable to save notes in this browser.");
+    const data = {};
+
+    fields.forEach(id => {
+      data[id] = document.getElementById(id).value;
+    });
+
+    checks.forEach(id => {
+      data[id] = document.getElementById(id).checked;
+    });
+
+    localStorage.setItem(storageKey, JSON.stringify(data));
+  } catch (e) {
+    // Notes remain editable if storage is unavailable.
   }
 }
 
 function loadNotes() {
-  let data = {};
-
   try {
-    data = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "{}"
-    );
-  } catch (error) {
-    data = {};
-  }
+    const saved = localStorage.getItem(storageKey);
+    if (!saved) return;
 
-  getFields().forEach(field => {
-    const value = data[field.dataset.save];
+    const data = JSON.parse(saved);
 
-    if (value === undefined) return;
-
-    if (field.type === "checkbox") {
-      field.checked = value === true;
-    } else {
-      field.value = value;
-    }
-  });
-}
-
-function setStatus(message) {
-  document.getElementById("status").textContent =
-    message;
-}
-
-function getNotesText() {
-  const lines = [
-    "TURNING THE WORLD UPSIDE DOWN",
-    "November 8, 2026",
-    "Acts 17:16-34 (CEB)",
-    "",
-    "POINT 1: START WHERE PEOPLE ARE, NOT WHERE YOU WISH THEY WERE.",
-    "Acts 17:16-23",
-    ""
-  ];
-
-  const labels = {
-    p1a: "Listen before you speak.",
-    p1b: "Seek to understand before expecting to be understood.",
-    p1c: "Recognize different experiences and backgrounds.",
-    p1d: "Build relationships that create opportunities to share Christ.",
-    p2a: "Methods may change, but the Gospel remains the same.",
-    p2b: "Different people may need different approaches.",
-    p2c: "Remain faithful to Scripture while reaching the community.",
-    p2d: "Proclaim Jesus Christ, not simply preserve traditions.",
-    challenge1: "Identify someone outside my usual circle.",
-    challenge2: "Listen and understand their story.",
-    challenge3: "Demonstrate Christ's love."
-  };
-
-  function addChecks(keys) {
-    keys.forEach(key => {
-      const field = document.querySelector(
-        '[data-save="' + key + '"]'
-      );
-      lines.push(
-        (field.checked ? "[x] " : "[ ] ") + labels[key]
-      );
+    fields.forEach(id => {
+      document.getElementById(id).value = data[id] || "";
     });
+
+    checks.forEach(id => {
+      document.getElementById(id).checked = !!data[id];
+    });
+  } catch (e) {
+    // Continue without previously saved notes.
   }
+}
 
-  function fieldValue(key) {
-    return document.querySelector(
-      '[data-save="' + key + '"]'
-    ).value.trim();
-  }
-
-  addChecks(["p1a", "p1b", "p1c", "p1d"]);
-  lines.push("", "Reflection:", fieldValue("reflection1"));
-
-  lines.push(
+function buildNotes() {
+  return [
+    "SHIPWRECKED BUT NOT SUNK",
+    "Acts 27:13-44 (CEB)",
+    "November 15, 2026",
     "",
-    "POINT 2: CHANGE YOUR APPROACH, NOT YOUR MESSAGE.",
-    "Acts 17:24-31",
-    ""
-  );
-
-  addChecks(["p2a", "p2b", "p2c", "p2d"]);
-  lines.push("", "Reflection:", fieldValue("reflection2"));
-
-  lines.push("", "THIS WEEK'S CHALLENGE", "");
-  addChecks(["challenge1", "challenge2", "challenge3"]);
-
-  lines.push(
+    "1. YOU CAN LOSE YOUR BEARINGS WITHOUT LOSING GOD.",
+    "Acts 27:20",
+    document.getElementById("notes1").value,
+    "Reflection: " +
+      (document.getElementById("check1").checked
+        ? "Completed" : "Not checked"),
     "",
-    "ADDITIONAL NOTES",
-    fieldValue("generalnotes"),
+    "2. GOD CAN USE YOU BEFORE THE STORM IS OVER.",
+    "Acts 27:22-25",
+    document.getElementById("notes2").value,
+    "Reflection: " +
+      (document.getElementById("check2").checked
+        ? "Completed" : "Not checked"),
+    "",
+    "MY NEXT STEP",
+    document.getElementById("application").value,
     "",
     "Versailles United Methodist Church"
-  );
-
-  return lines.join("\n");
-}
-
-function printNotes() {
-  window.print();
-}
-
-function emailNotes() {
-  const subject = encodeURIComponent(
-    "Sermon Notes - Turning the World Upside Down"
-  );
-  const body = encodeURIComponent(getNotesText());
-
-  window.location.href =
-    "mailto:?subject=" + subject + "&body=" + body;
+  ].join("\n");
 }
 
 async function copyNotes() {
+  const status = document.getElementById("status");
+
   try {
-    await navigator.clipboard.writeText(getNotesText());
-    setStatus("Sermon notes copied.");
-  } catch (error) {
-    setStatus(
-      "Copy unavailable. Try Email Notes instead."
-    );
+    await navigator.clipboard.writeText(buildNotes());
+    status.textContent = "Your sermon notes have been copied!";
+  } catch (e) {
+    status.textContent =
+      "Copy unavailable. Please select and copy your notes manually.";
   }
 }
 
-function clearNotes() {
-  const confirmed = window.confirm(
-    "Clear all saved notes and checkboxes for this sermon?"
-  );
-
-  if (!confirmed) return;
-
-  getFields().forEach(field => {
-    if (field.type === "checkbox") {
-      field.checked = false;
-    } else {
-      field.value = "";
-    }
-  });
-
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch (error) {}
-
-  setStatus("Notes cleared.");
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadNotes();
-
-  getFields().forEach(field => {
-    field.addEventListener("input", saveNotes);
-    field.addEventListener("change", saveNotes);
-  });
+fields.forEach(id => {
+  document.getElementById(id).addEventListener("input", saveNotes);
 });
+
+checks.forEach(id => {
+  document.getElementById(id).addEventListener("change", saveNotes);
+});
+
+loadNotes();
 </script>
 
 </body>

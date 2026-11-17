@@ -1,467 +1,364 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shipwrecked but Not Sunk | Sermon Notes</title>
+<section class="sermon-outline" id="acts28-outline">
+  <style>
+    #acts28-outline {
+      --navy: #142b49;
+      --gold: #bd8b35;
+      --line: #dce2e8;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #253344;
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    #acts28-outline * { box-sizing: border-box; }
+    #acts28-outline .intro {
+      background: var(--navy);
+      color: white;
+      padding: 30px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    #acts28-outline .eyebrow {
+      color: #e8c68b;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    #acts28-outline h2 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      margin: 12px 0;
+    }
+    #acts28-outline .intro p { margin-bottom: 0; }
+    #acts28-outline details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin: 15px 0;
+      overflow: hidden;
+      background: #fff;
+    }
+    #acts28-outline summary {
+      cursor: pointer;
+      padding: 20px;
+      font-size: 1.08rem;
+      font-weight: 750;
+      color: var(--navy);
+      list-style-position: inside;
+    }
+    #acts28-outline summary:hover {
+      background: #f4f6f9;
+    }
+    #acts28-outline .content {
+      padding: 0 22px 24px;
+    }
+    #acts28-outline .reference {
+      color: #87611f;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    #acts28-outline .reflection {
+      border-left: 4px solid var(--gold);
+      padding: 12px 16px;
+      background: #f8f5ed;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    #acts28-outline label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 12px 0;
+      cursor: pointer;
+    }
+    #acts28-outline input[type="checkbox"] {
+      width: 19px;
+      height: 19px;
+      margin-top: 5px;
+      accent-color: var(--navy);
+      flex-shrink: 0;
+    }
+    #acts28-outline textarea {
+      display: block;
+      width: 100%;
+      min-height: 95px;
+      padding: 13px;
+      border: 1px solid #bbc6d2;
+      border-radius: 8px;
+      font: inherit;
+      resize: vertical;
+      margin-top: 12px;
+    }
+    #acts28-outline .finale {
+      background: #edf2f8;
+      border-radius: 14px;
+      padding: 26px;
+      margin-top: 24px;
+      text-align: center;
+    }
+    #acts28-outline .reveal {
+      background: var(--navy);
+      color: white;
+      padding: 22px 12px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+    #acts28-outline .reveal strong {
+      display: block;
+      font-size: clamp(1.5rem, 5vw, 2.4rem);
+      line-height: 1.2;
+    }
+    #acts28-outline .reveal p {
+      margin: 10px 0 0;
+    }
+    #acts28-outline button {
+      border: 0;
+      background: var(--navy);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    #acts28-outline button:hover { background: #28496e; }
+    #acts28-outline .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    #acts28-outline .actions button {
+      background: #e8edf3;
+      color: var(--navy);
+    }
+    #acts28-outline .small {
+      font-size: .85rem;
+      color: #5d6978;
+    }
+  </style>
 
-<style>
-:root {
-  --navy: #19334c;
-  --blue: #27648a;
-  --gold: #c49b52;
-  --light: #f4f7fa;
-  --border: #dce4ea;
-  --text: #253342;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--light);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 850px;
-  margin: 35px auto;
-  padding: 0 18px;
-}
-
-.header {
-  text-align: center;
-  background: var(--navy);
-  color: white;
-  border-radius: 14px;
-  padding: 35px 22px;
-}
-
-.series {
-  color: #e8c98c;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.header h1 {
-  font-size: clamp(28px, 5vw, 42px);
-  line-height: 1.2;
-  margin: 14px 0;
-}
-
-.subtitle {
-  font-size: 16px;
-  color: #e0e9f0;
-}
-
-.intro {
-  background: white;
-  border-left: 5px solid var(--gold);
-  padding: 20px;
-  margin: 25px 0;
-  border-radius: 8px;
-}
-
-.point {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 26px;
-  margin: 25px 0;
-  box-shadow: 0 3px 12px rgba(0,0,0,.04);
-}
-
-.point-heading {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.number {
-  background: var(--navy);
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
-  min-width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.point h2 {
-  font-size: clamp(21px, 4vw, 27px);
-  line-height: 1.3;
-  margin: 5px 0 14px;
-}
-
-.scripture {
-  background: #f0f5f9;
-  border-left: 4px solid var(--blue);
-  padding: 16px;
-  margin: 18px 0;
-  border-radius: 6px;
-}
-
-.scripture strong {
-  color: var(--navy);
-}
-
-.reflection {
-  margin-top: 22px;
-}
-
-.reflection label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-textarea {
-  width: 100%;
-  min-height: 130px;
-  padding: 14px;
-  font: inherit;
-  font-size: 16px;
-  border: 1px solid #bdcbd6;
-  border-radius: 8px;
-  resize: vertical;
-}
-
-textarea:focus {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
-}
-
-.check-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.check-row input {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  accent-color: var(--blue);
-}
-
-.application {
-  background: #fff9eb;
-  border: 1px solid #eed9a8;
-  padding: 24px;
-  border-radius: 12px;
-  margin: 25px 0;
-}
-
-.application h2 {
-  margin-top: 0;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 25px 0;
-}
-
-button {
-  background: var(--navy);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: var(--blue);
-}
-
-button.secondary {
-  background: #e2e9ee;
-  color: var(--navy);
-}
-
-.status {
-  min-height: 24px;
-  font-size: 14px;
-}
-
-.footer {
-  text-align: center;
-  color: #607080;
-  font-size: 13px;
-  margin: 35px 0;
-}
-
-@media(max-width: 550px) {
-  .container { margin: 15px auto; }
-  .point { padding: 20px; }
-  .header { padding: 28px 18px; }
-}
-</style>
-</head>
-
-<body>
-
-<main class="container">
-
-<header class="header">
-  <div class="series">
-    ACTS: The Church That Changed the World
-  </div>
-
-  <h1>Shipwrecked but Not Sunk</h1>
-
-  <div class="subtitle">
-    Acts 27:13–44 (CEB)<br>
-    November 15, 2026
-  </div>
-</header>
-
-<section class="intro">
-  <strong>Today's Scripture</strong>
-  <p>
-    In Acts 27, Paul finds himself aboard a ship
-    caught in a violent storm. Although the ship
-    will eventually be destroyed, God's promise
-    to preserve those aboard remains.
-  </p>
-  <p>
-    <strong>Something to consider:</strong>
-    What happens when life doesn't go according
-    to plan, but God is still present?
-  </p>
-</section>
-
-<section class="point">
-  <div class="point-heading">
-    <div class="number">1</div>
-    <h2>
-      YOU CAN LOSE YOUR BEARINGS
-      WITHOUT LOSING GOD.
-    </h2>
-  </div>
-
-  <div class="scripture">
-    <strong>Acts 27:20 (CEB)</strong>
+  <header class="intro">
+    <div class="eyebrow">
+      Acts: The Church That Changed the World
+    </div>
+    <h2>To Be Continued...</h2>
+    <p><strong>November 22, 2026</strong></p>
+    <p>Acts 28:23–31 | Common English Bible</p>
     <p>
-      When neither the sun nor the moon appeared
-      for many days and the raging storm continued
-      to pound us, all hope of our being saved
-      from this peril faded.
+      The final chapter of Acts is not the end of
+      God's mission. The story continues through
+      ordinary people who answer God's call.
     </p>
-  </div>
+  </header>
 
-  <p>
-    Even when Paul and those aboard could no
-    longer navigate by the sun or stars,
-    God's presence had not disappeared.
-  </p>
+  <details open>
+    <summary>
+      Point 1 — God's Mission Doesn't Stop
+      When Our Plans Do
+    </summary>
+    <div class="content">
+      <p class="reference">
+        Scripture: Acts 28:23–28
+      </p>
+      <p>
+        Paul arrived in Rome under circumstances
+        he had not planned. Yet he continued
+        sharing the message of Jesus and the
+        kingdom of God.
+      </p>
+      <p>
+        Some people believed, while others
+        refused to listen. Even disagreement
+        and opposition could not bring God's
+        mission to an end.
+      </p>
 
-  <div class="reflection">
-    <label for="notes1">
-      My Notes &amp; Reflections
-    </label>
-    <textarea id="notes1"
-      placeholder="What stands out to you from this point?"></textarea>
-  </div>
+      <div class="reflection">
+        <strong>Reflect:</strong>
+        When have unexpected circumstances
+        changed your plans? Could God still
+        be working through that situation?
+      </div>
 
-  <label class="check-row">
-    <input type="checkbox" id="check1">
-    <span>
-      I can trust God's presence even when
-      I cannot see the way forward.
-    </span>
-  </label>
-</section>
+      <label>
+        <input type="checkbox">
+        <span>
+          I can trust God even when my
+          plans change.
+        </span>
+      </label>
+      <label>
+        <input type="checkbox">
+        <span>
+          I will look for opportunities to
+          serve where God has placed me.
+        </span>
+      </label>
 
-<section class="point">
-  <div class="point-heading">
-    <div class="number">2</div>
-    <h2>
-      GOD CAN USE YOU BEFORE
-      THE STORM IS OVER.
-    </h2>
-  </div>
+      <label for="acts28-notes1">
+        <strong>My notes and reflections:</strong>
+      </label>
+      <textarea id="acts28-notes1"
+        placeholder="What is God teaching me through unexpected changes?"></textarea>
+    </div>
+  </details>
 
-  <div class="scripture">
-    <strong>Acts 27:22–25 (CEB)</strong>
+  <details>
+    <summary>
+      Point 2 — The Story Continues
+      When We Say Yes
+    </summary>
+    <div class="content">
+      <p class="reference">
+        Scripture: Acts 28:30–31
+      </p>
+      <p>
+        Acts closes with Paul welcoming people,
+        preaching God's kingdom, and teaching
+        about Jesus Christ with confidence.
+      </p>
+      <p>
+        The final word of the book emphasizes
+        that the message continued unhindered.
+        The account ends, but the Church's
+        mission does not.
+      </p>
+
+      <div class="reflection">
+        <strong>Reflect:</strong>
+        What might happen if we stopped
+        waiting for the perfect opportunity
+        and simply said yes to God's call?
+      </div>
+
+      <label>
+        <input type="checkbox">
+        <span>
+          I have a role in continuing
+          the mission of the Church.
+        </span>
+      </label>
+      <label>
+        <input type="checkbox">
+        <span>
+          I will take one practical step
+          to share Christ's love this week.
+        </span>
+      </label>
+
+      <label for="acts28-notes2">
+        <strong>My notes and reflections:</strong>
+      </label>
+      <textarea id="acts28-notes2"
+        placeholder="Where is God asking me to say yes?"></textarea>
+    </div>
+  </details>
+
+  <section class="finale">
+    <div class="eyebrow" style="color:#87611f">
+      The Final Challenge
+    </div>
+    <h3>Look Around the Room</h3>
     <p>
-      Paul encouraged those aboard to have
-      courage, reminding them of God's promise
-      that their lives would be spared.
+      The story of the Church is not merely
+      something we read about. It is a mission
+      we are invited to continue.
     </p>
-    <small>
-      Scripture summary — read Acts 27:22–25
-      for the complete passage.
-    </small>
-  </div>
 
-  <p>
-    Paul didn't wait until the storm ended
-    to encourage others. Even while facing
-    uncertainty, he became a source of
-    hope for the people around him.
-  </p>
+    <div class="reveal">
+      <p>THE CHURCH IS BORN · ACTS 28</p>
+      <strong>TO BE CONTINUED...</strong>
+    </div>
 
-  <div class="reflection">
-    <label for="notes2">
-      My Notes &amp; Reflections
+    <button type="button" id="acts29-reveal"
+      aria-expanded="false"
+      aria-controls="acts29-message">
+      Reveal Our Mission
+    </button>
+
+    <div id="acts29-message" hidden
+      aria-live="polite">
+      <div class="reveal">
+        <strong>WE'RE ACTS 29 CHURCH</strong>
+        <p>The mission continues through us.</p>
+      </div>
+    </div>
+
+    <p class="small">
+      "Acts 29" symbolizes the ongoing mission
+      of the Church; the biblical book of Acts
+      contains 28 chapters.
+    </p>
+
+    <label for="acts28-commitment"
+      style="text-align:left">
+      <strong>
+        My next step in continuing the story:
+      </strong>
     </label>
-    <textarea id="notes2"
-      placeholder="How might God use you in your present circumstances?"></textarea>
+    <textarea id="acts28-commitment"
+      placeholder="This week, I will..."></textarea>
+  </section>
+
+  <div class="actions">
+    <button type="button" id="acts28-expand">
+      Expand All
+    </button>
+    <button type="button" id="acts28-collapse">
+      Collapse All
+    </button>
+    <button type="button" id="acts28-print">
+      Print / Save PDF
+    </button>
   </div>
 
-  <label class="check-row">
-    <input type="checkbox" id="check2">
-    <span>
-      I will look for opportunities to
-      encourage someone even while
-      facing my own challenges.
-    </span>
-  </label>
+  <script>
+    (() => {
+      const root = document.getElementById(
+        "acts28-outline"
+      );
+      if (!root || root.dataset.ready) return;
+      root.dataset.ready = "true";
+
+      const details = root.querySelectorAll(
+        "details"
+      );
+
+      root.querySelector("#acts28-expand")
+        .addEventListener("click", () => {
+          details.forEach(d => d.open = true);
+        });
+
+      root.querySelector("#acts28-collapse")
+        .addEventListener("click", () => {
+          details.forEach(d => d.open = false);
+        });
+
+      root.querySelector("#acts28-print")
+        .addEventListener("click", () => {
+          details.forEach(d => d.open = true);
+          window.print();
+        });
+
+      const revealButton = root.querySelector(
+        "#acts29-reveal"
+      );
+      const message = root.querySelector(
+        "#acts29-message"
+      );
+
+      revealButton.addEventListener("click", () => {
+        const opening = message.hidden;
+        message.hidden = !opening;
+        revealButton.setAttribute(
+          "aria-expanded", String(opening)
+        );
+        revealButton.textContent = opening
+          ? "Hide Our Mission"
+          : "Reveal Our Mission";
+      });
+    })();
+  </script>
 </section>
-
-<section class="application">
-  <h2>Putting Faith into Action</h2>
-
-  <p>
-    Paul's journey reminds us that God's
-    faithfulness is not measured by the
-    absence of storms.
-  </p>
-
-  <label for="application">
-    This week, one way I can put my faith
-    into action is:
-  </label>
-
-  <textarea id="application"
-    placeholder="Write one practical step you can take this week..."></textarea>
-</section>
-
-<div class="actions">
-  <button type="button" onclick="copyNotes()">
-    Copy My Sermon Notes
-  </button>
-
-  <button type="button" class="secondary"
-    onclick="window.print()">
-    Print Notes
-  </button>
-</div>
-
-<p class="status" id="status" role="status"></p>
-
-<footer class="footer">
-  Versailles United Methodist Church<br>
-  Love Like Jesus
-</footer>
-
-</main>
-
-<script>
-const fields = ["notes1", "notes2", "application"];
-const checks = ["check1", "check2"];
-const storageKey = "vumc-sermon-2026-11-15";
-
-function saveNotes() {
-  try {
-    const data = {};
-
-    fields.forEach(id => {
-      data[id] = document.getElementById(id).value;
-    });
-
-    checks.forEach(id => {
-      data[id] = document.getElementById(id).checked;
-    });
-
-    localStorage.setItem(storageKey, JSON.stringify(data));
-  } catch (e) {
-    // Notes remain editable if storage is unavailable.
-  }
-}
-
-function loadNotes() {
-  try {
-    const saved = localStorage.getItem(storageKey);
-    if (!saved) return;
-
-    const data = JSON.parse(saved);
-
-    fields.forEach(id => {
-      document.getElementById(id).value = data[id] || "";
-    });
-
-    checks.forEach(id => {
-      document.getElementById(id).checked = !!data[id];
-    });
-  } catch (e) {
-    // Continue without previously saved notes.
-  }
-}
-
-function buildNotes() {
-  return [
-    "SHIPWRECKED BUT NOT SUNK",
-    "Acts 27:13-44 (CEB)",
-    "November 15, 2026",
-    "",
-    "1. YOU CAN LOSE YOUR BEARINGS WITHOUT LOSING GOD.",
-    "Acts 27:20",
-    document.getElementById("notes1").value,
-    "Reflection: " +
-      (document.getElementById("check1").checked
-        ? "Completed" : "Not checked"),
-    "",
-    "2. GOD CAN USE YOU BEFORE THE STORM IS OVER.",
-    "Acts 27:22-25",
-    document.getElementById("notes2").value,
-    "Reflection: " +
-      (document.getElementById("check2").checked
-        ? "Completed" : "Not checked"),
-    "",
-    "MY NEXT STEP",
-    document.getElementById("application").value,
-    "",
-    "Versailles United Methodist Church"
-  ].join("\n");
-}
-
-async function copyNotes() {
-  const status = document.getElementById("status");
-
-  try {
-    await navigator.clipboard.writeText(buildNotes());
-    status.textContent = "Your sermon notes have been copied!";
-  } catch (e) {
-    status.textContent =
-      "Copy unavailable. Please select and copy your notes manually.";
-  }
-}
-
-fields.forEach(id => {
-  document.getElementById(id).addEventListener("input", saveNotes);
-});
-
-checks.forEach(id => {
-  document.getElementById(id).addEventListener("change", saveNotes);
-});
-
-loadNotes();
-</script>
-
-</body>
-</html>
